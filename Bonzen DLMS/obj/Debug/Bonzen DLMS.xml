@@ -6,7 +6,39 @@ BonzenDLMS
 </name>
 </assembly>
 <members>
-<member name="F:Bonzen_DLMS.Register.RegisterUser">
+<member name="F:Bonzen_DLMS.AllDocument.gv_quotationProposal">
+	<summary>
+gv_quotationProposal control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Bonzen_DLMS.AllDocument.Quo_Prop">
+	<summary>
+Quo_Prop control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Bonzen_DLMS.AllDocument.gv_general">
+	<summary>
+gv_general control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Bonzen_DLMS.AllDocument.General">
+	<summary>
+General control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Bonzen_DLMS.Register.RegisterUser">
 	<summary>
 RegisterUser control.
 </summary>
