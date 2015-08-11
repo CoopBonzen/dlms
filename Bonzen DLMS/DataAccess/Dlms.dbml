@@ -1,0 +1,200 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="DLMS" Class="DlmsDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=ANOCHA-STP\MSSQLSERVER_R2;Initial Catalog=DLMS;User ID=sa" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="DLMSConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.UserGroupRole" Member="UserGroupRoles">
+    <Type Name="UserGroupRole">
+      <Column Name="user_group_id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="role_name" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="UserGroup_UserGroupRole" Member="UserGroup" ThisKey="user_group_id" OtherKey="user_group_id" Type="UserGroup" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Condition" Member="Conditions">
+    <Type Name="Condition">
+      <Column Name="Condition" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.General" Member="Generals">
+    <Type Name="General">
+      <Column Name="G_ID" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="G_Date" Storage="_Date" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="DateSend" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="ContactCom" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="ContactName" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="Title" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="Note" Type="System.String" DbType="VarChar(300)" CanBeNull="true" />
+      <Column Name="BookingBy" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="G_CreateDate" Storage="_P_CreateDate" Type="System.DateTime" CanBeNull="false" />
+      <Column Name="G_RunningNo" Storage="_P_RunningNo" Type="System.Int32" CanBeNull="false" />
+      <Association Name="GeneralFile_General" Member="GeneralFile" ThisKey="G_ID" OtherKey="G_ID" Type="GeneralFile" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.GeneralFile" Member="GeneralFiles">
+    <Type Name="GeneralFile">
+      <Column Name="G_FileID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="G_FileName" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="G_FileDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="G_ID" Type="System.String" CanBeNull="false" />
+      <Association Name="GeneralFile_General" Member="Generals" ThisKey="G_ID" OtherKey="G_ID" Type="General" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ProposalFile" Member="ProposalFiles">
+    <Type Name="ProposalFile">
+      <Column Name="P_FileID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="P_FileName" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="P_FileDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="P_ID" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.QuotationDescription" Member="QuotationDescriptions">
+    <Type Name="QuotationDescription">
+      <Column Name="ID_Q_Detail_Main" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Q_Detail_Main" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Association Name="QuotationDescription_QuotationDescriptionSub" Member="QuotationDescriptionSubs" ThisKey="ID_Q_Detail_Main" OtherKey="ID_Q_Detail_Main" Type="QuotationDescriptionSub" />
+    </Type>
+  </Table>
+  <Table Name="dbo.QuotationDescriptionSub" Member="QuotationDescriptionSubs">
+    <Type Name="QuotationDescriptionSub">
+      <Column Name="ID_Q_Detail_Sub" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Q_Detail_Sub" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="Price" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="ID_Q_Detail_Main" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="QuotationDescriptionSub_QuotationItem" Member="QuotationItems" ThisKey="ID_Q_Detail_Sub" OtherKey="ID_Q_Detail_Sub" Type="QuotationItem" />
+      <Association Name="QuotationDescription_QuotationDescriptionSub" Member="QuotationDescription" ThisKey="ID_Q_Detail_Main" OtherKey="ID_Q_Detail_Main" Type="QuotationDescription" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.QuotationDetail" Member="QuotationDetails">
+    <Type Name="QuotationDetail">
+      <Column Name="Q_Detail_ID" Storage="_Q_ID" Type="System.String" DbType="NVarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Q_Date" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="Q_Bonzen" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Column Name="Q_Tel" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Q_Email" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.QuotationFile" Member="QuotationFiles">
+    <Type Name="QuotationFile">
+      <Column Name="Q_ID" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Q_FileName" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="Q_ContentType" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="Q_FileExtension" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="Q_FileContent" Type="System.Data.Linq.Binary" DbType="VarBinary(MAX)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Q_FileID" Type="System.String" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="QuotationFile_QuotationProposal" Member="QuotationProposals" ThisKey="Q_ID" OtherKey="Q_ID" Type="QuotationProposal" />
+    </Type>
+  </Table>
+  <Table Name="dbo.QuotationProposal" Member="QuotationProposals">
+    <Type Name="QuotationProposal">
+      <Column Name="Q_ID" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Q_Date" Storage="_Date" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="DateSend" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="ContactCom" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="ContactName" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="Title" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="BookingBy" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="P_ID" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Q_CreateDate" Storage="_CreateDate" Type="System.DateTime" CanBeNull="false" />
+      <Column Name="Q_RunningNo" Storage="_RunningNo" Type="System.Int32" CanBeNull="false" />
+      <Association Name="QuotationFile_QuotationProposal" Member="QuotationFile" ThisKey="Q_ID" OtherKey="Q_ID" Type="QuotationFile" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.[User]" Member="Users">
+    <Type Name="User">
+      <Column Name="user_id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="user_group_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="full_name" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="user_name" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="password" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="active" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Association Name="UserGroup_User" Member="UserGroup" ThisKey="user_group_id" OtherKey="user_group_id" Type="UserGroup" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.UserGroup" Member="UserGroups">
+    <Type Name="UserGroup">
+      <Column Name="user_group_id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="user_group_name" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="display_order" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="active" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Association Name="UserGroup_UserGroupRole" Member="UserGroupRoles" ThisKey="user_group_id" OtherKey="user_group_id" Type="UserGroupRole" />
+      <Association Name="UserGroup_User" Member="Users" ThisKey="user_group_id" OtherKey="user_group_id" Type="User" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Quotation" Member="Quotations">
+    <Type Name="Quotation">
+      <Column Name="Quota_ID" Storage="_Q_ID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="company_name" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="attn" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="tel" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="fax" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="email" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="quotation_no" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="quotation_date" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="quotation_from" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="bonzen_tel" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="bonzen_email" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="total_amount" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="remark" Type="System.String" DbType="text" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Vat" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Vat_amount" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="condition" Type="System.String" DbType="Text" CanBeNull="true" UpdateCheck="Never" />
+      <Association Name="Quotation_QuotationItem" Member="QuotationItems" ThisKey="Quota_ID" OtherKey="Quota_ID" Type="QuotationItem" />
+    </Type>
+  </Table>
+  <Table Name="dbo.QuotationItem" Member="QuotationItems">
+    <Type Name="QuotationItem">
+      <Column Name="QItem_ID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ID_Q_Detail_Sub" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="price" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="unit" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="amount" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="Quota_ID" Storage="_Q_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Quotation_QuotationItem" Member="Quotation" ThisKey="Quota_ID" OtherKey="Quota_ID" Type="Quotation" IsForeignKey="true" />
+      <Association Name="QuotationDescriptionSub_QuotationItem" Member="QuotationDescriptionSub" ThisKey="ID_Q_Detail_Sub" OtherKey="ID_Q_Detail_Sub" Type="QuotationDescriptionSub" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.vw_Company" Member="vw_Companies">
+    <Type Name="vw_Company">
+      <Column Name="prospect_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="prospect_nameTH" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="prospect_nameEN" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="short_name" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="status_id" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="detail" Type="System.String" DbType="Text" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="main_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="sub_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="prospect_address" Type="System.String" DbType="Text" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="district" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="amphur" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="province_name" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="zipcode" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="tel_number" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="fax" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="mail" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="website" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="activate" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Column Name="username" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.vw_CompanyAttn" Member="vw_CompanyAttns">
+    <Type Name="vw_CompanyAttn">
+      <Column Name="c_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="prospect_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="contactType_id" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="c_name" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="c_attendant" Type="System.String" DbType="Text" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="c_topic" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="c_date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="c_detail" Type="System.String" DbType="Text" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="c_mail" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="c_dept" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="c_response" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="c_res_reason" Type="System.String" DbType="Text" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="responseGroup_id" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="c_result" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="c_next" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="c_objective" Type="System.String" DbType="Text" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="c_tel" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="c_fax" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="username" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="c_next_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+</Database>

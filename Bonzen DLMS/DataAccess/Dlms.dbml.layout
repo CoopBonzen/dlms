@@ -1,0 +1,151 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 16.125, 13.625" name="Dlms">
+  <DataContextMoniker Name="/DlmsDataContext" />
+  <nestedChildShapes>
+    <classShape Id="a940756e-9867-4e7d-938c-57c009f0444d" absoluteBounds="3.125, 2.875, 2, 1.1939925130208333">
+      <DataClassMoniker Name="/DlmsDataContext/UserGroupRole" />
+      <nestedChildShapes>
+        <elementListCompartment Id="80d48f17-8dcc-4229-90fb-8ac57fdab666" absoluteBounds="3.14, 3.335, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="248950ba-4898-440b-9d7b-711178204f7a" absoluteBounds="8.25, 3.125, 2, 1.0016910807291666">
+      <DataClassMoniker Name="/DlmsDataContext/Condition" />
+      <nestedChildShapes>
+        <elementListCompartment Id="055e2b37-28c4-4252-8a3e-211b38cd88e5" absoluteBounds="8.265, 3.5850000000000009, 1.9700000000000002, 0.44169108072916669" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="1ca49f90-c6d8-43cc-8b66-744e1767b2ee" absoluteBounds="10.5, 1, 2, 2.7324039713541666">
+      <DataClassMoniker Name="/DlmsDataContext/General" />
+      <nestedChildShapes>
+        <elementListCompartment Id="bcf95979-31ac-4438-8356-374401a33fa2" absoluteBounds="10.515, 1.4600000000000009, 1.9700000000000002, 2.1724039713541665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="c6c40717-c021-4327-90a1-f8df3f2af00a" absoluteBounds="10.5, 4.25, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/DlmsDataContext/GeneralFile" />
+      <nestedChildShapes>
+        <elementListCompartment Id="f2819502-0f37-4f1d-b985-2afa3903810f" absoluteBounds="10.515, 4.7100000000000009, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="8c7cc4b5-f478-453e-aa9b-d34cb652be23" absoluteBounds="8.25, 8.375, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/DlmsDataContext/ProposalFile" />
+      <nestedChildShapes>
+        <elementListCompartment Id="d18d450e-b900-4753-a9cd-50e76e363c67" absoluteBounds="8.265, 8.835, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="7ebbf880-7354-4862-9e8a-8126b0ab01a6" absoluteBounds="0.875, 4.5, 2, 1.1939925130208327">
+      <DataClassMoniker Name="/DlmsDataContext/QuotationDescription" />
+      <nestedChildShapes>
+        <elementListCompartment Id="f96a3e4f-cb98-4c9e-84d2-272744dcdcc5" absoluteBounds="0.89, 4.96, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="53364e24-2c8e-4a46-936a-fa74ab5345a0" absoluteBounds="0.875, 8.625, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/DlmsDataContext/QuotationDescriptionSub" />
+      <nestedChildShapes>
+        <elementListCompartment Id="55c695fe-fac8-4edc-8944-ceb3a1e2ed84" absoluteBounds="0.89000000000000012, 9.085, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="6e9ad3e2-23ea-4c13-baa8-3b6796d3f14e" absoluteBounds="8.25, 1, 2, 1.7708968098958327">
+      <DataClassMoniker Name="/DlmsDataContext/QuotationDetail" />
+      <nestedChildShapes>
+        <elementListCompartment Id="713c2046-d233-4669-b3a5-d5825c183081" absoluteBounds="8.265, 1.46, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="b41b1fb1-10d2-45c4-807b-e6ec1da32343" absoluteBounds="6, 6.75, 2, 1.9631982421875005">
+      <DataClassMoniker Name="/DlmsDataContext/QuotationFile" />
+      <nestedChildShapes>
+        <elementListCompartment Id="388951a5-1a03-4c76-8d47-01b9d90bf88b" absoluteBounds="6.0150000000000006, 7.2100000000000009, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="2970c60f-2625-4f94-97a2-9f97b1f1a214" absoluteBounds="8.25, 4.875, 2, 2.7324039713541666">
+      <DataClassMoniker Name="/DlmsDataContext/QuotationProposal" />
+      <nestedChildShapes>
+        <elementListCompartment Id="17cc463f-b501-4d93-9ccb-026cc1702724" absoluteBounds="8.265, 5.3350000000000009, 1.9700000000000002, 2.1724039713541665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="f7b793c6-856e-4f1b-a09f-93971d0f6a3f" absoluteBounds="0.875, 1, 2, 1.9631982421875005">
+      <DataClassMoniker Name="/DlmsDataContext/User" />
+      <nestedChildShapes>
+        <elementListCompartment Id="acdf7bbc-5653-4cb5-ae92-56b7b36b5fdd" absoluteBounds="0.89000000000000012, 1.46, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="f143dfb4-0615-4fbf-b647-08795f298fbf" absoluteBounds="3.125, 1, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/DlmsDataContext/UserGroup" />
+      <nestedChildShapes>
+        <elementListCompartment Id="c8bde6c4-8a3c-4942-8f29-d1f599171bca" absoluteBounds="3.14, 1.46, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(1.875 : 5.69399251302083); (1.875 : 8.625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DlmsDataContext/QuotationDescription/QuotationDescription_QuotationDescriptionSub" />
+      <nodes>
+        <classShapeMoniker Id="7ebbf880-7354-4862-9e8a-8126b0ab01a6" />
+        <classShapeMoniker Id="53364e24-2c8e-4a46-936a-fa74ab5345a0" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(4.125 : 2.57859537760417); (4.125 : 2.875)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/DlmsDataContext/UserGroup/UserGroup_UserGroupRole" />
+      <nodes>
+        <classShapeMoniker Id="f143dfb4-0615-4fbf-b647-08795f298fbf" />
+        <classShapeMoniker Id="a940756e-9867-4e7d-938c-57c009f0444d" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(3.125 : 1.78929768880208); (2.875 : 1.78929768880208)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DlmsDataContext/UserGroup/UserGroup_User" />
+      <nodes>
+        <classShapeMoniker Id="f143dfb4-0615-4fbf-b647-08795f298fbf" />
+        <classShapeMoniker Id="f7b793c6-856e-4f1b-a09f-93971d0f6a3f" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(8 : 7.17870198567708); (8.25 : 7.17870198567708)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/DlmsDataContext/QuotationFile/QuotationFile_QuotationProposal" />
+      <nodes>
+        <classShapeMoniker Id="b41b1fb1-10d2-45c4-807b-e6ec1da32343" />
+        <classShapeMoniker Id="2970c60f-2625-4f94-97a2-9f97b1f1a214" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="7886795c-c277-4b74-804c-3872f6a29fd3" absoluteBounds="3.125, 4.5, 2, 3.8862125651041666">
+      <DataClassMoniker Name="/DlmsDataContext/Quotation" />
+      <nestedChildShapes>
+        <elementListCompartment Id="dec1fdd5-1d81-4708-912b-b3ab7eac59ca" absoluteBounds="3.14, 4.9600000000000009, 1.9700000000000002, 3.3262125651041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="7c9b5d97-e9a9-47cc-bcdc-35fb4db33213" absoluteBounds="3.125, 8.625, 2, 1.9631982421875005">
+      <DataClassMoniker Name="/DlmsDataContext/QuotationItem" />
+      <nestedChildShapes>
+        <elementListCompartment Id="bba40b40-a5c1-4709-89c3-65f31a9f396f" absoluteBounds="3.1399999999999997, 9.085, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(4.125 : 8.38621256510417); (4.125 : 8.625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/DlmsDataContext/Quotation/Quotation_QuotationItem" />
+      <nodes>
+        <classShapeMoniker Id="7886795c-c277-4b74-804c-3872f6a29fd3" />
+        <classShapeMoniker Id="7c9b5d97-e9a9-47cc-bcdc-35fb4db33213" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.875 : 9.41429768880208); (3.125 : 9.41429768880208)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/DlmsDataContext/QuotationDescriptionSub/QuotationDescriptionSub_QuotationItem" />
+      <nodes>
+        <classShapeMoniker Id="53364e24-2c8e-4a46-936a-fa74ab5345a0" />
+        <classShapeMoniker Id="7c9b5d97-e9a9-47cc-bcdc-35fb4db33213" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(11.5 : 4.25); (11.5 : 3.73240397135417)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/DlmsDataContext/GeneralFile/GeneralFile_General" />
+      <nodes>
+        <classShapeMoniker Id="c6c40717-c021-4327-90a1-f8df3f2af00a" />
+        <classShapeMoniker Id="1ca49f90-c6d8-43cc-8b66-744e1767b2ee" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="ebb9fdd0-c760-41e7-8328-73f44b85c74a" absoluteBounds="11.5, 8.75, 2, 4.4631168619791666">
+      <DataClassMoniker Name="/DlmsDataContext/vw_Company" />
+      <nestedChildShapes>
+        <elementListCompartment Id="17d196a2-222e-4bac-8000-52fbb08184f0" absoluteBounds="11.515, 9.21, 1.9700000000000002, 3.903116861979167" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="4df19fcf-5e7f-4bf2-8927-af49842a28fc" absoluteBounds="13.875, 8.75, 2, 4.6554182942708326">
+      <DataClassMoniker Name="/DlmsDataContext/vw_CompanyAttn" />
+      <nestedChildShapes>
+        <elementListCompartment Id="8ca305aa-548e-4796-8d36-957ee2fe944d" absoluteBounds="13.89, 9.21, 1.9700000000000002, 4.095418294270833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

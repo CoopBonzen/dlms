@@ -1,0 +1,36 @@
+D:\DLMS Project\Bonzen DLMS\Bonzen DLMS\bin\Bonzen DLMS.dll
+D:\DLMS Project\Bonzen DLMS\Bonzen DLMS\bin\Bonzen DLMS.pdb
+D:\DLMS Project\Bonzen DLMS\Bonzen DLMS\bin\Bonzen DLMS.xml
+D:\DLMS Project\Bonzen DLMS\Bonzen DLMS\obj\Debug\Bonzen_DLMS.Resources.resources
+D:\DLMS Project\Bonzen DLMS\Bonzen DLMS\obj\Debug\Bonzen DLMS.vbproj.GenerateResource.Cache
+D:\DLMS Project\Bonzen DLMS\Bonzen DLMS\obj\Debug\Bonzen DLMS.dll.licenses
+D:\DLMS Project\Bonzen DLMS\Bonzen DLMS\obj\Debug\RdlCompile.cache
+D:\DLMS Project\Bonzen DLMS\Bonzen DLMS\obj\Debug\RdlCompile.compiled
+D:\DLMS Project\Bonzen DLMS\Bonzen DLMS\obj\Debug\Bonzen DLMS.dll
+D:\DLMS Project\Bonzen DLMS\Bonzen DLMS\obj\Debug\Bonzen DLMS.xml
+D:\DLMS Project\Bonzen DLMS\Bonzen DLMS\obj\Debug\Bonzen DLMS.pdb
+D:\DLMS Project\Bonzen DLMS\Bonzen DLMS\obj\Debug\Bonzen DLMS.vbprojResolveAssemblyReference.cache
+D:\Bonzen DLMS\Bonzen DLMS\bin\Bonzen DLMS.dll
+D:\Bonzen DLMS\Bonzen DLMS\bin\Bonzen DLMS.pdb
+D:\Bonzen DLMS\Bonzen DLMS\bin\Bonzen DLMS.xml
+D:\Bonzen DLMS\Bonzen DLMS\obj\Debug\Bonzen DLMS.vbprojResolveAssemblyReference.cache
+D:\Bonzen DLMS\Bonzen DLMS\obj\Debug\Bonzen_DLMS.Resources.resources
+D:\Bonzen DLMS\Bonzen DLMS\obj\Debug\Bonzen DLMS.vbproj.GenerateResource.Cache
+D:\Bonzen DLMS\Bonzen DLMS\obj\Debug\Bonzen DLMS.dll.licenses
+D:\Bonzen DLMS\Bonzen DLMS\obj\Debug\RdlCompile.cache
+D:\Bonzen DLMS\Bonzen DLMS\obj\Debug\RdlCompile.compiled
+D:\Bonzen DLMS\Bonzen DLMS\obj\Debug\Bonzen DLMS.dll
+D:\Bonzen DLMS\Bonzen DLMS\obj\Debug\Bonzen DLMS.xml
+D:\Bonzen DLMS\Bonzen DLMS\obj\Debug\Bonzen DLMS.pdb
+D:\DLMS\dlms\Bonzen DLMS\bin\Bonzen DLMS.dll
+D:\DLMS\dlms\Bonzen DLMS\bin\Bonzen DLMS.pdb
+D:\DLMS\dlms\Bonzen DLMS\bin\Bonzen DLMS.xml
+D:\DLMS\dlms\Bonzen DLMS\obj\Debug\Bonzen DLMS.vbprojResolveAssemblyReference.cache
+D:\DLMS\dlms\Bonzen DLMS\obj\Debug\Bonzen_DLMS.Resources.resources
+D:\DLMS\dlms\Bonzen DLMS\obj\Debug\Bonzen DLMS.vbproj.GenerateResource.Cache
+D:\DLMS\dlms\Bonzen DLMS\obj\Debug\Bonzen DLMS.dll.licenses
+D:\DLMS\dlms\Bonzen DLMS\obj\Debug\RdlCompile.cache
+D:\DLMS\dlms\Bonzen DLMS\obj\Debug\RdlCompile.compiled
+D:\DLMS\dlms\Bonzen DLMS\obj\Debug\Bonzen DLMS.dll
+D:\DLMS\dlms\Bonzen DLMS\obj\Debug\Bonzen DLMS.xml
+D:\DLMS\dlms\Bonzen DLMS\obj\Debug\Bonzen DLMS.pdb
