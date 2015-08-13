@@ -14,6 +14,15 @@ Option Explicit On
 Partial Public Class AllDocument
 
     '''<summary>
+    '''cmb_searchdata control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents cmb_searchdata As Global.DevExpress.Web.ASPxEditors.ASPxComboBox
+
+    '''<summary>
     '''gv_quotationProposal control.
     '''</summary>
     '''<remarks>

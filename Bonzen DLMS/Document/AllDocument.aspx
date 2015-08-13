@@ -1,11 +1,31 @@
 ﻿<%@ Page Title="" Language="vb" AutoEventWireup="false" MasterPageFile="~/Site.Master" CodeBehind="AllDocument.aspx.vb" Inherits="Bonzen_DLMS.AllDocument" %>
 <%@ Register assembly="DevExpress.Web.v13.1, Version=13.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" namespace="DevExpress.Web.ASPxGridView" tagprefix="dx" %>
 <%@ Register assembly="DevExpress.Web.v13.1, Version=13.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" namespace="DevExpress.Web.ASPxEditors" tagprefix="dx" %>
+<%@ Register assembly="DevExpress.Web.v13.1, Version=13.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" namespace="DevExpress.Web.ASPxNavBar" tagprefix="dx" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
+    <style type="text/css">
+        .style1
+        {
+            width: 78px;
+        }
+    </style>
    </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <h3>
-            Quotation & Proposal</h3>
+            <strong>Quotation & Proposal</strong></h3>
+    <h3>
+            <table style="width:100%;">
+                <tr>
+                    <td class="style1">
+            &nbsp; Search&nbsp; :&nbsp;
+                    </td>
+                    <td>
+                        <dx:ASPxComboBox ID="cmb_searchdata" runat="server" Height="16px" Width="74px">
+                        </dx:ASPxComboBox>
+                    </td>
+                </tr>
+            </table>
+    </h3>
     <p class="lead">
             <dx:ASPxGridView ID="gv_quotationProposal" ClientInstanceName="gv_quotationProposal" runat="server" AutoGenerateColumns="False"
                 DataSourceID="Quo_Prop" KeyFieldName="Q_ID">

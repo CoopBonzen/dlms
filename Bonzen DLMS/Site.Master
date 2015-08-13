@@ -81,7 +81,7 @@
                                             <Items>
                                                 <dx:MenuItem NavigateUrl="~/Manage/User.aspx" Text="Manage User">
                                                 </dx:MenuItem>
-                                                <dx:MenuItem NavigateUrl="~/Manage/ManageUserGroup.aspx" 
+                                                <dx:MenuItem NavigateUrl="~/Manage/Privilege.aspx" 
                                                     Text="Manage User Group">
                                                 </dx:MenuItem>
                                                 <dx:MenuItem NavigateUrl="~/Manage/ModuleQuotation.aspx" 
