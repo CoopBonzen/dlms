@@ -1163,9 +1163,15 @@ pnc_subData control.
 Auto-generated field.
 To modify move field declaration from designer file to code-behind file.
 </remarks>
+<<<<<<< HEAD
 </member><member name="F:Bonzen_DLMS.CreateQuotation.txt_subData">
 	<summary>
 txt_subData control.
+=======
+</member><member name="F:Bonzen_DLMS.AllDocument.cmb_searchQuotation">
+	<summary>
+cmb_searchQuotation control.
+>>>>>>> origin/master
 </summary>
 	<remarks>
 Auto-generated field.
@@ -1187,7 +1193,19 @@ btn_SaveQuotation control.
 Auto-generated field.
 To modify move field declaration from designer file to code-behind file.
 </remarks>
+<<<<<<< HEAD
 </member><member name="F:Bonzen_DLMS.CreateQuotation.btn_PrintQuotation">
+=======
+</member><member name="F:Bonzen_DLMS.AllDocument.cmb_searchGeneral">
+	<summary>
+cmb_searchGeneral control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Bonzen_DLMS.AllDocument.gv_general">
+>>>>>>> origin/master
 	<summary>
 btn_PrintQuotation control.
 </summary>
