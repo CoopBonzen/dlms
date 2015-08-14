@@ -27,16 +27,10 @@
                     <td class="style3">
             &nbsp; Search Quotation&nbsp; :&nbsp;
                     </td>
-<<<<<<< HEAD
-                    <td>
-                        <dx:ASPxComboBox ID="cmb_searchdata" runat="server" Height="16px" Width="74px">
-                        <ClientSideEvents SelectedIndexChanged="function(s, e) { gv_quotationProposal.PerformCallback(s.GetValue()); }">
-                        </ClientSideEvents>
-=======
-                    <td class="style4">
+                       <td class="style4">
                         <dx:ASPxComboBox ID="cmb_searchQuotation" runat="server" Height="16px" 
                             Width="74px">
->>>>>>> origin/master
+
                         </dx:ASPxComboBox>
                     </td>
                 </tr>
