@@ -1130,9 +1130,9 @@ sds_salesApp control.
 Auto-generated field.
 To modify move field declaration from designer file to code-behind file.
 </remarks>
-</member><member name="F:Bonzen_DLMS.AllDocument.cmb_searchdata">
+</member><member name="F:Bonzen_DLMS.AllDocument.cmb_searchQuotation">
 	<summary>
-cmb_searchdata control.
+cmb_searchQuotation control.
 </summary>
 	<remarks>
 Auto-generated field.
@@ -1149,6 +1149,14 @@ To modify move field declaration from designer file to code-behind file.
 </member><member name="F:Bonzen_DLMS.AllDocument.Quo_Prop">
 	<summary>
 Quo_Prop control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Bonzen_DLMS.AllDocument.cmb_searchGeneral">
+	<summary>
+cmb_searchGeneral control.
 </summary>
 	<remarks>
 Auto-generated field.

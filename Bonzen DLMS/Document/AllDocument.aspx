@@ -4,28 +4,36 @@
 <%@ Register assembly="DevExpress.Web.v13.1, Version=13.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" namespace="DevExpress.Web.ASPxNavBar" tagprefix="dx" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
     <style type="text/css">
-        .style1
+        .style2
         {
-            width: 78px;
+            width: 122px;
+        }
+        .style3
+        {
+            width: 132px;
+            height: 24px;
+        }
+        .style4
+        {
+            height: 24px;
         }
     </style>
    </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <h3>
             <strong>Quotation & Proposal</strong></h3>
-    <h3>
             <table style="width:100%;">
                 <tr>
-                    <td class="style1">
-            &nbsp; Search&nbsp; :&nbsp;
+                    <td class="style3">
+            &nbsp; Search Quotation&nbsp; :&nbsp;
                     </td>
-                    <td>
-                        <dx:ASPxComboBox ID="cmb_searchdata" runat="server" Height="16px" Width="74px">
+                    <td class="style4">
+                        <dx:ASPxComboBox ID="cmb_searchQuotation" runat="server" Height="16px" 
+                            Width="74px">
                         </dx:ASPxComboBox>
                     </td>
                 </tr>
             </table>
-    </h3>
     <p class="lead">
             <dx:ASPxGridView ID="gv_quotationProposal" ClientInstanceName="gv_quotationProposal" runat="server" AutoGenerateColumns="False"
                 DataSourceID="Quo_Prop" KeyFieldName="Q_ID">
@@ -146,7 +154,18 @@
         </p>
         <div>
             <h3>
-                General</h3>
+                <strong>General</strong></h3>
+            <table style="width:100%;">
+                <tr>
+                    <td class="style2">
+            &nbsp; Search General&nbsp; :&nbsp;
+                    </td>
+                    <td>
+                        <dx:ASPxComboBox ID="cmb_searchGeneral" runat="server" Height="16px" Width="74px">
+                        </dx:ASPxComboBox>
+                    </td>
+                </tr>
+            </table>
             <p class="lead">
                 <dx:ASPxGridView ID="gv_general" ClientInstanceName="gv_general" runat="server" AutoGenerateColumns="False" DataSourceID="General"
                     KeyFieldName="G_ID">

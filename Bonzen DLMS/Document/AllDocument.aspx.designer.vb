@@ -14,13 +14,13 @@ Option Explicit On
 Partial Public Class AllDocument
 
     '''<summary>
-    '''cmb_searchdata control.
+    '''cmb_searchQuotation control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents cmb_searchdata As Global.DevExpress.Web.ASPxEditors.ASPxComboBox
+    Protected WithEvents cmb_searchQuotation As Global.DevExpress.Web.ASPxEditors.ASPxComboBox
 
     '''<summary>
     '''gv_quotationProposal control.
@@ -39,6 +39,15 @@ Partial Public Class AllDocument
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents Quo_Prop As Global.System.Web.UI.WebControls.SqlDataSource
+
+    '''<summary>
+    '''cmb_searchGeneral control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents cmb_searchGeneral As Global.DevExpress.Web.ASPxEditors.ASPxComboBox
 
     '''<summary>
     '''gv_general control.
