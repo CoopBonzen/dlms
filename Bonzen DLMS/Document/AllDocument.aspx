@@ -21,6 +21,8 @@
                     </td>
                     <td>
                         <dx:ASPxComboBox ID="cmb_searchdata" runat="server" Height="16px" Width="74px">
+                        <ClientSideEvents SelectedIndexChanged="function(s, e) { gv_quotationProposal.PerformCallback(s.GetValue()); }">
+                        </ClientSideEvents>
                         </dx:ASPxComboBox>
                     </td>
                 </tr>
