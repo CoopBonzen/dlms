@@ -23,6 +23,15 @@ Partial Public Class AllDocument
     Protected WithEvents ASPxRoundPanel2 As Global.DevExpress.Web.ASPxRoundPanel.ASPxRoundPanel
 
     '''<summary>
+    '''cmb_searchYear control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents cmb_searchYear As Global.DevExpress.Web.ASPxEditors.ASPxComboBox
+
+    '''<summary>
     '''cmb_searchQuotation control.
     '''</summary>
     '''<remarks>

@@ -1138,6 +1138,14 @@ ASPxRoundPanel2 control.
 Auto-generated field.
 To modify move field declaration from designer file to code-behind file.
 </remarks>
+</member><member name="F:Bonzen_DLMS.AllDocument.cmb_searchYear">
+	<summary>
+cmb_searchYear control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
 </member><member name="F:Bonzen_DLMS.AllDocument.cmb_searchQuotation">
 	<summary>
 cmb_searchQuotation control.
