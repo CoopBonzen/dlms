@@ -38,11 +38,18 @@
                     <table style="width: 100%;">
                         <tr>
                             <td class="style3">
-                                &nbsp; YEAR :
+                                &nbsp; Year :
                             </td>
                             <td class="style4">
-                                <dx:ASPxComboBox ID="cmb_searchYear" runat="server">
+                                <dx:ASPxComboBox ID="cmb_searchYear" runat="server" IncrementalFilteringMode="Contains"
+                                    ValueField="ayear" TextField="ayear" ValueType="System.String" DataSourceID="Quo_Year"
+                                    OnLoad="cmb_searchYear_Load" AutoPostBack="True">
+                                    <ClientSideEvents SelectedIndexChanged="function(s, e) { gv_quotationProposal.PerformCallback(s.GetValue()); }">
+                                    </ClientSideEvents>
                                 </dx:ASPxComboBox>
+                                <asp:SqlDataSource ID="Quo_Year" runat="server" ConnectionString="<%$ ConnectionStrings:DLMSConnectionString %>"
+                                    SelectCommand="SELECT distinct(YEAR(QuotationProposal.Q_Date)) as ayear FROM QuotationProposal ORDER BY ayear">
+                                </asp:SqlDataSource>
                             </td>
                         </tr>
                         <tr>

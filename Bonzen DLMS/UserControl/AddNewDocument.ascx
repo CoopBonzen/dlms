@@ -340,16 +340,14 @@
                         </dx:ASPxLabel>
                     </td>
                     <td>
-                        <dx:ASPxComboBox ID="cmb_company" ClientInstanceName="cmb_company" 
-                            runat="server" IncrementalFilteringMode="Contains"
-                            ValueType="System.String" DataSourceID="lds_Company" TextField="prospect_nameTH"
-                            ValueField="prospect_nameTH" EnableCallbackMode="True" 
+                        <dx:ASPxComboBox ID="cmb_company" ClientInstanceName="cmb_company" runat="server"
+                            IncrementalFilteringMode="Contains" ValueType="System.String" DataSourceID="lds_Company"
+                            TextField="prospect_nameTH" ValueField="prospect_nameTH" EnableCallbackMode="True"
                             CallbackPageSize="20" DropDownStyle="DropDown">
                             <ClientSideEvents SelectedIndexChanged="function(s, e) { cmb_attn.PerformCallback('Change Company'); }" />
-<ClientSideEvents SelectedIndexChanged="function(s, e) { cmb_attn.PerformCallback(&#39;Change Company&#39;); }"></ClientSideEvents>
+                            <ClientSideEvents SelectedIndexChanged="function(s, e) { cmb_attn.PerformCallback(&#39;Change Company&#39;); }">
+                            </ClientSideEvents>
                         </dx:ASPxComboBox>
-
-
                         <asp:LinqDataSource ID="lds_Company" runat="server" ContextTypeName="Bonzen_DLMS.DlmsDataContext"
                             Select="new (prospect_id, prospect_nameTH)" TableName="vw_Companies">
                         </asp:LinqDataSource>
@@ -371,8 +369,7 @@
                             ValueField="c_name" DropDownStyle="DropDown">
                         </dx:ASPxComboBox>
                         <asp:LinqDataSource ID="lds_Attn" runat="server" ContextTypeName="Bonzen_DLMS.DlmsDataContext"
-                            Select="new (c_id, c_name, prospect_id)" TableName="vw_CompanyAttns"
-                            Where="prospect_id == @Company_ID">
+                            Select="new (c_id, c_name, prospect_id)" TableName="vw_CompanyAttns" Where="prospect_id == @Company_ID">
                             <WhereParameters>
                                 <asp:ControlParameter Name="Company_ID" Type="Int32" ControlID="cmb_company" PropertyName="Value"
                                     DefaultValue="1" />
@@ -431,13 +428,13 @@
                                                                               //CIN_pop_general.Hide();  
                                                                               }" />--%>
                                     <ClientSideEvents Click="function(s, e) { ValidationGeneral(e); }" />
-<ClientSideEvents Click="function(s, e) { ValidationGeneral(e); }"></ClientSideEvents>
+                                    <ClientSideEvents Click="function(s, e) { ValidationGeneral(e); }"></ClientSideEvents>
                                 </dx:ASPxButton>
                             </div>
                             <div style="float: left; clear: none; padding-left: 2px;">
                                 <dx:ASPxButton ID="btn_GCencel" runat="server" Text="Cancel" AutoPostBack="false">
                                     <ClientSideEvents Click="function(s, e) { CIN_pop_general.Hide(); }" />
-<ClientSideEvents Click="function(s, e) { CIN_pop_general.Hide(); }"></ClientSideEvents>
+                                    <ClientSideEvents Click="function(s, e) { CIN_pop_general.Hide(); }"></ClientSideEvents>
                                 </dx:ASPxButton>
                             </div>
                             <script type="text/javascript">

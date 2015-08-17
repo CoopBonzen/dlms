@@ -66,4 +66,12 @@ Public Class AllDocument
     Protected Sub cmb_searchQuotation_Load(ByVal sender As Object, ByVal e As EventArgs)
         cmb_searchQuotation = CType(sender, ASPxComboBox)
     End Sub
+
+    Protected Sub cmb_searchYear_Load(ByVal sender As Object, ByVal e As EventArgs)
+        cmb_searchYear = CType(sender, ASPxComboBox)
+    End Sub
+
+    Private Sub cmb_searchYear_Callback(ByVal sender As Object, ByVal e As DevExpress.Web.ASPxClasses.CallbackEventArgsBase) Handles cmb_searchYear.Callback
+        cmb_searchYear.DataBind()
+    End Sub
 End Class

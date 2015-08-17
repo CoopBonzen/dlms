@@ -32,6 +32,15 @@ Partial Public Class AllDocument
     Protected WithEvents cmb_searchYear As Global.DevExpress.Web.ASPxEditors.ASPxComboBox
 
     '''<summary>
+    '''Quo_Year control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents Quo_Year As Global.System.Web.UI.WebControls.SqlDataSource
+
+    '''<summary>
     '''cmb_searchQuotation control.
     '''</summary>
     '''<remarks>
