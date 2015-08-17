@@ -29,8 +29,11 @@
                     </td>
                        <td class="style4">
                         <dx:ASPxComboBox ID="cmb_searchQuotation" runat="server" Height="16px" 
-                            Width="74px">
-
+                            Width="74px" IncrementalFilteringMode="Contains" ValueField="Q_ID"
+                            TextField="Q_ID" ValueType="System.String" DataSourceID="Quo_Prop"
+                            AutoPostBack="True" OnLoad="cmb_searchQuotation_Load">
+                             <ClientSideEvents SelectedIndexChanged="function(s, e) { gv_quotationProposal.PerformCallback(s.GetValue()); }">
+        </ClientSideEvents>
                         </dx:ASPxComboBox>
                     </td>
                 </tr>
@@ -96,7 +99,8 @@
                 <Settings ShowFilterRow="True" />
             </dx:ASPxGridView>
             <asp:SqlDataSource ID="Quo_Prop" runat="server" ConnectionString="<%$ ConnectionStrings:DLMSConnectionString %>"
-                DeleteCommand="DELETE FROM [QuotationProposal] WHERE [Q_ID] = @Q_ID" InsertCommand="INSERT INTO [QuotationProposal] ([Q_ID], [Q_Date], [DateSend], [ContactCom], [ContactName], [Title], [BookingBy], [P_ID]) VALUES (@Q_ID, @Q_Date, @DateSend, @ContactCom, @ContactName, @Title, @BookingBy, @P_ID)"
+                DeleteCommand="DELETE FROM [QuotationProposal] WHERE [Q_ID] = @Q_ID"
+                InsertCommand="INSERT INTO [QuotationProposal] ([Q_ID], [Q_Date], [DateSend], [ContactCom], [ContactName], [Title], [BookingBy], [P_ID]) VALUES (@Q_ID, @Q_Date, @DateSend, @ContactCom, @ContactName, @Title, @BookingBy, @P_ID)"
                 SelectCommand="SELECT QuotationProposal.*, Quotation.Quota_ID, CASE WHEN Quotation.Quota_ID Is NULL THEN 'False' ELSE 'True' END As Show,  Quotation.company_name, Quotation.attn FROM QuotationProposal LEFT OUTER JOIN Quotation ON QuotationProposal.Q_ID = Quotation.quotation_no"
                 UpdateCommand="UPDATE [QuotationProposal] SET [Q_Date] = @Q_Date, [DateSend] = @DateSend, [ContactCom] = @ContactCom, [ContactName] = @ContactName, [Title] = @Title, [BookingBy] = @BookingBy, [P_ID] = @P_ID WHERE [Q_ID] = @Q_ID">
                 <DeleteParameters>

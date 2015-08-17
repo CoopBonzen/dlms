@@ -1,9 +1,12 @@
 ﻿Imports DevExpress.Web.ASPxGridView
+Imports DevExpress.Web.ASPxEditors
 
 Public Class AllDocument
     Inherits System.Web.UI.Page
 
     Private _dataaccess As New DataAccessModule
+
+
     Public Property DataAccess() As DataAccessModule
         Get
             Return _dataaccess
@@ -58,5 +61,9 @@ Public Class AllDocument
             Case "PrintQuotation"
                 Response.Redirect("../Report/Report.aspx?quotaId=" & e.CommandArgument)
         End Select
+    End Sub
+
+    Protected Sub cmb_searchQuotation_Load(ByVal sender As Object, ByVal e As EventArgs)
+        cmb_searchQuotation = CType(sender, ASPxComboBox)
     End Sub
 End Class
