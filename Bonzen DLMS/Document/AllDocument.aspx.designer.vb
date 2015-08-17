@@ -14,6 +14,15 @@ Option Explicit On
 Partial Public Class AllDocument
 
     '''<summary>
+    '''ASPxRoundPanel2 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents ASPxRoundPanel2 As Global.DevExpress.Web.ASPxRoundPanel.ASPxRoundPanel
+
+    '''<summary>
     '''cmb_searchQuotation control.
     '''</summary>
     '''<remarks>
@@ -39,6 +48,15 @@ Partial Public Class AllDocument
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents Quo_Prop As Global.System.Web.UI.WebControls.SqlDataSource
+
+    '''<summary>
+    '''ASPxRoundPanel1 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents ASPxRoundPanel1 As Global.DevExpress.Web.ASPxRoundPanel.ASPxRoundPanel
 
     '''<summary>
     '''cmb_searchGeneral control.

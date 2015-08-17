@@ -2,6 +2,8 @@
 <%@ Register assembly="DevExpress.Web.v13.1, Version=13.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" namespace="DevExpress.Web.ASPxGridView" tagprefix="dx" %>
 <%@ Register assembly="DevExpress.Web.v13.1, Version=13.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" namespace="DevExpress.Web.ASPxEditors" tagprefix="dx" %>
 <%@ Register assembly="DevExpress.Web.v13.1, Version=13.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" namespace="DevExpress.Web.ASPxNavBar" tagprefix="dx" %>
+<%@ Register assembly="DevExpress.Web.v13.1, Version=13.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" namespace="DevExpress.Web.ASPxRoundPanel" tagprefix="dx" %>
+<%@ Register assembly="DevExpress.Web.v13.1, Version=13.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" namespace="DevExpress.Web.ASPxPanel" tagprefix="dx" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
     <style type="text/css">
         .style2
@@ -22,7 +24,13 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <h3>
             <strong>Quotation & Proposal</strong></h3>
-            <table style="width:100%;">
+            
+    <p class="lead">
+            <dx:ASPxRoundPanel ID="ASPxRoundPanel2" runat="server" Width="920px" 
+                HeaderText="">
+                <PanelCollection>
+<dx:PanelContent runat="server" SupportsDisabledAttribute="True">
+<table style="width:100%;">
                 <tr>
                     <td class="style3">
             &nbsp; Search Quotation&nbsp; :&nbsp;
@@ -38,66 +46,73 @@
                     </td>
                 </tr>
             </table>
-    <p class="lead">
-            <dx:ASPxGridView ID="gv_quotationProposal" ClientInstanceName="gv_quotationProposal" runat="server" AutoGenerateColumns="False"
-                DataSourceID="Quo_Prop" KeyFieldName="Q_ID">
-                <Columns>
-                    <dx:GridViewDataTextColumn Caption="หมายเลข Quotation" FieldName="Q_ID" ReadOnly="True"
-                        VisibleIndex="0" CellStyle-HorizontalAlign="Center" Width="8%" SortOrder="Descending">
-                        <DataItemTemplate>
-                            <asp:LinkButton ID="lnk_QId" runat="server" Text='<%# Eval("Q_ID") %>' CommandName="OpenCreateQuotation"
-                                CommandArgument='<%# Eval("Q_ID") %>' OnCommand="ListItem_Command">
+    <dx:ASPxGridView ID="gv_quotationProposal" runat="server" 
+        AutoGenerateColumns="False" ClientInstanceName="gv_quotationProposal" 
+        DataSourceID="Quo_Prop" KeyFieldName="Q_ID" Width="888px">
+        <Columns>
+            <dx:GridViewDataTextColumn Caption="หมายเลข Quotation" FieldName="Q_ID" 
+                ReadOnly="True" ShowInCustomizationForm="True" SortIndex="0" 
+                SortOrder="Descending" VisibleIndex="0" Width="8%">
+                <Settings AutoFilterCondition="Contains" />
+                <DataItemTemplate>
+                    <asp:LinkButton ID="lnk_QId" runat="server" 
+                        CommandArgument='<%# Eval("Q_ID") %>' CommandName="OpenCreateQuotation" 
+                        OnCommand="ListItem_Command" Text='<%# Eval("Q_ID") %>'>
                             </asp:LinkButton>
-                        </DataItemTemplate>
-                        <CellStyle HorizontalAlign="Center">
-                        </CellStyle>
-                        <Settings AutoFilterCondition="Contains" />
-                    </dx:GridViewDataTextColumn>
-                    <dx:GridViewDataDateColumn Caption="วันที่ในจดหมาย" FieldName="Q_Date" VisibleIndex="2"
-                        Width="8%">
-                        <Settings AutoFilterCondition="Contains" />
-                    </dx:GridViewDataDateColumn>
-                    <dx:GridViewDataTextColumn Caption="ผู้รับ (บริษัท)" FieldName="company_name" VisibleIndex="4"
-                        Width="20%">
-                        <Settings AutoFilterCondition="Contains" />
-                    </dx:GridViewDataTextColumn>
-                    <dx:GridViewDataTextColumn Caption="ผู้รับ (ชื่อ)" FieldName="attn" VisibleIndex="5"
-                        Width="20%">
-                        <Settings AutoFilterCondition="Contains" />
-                    </dx:GridViewDataTextColumn>
-                    <dx:GridViewDataTextColumn Caption="เรื่อง" FieldName="Title" VisibleIndex="6" Width="20%">
-                    <Settings AutoFilterCondition="Contains" />
-                    </dx:GridViewDataTextColumn>
-                    <dx:GridViewDataTextColumn Caption="ผู้จอง" FieldName="BookingBy" VisibleIndex="7"
-                        Width="8%">
-                        <Settings AutoFilterCondition="Contains" />
-                    </dx:GridViewDataTextColumn>
-                    <dx:GridViewDataTextColumn Caption="หมายเลข Proposal" FieldName="P_ID" VisibleIndex="1"
-                        ReadOnly="True" CellStyle-HorizontalAlign="Center" Width="8%">
-                        <DataItemTemplate>
-                            <asp:LinkButton ID="lnk_PId" runat="server" Text='<%# Eval("P_ID") %>' CommandName="OpenUploadProposalFile"
-                                CommandArgument='<%# Eval("P_ID") %>' OnCommand="ListItem_Command">
+                </DataItemTemplate>
+                <CellStyle HorizontalAlign="Center">
+                </CellStyle>
+            </dx:GridViewDataTextColumn>
+            <dx:GridViewDataDateColumn Caption="วันที่ในจดหมาย" FieldName="Q_Date" 
+                ShowInCustomizationForm="True" VisibleIndex="2" Width="8%">
+                <Settings AutoFilterCondition="Contains" />
+            </dx:GridViewDataDateColumn>
+            <dx:GridViewDataTextColumn Caption="ผู้รับ (บริษัท)" FieldName="company_name" 
+                ShowInCustomizationForm="True" VisibleIndex="4" Width="20%">
+                <Settings AutoFilterCondition="Contains" />
+            </dx:GridViewDataTextColumn>
+            <dx:GridViewDataTextColumn Caption="ผู้รับ (ชื่อ)" FieldName="attn" 
+                ShowInCustomizationForm="True" VisibleIndex="5" Width="20%">
+                <Settings AutoFilterCondition="Contains" />
+            </dx:GridViewDataTextColumn>
+            <dx:GridViewDataTextColumn Caption="เรื่อง" FieldName="Title" 
+                ShowInCustomizationForm="True" VisibleIndex="6" Width="20%">
+                <Settings AutoFilterCondition="Contains" />
+            </dx:GridViewDataTextColumn>
+            <dx:GridViewDataTextColumn Caption="ผู้จอง" FieldName="BookingBy" 
+                ShowInCustomizationForm="True" VisibleIndex="7" Width="8%">
+                <Settings AutoFilterCondition="Contains" />
+            </dx:GridViewDataTextColumn>
+            <dx:GridViewDataTextColumn Caption="หมายเลข Proposal" FieldName="P_ID" 
+                ReadOnly="True" ShowInCustomizationForm="True" VisibleIndex="1" Width="8%">
+                <Settings AutoFilterCondition="Contains" />
+                <DataItemTemplate>
+                    <asp:LinkButton ID="lnk_PId" runat="server" 
+                        CommandArgument='<%# Eval("P_ID") %>' CommandName="OpenUploadProposalFile" 
+                        OnCommand="ListItem_Command" Text='<%# Eval("P_ID") %>'>
                             </asp:LinkButton>
-                        </DataItemTemplate>
-                        <CellStyle HorizontalAlign="Center">
-                        </CellStyle>
-                        <Settings AutoFilterCondition="Contains" />
-                    </dx:GridViewDataTextColumn>
-                    <dx:GridViewDataTextColumn Caption="พิมพ์ใบเสนอราคา" Name="Print" VisibleIndex="8" ReadOnly="True"
-                        CellStyle-HorizontalAlign="Center" Width="8%">
-                        <DataItemTemplate>
-                            <asp:LinkButton ID="lnk_Print" runat="server" Text="Print" CommandName="PrintQuotation"
-                                OnCommand="ListItem_Command" CommandArgument='<%# Eval("Quota_ID") %>' Visible='<%# Eval("Show") %>'>
+                </DataItemTemplate>
+                <CellStyle HorizontalAlign="Center">
+                </CellStyle>
+            </dx:GridViewDataTextColumn>
+            <dx:GridViewDataTextColumn Caption="พิมพ์ใบเสนอราคา" Name="Print" 
+                ReadOnly="True" ShowInCustomizationForm="True" VisibleIndex="8" Width="8%">
+                <DataItemTemplate>
+                    <asp:LinkButton ID="lnk_Print" runat="server" 
+                        CommandArgument='<%# Eval("Quota_ID") %>' CommandName="PrintQuotation" 
+                        OnCommand="ListItem_Command" Text="Print" Visible='<%# Eval("Show") %>'>
                             </asp:LinkButton>
-                        </DataItemTemplate>
-                        <CellStyle HorizontalAlign="Center">
-                        </CellStyle>
-                    </dx:GridViewDataTextColumn>
-                    <%--<dx:GridViewDataTextColumn Name="Quota_ID" FieldName="Quota_ID" Visible="false"></dx:GridViewDataTextColumn>--%>
-                </Columns>
-                <SettingsEditing Mode="Inline" />
-                <Settings ShowFilterRow="True" />
-            </dx:ASPxGridView>
+                </DataItemTemplate>
+                <CellStyle HorizontalAlign="Center">
+                </CellStyle>
+            </dx:GridViewDataTextColumn>
+        </Columns>
+        <SettingsEditing Mode="Inline" />
+        <Settings ShowFilterRow="True" />
+    </dx:ASPxGridView>
+                    </dx:PanelContent>
+</PanelCollection>
+            </dx:ASPxRoundPanel>
             <asp:SqlDataSource ID="Quo_Prop" runat="server" ConnectionString="<%$ ConnectionStrings:DLMSConnectionString %>"
                 DeleteCommand="DELETE FROM [QuotationProposal] WHERE [Q_ID] = @Q_ID"
                 InsertCommand="INSERT INTO [QuotationProposal] ([Q_ID], [Q_Date], [DateSend], [ContactCom], [ContactName], [Title], [BookingBy], [P_ID]) VALUES (@Q_ID, @Q_Date, @DateSend, @ContactCom, @ContactName, @Title, @BookingBy, @P_ID)"
@@ -160,7 +175,14 @@
         <div>
             <h3>
                 <strong>General</strong></h3>
-            <table style="width:100%;">
+           
+            <p class="lead">
+                <dx:ASPxRoundPanel ID="ASPxRoundPanel1" runat="server" Width="919px" 
+                    Height="265px" HeaderText="">
+                    <PanelCollection>
+<dx:PanelContent runat="server" SupportsDisabledAttribute="True">
+
+     <table style="width:100%;">
                 <tr>
                     <td class="style2">
             &nbsp; Search General&nbsp; :&nbsp;
@@ -171,88 +193,92 @@
                     </td>
                 </tr>
             </table>
-            <p class="lead">
-                <dx:ASPxGridView ID="gv_general" ClientInstanceName="gv_general" runat="server" AutoGenerateColumns="False" DataSourceID="General"
-                    KeyFieldName="G_ID">
-                    <Columns>
-                        <dx:GridViewDataTextColumn Caption="หมายเลขจดหมาย" FieldName="G_ID" ReadOnly="True" SortOrder="Descending"
-                            VisibleIndex="0" CellStyle-HorizontalAlign="Center" EditCellStyle-HorizontalAlign="Center" Width="8%">
-
-<EditCellStyle HorizontalAlign="Center"></EditCellStyle>
-                            <DataItemTemplate>
-                                <asp:LinkButton ID="lnk_GId" runat="server" Text='<%# Eval("G_ID") %>' CommandName="OpenUploadGeneralFile"
-                                    CommandArgument='<%# Eval("G_ID") %>' OnCommand="ListItem_Command">
+    <dx:ASPxGridView ID="gv_general" runat="server" AutoGenerateColumns="False" 
+        ClientInstanceName="gv_general" DataSourceID="General" KeyFieldName="G_ID" 
+         Width="879px">
+        <Columns>
+            <dx:GridViewDataTextColumn Caption="หมายเลขจดหมาย" FieldName="G_ID" 
+                ReadOnly="True" ShowInCustomizationForm="True" SortIndex="0" 
+                SortOrder="Descending" VisibleIndex="0" Width="8%">
+                <Settings AutoFilterCondition="Contains" />
+                <EditCellStyle HorizontalAlign="Center">
+                </EditCellStyle>
+                <DataItemTemplate>
+                    <asp:LinkButton ID="lnk_GId" runat="server" 
+                        CommandArgument='<%# Eval("G_ID") %>' CommandName="OpenUploadGeneralFile" 
+                        OnCommand="ListItem_Command" Text='<%# Eval("G_ID") %>'>
                                  </asp:LinkButton>
-                            </DataItemTemplate>
-                            <EditItemTemplate>
-                                <asp:Label ID="lbl_GId" runat="server" Text='<%# Eval("G_ID") %>'></asp:Label>
-                            </EditItemTemplate>
-                            <CellStyle HorizontalAlign="Center">
-                            </CellStyle>
-                            <Settings AutoFilterCondition="Contains" />
-                        </dx:GridViewDataTextColumn>
-                        <dx:GridViewDataDateColumn Caption="วันที่ในจดหมาย" FieldName="G_Date" VisibleIndex="1"
-                            Width="8%">
-                            <EditItemTemplate>
-                                <asp:Label ID="lbl_GDate" runat="server" Text='<%# Eval("G_Date", "{0:d/MM/yyyy}") %>'></asp:Label>
-                            </EditItemTemplate>
-                            <Settings AutoFilterCondition="Contains" />
-                        </dx:GridViewDataDateColumn>
-                        <dx:GridViewDataTextColumn Caption="ผู้รับ (บริษัท)" FieldName="ContactCom" VisibleIndex="3"
-                            Width="25%" EditCellStyle-HorizontalAlign="Center">
-
-<EditCellStyle HorizontalAlign="Center"></EditCellStyle>
-                            <EditItemTemplate>
-                                <asp:Label ID="lbl_ContactCompany" runat="server" Text='<%# Eval("ContactCom") %>'></asp:Label>
-                            </EditItemTemplate>
-                            <Settings AutoFilterCondition="Contains" />
-                        </dx:GridViewDataTextColumn>
-                        <dx:GridViewDataTextColumn Caption="ผู้รับ (ชื่อ)" FieldName="ContactName" VisibleIndex="4"
-                            Width="25%" EditCellStyle-HorizontalAlign="Center">
-
-<EditCellStyle HorizontalAlign="Center"></EditCellStyle>
-                            <EditItemTemplate>
-                                <asp:Label ID="lbl_ContactName" runat="server" Text='<%# Eval("ContactName") %>'></asp:Label>
-                            </EditItemTemplate>
-                            <Settings AutoFilterCondition="Contains" />
-                        </dx:GridViewDataTextColumn>
-                        <dx:GridViewDataTextColumn Caption="เรื่อง" FieldName="Title" VisibleIndex="5" Width="18%">
-                            <EditItemTemplate>
-                                <asp:TextBox ID="txt_Note" runat="server" Text='<%# Bind("Title") %>'></asp:TextBox>
-                            </EditItemTemplate>
-                            <Settings AutoFilterCondition="Contains" />
-                        </dx:GridViewDataTextColumn>
-                       <%-- <dx:GridViewDataTextColumn Caption="หมายเหตุ" FieldName="Note" VisibleIndex="6" Width="8%">
-                            <EditItemTemplate>
-                                <asp:TextBox ID="txt_Note" runat="server"></asp:TextBox>
-                            </EditItemTemplate>
-                        </dx:GridViewDataTextColumn>--%>
-                        <dx:GridViewDataTextColumn Caption="ผู้จอง" FieldName="BookingBy" VisibleIndex="7"
-                            Width="8%">
-                            <EditItemTemplate>
-                                <asp:Label ID="lbl_BookingBy" runat="server" Text='<%# Eval("BookingBy") %>'></asp:Label>
-                            </EditItemTemplate>
-                            <Settings AutoFilterCondition="Contains" />
-                        </dx:GridViewDataTextColumn>
-                        <dx:GridViewCommandColumn ButtonType="Image" VisibleIndex="8" ShowInCustomizationForm="True"
-                            Width="8%" Caption="Edit Tiile">
-                            <EditButton Visible="True">
-                                <Image AlternateText="Edit" Url="../images/edit.png">
-                                </Image>
-                            </EditButton>
-                            <UpdateButton Visible="True">
-                                <Image AlternateText="Update" Url="../images/disk.png">
-                                </Image>
-                            </UpdateButton>
-                            <CancelButton Visible="True">
-                                <Image AlternateText="Cancel" Url="../images/cancel.gif">
-                                </Image>
-                            </CancelButton>
-                        </dx:GridViewCommandColumn>
-                    </Columns>
-                    <SettingsEditing Mode="Inline" />
-                    <Settings ShowFilterRow="True" />
-                </dx:ASPxGridView>
+                </DataItemTemplate>
+                <EditItemTemplate>
+                    <asp:Label ID="lbl_GId" runat="server" Text='<%# Eval("G_ID") %>'></asp:Label>
+                </EditItemTemplate>
+                <CellStyle HorizontalAlign="Center">
+                </CellStyle>
+            </dx:GridViewDataTextColumn>
+            <dx:GridViewDataDateColumn Caption="วันที่ในจดหมาย" FieldName="G_Date" 
+                ShowInCustomizationForm="True" VisibleIndex="1" Width="8%">
+                <Settings AutoFilterCondition="Contains" />
+                <EditItemTemplate>
+                    <asp:Label ID="lbl_GDate" runat="server" 
+                        Text='<%# Eval("G_Date", "{0:d/MM/yyyy}") %>'></asp:Label>
+                </EditItemTemplate>
+            </dx:GridViewDataDateColumn>
+            <dx:GridViewDataTextColumn Caption="ผู้รับ (บริษัท)" FieldName="ContactCom" 
+                ShowInCustomizationForm="True" VisibleIndex="3" Width="25%">
+                <Settings AutoFilterCondition="Contains" />
+                <EditCellStyle HorizontalAlign="Center">
+                </EditCellStyle>
+                <EditItemTemplate>
+                    <asp:Label ID="lbl_ContactCompany" runat="server" 
+                        Text='<%# Eval("ContactCom") %>'></asp:Label>
+                </EditItemTemplate>
+            </dx:GridViewDataTextColumn>
+            <dx:GridViewDataTextColumn Caption="ผู้รับ (ชื่อ)" FieldName="ContactName" 
+                ShowInCustomizationForm="True" VisibleIndex="4" Width="25%">
+                <Settings AutoFilterCondition="Contains" />
+                <EditCellStyle HorizontalAlign="Center">
+                </EditCellStyle>
+                <EditItemTemplate>
+                    <asp:Label ID="lbl_ContactName" runat="server" 
+                        Text='<%# Eval("ContactName") %>'></asp:Label>
+                </EditItemTemplate>
+            </dx:GridViewDataTextColumn>
+            <dx:GridViewDataTextColumn Caption="เรื่อง" FieldName="Title" 
+                ShowInCustomizationForm="True" VisibleIndex="5" Width="18%">
+                <Settings AutoFilterCondition="Contains" />
+                <EditItemTemplate>
+                    <asp:TextBox ID="txt_Note" runat="server" Text='<%# Bind("Title") %>'></asp:TextBox>
+                </EditItemTemplate>
+            </dx:GridViewDataTextColumn>
+            <dx:GridViewDataTextColumn Caption="ผู้จอง" FieldName="BookingBy" 
+                ShowInCustomizationForm="True" VisibleIndex="7" Width="8%">
+                <Settings AutoFilterCondition="Contains" />
+                <EditItemTemplate>
+                    <asp:Label ID="lbl_BookingBy" runat="server" Text='<%# Eval("BookingBy") %>'></asp:Label>
+                </EditItemTemplate>
+            </dx:GridViewDataTextColumn>
+            <dx:GridViewCommandColumn ButtonType="Image" Caption="Edit Tiile" 
+                ShowInCustomizationForm="True" VisibleIndex="8" Width="8%">
+                <EditButton Visible="True">
+                    <Image AlternateText="Edit" Url="../images/edit.png">
+                    </Image>
+                </EditButton>
+                <CancelButton>
+                    <Image AlternateText="Cancel" Url="../images/cancel.gif">
+                    </Image>
+                </CancelButton>
+                <UpdateButton>
+                    <Image AlternateText="Update" Url="../images/disk.png">
+                    </Image>
+                </UpdateButton>
+            </dx:GridViewCommandColumn>
+        </Columns>
+        <SettingsEditing Mode="Inline" />
+        <Settings ShowFilterRow="True" />
+    </dx:ASPxGridView>
+                        </dx:PanelContent>
+</PanelCollection>
+                </dx:ASPxRoundPanel>
                 <asp:SqlDataSource ID="General" runat="server" ConnectionString="<%$ ConnectionStrings:DLMSConnectionString %>"
                     DeleteCommand="DELETE FROM [General] WHERE [G_ID] = @G_ID" InsertCommand="INSERT INTO [General] ([G_ID], [G_Date], [DateSend], [ContactCom], [ContactName], [Title], [Note], [BookingBy]) VALUES (@G_ID, @G_Date, @DateSend, @ContactCom, @ContactName, @Title, @Note, @BookingBy)"
                     SelectCommand="SELECT * FROM [General] ORDER BY [G_ID]" UpdateCommand="UPDATE [General] SET [Title] = @Title WHERE [G_ID] = @G_ID">
