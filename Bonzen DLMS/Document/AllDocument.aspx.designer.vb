@@ -23,13 +23,13 @@ Partial Public Class AllDocument
     Protected WithEvents ASPxRoundPanel2 As Global.DevExpress.Web.ASPxRoundPanel.ASPxRoundPanel
 
     '''<summary>
-    '''cmb_searchYear control.
+    '''cmb_searchYearQ control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents cmb_searchYear As Global.DevExpress.Web.ASPxEditors.ASPxComboBox
+    Protected WithEvents cmb_searchYearQ As Global.DevExpress.Web.ASPxEditors.ASPxComboBox
 
     '''<summary>
     '''Quo_Year control.
@@ -41,22 +41,13 @@ Partial Public Class AllDocument
     Protected WithEvents Quo_Year As Global.System.Web.UI.WebControls.SqlDataSource
 
     '''<summary>
-    '''cmb_searchQuotation control.
+    '''gv_quotationProposalAll control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents cmb_searchQuotation As Global.DevExpress.Web.ASPxEditors.ASPxComboBox
-
-    '''<summary>
-    '''gv_quotationProposal control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents gv_quotationProposal As Global.DevExpress.Web.ASPxGridView.ASPxGridView
+    Protected WithEvents gv_quotationProposalAll As Global.DevExpress.Web.ASPxGridView.ASPxGridView
 
     '''<summary>
     '''Quo_Prop control.
@@ -77,22 +68,31 @@ Partial Public Class AllDocument
     Protected WithEvents ASPxRoundPanel1 As Global.DevExpress.Web.ASPxRoundPanel.ASPxRoundPanel
 
     '''<summary>
-    '''cmb_searchGeneral control.
+    '''cmb_searchYearG control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents cmb_searchGeneral As Global.DevExpress.Web.ASPxEditors.ASPxComboBox
+    Protected WithEvents cmb_searchYearG As Global.DevExpress.Web.ASPxEditors.ASPxComboBox
 
     '''<summary>
-    '''gv_general control.
+    '''Gen_Year control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents gv_general As Global.DevExpress.Web.ASPxGridView.ASPxGridView
+    Protected WithEvents Gen_Year As Global.System.Web.UI.WebControls.SqlDataSource
+
+    '''<summary>
+    '''gv_generalAll control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents gv_generalAll As Global.DevExpress.Web.ASPxGridView.ASPxGridView
 
     '''<summary>
     '''General control.

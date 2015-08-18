@@ -6,7 +6,71 @@ BonzenDLMS
 </name>
 </assembly>
 <members>
-<member name="M:Bonzen_DLMS.LinqModule.GetProperty``1(``0,System.String)">
+<member name="F:Bonzen_DLMS.ProposalUpload.lbl_PNewUpload">
+	<summary>
+lbl_PNewUpload control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Bonzen_DLMS.ProposalUpload.lbl_PNo">
+	<summary>
+lbl_PNo control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Bonzen_DLMS.ProposalUpload.Updatepanel1">
+	<summary>
+Updatepanel1 control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Bonzen_DLMS.ProposalUpload.btnUpdate">
+	<summary>
+btnUpdate control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Bonzen_DLMS.ProposalUpload.ulc_ProposalFile">
+	<summary>
+ulc_ProposalFile control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Bonzen_DLMS.ProposalUpload.lbl_ProposalNumber">
+	<summary>
+lbl_ProposalNumber control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Bonzen_DLMS.ProposalUpload.lbl_PCompanyName">
+	<summary>
+lbl_PCompanyName control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Bonzen_DLMS.ProposalUpload.gv_PFile">
+	<summary>
+gv_PFile control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="M:Bonzen_DLMS.LinqModule.GetProperty``1(``0,System.String)">
 	<summary>
  ใช้ reflection เอาค่าของ property ตามชื่อที่กำหนด
  </summary>
@@ -75,1430 +139,6 @@ BonzenDLMS
 	<param name="value">ค่าที่จะเทียบ</param>
 	<returns></returns>
 	<remarks></remarks>
-</member><member name="F:Bonzen_DLMS.ProposalUpload.lbl_PNewUpload">
-	<summary>
-lbl_PNewUpload control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Bonzen_DLMS.ProposalUpload.lbl_PNo">
-	<summary>
-lbl_PNo control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Bonzen_DLMS.ProposalUpload.Updatepanel1">
-	<summary>
-Updatepanel1 control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Bonzen_DLMS.ProposalUpload.btnUpdate">
-	<summary>
-btnUpdate control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Bonzen_DLMS.ProposalUpload.ulc_ProposalFile">
-	<summary>
-ulc_ProposalFile control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Bonzen_DLMS.ProposalUpload.lbl_ProposalNumber">
-	<summary>
-lbl_ProposalNumber control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Bonzen_DLMS.ProposalUpload.lbl_PCompanyName">
-	<summary>
-lbl_PCompanyName control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Bonzen_DLMS.ProposalUpload.gv_PFile">
-	<summary>
-gv_PFile control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="P:Bonzen_DLMS.My.MyWebExtension.Application">
-	<summary>
- Returns information about the current application.
- </summary>
-</member><member name="P:Bonzen_DLMS.My.MyWebExtension.Computer">
-	<summary>
- Returns information about the host computer.
- </summary>
-</member><member name="P:Bonzen_DLMS.My.MyWebExtension.User">
-	<summary>
- Returns information for the current Web user.
- </summary>
-</member><member name="P:Bonzen_DLMS.My.MyWebExtension.Request">
-	<summary>
- Returns Request object.
- </summary>
-</member><member name="P:Bonzen_DLMS.My.MyWebExtension.Response">
-	<summary>
- Returns Response object.
- </summary>
-</member><member name="P:Bonzen_DLMS.My.MyWebExtension.Log">
-	<summary>
- Returns the Asp log object.
- </summary>
-</member><member name="P:Bonzen_DLMS.My.MyWebExtension.WebServices">
-	<summary>
- Provides access to WebServices added to this project.
- </summary>
-</member><member name="T:Bonzen_DLMS.My.MyWebExtension">
-	<summary>
- Module used to define the properties that are available in the My Namespace for Web projects.
- </summary>
-	<remarks></remarks>
-</member><member name="F:Bonzen_DLMS.Report.ReportViewer1">
-	<summary>
-ReportViewer1 control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Bonzen_DLMS.Report.sds_report">
-	<summary>
-sds_report control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Bonzen_DLMS.Register.RegisterUser">
-	<summary>
-RegisterUser control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Bonzen_DLMS.Register.RegisterUserWizardStep">
-	<summary>
-RegisterUserWizardStep control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Bonzen_DLMS.Login.form1">
-	<summary>
-form1 control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Bonzen_DLMS.Login.div_bg">
-	<summary>
-div_bg control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Bonzen_DLMS.Login.Login">
-	<summary>
-Login control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Bonzen_DLMS.SearchDocument.AddNewDocument">
-	<summary>
-AddNewDocument control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Bonzen_DLMS.SearchDocument.gv_quotationProposal">
-	<summary>
-gv_quotationProposal control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Bonzen_DLMS.SearchDocument.Quo_Prop">
-	<summary>
-Quo_Prop control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Bonzen_DLMS.SearchDocument.gv_general">
-	<summary>
-gv_general control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Bonzen_DLMS.SearchDocument.General">
-	<summary>
-General control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Bonzen_DLMS.ManageCompany.lbl_Company">
-	<summary>
-lbl_Company control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Bonzen_DLMS.ManageCompany.gv_Company">
-	<summary>
-gv_Company control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Bonzen_DLMS.ManageCompany.sds_salesApp">
-	<summary>
-sds_salesApp control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Bonzen_DLMS.Privilege.UpdatePanel1">
-	<summary>
-UpdatePanel1 control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Bonzen_DLMS.Privilege.lv_UserGroup">
-	<summary>
-lv_UserGroup control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Bonzen_DLMS.Privilege.lds_UserGroup">
-	<summary>
-lds_UserGroup control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Bonzen_DLMS.Privilege.btn_UserGroupUp">
-	<summary>
-btn_UserGroupUp control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Bonzen_DLMS.Privilege.btn_UserGroupDown">
-	<summary>
-btn_UserGroupDown control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Bonzen_DLMS.Privilege.lbl_Error">
-	<summary>
-lbl_Error control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Bonzen_DLMS.Privilege.pnl_Priv">
-	<summary>
-pnl_Priv control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Bonzen_DLMS.Privilege.lbl_Privilege">
-	<summary>
-lbl_Privilege control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Bonzen_DLMS.Privilege.chk_AllGroupRole">
-	<summary>
-chk_AllGroupRole control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Bonzen_DLMS.Privilege.ckl_GroupRole">
-	<summary>
-ckl_GroupRole control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Bonzen_DLMS.Privilege.ChangeRoleButton">
-	<summary>
-ChangeRoleButton control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Bonzen_DLMS.Privilege.lds_UserGroupFormView">
-	<summary>
-lds_UserGroupFormView control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Bonzen_DLMS.DownloadFile.form1">
-	<summary>
-form1 control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Bonzen_DLMS.AllDocument.ASPxRoundPanel2">
-	<summary>
-ASPxRoundPanel2 control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Bonzen_DLMS.AllDocument.cmb_searchYear">
-	<summary>
-cmb_searchYear control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Bonzen_DLMS.AllDocument.Quo_Year">
-	<summary>
-Quo_Year control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Bonzen_DLMS.AllDocument.cmb_searchQuotation">
-	<summary>
-cmb_searchQuotation control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Bonzen_DLMS.AllDocument.gv_quotationProposal">
-	<summary>
-gv_quotationProposal control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Bonzen_DLMS.AllDocument.Quo_Prop">
-	<summary>
-Quo_Prop control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Bonzen_DLMS.AllDocument.ASPxRoundPanel1">
-	<summary>
-ASPxRoundPanel1 control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Bonzen_DLMS.AllDocument.cmb_searchGeneral">
-	<summary>
-cmb_searchGeneral control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Bonzen_DLMS.AllDocument.gv_general">
-	<summary>
-gv_general control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Bonzen_DLMS.AllDocument.General">
-	<summary>
-General control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Bonzen_DLMS.GeneralUpload.lbl_GNewUpload">
-	<summary>
-lbl_GNewUpload control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Bonzen_DLMS.GeneralUpload.lbl_GNo">
-	<summary>
-lbl_GNo control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Bonzen_DLMS.GeneralUpload.Updatepanel1">
-	<summary>
-Updatepanel1 control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Bonzen_DLMS.GeneralUpload.btnUpdate">
-	<summary>
-btnUpdate control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Bonzen_DLMS.GeneralUpload.ulc_GeneralFile">
-	<summary>
-ulc_GeneralFile control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Bonzen_DLMS.GeneralUpload.lbl_GeneralNumber">
-	<summary>
-lbl_GeneralNumber control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Bonzen_DLMS.GeneralUpload.lbl_GCompanyName">
-	<summary>
-lbl_GCompanyName control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Bonzen_DLMS.GeneralUpload.gv_GFile">
-	<summary>
-gv_GFile control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Bonzen_DLMS.About.ASPxUploadControl1">
-	<summary>
-ASPxUploadControl1 control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Bonzen_DLMS.Site.HeadContent">
-	<summary>
-HeadContent control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Bonzen_DLMS.Site.ScriptManager1">
-	<summary>
-ScriptManager1 control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Bonzen_DLMS.Site.ASPxMenu1">
-	<summary>
-ASPxMenu1 control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Bonzen_DLMS.Site.lbl_loginname">
-	<summary>
-lbl_loginname control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Bonzen_DLMS.Site.imb_logout">
-	<summary>
-imb_logout control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Bonzen_DLMS.Site.MainContent">
-	<summary>
-MainContent control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Bonzen_DLMS.ChangePassword.ChangeUserPassword">
-	<summary>
-ChangeUserPassword control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Bonzen_DLMS.Bonzen_DLMS.ManageUser.UpdatePanel1">
-	<summary>
-UpdatePanel1 control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Bonzen_DLMS.Bonzen_DLMS.ManageUser.lbl_UserGroup">
-	<summary>
-lbl_UserGroup control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Bonzen_DLMS.Bonzen_DLMS.ManageUser.ddl_UserGroup">
-	<summary>
-ddl_UserGroup control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Bonzen_DLMS.Bonzen_DLMS.ManageUser.lv_User">
-	<summary>
-lv_User control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Bonzen_DLMS.Bonzen_DLMS.ManageUser.sds_User">
-	<summary>
-sds_User control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Bonzen_DLMS.Bonzen_DLMS.ManageUser.Pnl_TopUser">
-	<summary>
-Pnl_TopUser control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Bonzen_DLMS.Bonzen_DLMS.ManageUser.chk_Active">
-	<summary>
-chk_Active control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Bonzen_DLMS.Bonzen_DLMS.ManageUser.lbl_UserName">
-	<summary>
-lbl_UserName control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Bonzen_DLMS.Bonzen_DLMS.ManageUser.lbl_FullName">
-	<summary>
-lbl_FullName control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Bonzen_DLMS.Bonzen_DLMS.ManageUser.div_ChooseUserGroup">
-	<summary>
-div_ChooseUserGroup control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Bonzen_DLMS.Bonzen_DLMS.ManageUser.lbl_ChooseUserGroup">
-	<summary>
-lbl_ChooseUserGroup control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Bonzen_DLMS.Bonzen_DLMS.ManageUser.txt_UserName">
-	<summary>
-txt_UserName control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Bonzen_DLMS.Bonzen_DLMS.ManageUser.txt_FullName">
-	<summary>
-txt_FullName control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Bonzen_DLMS.Bonzen_DLMS.ManageUser.div_DdlGroupUser">
-	<summary>
-div_DdlGroupUser control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Bonzen_DLMS.Bonzen_DLMS.ManageUser.ddl_GroupUser">
-	<summary>
-ddl_GroupUser control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Bonzen_DLMS.Bonzen_DLMS.ManageUser.dv_BTNUpdateAndInsert">
-	<summary>
-dv_BTNUpdateAndInsert control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Bonzen_DLMS.Bonzen_DLMS.ManageUser.btn_Update">
-	<summary>
-btn_Update control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Bonzen_DLMS.Bonzen_DLMS.ManageUser.btn_Insert">
-	<summary>
-btn_Insert control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Bonzen_DLMS.Bonzen_DLMS.ManageUser.Pnl_MiddleUser">
-	<summary>
-Pnl_MiddleUser control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Bonzen_DLMS.Bonzen_DLMS.ManageUser.lbl_Password">
-	<summary>
-lbl_Password control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Bonzen_DLMS.Bonzen_DLMS.ManageUser.lbl_ConfirmPassword">
-	<summary>
-lbl_ConfirmPassword control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Bonzen_DLMS.Bonzen_DLMS.ManageUser.txt_Password">
-	<summary>
-txt_Password control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Bonzen_DLMS.Bonzen_DLMS.ManageUser.txt_ConfirmPassword">
-	<summary>
-txt_ConfirmPassword control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Bonzen_DLMS.Bonzen_DLMS.ManageUser.btn_ChangePassWord">
-	<summary>
-btn_ChangePassWord control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Bonzen_DLMS.Bonzen_DLMS.ManageUser.Pnl_CreateAndDeleted">
-	<summary>
-Pnl_CreateAndDeleted control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Bonzen_DLMS.Bonzen_DLMS.ManageUser.CreateMemberButton">
-	<summary>
-CreateMemberButton control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Bonzen_DLMS.Bonzen_DLMS.ManageUser.DeleteMemberButton">
-	<summary>
-DeleteMemberButton control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Bonzen_DLMS.Bonzen_DLMS.ManageUser.lds_User">
-	<summary>
-lds_User control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Bonzen_DLMS.Bonzen_DLMS.ManageUser.lbl_Error">
-	<summary>
-lbl_Error control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="P:Bonzen_DLMS.ConstEnumModule.PrivilegeInfo.Name">
-	<summary>
- ชื่อสิทธิ
- </summary>
-	<value></value>
-	<returns></returns>
-	<remarks></remarks>
-</member><member name="P:Bonzen_DLMS.ConstEnumModule.PrivilegeInfo.Text">
-	<summary>
- ชื่อของสิทธิที่สามารถอ่านเข้าใจได้
- </summary>
-	<value></value>
-	<returns></returns>
-	<remarks></remarks>
-</member><member name="M:Bonzen_DLMS.ConstEnumModule.CreatePrivilege">
-	<summary>
- สร้างข้อมูลสำหรับรายการ Privilege ในระบบ
- </summary>
-	<remarks></remarks>
-</member><member name="F:Bonzen_DLMS.DisplayOrderManager`1.DisplayOrderColumnName">
-	<summary>
- ชื่อคอลัมน์ที่เก็บเลขลำดับในการแสดงผลไว้ default คือ "display_order"
- </summary>
-	<remarks></remarks>
-</member><member name="M:Bonzen_DLMS.DisplayOrderManager`1.#ctor(System.Linq.IQueryable{`0})">
-	<summary>
-	</summary>
-	<param name="qRowSet">Query ซึ่งระบุกลุ่มของ row ที่จะถูกจัดการลำดับ</param>
-	<remarks></remarks>
-</member><member name="M:Bonzen_DLMS.DisplayOrderManager`1.MoveUp(`0)">
-	<summary>
- สั่งย้ายลำดับการแสดงผลของ row ที่กำหนดขึ้น
- </summary>
-	<param name="row"></param>
-	<remarks></remarks>
-</member><member name="M:Bonzen_DLMS.DisplayOrderManager`1.MoveUpByKey(System.Collections.IDictionary)">
-	<summary>
- สั่งย้ายลำดับการแสดงผลของ row ที่กำหนดขึ้น (ใช้ key ในการระบุ row)
- </summary>
-	<param name="key"></param>
-	<remarks></remarks>
-</member><member name="M:Bonzen_DLMS.DisplayOrderManager`1.MoveDown(`0)">
-	<summary>
- สั่งย้ายลำดับการแสดงผลของ row ที่กำหนดลง
- </summary>
-	<param name="row"></param>
-	<remarks></remarks>
-</member><member name="M:Bonzen_DLMS.DisplayOrderManager`1.MoveDownByKey(System.Collections.IDictionary)">
-	<summary>
- สั่งย้ายลำดับการแสดงผลของ row ที่กำหนดลง (ใช้ key ในการระบุ row)
- </summary>
-	<param name="key"></param>
-	<remarks></remarks>
-</member><member name="M:Bonzen_DLMS.DisplayOrderManager`1.ReOrder">
-	<summary>
- สั่งให้มีการ run เลขในคอลัมน์ display order ใหม่
- </summary>
-	<remarks></remarks>
-</member><member name="T:Bonzen_DLMS.DisplayOrderManager`1">
-	<summary>
- คลาสสำหรับช่วยจัดการเกี่ยวกับการเรียงลำดับข้อมูล (การ set ค่าในคอลัมน์ display order)
- </summary>
-	<remarks></remarks>
-</member><member name="F:Bonzen_DLMS.CreateQuotation.cbp_company">
-	<summary>
-cbp_company control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Bonzen_DLMS.CreateQuotation.pnc_Header">
-	<summary>
-pnc_Header control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Bonzen_DLMS.CreateQuotation.ASPxLabel2">
-	<summary>
-ASPxLabel2 control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Bonzen_DLMS.CreateQuotation.cmb_company">
-	<summary>
-cmb_company control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Bonzen_DLMS.CreateQuotation.lds_Company">
-	<summary>
-lds_Company control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Bonzen_DLMS.CreateQuotation.ASPxLabel6">
-	<summary>
-ASPxLabel6 control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Bonzen_DLMS.CreateQuotation.txt_quotation">
-	<summary>
-txt_quotation control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Bonzen_DLMS.CreateQuotation.ASPxLabel1">
-	<summary>
-ASPxLabel1 control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Bonzen_DLMS.CreateQuotation.cmb_attn">
-	<summary>
-cmb_attn control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Bonzen_DLMS.CreateQuotation.lds_Attn">
-	<summary>
-lds_Attn control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Bonzen_DLMS.CreateQuotation.ASPxLabel7">
-	<summary>
-ASPxLabel7 control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Bonzen_DLMS.CreateQuotation.dte_quotationDate">
-	<summary>
-dte_quotationDate control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Bonzen_DLMS.CreateQuotation.ASPxLabel3">
-	<summary>
-ASPxLabel3 control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Bonzen_DLMS.CreateQuotation.txt_tel">
-	<summary>
-txt_tel control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Bonzen_DLMS.CreateQuotation.ASPxLabel8">
-	<summary>
-ASPxLabel8 control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Bonzen_DLMS.CreateQuotation.txt_from">
-	<summary>
-txt_from control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Bonzen_DLMS.CreateQuotation.ASPxLabel4">
-	<summary>
-ASPxLabel4 control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Bonzen_DLMS.CreateQuotation.txt_fax">
-	<summary>
-txt_fax control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Bonzen_DLMS.CreateQuotation.ASPxLabel9">
-	<summary>
-ASPxLabel9 control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Bonzen_DLMS.CreateQuotation.txt_bonzentel">
-	<summary>
-txt_bonzentel control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Bonzen_DLMS.CreateQuotation.ASPxLabel5">
-	<summary>
-ASPxLabel5 control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Bonzen_DLMS.CreateQuotation.txt_email">
-	<summary>
-txt_email control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Bonzen_DLMS.CreateQuotation.ASPxLabel10">
-	<summary>
-ASPxLabel10 control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Bonzen_DLMS.CreateQuotation.txt_bonzenemail">
-	<summary>
-txt_bonzenemail control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Bonzen_DLMS.CreateQuotation.cmb_QuotationDescription">
-	<summary>
-cmb_QuotationDescription control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Bonzen_DLMS.CreateQuotation.LinqDataSource_QuotationDescription">
-	<summary>
-LinqDataSource_QuotationDescription control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Bonzen_DLMS.CreateQuotation.lb_QuotationDescriptionSub">
-	<summary>
-lb_QuotationDescriptionSub control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Bonzen_DLMS.CreateQuotation.LinqDataSource_QuotationDescriptionSub">
-	<summary>
-LinqDataSource_QuotationDescriptionSub control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Bonzen_DLMS.CreateQuotation.txt_selectedsub">
-	<summary>
-txt_selectedsub control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Bonzen_DLMS.CreateQuotation.btn_Add">
-	<summary>
-btn_Add control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Bonzen_DLMS.CreateQuotation.gv_addmodule">
-	<summary>
-gv_addmodule control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Bonzen_DLMS.CreateQuotation.btn_Delete">
-	<summary>
-btn_Delete control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Bonzen_DLMS.CreateQuotation.lbl_remark">
-	<summary>
-lbl_remark control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Bonzen_DLMS.CreateQuotation.memo_remark">
-	<summary>
-memo_remark control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Bonzen_DLMS.CreateQuotation.lbl_condition">
-	<summary>
-lbl_condition control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Bonzen_DLMS.CreateQuotation.memo_condition">
-	<summary>
-memo_condition control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Bonzen_DLMS.CreateQuotation.cbp_subData">
-	<summary>
-cbp_subData control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Bonzen_DLMS.CreateQuotation.pnc_subData">
-	<summary>
-pnc_subData control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Bonzen_DLMS.CreateQuotation.txt_subData">
-	<summary>
-txt_subData control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Bonzen_DLMS.CreateQuotation.btn_AddQuotation">
-	<summary>
-btn_AddQuotation control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Bonzen_DLMS.CreateQuotation.btn_SaveQuotation">
-	<summary>
-btn_SaveQuotation control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Bonzen_DLMS.CreateQuotation.btn_PrintQuotation">
-	<summary>
-btn_PrintQuotation control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Bonzen_DLMS.ModuleQuotation.gv_QuotationDescription">
-	<summary>
-gv_QuotationDescription control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Bonzen_DLMS.ModuleQuotation.DataSource_QuotationDescription">
-	<summary>
-DataSource_QuotationDescription control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Bonzen_DLMS.User.UpdatePanel1">
-	<summary>
-UpdatePanel1 control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Bonzen_DLMS.User.lbl_UserGroup">
-	<summary>
-lbl_UserGroup control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Bonzen_DLMS.User.ddl_UserGroup">
-	<summary>
-ddl_UserGroup control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Bonzen_DLMS.User.lv_User">
-	<summary>
-lv_User control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Bonzen_DLMS.User.sds_User">
-	<summary>
-sds_User control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Bonzen_DLMS.User.Pnl_TopUser">
-	<summary>
-Pnl_TopUser control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Bonzen_DLMS.User.chk_Active">
-	<summary>
-chk_Active control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Bonzen_DLMS.User.lbl_UserName">
-	<summary>
-lbl_UserName control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Bonzen_DLMS.User.lbl_FullName">
-	<summary>
-lbl_FullName control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Bonzen_DLMS.User.div_ChooseUserGroup">
-	<summary>
-div_ChooseUserGroup control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Bonzen_DLMS.User.lbl_ChooseUserGroup">
-	<summary>
-lbl_ChooseUserGroup control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Bonzen_DLMS.User.txt_UserName">
-	<summary>
-txt_UserName control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Bonzen_DLMS.User.txt_FullName">
-	<summary>
-txt_FullName control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Bonzen_DLMS.User.div_DdlGroupUser">
-	<summary>
-div_DdlGroupUser control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Bonzen_DLMS.User.ddl_GroupUser">
-	<summary>
-ddl_GroupUser control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Bonzen_DLMS.User.dv_BTNUpdateAndInsert">
-	<summary>
-dv_BTNUpdateAndInsert control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Bonzen_DLMS.User.btn_Update">
-	<summary>
-btn_Update control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Bonzen_DLMS.User.btn_Insert">
-	<summary>
-btn_Insert control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Bonzen_DLMS.User.Pnl_MiddleUser">
-	<summary>
-Pnl_MiddleUser control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Bonzen_DLMS.User.lbl_Password">
-	<summary>
-lbl_Password control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Bonzen_DLMS.User.lbl_ConfirmPassword">
-	<summary>
-lbl_ConfirmPassword control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Bonzen_DLMS.User.txt_Password">
-	<summary>
-txt_Password control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Bonzen_DLMS.User.txt_ConfirmPassword">
-	<summary>
-txt_ConfirmPassword control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Bonzen_DLMS.User.btn_ChangePassWord">
-	<summary>
-btn_ChangePassWord control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Bonzen_DLMS.User.Pnl_CreateAndDeleted">
-	<summary>
-Pnl_CreateAndDeleted control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Bonzen_DLMS.User.CreateMemberButton">
-	<summary>
-CreateMemberButton control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Bonzen_DLMS.User.DeleteMemberButton">
-	<summary>
-DeleteMemberButton control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Bonzen_DLMS.User.lds_User">
-	<summary>
-lds_User control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Bonzen_DLMS.User.lbl_Error">
-	<summary>
-lbl_Error control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="T:Bonzen_DLMS.ReportDataSet.QuotationDataSetItemDataTable">
-	<summary>
-Represents the strongly named DataTable class.
-</summary>
-</member><member name="T:Bonzen_DLMS.ReportDataSet.QuotationDataSetItemRow">
-	<summary>
-Represents strongly named DataRow class.
-</summary>
-</member><member name="T:Bonzen_DLMS.ReportDataSet.QuotationDataSetItemRowChangeEvent">
-	<summary>
-Row event argument class
-</summary>
-</member><member name="T:Bonzen_DLMS.ReportDataSet">
-	<summary>
-Represents a strongly typed in-memory cache of data.
-</summary>
 </member><member name="F:Bonzen_DLMS.AddNewDocument.btn_AddDocument">
 	<summary>
 btn_AddDocument control.
@@ -1846,6 +486,1366 @@ To modify move field declaration from designer file to code-behind file.
 </member><member name="F:Bonzen_DLMS.AddNewDocument.btn_GCencel">
 	<summary>
 btn_GCencel control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Bonzen_DLMS.SearchDocument.AddNewDocument">
+	<summary>
+AddNewDocument control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Bonzen_DLMS.SearchDocument.gv_quotationProposal">
+	<summary>
+gv_quotationProposal control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Bonzen_DLMS.SearchDocument.Quo_Prop">
+	<summary>
+Quo_Prop control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Bonzen_DLMS.SearchDocument.gv_general">
+	<summary>
+gv_general control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Bonzen_DLMS.SearchDocument.General">
+	<summary>
+General control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Bonzen_DLMS.GeneralUpload.lbl_GNewUpload">
+	<summary>
+lbl_GNewUpload control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Bonzen_DLMS.GeneralUpload.lbl_GNo">
+	<summary>
+lbl_GNo control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Bonzen_DLMS.GeneralUpload.Updatepanel1">
+	<summary>
+Updatepanel1 control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Bonzen_DLMS.GeneralUpload.btnUpdate">
+	<summary>
+btnUpdate control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Bonzen_DLMS.GeneralUpload.ulc_GeneralFile">
+	<summary>
+ulc_GeneralFile control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Bonzen_DLMS.GeneralUpload.lbl_GeneralNumber">
+	<summary>
+lbl_GeneralNumber control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Bonzen_DLMS.GeneralUpload.lbl_GCompanyName">
+	<summary>
+lbl_GCompanyName control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Bonzen_DLMS.GeneralUpload.gv_GFile">
+	<summary>
+gv_GFile control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="T:Bonzen_DLMS.ReportDataSet.QuotationDataSetItemDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:Bonzen_DLMS.ReportDataSet.QuotationDataSetItemRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:Bonzen_DLMS.ReportDataSet.QuotationDataSetItemRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:Bonzen_DLMS.ReportDataSet">
+	<summary>
+Represents a strongly typed in-memory cache of data.
+</summary>
+</member><member name="F:Bonzen_DLMS.ChangePassword.ChangeUserPassword">
+	<summary>
+ChangeUserPassword control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Bonzen_DLMS.Login.form1">
+	<summary>
+form1 control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Bonzen_DLMS.Login.div_bg">
+	<summary>
+div_bg control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Bonzen_DLMS.Login.Login">
+	<summary>
+Login control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="P:Bonzen_DLMS.ConstEnumModule.PrivilegeInfo.Name">
+	<summary>
+ ชื่อสิทธิ
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:Bonzen_DLMS.ConstEnumModule.PrivilegeInfo.Text">
+	<summary>
+ ชื่อของสิทธิที่สามารถอ่านเข้าใจได้
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:Bonzen_DLMS.ConstEnumModule.CreatePrivilege">
+	<summary>
+ สร้างข้อมูลสำหรับรายการ Privilege ในระบบ
+ </summary>
+	<remarks></remarks>
+</member><member name="F:Bonzen_DLMS.DisplayOrderManager`1.DisplayOrderColumnName">
+	<summary>
+ ชื่อคอลัมน์ที่เก็บเลขลำดับในการแสดงผลไว้ default คือ "display_order"
+ </summary>
+	<remarks></remarks>
+</member><member name="M:Bonzen_DLMS.DisplayOrderManager`1.#ctor(System.Linq.IQueryable{`0})">
+	<summary>
+	</summary>
+	<param name="qRowSet">Query ซึ่งระบุกลุ่มของ row ที่จะถูกจัดการลำดับ</param>
+	<remarks></remarks>
+</member><member name="M:Bonzen_DLMS.DisplayOrderManager`1.MoveUp(`0)">
+	<summary>
+ สั่งย้ายลำดับการแสดงผลของ row ที่กำหนดขึ้น
+ </summary>
+	<param name="row"></param>
+	<remarks></remarks>
+</member><member name="M:Bonzen_DLMS.DisplayOrderManager`1.MoveUpByKey(System.Collections.IDictionary)">
+	<summary>
+ สั่งย้ายลำดับการแสดงผลของ row ที่กำหนดขึ้น (ใช้ key ในการระบุ row)
+ </summary>
+	<param name="key"></param>
+	<remarks></remarks>
+</member><member name="M:Bonzen_DLMS.DisplayOrderManager`1.MoveDown(`0)">
+	<summary>
+ สั่งย้ายลำดับการแสดงผลของ row ที่กำหนดลง
+ </summary>
+	<param name="row"></param>
+	<remarks></remarks>
+</member><member name="M:Bonzen_DLMS.DisplayOrderManager`1.MoveDownByKey(System.Collections.IDictionary)">
+	<summary>
+ สั่งย้ายลำดับการแสดงผลของ row ที่กำหนดลง (ใช้ key ในการระบุ row)
+ </summary>
+	<param name="key"></param>
+	<remarks></remarks>
+</member><member name="M:Bonzen_DLMS.DisplayOrderManager`1.ReOrder">
+	<summary>
+ สั่งให้มีการ run เลขในคอลัมน์ display order ใหม่
+ </summary>
+	<remarks></remarks>
+</member><member name="T:Bonzen_DLMS.DisplayOrderManager`1">
+	<summary>
+ คลาสสำหรับช่วยจัดการเกี่ยวกับการเรียงลำดับข้อมูล (การ set ค่าในคอลัมน์ display order)
+ </summary>
+	<remarks></remarks>
+</member><member name="F:Bonzen_DLMS.Report.ReportViewer1">
+	<summary>
+ReportViewer1 control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Bonzen_DLMS.Report.sds_report">
+	<summary>
+sds_report control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Bonzen_DLMS.Site.HeadContent">
+	<summary>
+HeadContent control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Bonzen_DLMS.Site.ScriptManager1">
+	<summary>
+ScriptManager1 control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Bonzen_DLMS.Site.ASPxMenu1">
+	<summary>
+ASPxMenu1 control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Bonzen_DLMS.Site.lbl_loginname">
+	<summary>
+lbl_loginname control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Bonzen_DLMS.Site.imb_logout">
+	<summary>
+imb_logout control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Bonzen_DLMS.Site.MainContent">
+	<summary>
+MainContent control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Bonzen_DLMS.CreateQuotation.cbp_company">
+	<summary>
+cbp_company control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Bonzen_DLMS.CreateQuotation.pnc_Header">
+	<summary>
+pnc_Header control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Bonzen_DLMS.CreateQuotation.ASPxLabel2">
+	<summary>
+ASPxLabel2 control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Bonzen_DLMS.CreateQuotation.cmb_company">
+	<summary>
+cmb_company control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Bonzen_DLMS.CreateQuotation.lds_Company">
+	<summary>
+lds_Company control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Bonzen_DLMS.CreateQuotation.ASPxLabel6">
+	<summary>
+ASPxLabel6 control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Bonzen_DLMS.CreateQuotation.txt_quotation">
+	<summary>
+txt_quotation control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Bonzen_DLMS.CreateQuotation.ASPxLabel1">
+	<summary>
+ASPxLabel1 control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Bonzen_DLMS.CreateQuotation.cmb_attn">
+	<summary>
+cmb_attn control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Bonzen_DLMS.CreateQuotation.lds_Attn">
+	<summary>
+lds_Attn control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Bonzen_DLMS.CreateQuotation.ASPxLabel7">
+	<summary>
+ASPxLabel7 control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Bonzen_DLMS.CreateQuotation.dte_quotationDate">
+	<summary>
+dte_quotationDate control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Bonzen_DLMS.CreateQuotation.ASPxLabel3">
+	<summary>
+ASPxLabel3 control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Bonzen_DLMS.CreateQuotation.txt_tel">
+	<summary>
+txt_tel control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Bonzen_DLMS.CreateQuotation.ASPxLabel8">
+	<summary>
+ASPxLabel8 control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Bonzen_DLMS.CreateQuotation.txt_from">
+	<summary>
+txt_from control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Bonzen_DLMS.CreateQuotation.ASPxLabel4">
+	<summary>
+ASPxLabel4 control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Bonzen_DLMS.CreateQuotation.txt_fax">
+	<summary>
+txt_fax control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Bonzen_DLMS.CreateQuotation.ASPxLabel9">
+	<summary>
+ASPxLabel9 control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Bonzen_DLMS.CreateQuotation.txt_bonzentel">
+	<summary>
+txt_bonzentel control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Bonzen_DLMS.CreateQuotation.ASPxLabel5">
+	<summary>
+ASPxLabel5 control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Bonzen_DLMS.CreateQuotation.txt_email">
+	<summary>
+txt_email control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Bonzen_DLMS.CreateQuotation.ASPxLabel10">
+	<summary>
+ASPxLabel10 control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Bonzen_DLMS.CreateQuotation.txt_bonzenemail">
+	<summary>
+txt_bonzenemail control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Bonzen_DLMS.CreateQuotation.cmb_QuotationDescription">
+	<summary>
+cmb_QuotationDescription control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Bonzen_DLMS.CreateQuotation.LinqDataSource_QuotationDescription">
+	<summary>
+LinqDataSource_QuotationDescription control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Bonzen_DLMS.CreateQuotation.lb_QuotationDescriptionSub">
+	<summary>
+lb_QuotationDescriptionSub control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Bonzen_DLMS.CreateQuotation.LinqDataSource_QuotationDescriptionSub">
+	<summary>
+LinqDataSource_QuotationDescriptionSub control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Bonzen_DLMS.CreateQuotation.txt_selectedsub">
+	<summary>
+txt_selectedsub control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Bonzen_DLMS.CreateQuotation.btn_Add">
+	<summary>
+btn_Add control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Bonzen_DLMS.CreateQuotation.gv_addmodule">
+	<summary>
+gv_addmodule control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Bonzen_DLMS.CreateQuotation.btn_Delete">
+	<summary>
+btn_Delete control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Bonzen_DLMS.CreateQuotation.lbl_remark">
+	<summary>
+lbl_remark control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Bonzen_DLMS.CreateQuotation.memo_remark">
+	<summary>
+memo_remark control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Bonzen_DLMS.CreateQuotation.lbl_condition">
+	<summary>
+lbl_condition control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Bonzen_DLMS.CreateQuotation.memo_condition">
+	<summary>
+memo_condition control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Bonzen_DLMS.CreateQuotation.cbp_subData">
+	<summary>
+cbp_subData control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Bonzen_DLMS.CreateQuotation.pnc_subData">
+	<summary>
+pnc_subData control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Bonzen_DLMS.CreateQuotation.txt_subData">
+	<summary>
+txt_subData control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Bonzen_DLMS.CreateQuotation.btn_AddQuotation">
+	<summary>
+btn_AddQuotation control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Bonzen_DLMS.CreateQuotation.btn_SaveQuotation">
+	<summary>
+btn_SaveQuotation control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Bonzen_DLMS.CreateQuotation.btn_PrintQuotation">
+	<summary>
+btn_PrintQuotation control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Bonzen_DLMS.ManageCompany.lbl_Company">
+	<summary>
+lbl_Company control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Bonzen_DLMS.ManageCompany.gv_Company">
+	<summary>
+gv_Company control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Bonzen_DLMS.ManageCompany.sds_salesApp">
+	<summary>
+sds_salesApp control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Bonzen_DLMS.AllDocument.ASPxRoundPanel2">
+	<summary>
+ASPxRoundPanel2 control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Bonzen_DLMS.AllDocument.cmb_searchYearQ">
+	<summary>
+cmb_searchYearQ control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Bonzen_DLMS.AllDocument.Quo_Year">
+	<summary>
+Quo_Year control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Bonzen_DLMS.AllDocument.gv_quotationProposalAll">
+	<summary>
+gv_quotationProposalAll control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Bonzen_DLMS.AllDocument.Quo_Prop">
+	<summary>
+Quo_Prop control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Bonzen_DLMS.AllDocument.ASPxRoundPanel1">
+	<summary>
+ASPxRoundPanel1 control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Bonzen_DLMS.AllDocument.cmb_searchYearG">
+	<summary>
+cmb_searchYearG control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Bonzen_DLMS.AllDocument.Gen_Year">
+	<summary>
+Gen_Year control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Bonzen_DLMS.AllDocument.gv_generalAll">
+	<summary>
+gv_generalAll control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Bonzen_DLMS.AllDocument.General">
+	<summary>
+General control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Bonzen_DLMS.DownloadFile.form1">
+	<summary>
+form1 control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Bonzen_DLMS.User.UpdatePanel1">
+	<summary>
+UpdatePanel1 control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Bonzen_DLMS.User.lbl_UserGroup">
+	<summary>
+lbl_UserGroup control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Bonzen_DLMS.User.ddl_UserGroup">
+	<summary>
+ddl_UserGroup control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Bonzen_DLMS.User.lv_User">
+	<summary>
+lv_User control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Bonzen_DLMS.User.sds_User">
+	<summary>
+sds_User control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Bonzen_DLMS.User.Pnl_TopUser">
+	<summary>
+Pnl_TopUser control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Bonzen_DLMS.User.chk_Active">
+	<summary>
+chk_Active control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Bonzen_DLMS.User.lbl_UserName">
+	<summary>
+lbl_UserName control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Bonzen_DLMS.User.lbl_FullName">
+	<summary>
+lbl_FullName control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Bonzen_DLMS.User.div_ChooseUserGroup">
+	<summary>
+div_ChooseUserGroup control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Bonzen_DLMS.User.lbl_ChooseUserGroup">
+	<summary>
+lbl_ChooseUserGroup control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Bonzen_DLMS.User.txt_UserName">
+	<summary>
+txt_UserName control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Bonzen_DLMS.User.txt_FullName">
+	<summary>
+txt_FullName control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Bonzen_DLMS.User.div_DdlGroupUser">
+	<summary>
+div_DdlGroupUser control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Bonzen_DLMS.User.ddl_GroupUser">
+	<summary>
+ddl_GroupUser control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Bonzen_DLMS.User.dv_BTNUpdateAndInsert">
+	<summary>
+dv_BTNUpdateAndInsert control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Bonzen_DLMS.User.btn_Update">
+	<summary>
+btn_Update control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Bonzen_DLMS.User.btn_Insert">
+	<summary>
+btn_Insert control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Bonzen_DLMS.User.Pnl_MiddleUser">
+	<summary>
+Pnl_MiddleUser control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Bonzen_DLMS.User.lbl_Password">
+	<summary>
+lbl_Password control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Bonzen_DLMS.User.lbl_ConfirmPassword">
+	<summary>
+lbl_ConfirmPassword control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Bonzen_DLMS.User.txt_Password">
+	<summary>
+txt_Password control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Bonzen_DLMS.User.txt_ConfirmPassword">
+	<summary>
+txt_ConfirmPassword control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Bonzen_DLMS.User.btn_ChangePassWord">
+	<summary>
+btn_ChangePassWord control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Bonzen_DLMS.User.Pnl_CreateAndDeleted">
+	<summary>
+Pnl_CreateAndDeleted control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Bonzen_DLMS.User.CreateMemberButton">
+	<summary>
+CreateMemberButton control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Bonzen_DLMS.User.DeleteMemberButton">
+	<summary>
+DeleteMemberButton control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Bonzen_DLMS.User.lds_User">
+	<summary>
+lds_User control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Bonzen_DLMS.User.lbl_Error">
+	<summary>
+lbl_Error control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Bonzen_DLMS.ModuleQuotation.gv_QuotationDescription">
+	<summary>
+gv_QuotationDescription control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Bonzen_DLMS.ModuleQuotation.DataSource_QuotationDescription">
+	<summary>
+DataSource_QuotationDescription control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="P:Bonzen_DLMS.My.MyWebExtension.Application">
+	<summary>
+ Returns information about the current application.
+ </summary>
+</member><member name="P:Bonzen_DLMS.My.MyWebExtension.Computer">
+	<summary>
+ Returns information about the host computer.
+ </summary>
+</member><member name="P:Bonzen_DLMS.My.MyWebExtension.User">
+	<summary>
+ Returns information for the current Web user.
+ </summary>
+</member><member name="P:Bonzen_DLMS.My.MyWebExtension.Request">
+	<summary>
+ Returns Request object.
+ </summary>
+</member><member name="P:Bonzen_DLMS.My.MyWebExtension.Response">
+	<summary>
+ Returns Response object.
+ </summary>
+</member><member name="P:Bonzen_DLMS.My.MyWebExtension.Log">
+	<summary>
+ Returns the Asp log object.
+ </summary>
+</member><member name="P:Bonzen_DLMS.My.MyWebExtension.WebServices">
+	<summary>
+ Provides access to WebServices added to this project.
+ </summary>
+</member><member name="T:Bonzen_DLMS.My.MyWebExtension">
+	<summary>
+ Module used to define the properties that are available in the My Namespace for Web projects.
+ </summary>
+	<remarks></remarks>
+</member><member name="F:Bonzen_DLMS.Register.RegisterUser">
+	<summary>
+RegisterUser control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Bonzen_DLMS.Register.RegisterUserWizardStep">
+	<summary>
+RegisterUserWizardStep control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Bonzen_DLMS.Bonzen_DLMS.ManageUser.UpdatePanel1">
+	<summary>
+UpdatePanel1 control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Bonzen_DLMS.Bonzen_DLMS.ManageUser.lbl_UserGroup">
+	<summary>
+lbl_UserGroup control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Bonzen_DLMS.Bonzen_DLMS.ManageUser.ddl_UserGroup">
+	<summary>
+ddl_UserGroup control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Bonzen_DLMS.Bonzen_DLMS.ManageUser.lv_User">
+	<summary>
+lv_User control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Bonzen_DLMS.Bonzen_DLMS.ManageUser.sds_User">
+	<summary>
+sds_User control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Bonzen_DLMS.Bonzen_DLMS.ManageUser.Pnl_TopUser">
+	<summary>
+Pnl_TopUser control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Bonzen_DLMS.Bonzen_DLMS.ManageUser.chk_Active">
+	<summary>
+chk_Active control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Bonzen_DLMS.Bonzen_DLMS.ManageUser.lbl_UserName">
+	<summary>
+lbl_UserName control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Bonzen_DLMS.Bonzen_DLMS.ManageUser.lbl_FullName">
+	<summary>
+lbl_FullName control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Bonzen_DLMS.Bonzen_DLMS.ManageUser.div_ChooseUserGroup">
+	<summary>
+div_ChooseUserGroup control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Bonzen_DLMS.Bonzen_DLMS.ManageUser.lbl_ChooseUserGroup">
+	<summary>
+lbl_ChooseUserGroup control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Bonzen_DLMS.Bonzen_DLMS.ManageUser.txt_UserName">
+	<summary>
+txt_UserName control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Bonzen_DLMS.Bonzen_DLMS.ManageUser.txt_FullName">
+	<summary>
+txt_FullName control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Bonzen_DLMS.Bonzen_DLMS.ManageUser.div_DdlGroupUser">
+	<summary>
+div_DdlGroupUser control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Bonzen_DLMS.Bonzen_DLMS.ManageUser.ddl_GroupUser">
+	<summary>
+ddl_GroupUser control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Bonzen_DLMS.Bonzen_DLMS.ManageUser.dv_BTNUpdateAndInsert">
+	<summary>
+dv_BTNUpdateAndInsert control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Bonzen_DLMS.Bonzen_DLMS.ManageUser.btn_Update">
+	<summary>
+btn_Update control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Bonzen_DLMS.Bonzen_DLMS.ManageUser.btn_Insert">
+	<summary>
+btn_Insert control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Bonzen_DLMS.Bonzen_DLMS.ManageUser.Pnl_MiddleUser">
+	<summary>
+Pnl_MiddleUser control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Bonzen_DLMS.Bonzen_DLMS.ManageUser.lbl_Password">
+	<summary>
+lbl_Password control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Bonzen_DLMS.Bonzen_DLMS.ManageUser.lbl_ConfirmPassword">
+	<summary>
+lbl_ConfirmPassword control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Bonzen_DLMS.Bonzen_DLMS.ManageUser.txt_Password">
+	<summary>
+txt_Password control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Bonzen_DLMS.Bonzen_DLMS.ManageUser.txt_ConfirmPassword">
+	<summary>
+txt_ConfirmPassword control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Bonzen_DLMS.Bonzen_DLMS.ManageUser.btn_ChangePassWord">
+	<summary>
+btn_ChangePassWord control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Bonzen_DLMS.Bonzen_DLMS.ManageUser.Pnl_CreateAndDeleted">
+	<summary>
+Pnl_CreateAndDeleted control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Bonzen_DLMS.Bonzen_DLMS.ManageUser.CreateMemberButton">
+	<summary>
+CreateMemberButton control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Bonzen_DLMS.Bonzen_DLMS.ManageUser.DeleteMemberButton">
+	<summary>
+DeleteMemberButton control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Bonzen_DLMS.Bonzen_DLMS.ManageUser.lds_User">
+	<summary>
+lds_User control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Bonzen_DLMS.Bonzen_DLMS.ManageUser.lbl_Error">
+	<summary>
+lbl_Error control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Bonzen_DLMS.About.ASPxUploadControl1">
+	<summary>
+ASPxUploadControl1 control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Bonzen_DLMS.Privilege.UpdatePanel1">
+	<summary>
+UpdatePanel1 control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Bonzen_DLMS.Privilege.lv_UserGroup">
+	<summary>
+lv_UserGroup control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Bonzen_DLMS.Privilege.lds_UserGroup">
+	<summary>
+lds_UserGroup control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Bonzen_DLMS.Privilege.btn_UserGroupUp">
+	<summary>
+btn_UserGroupUp control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Bonzen_DLMS.Privilege.btn_UserGroupDown">
+	<summary>
+btn_UserGroupDown control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Bonzen_DLMS.Privilege.lbl_Error">
+	<summary>
+lbl_Error control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Bonzen_DLMS.Privilege.pnl_Priv">
+	<summary>
+pnl_Priv control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Bonzen_DLMS.Privilege.lbl_Privilege">
+	<summary>
+lbl_Privilege control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Bonzen_DLMS.Privilege.chk_AllGroupRole">
+	<summary>
+chk_AllGroupRole control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Bonzen_DLMS.Privilege.ckl_GroupRole">
+	<summary>
+ckl_GroupRole control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Bonzen_DLMS.Privilege.ChangeRoleButton">
+	<summary>
+ChangeRoleButton control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Bonzen_DLMS.Privilege.lds_UserGroupFormView">
+	<summary>
+lds_UserGroupFormView control.
 </summary>
 	<remarks>
 Auto-generated field.
