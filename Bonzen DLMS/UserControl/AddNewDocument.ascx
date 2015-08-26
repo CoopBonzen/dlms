@@ -195,8 +195,10 @@
                                     <%--<ClientSideEvents Click="function(s, e) { cb_PopupInit.PerformCallback('ClickBtnQ_Ok'); 
                                                                               CIN_pop_quotation.Hide();  
                                                                               }" />--%>
+                                    
                                     <ClientSideEvents Click="function(s, e) { Validation(e); }" />
-                                </dx:ASPxButton>
+                                    
+                                </dx:ASPxButton >
                             </div>
                             <div style="float: left; clear: none; padding-left: 2px;">
                                 <dx:ASPxButton ID="btnQ_Cencel" runat="server" Text="Cancel" AutoPostBack="false">

@@ -70,7 +70,7 @@
                                 <dx:ASPxMenu ID="ASPxMenu1" runat="server" EnableTheming="True" 
                                     RenderMode="Lightweight" Theme="PlasticBlue">
                                     <Items>
-                                        <dx:MenuItem NavigateUrl="~/Document/SearchDocument.aspx" Text="Search Document"/>
+                                        <dx:MenuItem NavigateUrl="~/Document/SearchDocument.aspx" Text="Home"/>
                                         
                                         <dx:MenuItem NavigateUrl="~/Document/AllDocument.aspx" Text="All Document">
                                         </dx:MenuItem>

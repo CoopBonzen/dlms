@@ -48,7 +48,7 @@
                                     </ClientSideEvents>
                                 </dx:ASPxComboBox>
                                 <asp:SqlDataSource ID="Quo_Year" runat="server" ConnectionString="<%$ ConnectionStrings:DLMSConnectionString %>"
-                                    SelectCommand="SELECT distinct(YEAR(QuotationProposal.Q_Date)) as ayear FROM QuotationProposal ORDER BY ayear">
+                                    SelectCommand="SELECT distinct(YEAR(QuotationProposal.Q_Date)) as ayear FROM QuotationProposal ORDER BY ayear DESC">
                                 </asp:SqlDataSource>
                             </td>
                         </tr>
@@ -182,7 +182,7 @@
                                         </ClientSideEvents>
                                     </dx:ASPxComboBox>
                                     <asp:SqlDataSource ID="Gen_Year" runat="server" ConnectionString="<%$ ConnectionStrings:DLMSConnectionString %>"
-                                        SelectCommand="select distinct(YEAR(General.G_Date)) as ayear from General order by ayear">
+                                        SelectCommand="select distinct(YEAR(General.G_Date)) as ayear from General order by ayear DESC">
                                     </asp:SqlDataSource>
                                 </td>
                             </tr>
