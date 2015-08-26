@@ -33,6 +33,17 @@
     {
         width: 159px;
     }
+    .style1
+    {
+        width: 30%;
+        text-align: left;
+        height: 18px;
+    }
+    .style2
+    {
+        width: 70%;
+        height: 18px;
+    }
 </style>
 <dx:ASPxButton ID="btn_AddDocument" runat="server" Text="Add New Document" AutoPostBack="false"
     ClientInstanceName="CIN_btn_AddDocument">
@@ -184,8 +195,10 @@
                                     <%--<ClientSideEvents Click="function(s, e) { cb_PopupInit.PerformCallback('ClickBtnQ_Ok'); 
                                                                               CIN_pop_quotation.Hide();  
                                                                               }" />--%>
+                                    
                                     <ClientSideEvents Click="function(s, e) { Validation(e); }" />
-                                </dx:ASPxButton>
+                                    
+                                </dx:ASPxButton >
                             </div>
                             <div style="float: left; clear: none; padding-left: 2px;">
                                 <dx:ASPxButton ID="btnQ_Cencel" runat="server" Text="Cancel" AutoPostBack="false">
@@ -316,10 +329,10 @@
         <dx:PopupControlContentControl>
             <table width="100%">
                 <tr>
-                    <td class="auto-style4" style="width: 30%">
+                    <td class="style1">
                         <dx:ASPxLabel ID="lbl_G" runat="server" Text="General Number : " />
                     </td>
-                    <td style="width: 70%">
+                    <td class="style2">
                         <dx:ASPxLabel ID="lbl_GNo" ClientInstanceName="lbl_GNo" runat="server" Text="GNo" />
                     </td>
                 </tr>
@@ -330,9 +343,12 @@
                     </td>
                     <td>
                         <dx:ASPxComboBox ID="cmb_company" ClientInstanceName="cmb_company" runat="server"
-                            ValueType="System.String" DataSourceID="lds_Company" TextField="prospect_nameTH"
-                            ValueField="prospect_nameTH" EnableCallbackMode="True" CallbackPageSize="20">
+                            IncrementalFilteringMode="Contains" ValueType="System.String" DataSourceID="lds_Company"
+                            TextField="prospect_nameTH" ValueField="prospect_nameTH" EnableCallbackMode="True"
+                            CallbackPageSize="20" DropDownStyle="DropDown">
                             <ClientSideEvents SelectedIndexChanged="function(s, e) { cmb_attn.PerformCallback('Change Company'); }" />
+                            <ClientSideEvents SelectedIndexChanged="function(s, e) { cmb_attn.PerformCallback(&#39;Change Company&#39;); }">
+                            </ClientSideEvents>
                         </dx:ASPxComboBox>
                         <asp:LinqDataSource ID="lds_Company" runat="server" ContextTypeName="Bonzen_DLMS.DlmsDataContext"
                             Select="new (prospect_id, prospect_nameTH)" TableName="vw_Companies">
@@ -352,11 +368,10 @@
                     <td>
                         <dx:ASPxComboBox ID="cmb_attn" ClientInstanceName="cmb_attn" runat="server" Height="20px"
                             Width="360px" IncrementalFilteringMode="Contains" DataSourceID="lds_Attn" TextField="c_name"
-                            ValueField="c_name" DropDownStyle="DropDownList">
+                            ValueField="c_name" DropDownStyle="DropDown">
                         </dx:ASPxComboBox>
                         <asp:LinqDataSource ID="lds_Attn" runat="server" ContextTypeName="Bonzen_DLMS.DlmsDataContext"
-                            Select="new (c_id, c_name, prospect_id)" TableName="vw_CompanyAttns"
-                            Where="prospect_id == @Company_ID">
+                            Select="new (c_id, c_name, prospect_id)" TableName="vw_CompanyAttns" Where="prospect_id == @Company_ID">
                             <WhereParameters>
                                 <asp:ControlParameter Name="Company_ID" Type="Int32" ControlID="cmb_company" PropertyName="Value"
                                     DefaultValue="1" />
@@ -415,11 +430,13 @@
                                                                               //CIN_pop_general.Hide();  
                                                                               }" />--%>
                                     <ClientSideEvents Click="function(s, e) { ValidationGeneral(e); }" />
+                                    <ClientSideEvents Click="function(s, e) { ValidationGeneral(e); }"></ClientSideEvents>
                                 </dx:ASPxButton>
                             </div>
                             <div style="float: left; clear: none; padding-left: 2px;">
                                 <dx:ASPxButton ID="btn_GCencel" runat="server" Text="Cancel" AutoPostBack="false">
                                     <ClientSideEvents Click="function(s, e) { CIN_pop_general.Hide(); }" />
+                                    <ClientSideEvents Click="function(s, e) { CIN_pop_general.Hide(); }"></ClientSideEvents>
                                 </dx:ASPxButton>
                             </div>
                             <script type="text/javascript">

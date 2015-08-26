@@ -18,8 +18,8 @@
                     <asp:Login ID="Login" runat="server" UserNameLabelText="ชื่อผู้ใช้ :  " PasswordLabelText="รหัสผ่าน :  "
                         BackColor="White" BorderColor="#000099" BorderPadding="30" BorderStyle="Solid"
                         BorderWidth="0px" Font-Names="Tahoma" Font-Size="Medium" ForeColor="#333333" 
-                        DisplayRememberMe="False" EnableTheming="True" Font-Bold="False" Height="120px"
-                        LoginButtonText="เข้าสู่ระบบ" TitleText="" Width="250px">
+                        DisplayRememberMe="False" EnableTheming="True" Font-Bold="False" Height="67px"
+                        LoginButtonText="เข้าสู่ระบบ" TitleText="" Width="257px">
                         <InstructionTextStyle Font-Italic="True" ForeColor="Black" />
                         <LoginButtonStyle BackColor="#FFFBFF" BorderColor="#CCCCCC" BorderStyle="Solid" BorderWidth="2px"
                             Font-Names="Verdana" Font-Size="0.8em" ForeColor="#284775" />

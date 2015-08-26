@@ -84,7 +84,7 @@
                                             </tr>
                                         </InsertItemTemplate>
                                         <SelectedItemTemplate>
-                                            <tr id="table_row" runat="server">
+                                            <tr id="table_row" runat="server" style="background-color:#90EE90">
                                                 <td id="Td6" runat="server">
                                                     <asp:Label ID="lbl_DisplayOrder" runat="server" Text='<%# Eval("display_order") %>' />
                                                 </td>

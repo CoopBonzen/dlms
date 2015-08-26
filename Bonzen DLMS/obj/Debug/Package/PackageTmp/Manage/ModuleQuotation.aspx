@@ -8,7 +8,8 @@
 
     <div class="jumbotron">
 
-        <dx:ASPxGridView ID="gv_QuetationDescription" ClientInstanceName="CIN_gv_QuetationDescription" runat="server" DataSourceID="DataSource_QuotationDescription"
+        <dx:ASPxGridView ID="gv_QuotationDescription" 
+            ClientInstanceName="CIN_gv_QuetationDescription" runat="server" DataSourceID="DataSource_QuotationDescription"
             KeyFieldName="ID_QuotationDescriptionSub"
             Width="100%" SettingsPager-PageSize="100" AutoGenerateColumns="False" SettingsBehavior-AutoExpandAllGroups="true"
             SettingsBehavior-AllowSort="false">
@@ -16,9 +17,9 @@
             <Columns>
                 <%--<dx:GridViewCommandColumn ShowDeleteButton="True" ShowNewButtonInHeader="True" VisibleIndex="3" />--%>
                 
-                <dx:GridViewDataColumn FieldName="Q_Detail_Main" GroupIndex="0" VisibleIndex="1" Caption="รายการ"/>
-                <dx:GridViewDataColumn FieldName="Q_Detail_Sub" VisibleIndex="1" Caption="รายการ" Width="70%"/>
-                <dx:GridViewDataColumn FieldName="Price" VisibleIndex="2" Caption="ราคา" Width="20%"/>
+                <dx:GridViewDataColumn Settings-AutoFilterCondition="Contains" FieldName="Q_Detail_Main" GroupIndex="0" VisibleIndex="1" Caption="รายการ"/>
+                <dx:GridViewDataColumn Settings-AutoFilterCondition="Contains" FieldName="Q_Detail_Sub" VisibleIndex="1" Caption="รายการ" Width="70%"/>
+                <dx:GridViewDataColumn Settings-AutoFilterCondition="Contains" FieldName="Price" VisibleIndex="2" Caption="ราคา" Width="20%"/>
                 <dx:GridViewCommandColumn VisibleIndex="3" Width="10%">
                     <DeleteButton Visible="True" />
                     <ClearFilterButton Visible="True" />
@@ -29,6 +30,8 @@
             <SettingsPager PageSize="100"></SettingsPager>
             <SettingsEditing Mode="Inline" />
             <Settings ShowFilterRow="True" />
+            
+
         </dx:ASPxGridView>
 
         <asp:SqlDataSource ID="DataSource_QuotationDescription" runat="server"
