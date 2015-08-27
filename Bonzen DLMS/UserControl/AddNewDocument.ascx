@@ -210,20 +210,20 @@
                                     var check = true;
                                     var DateValue = Q_Date.GetValue();
                                     if (DateValue == null) {
-                                        lbl_Validate.SetVisible(true);
-                                        lbl_Validate.SetValue("กรุณาระบุวันที่(Date)");
+                                        lbl_ErrorQuo.SetVisible(true);
+                                        lbl_ErrorQuo.SetValue("กรุณาระบุวันที่(Date)");
                                         check = false;
                                     }
                                     var TextValue = txtb_QTitle.GetValue();
                                     if (TextValue == null) {
-                                        lbl_Validate.SetVisible(true);
-                                        lbl_Validate.SetValue("กรุณาระบุชื่อเรื่อง(Title) ");
+                                        lbl_ErrorQuo.SetVisible(true);
+                                        lbl_ErrorQuo.SetValue("กรุณาระบุชื่อเรื่อง(Title) ");
                                         check = false;
                                     }
                                     if (check) {
                                         cb_PopupInit.PerformCallback('ClickBtnQ_Ok');
-                                        lbl_Validate.SetValue("");
-                                        lbl_Validate.SetVisible(false);
+                                        lbl_ErrorQuo.SetValue("");
+                                        lbl_ErrorQuo.SetVisible(false);
                                         CIN_pop_quotation.Hide();
                                     }
                                 }                                                 
