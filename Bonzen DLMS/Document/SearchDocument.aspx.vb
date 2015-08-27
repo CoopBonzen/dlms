@@ -33,6 +33,8 @@ Public Class SearchDocument
         user = DataAccess.GetUserByUsername(username)
 
         'user.user_group_id
+        gv_general.DataBind()
+        gv_quotationProposal.DataBind()
 
     End Sub
 
