@@ -33,7 +33,6 @@ Public Class AllDocument
         user = DataAccess.GetUserByUsername(username)
 
         'user.user_group_id
-
     End Sub
 
     Private Sub gv_general_HtmlRowPrepared(ByVal sender As Object, ByVal e As DevExpress.Web.ASPxGridView.ASPxGridViewTableRowEventArgs) Handles gv_generalAll.HtmlRowPrepared
@@ -63,7 +62,6 @@ Public Class AllDocument
         End Select
     End Sub
 
-
     Protected Sub cmb_searchYear_Load(ByVal sender As Object, ByVal e As EventArgs)
         cmb_searchYearQ = CType(sender, ASPxComboBox)
     End Sub
@@ -71,4 +69,5 @@ Public Class AllDocument
     Private Sub cmb_searchYear_Callback(ByVal sender As Object, ByVal e As DevExpress.Web.ASPxClasses.CallbackEventArgsBase) Handles cmb_searchYearQ.Callback
         cmb_searchYearQ.DataBind()
     End Sub
+
 End Class

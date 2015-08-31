@@ -95,11 +95,11 @@ Partial Public Class AllDocument
     Protected WithEvents gv_generalAll As Global.DevExpress.Web.ASPxGridView.ASPxGridView
 
     '''<summary>
-    '''General control.
+    '''SqlDataSource1 control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents General As Global.System.Web.UI.WebControls.SqlDataSource
+    Protected WithEvents SqlDataSource1 As Global.System.Web.UI.WebControls.SqlDataSource
 End Class

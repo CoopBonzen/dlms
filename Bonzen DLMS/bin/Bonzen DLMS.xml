@@ -1427,9 +1427,9 @@ gv_generalAll control.
 Auto-generated field.
 To modify move field declaration from designer file to code-behind file.
 </remarks>
-</member><member name="F:Bonzen_DLMS.AllDocument.General">
+</member><member name="F:Bonzen_DLMS.AllDocument.SqlDataSource1">
 	<summary>
-General control.
+SqlDataSource1 control.
 </summary>
 	<remarks>
 Auto-generated field.
