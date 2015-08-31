@@ -131,7 +131,8 @@
                         <Settings ShowFilterRow="True"></Settings>
                     </dx:ASPxGridView>
                     <asp:SqlDataSource ID="Quo_Prop" runat="server" ConnectionString="<%$ ConnectionStrings:DLMSConnectionString %>"
-                        DeleteCommand="DELETE FROM [QuotationProposal] WHERE [Q_ID] = @Q_ID" InsertCommand="INSERT INTO [QuotationProposal] ([Q_ID], [Q_Date], [DateSend], [ContactCom], [ContactName], [Title], [BookingBy], [P_ID]) VALUES (@Q_ID, @Q_Date, @DateSend, @ContactCom, @ContactName, @Title, @BookingBy, @P_ID)"
+                        DeleteCommand="DELETE FROM [QuotationProposal] WHERE [Q_ID] = @Q_ID"
+                        InsertCommand="INSERT INTO [QuotationProposal] ([Q_ID], [Q_Date], [DateSend], [ContactCom], [ContactName], [Title], [BookingBy], [P_ID]) VALUES (@Q_ID, @Q_Date, @DateSend, @ContactCom, @ContactName, @Title, @BookingBy, @P_ID)"
                         SelectCommand="SELECT QuotationProposal.*, Quotation.Quota_ID, CASE WHEN Quotation.Quota_ID Is NULL THEN 'False' ELSE 'True' END As Show,  Quotation.company_name, Quotation.attn FROM QuotationProposal LEFT OUTER JOIN Quotation ON QuotationProposal.Q_ID = Quotation.quotation_no WHERE YEAR(QuotationProposal.Q_Date) = @ayear"
                         UpdateCommand="UPDATE [QuotationProposal] SET [Q_Date] = @Q_Date, [DateSend] = @DateSend, [ContactCom] = @ContactCom, [ContactName] = @ContactName, [Title] = @Title, [BookingBy] = @BookingBy, [P_ID] = @P_ID WHERE [Q_ID] = @Q_ID">
                         <SelectParameters>
@@ -192,7 +193,7 @@
                                         </ClientSideEvents>
                                     </dx:ASPxComboBox>
                                     <asp:SqlDataSource ID="Gen_Year" runat="server" ConnectionString="<%$ ConnectionStrings:DLMSConnectionString %>"
-                                        SelectCommand="select distinct(YEAR(General.G_Date)) as ayear from General order by ayear DESC">
+                                        SelectCommand="select distinct(YEAR(General.G_Date)) as ayear from [General] order by ayear DESC">
                                     </asp:SqlDataSource>
                                 </td>
                             </tr>
@@ -284,9 +285,11 @@
                             <Settings ShowFilterRow="True"></Settings>
                         </dx:ASPxGridView>
                         <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:DLMSConnectionString %>"
-                            DeleteCommand="DELETE FROM [General] WHERE [G_ID] = @G_ID" InsertCommand="INSERT INTO [General] ([G_ID], [G_Date], [DateSend], [ContactCom], [ContactName], [Title], [Note], [BookingBy]) VALUES (@G_ID, @G_Date, @DateSend, @ContactCom, @ContactName, @Title, @Note, @BookingBy)"
-                            SelectCommand="SELECT * FROM [General] WHERE YEAR(General.G_Date) = @ayear ORDER BY [G_ID] "
+                            DeleteCommand="DELETE FROM [General] WHERE [G_ID] = @G_ID" 
+                            InsertCommand="INSERT INTO [General] ([G_ID], [G_Date], [DateSend], [ContactCom], [ContactName], [Title], [Note], [BookingBy]) VALUES (@G_ID, @G_Date, @DateSend, @ContactCom, @ContactName, @Title, @Note, @BookingBy)"
+                            SelectCommand="SELECT * FROM [General] WHERE YEAR(General.G_Date) = @ayear"
                             UpdateCommand="UPDATE [General] SET [Title] = @Title WHERE [G_ID] = @G_ID">
+                            
                             <SelectParameters>
                                 <asp:ControlParameter ControlID="cmb_searchYearG" Name="ayear" PropertyName="Value" />
                             </SelectParameters>

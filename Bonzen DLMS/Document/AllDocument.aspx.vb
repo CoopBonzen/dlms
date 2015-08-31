@@ -48,6 +48,10 @@ Public Class AllDocument
         gv_quotationProposalAll.DataBind()
     End Sub
 
+    Private Sub gv_generalAll_CustomCallback(ByVal sender As Object, ByVal e As DevExpress.Web.ASPxGridView.ASPxGridViewCustomCallbackEventArgs) Handles gv_generalAll.CustomCallback
+        gv_generalAll.DataBind()
+    End Sub
+
     Protected Sub ListItem_Command(ByVal sender As Object, ByVal e As CommandEventArgs)
         Select Case e.CommandName
             Case "OpenCreateQuotation"
@@ -67,6 +71,10 @@ Public Class AllDocument
     End Sub
 
     Private Sub cmb_searchYear_Callback(ByVal sender As Object, ByVal e As DevExpress.Web.ASPxClasses.CallbackEventArgsBase) Handles cmb_searchYearQ.Callback
+        cmb_searchYearQ.DataBind()
+    End Sub
+
+    Private Sub cmb_searchYearG_Callback(ByVal sender As Object, ByVal e As DevExpress.Web.ASPxClasses.CallbackEventArgsBase) Handles cmb_searchYearG.Callback
         cmb_searchYearQ.DataBind()
     End Sub
 

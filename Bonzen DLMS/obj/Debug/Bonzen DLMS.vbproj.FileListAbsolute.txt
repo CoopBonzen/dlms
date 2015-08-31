@@ -67,3 +67,5 @@ D:\DLMS.v2\dlms\Bonzen DLMS\obj\Debug\RdlCompile.compiled
 D:\DLMS.v2\dlms\Bonzen DLMS\obj\Debug\Bonzen DLMS.dll
 D:\DLMS.v2\dlms\Bonzen DLMS\obj\Debug\Bonzen DLMS.xml
 D:\DLMS.v2\dlms\Bonzen DLMS\obj\Debug\Bonzen DLMS.pdb
+D:\dlms\Bonzen DLMS\obj\Debug\Bonzen DLMS.vbprojResolveAssemblyReference.cache
+D:\dlms\Bonzen DLMS\obj\Debug\Bonzen DLMS.dll.licenses
