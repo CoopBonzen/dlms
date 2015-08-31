@@ -23,15 +23,6 @@ Partial Public Class AllDocument
     Protected WithEvents ASPxRoundPanel2 As Global.DevExpress.Web.ASPxRoundPanel.ASPxRoundPanel
 
     '''<summary>
-    '''PanelContent1 control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents PanelContent1 As Global.DevExpress.Web.ASPxPanel.PanelContent
-
-    '''<summary>
     '''cmb_searchYearQ control.
     '''</summary>
     '''<remarks>
@@ -75,15 +66,6 @@ Partial Public Class AllDocument
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents ASPxRoundPanel1 As Global.DevExpress.Web.ASPxRoundPanel.ASPxRoundPanel
-
-    '''<summary>
-    '''PanelContent2 control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents PanelContent2 As Global.DevExpress.Web.ASPxPanel.PanelContent
 
     '''<summary>
     '''cmb_searchYearG control.

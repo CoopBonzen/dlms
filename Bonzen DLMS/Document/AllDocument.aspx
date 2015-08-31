@@ -46,9 +46,16 @@
                                     OnLoad="cmb_searchYear_Load" AutoPostBack="True" Height="17px" Width="97px">
                                     <ClientSideEvents SelectedIndexChanged="function(s, e) { gv_quotationProposal.PerformCallback(s.GetValue()); }">
                                     </ClientSideEvents>
+                                    <Items>
+                                        <dx:ListEditItem Text="เลือกปี" Value="" Selected="True" />
+                                    </Items>
+                                    <Buttons>
+                                        <dx:EditButton Text="ปี">
+                                        </dx:EditButton>
+                                    </Buttons>
                                 </dx:ASPxComboBox>
                                 <asp:SqlDataSource ID="Quo_Year" runat="server" ConnectionString="<%$ ConnectionStrings:DLMSConnectionString %>"
-                                    SelectCommand="SELECT distinct(YEAR(QuotationProposal.Q_Date)) as ayear FROM QuotationProposal ORDER BY ayear DESC">
+                                    SelectCommand="SELECT distinct(YEAR(QuotationProposal.Q_Date)) as ayear FROM [QuotationProposal] ORDER BY ayear DESC">
                                 </asp:SqlDataSource>
                             </td>
                         </tr>
@@ -128,8 +135,12 @@
         </dx:ASPxRoundPanel>
         <asp:SqlDataSource ID="Quo_Prop" runat="server" ConnectionString="<%$ ConnectionStrings:DLMSConnectionString %>"
             DeleteCommand="DELETE FROM [QuotationProposal] WHERE [Q_ID] = @Q_ID" InsertCommand="INSERT INTO [QuotationProposal] ([Q_ID], [Q_Date], [DateSend], [ContactCom], [ContactName], [Title], [BookingBy], [P_ID]) VALUES (@Q_ID, @Q_Date, @DateSend, @ContactCom, @ContactName, @Title, @BookingBy, @P_ID)"
-            SelectCommand="SELECT QuotationProposal.*, Quotation.Quota_ID, CASE WHEN Quotation.Quota_ID Is NULL THEN 'False' ELSE 'True' END As Show,  Quotation.company_name, Quotation.attn FROM QuotationProposal LEFT OUTER JOIN Quotation ON QuotationProposal.Q_ID = Quotation.quotation_no"
+            SelectCommand="SELECT QuotationProposal.*, Quotation.Quota_ID, CASE WHEN Quotation.Quota_ID Is NULL THEN 'False' ELSE 'True' END As Show,  Quotation.company_name, Quotation.attn FROM QuotationProposal LEFT OUTER JOIN Quotation ON QuotationProposal.Q_ID = Quotation.quotation_no  "
             UpdateCommand="UPDATE [QuotationProposal] SET [Q_Date] = @Q_Date, [DateSend] = @DateSend, [ContactCom] = @ContactCom, [ContactName] = @ContactName, [Title] = @Title, [BookingBy] = @BookingBy, [P_ID] = @P_ID WHERE [Q_ID] = @Q_ID">
+            <%--<SelectParameters>
+                <asp:ControlParameter ControlID="cmb_searchYearQ"
+                    Name="Q_ID" PropertyName="Value" Type="String" />
+            </SelectParameters>--%>
             <DeleteParameters>
                 <asp:Parameter Name="Q_ID" Type="String" />
             </DeleteParameters>

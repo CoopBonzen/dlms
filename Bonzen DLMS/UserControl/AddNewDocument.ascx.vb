@@ -173,11 +173,9 @@ Public Class AddNewDocument
     End Sub
 
 
-    Protected Sub btnQ_OK_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnQ_OK.Click
-        Response.RedirectPermanent("SearchDocument.aspx")
-        base.OnLoad(e)
-    End Sub
-
-   
+    'Protected Sub btnQ_OK_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnQ_OK.Click
+    ''Response.RedirectPermanent("SearchDocument.aspx")
+    ''base.OnLoad(e)
+    'End Sub
 
 End Class
