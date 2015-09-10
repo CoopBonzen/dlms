@@ -41,20 +41,27 @@
                                 &nbsp;&nbsp;&nbsp; Year :
                             </td>
                             <td class="style4">
-                                <dx:ASPxComboBox ID="cmb_searchYearQ" runat="server" IncrementalFilteringMode="Contains"
-                                    ValueField="ayear" TextField="ayear" ValueType="System.String" DataSourceID="Quo_Year"
-                                    OnLoad="cmb_searchYear_Load" AutoPostBack="True" Height="17px" Width="97px">
-                                    <ClientSideEvents SelectedIndexChanged="function(s, e) { gv_quotationProposal.PerformCallback(s.GetValue()); }">
+                                <dx:ASPxComboBox ID="cmb_searchYearQ" runat="server" DataSourceID="Quo_Year" ValueField="ayear"
+                                    TextField="ayear" ValueType="System.Int32" Height="17px" Width="97px" SelectedIndex="0">
+                                    <ClientSideEvents SelectedIndexChanged="function(s, e) { CIN_gv_quotationProposalAll.PerformCallback(); }">
                                     </ClientSideEvents>
                                 </dx:ASPxComboBox>
+                                <%--<dx:ASPxComboBox ID="cmb_searchYearQ" runat="server" IncrementalFilteringMode="Contains"
+                                    ValueField="ayear" TextField="ayear" ValueType="System.Int32" DataSourceID="Quo_Year"
+                                    AutoPostBack="True" Height="17px" Width="97px">                                    
+                                    <ClientSideEvents SelectedIndexChanged="function(s, e) { CIN_gv_quotationProposalAll.PerformCallback(); }">
+                                    </ClientSideEvents>
+                                </dx:ASPxComboBox>--%>
+                                <%--<ClientSideEvents SelectedIndexChanged="function(s, e) { gv_quotationProposal.PerformCallback(s.GetValue()); }">
+                                    </ClientSideEvents>  OnLoad="cmb_searchYear_Load"   --%>
                                 <asp:SqlDataSource ID="Quo_Year" runat="server" ConnectionString="<%$ ConnectionStrings:DLMSConnectionString %>"
-                                    SelectCommand="SELECT distinct(YEAR(QuotationProposal.Q_Date)) as ayear FROM QuotationProposal ORDER BY ayear DESC">
+                                    SelectCommand="SELECT distinct(YEAR(QuotationProposal.Q_Date)) as ayear FROM [QuotationProposal] ORDER BY ayear DESC">
                                 </asp:SqlDataSource>
                             </td>
                         </tr>
                     </table>
                     <dx:ASPxGridView ID="gv_quotationProposalAll" runat="server" AutoGenerateColumns="False"
-                        ClientInstanceName="gv_quotationProposalAll" DataSourceID="Quo_Prop" KeyFieldName="Q_ID"
+                        ClientInstanceName="CIN_gv_quotationProposalAll" DataSourceID="Quo_Prop" KeyFieldName="Q_ID"
                         Width="888px" Style="text-align: center">
                         <Columns>
                             <dx:GridViewDataTextColumn Caption="หมายเลข Quotation" FieldName="Q_ID" ReadOnly="True"
@@ -123,37 +130,42 @@
                         <SettingsEditing Mode="Inline"></SettingsEditing>
                         <Settings ShowFilterRow="True"></Settings>
                     </dx:ASPxGridView>
-                </dx:PanelContent>
-            </PanelCollection>
-        </dx:ASPxRoundPanel>
-        <asp:SqlDataSource ID="Quo_Prop" runat="server" ConnectionString="<%$ ConnectionStrings:DLMSConnectionString %>"
-            DeleteCommand="DELETE FROM [QuotationProposal] WHERE [Q_ID] = @Q_ID" InsertCommand="INSERT INTO [QuotationProposal] ([Q_ID], [Q_Date], [DateSend], [ContactCom], [ContactName], [Title], [BookingBy], [P_ID]) VALUES (@Q_ID, @Q_Date, @DateSend, @ContactCom, @ContactName, @Title, @BookingBy, @P_ID)"
-            SelectCommand="SELECT QuotationProposal.*, Quotation.Quota_ID, CASE WHEN Quotation.Quota_ID Is NULL THEN 'False' ELSE 'True' END As Show,  Quotation.company_name, Quotation.attn FROM QuotationProposal LEFT OUTER JOIN Quotation ON QuotationProposal.Q_ID = Quotation.quotation_no"
-            UpdateCommand="UPDATE [QuotationProposal] SET [Q_Date] = @Q_Date, [DateSend] = @DateSend, [ContactCom] = @ContactCom, [ContactName] = @ContactName, [Title] = @Title, [BookingBy] = @BookingBy, [P_ID] = @P_ID WHERE [Q_ID] = @Q_ID">
-            <DeleteParameters>
-                <asp:Parameter Name="Q_ID" Type="String" />
-            </DeleteParameters>
-            <InsertParameters>
-                <asp:Parameter Name="Q_ID" Type="String" />
-                <asp:Parameter DbType="Date" Name="Q_Date" />
-                <asp:Parameter DbType="Date" Name="DateSend" />
-                <asp:Parameter Name="ContactCom" Type="String" />
-                <asp:Parameter Name="ContactName" Type="String" />
-                <asp:Parameter Name="Title" Type="String" />
-                <asp:Parameter Name="BookingBy" Type="String" />
-                <asp:Parameter Name="P_ID" Type="String" />
-            </InsertParameters>
-            <UpdateParameters>
-                <asp:Parameter Name="Title" Type="String" />
-                <%--<asp:Parameter DbType="Date" Name="Q_Date" />
+                    <asp:SqlDataSource ID="Quo_Prop" runat="server" ConnectionString="<%$ ConnectionStrings:DLMSConnectionString %>"
+                        DeleteCommand="DELETE FROM [QuotationProposal] WHERE [Q_ID] = @Q_ID"
+                        InsertCommand="INSERT INTO [QuotationProposal] ([Q_ID], [Q_Date], [DateSend], [ContactCom], [ContactName], [Title], [BookingBy], [P_ID]) VALUES (@Q_ID, @Q_Date, @DateSend, @ContactCom, @ContactName, @Title, @BookingBy, @P_ID)"
+                        SelectCommand="SELECT QuotationProposal.*, Quotation.Quota_ID, CASE WHEN Quotation.Quota_ID Is NULL THEN 'False' ELSE 'True' END As Show,  Quotation.company_name, Quotation.attn FROM QuotationProposal LEFT OUTER JOIN Quotation ON QuotationProposal.Q_ID = Quotation.quotation_no WHERE YEAR(QuotationProposal.Q_Date) = @ayear"
+                        UpdateCommand="UPDATE [QuotationProposal] SET [Q_Date] = @Q_Date, [DateSend] = @DateSend, [ContactCom] = @ContactCom, [ContactName] = @ContactName, [Title] = @Title, [BookingBy] = @BookingBy, [P_ID] = @P_ID WHERE [Q_ID] = @Q_ID">
+                        <SelectParameters>
+                            <asp:ControlParameter ControlID="cmb_searchYearQ" Name="ayear" PropertyName="Value" />
+                            <%--<asp:Parameter Name="ayear" Type="Int32" />--%>
+                        </SelectParameters>
+                        <DeleteParameters>
+                            <asp:Parameter Name="Q_ID" Type="String" />
+                        </DeleteParameters>
+                        <InsertParameters>
+                            <asp:Parameter Name="Q_ID" Type="String" />
+                            <asp:Parameter DbType="Date" Name="Q_Date" />
+                            <asp:Parameter DbType="Date" Name="DateSend" />
+                            <asp:Parameter Name="ContactCom" Type="String" />
+                            <asp:Parameter Name="ContactName" Type="String" />
+                            <asp:Parameter Name="Title" Type="String" />
+                            <asp:Parameter Name="BookingBy" Type="String" />
+                            <asp:Parameter Name="P_ID" Type="String" />
+                        </InsertParameters>
+                        <UpdateParameters>
+                            <asp:Parameter Name="Title" Type="String" />
+                            <%--<asp:Parameter DbType="Date" Name="Q_Date" />
                     <asp:Parameter DbType="Date" Name="DateSend" />
                     <asp:Parameter Name="ContactCom" Type="String" />
                     <asp:Parameter Name="ContactName" Type="String" />
                     <asp:Parameter Name="BookingBy" Type="String" />
                     <asp:Parameter Name="P_ID" Type="String" />
                     <asp:Parameter Name="Q_ID" Type="String" />--%>
-            </UpdateParameters>
-        </asp:SqlDataSource>
+                        </UpdateParameters>
+                    </asp:SqlDataSource>
+                </dx:PanelContent>
+            </PanelCollection>
+        </dx:ASPxRoundPanel>
         <%--<asp:Parameter Name="Note" Type="String" />
                         <asp:Parameter DbType="Date" Name="DateSend" />
                         <asp:Parameter Name="ContactCom" Type="String" />
@@ -175,20 +187,19 @@
                                     &nbsp;&nbsp; Year :
                                 </td>
                                 <td>
-                                    <dx:ASPxComboBox ID="cmb_searchYearG" runat="server" IncrementalFilteringMode="Contains"
-                                        ValueField="ayear" TextField="ayear" ValueType="System.String" DataSourceID="Gen_Year"
-                                        OnLoad="cmb_searchYear_Load" AutoPostBack="True" Height="17px" Width="97px">
-                                        <ClientSideEvents SelectedIndexChanged="function(s, e) { gv_quotationProposal.PerformCallback(s.GetValue()); }">
+                                    <dx:ASPxComboBox ID="cmb_searchYearG" runat="server" DataSourceID="Gen_Year" ValueField="ayear"
+                                        TextField="ayear" ValueType="System.Int32" Height="17px" Width="97px" SelectedIndex="0">
+                                        <ClientSideEvents SelectedIndexChanged="function(s, e) { CIN_gv_generalAll.PerformCallback(); }">
                                         </ClientSideEvents>
                                     </dx:ASPxComboBox>
                                     <asp:SqlDataSource ID="Gen_Year" runat="server" ConnectionString="<%$ ConnectionStrings:DLMSConnectionString %>"
-                                        SelectCommand="select distinct(YEAR(General.G_Date)) as ayear from General order by ayear DESC">
+                                        SelectCommand="select distinct(YEAR(General.G_Date)) as ayear from [General] order by ayear DESC">
                                     </asp:SqlDataSource>
                                 </td>
                             </tr>
                         </table>
-                        <dx:ASPxGridView ID="gv_generalAll" runat="server" AutoGenerateColumns="False" ClientInstanceName="gv_generalAll"
-                            DataSourceID="General" KeyFieldName="G_ID" Width="879px" Style="text-align: center">
+                        <dx:ASPxGridView ID="gv_generalAll" runat="server" AutoGenerateColumns="False" ClientInstanceName="CIN_gv_generalAll"
+                            DataSourceID="SqlDataSource1" KeyFieldName="G_ID" Width="879px" Style="text-align: center">
                             <Columns>
                                 <dx:GridViewDataTextColumn Caption="หมายเลขจดหมาย" FieldName="G_ID" ReadOnly="True"
                                     ShowInCustomizationForm="True" SortIndex="0" SortOrder="Descending" VisibleIndex="0"
@@ -273,35 +284,41 @@
                             <SettingsEditing Mode="Inline"></SettingsEditing>
                             <Settings ShowFilterRow="True"></Settings>
                         </dx:ASPxGridView>
-                    </dx:PanelContent>
-                </PanelCollection>
-            </dx:ASPxRoundPanel>
-            <asp:SqlDataSource ID="General" runat="server" ConnectionString="<%$ ConnectionStrings:DLMSConnectionString %>"
-                DeleteCommand="DELETE FROM [General] WHERE [G_ID] = @G_ID" InsertCommand="INSERT INTO [General] ([G_ID], [G_Date], [DateSend], [ContactCom], [ContactName], [Title], [Note], [BookingBy]) VALUES (@G_ID, @G_Date, @DateSend, @ContactCom, @ContactName, @Title, @Note, @BookingBy)"
-                SelectCommand="SELECT * FROM [General] ORDER BY [G_ID]" UpdateCommand="UPDATE [General] SET [Title] = @Title WHERE [G_ID] = @G_ID">
-                <DeleteParameters>
-                    <asp:Parameter Name="G_ID" Type="String" />
-                </DeleteParameters>
-                <InsertParameters>
-                    <asp:Parameter Name="G_ID" Type="String" />
-                    <asp:Parameter DbType="Date" Name="G_Date" />
-                    <asp:Parameter DbType="Date" Name="DateSend" />
-                    <asp:Parameter Name="ContactCom" Type="String" />
-                    <asp:Parameter Name="ContactName" Type="String" />
-                    <asp:Parameter Name="Title" Type="String" />
-                    <asp:Parameter Name="Note" Type="String" />
-                    <asp:Parameter Name="BookingBy" Type="String" />
-                </InsertParameters>
-                <UpdateParameters>
-                    <asp:Parameter Name="Title" Type="String" />
-                    <%--<asp:Parameter Name="Note" Type="String" />
+                        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:DLMSConnectionString %>"
+                            DeleteCommand="DELETE FROM [General] WHERE [G_ID] = @G_ID" 
+                            InsertCommand="INSERT INTO [General] ([G_ID], [G_Date], [DateSend], [ContactCom], [ContactName], [Title], [Note], [BookingBy]) VALUES (@G_ID, @G_Date, @DateSend, @ContactCom, @ContactName, @Title, @Note, @BookingBy)"
+                            SelectCommand="SELECT * FROM [General] WHERE YEAR(General.G_Date) = @ayear"
+                            UpdateCommand="UPDATE [General] SET [Title] = @Title WHERE [G_ID] = @G_ID">
+                            
+                            <SelectParameters>
+                                <asp:ControlParameter ControlID="cmb_searchYearG" Name="ayear" PropertyName="Value" />
+                            </SelectParameters>
+                            <DeleteParameters>
+                                <asp:Parameter Name="G_ID" Type="String" />
+                            </DeleteParameters>
+                            <InsertParameters>
+                                <asp:Parameter Name="G_ID" Type="String" />
+                                <asp:Parameter DbType="Date" Name="G_Date" />
+                                <asp:Parameter DbType="Date" Name="DateSend" />
+                                <asp:Parameter Name="ContactCom" Type="String" />
+                                <asp:Parameter Name="ContactName" Type="String" />
+                                <asp:Parameter Name="Title" Type="String" />
+                                <asp:Parameter Name="Note" Type="String" />
+                                <asp:Parameter Name="BookingBy" Type="String" />
+                            </InsertParameters>
+                            <UpdateParameters>
+                                <asp:Parameter Name="Title" Type="String" />
+                                <%--<asp:Parameter Name="Note" Type="String" />
                         <asp:Parameter DbType="Date" Name="DateSend" />
                         <asp:Parameter Name="ContactCom" Type="String" />
                         <asp:Parameter Name="ContactName" Type="String" />
                         <asp:Parameter Name="BookingBy" Type="String" />
                         <asp:Parameter Name="G_ID" Type="String" />--%>
-                </UpdateParameters>
-            </asp:SqlDataSource>
+                            </UpdateParameters>
+                        </asp:SqlDataSource>
+                    </dx:PanelContent>
+                </PanelCollection>
+            </dx:ASPxRoundPanel>
         </p>
     </div>
 </asp:Content>

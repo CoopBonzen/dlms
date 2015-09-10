@@ -7,17 +7,30 @@
     Namespace="DevExpress.Web.ASPxEditors" TagPrefix="dx" %>
 <%@ Register Src="../UserControl/AddNewDocument.ascx" TagName="AddNewDocument" TagPrefix="uc1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
+    <style type="text/css">
+        .style3
+        {
+            font-size: 1.2em;
+        }
+        .style4
+        {
+            font-size: 1.6em;
+        }
+    </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <div class="jumbotron">
         <uc1:AddNewDocument ID="AddNewDocument" runat="server" />
     </div>
     <div class="jumbotron">
-        <h3>
+        <h3 class="style4">
             Quotation & Proposal</h3>
+        <p>
+               &nbsp;&nbsp;&nbsp;<span class="style3">Recent Quotation &amp; Proposal in last 30 days</span></p>
         <p class="lead">
-            <dx:ASPxGridView ID="gv_quotationProposal" ClientInstanceName="gv_quotationProposal" runat="server" AutoGenerateColumns="False"
-                DataSourceID="Quo_Prop" KeyFieldName="Q_ID">
+            <dx:ASPxGridView ID="gv_quotationProposal" 
+                ClientInstanceName="gv_quotationProposal" runat="server" AutoGenerateColumns="False"
+                DataSourceID="Quo_Prop" KeyFieldName="Q_ID" Width="894px">
                 <Columns>
                     <dx:GridViewDataTextColumn Caption="หมายเลข Quotation" FieldName="Q_ID" ReadOnly="True"
                         VisibleIndex="0" CellStyle-HorizontalAlign="Center" Width="8%" SortOrder="Descending">
@@ -73,7 +86,6 @@
                     <%--<dx:GridViewDataTextColumn Name="Quota_ID" FieldName="Quota_ID" Visible="false"></dx:GridViewDataTextColumn>--%>
                 </Columns>
                 <SettingsEditing Mode="Inline" />
-                <Settings ShowFilterRow="True" />
             </dx:ASPxGridView>
             <asp:SqlDataSource ID="Quo_Prop" runat="server" ConnectionString="<%$ ConnectionStrings:DLMSConnectionString %>"
                 DeleteCommand="DELETE FROM [QuotationProposal] WHERE [Q_ID] = @Q_ID" InsertCommand="INSERT INTO [QuotationProposal] ([Q_ID], [Q_Date], [DateSend], [ContactCom], [ContactName], [Title], [BookingBy], [P_ID]) VALUES (@Q_ID, @Q_Date, @DateSend, @ContactCom, @ContactName, @Title, @BookingBy, @P_ID)"
@@ -133,16 +145,20 @@
                 </UpdateParameters>
             </asp:SqlDataSource>--%>
         </p>
-        <br />
         <div>
-            <h3>
+            <h3 class="style4">
                 General</h3>
+        <p>
+               &nbsp;&nbsp;&nbsp;<span class="style3">Recent General in last 30 days</span></p>
             <p class="lead">
-                <dx:ASPxGridView ID="gv_general" ClientInstanceName="gv_general" runat="server" AutoGenerateColumns="False" DataSourceID="General"
-                    KeyFieldName="G_ID">
+                <dx:ASPxGridView ID="gv_general" ClientInstanceName="gv_general" runat="server" 
+                    AutoGenerateColumns="False" DataSourceID="General"
+                    KeyFieldName="G_ID" Width="894px">
                     <Columns>
                         <dx:GridViewDataTextColumn Caption="หมายเลขจดหมาย" FieldName="G_ID" ReadOnly="True" SortOrder="Descending"
                             VisibleIndex="0" CellStyle-HorizontalAlign="Center" EditCellStyle-HorizontalAlign="Center" Width="8%">
+
+<EditCellStyle HorizontalAlign="Center"></EditCellStyle>
                             <DataItemTemplate>
                                 <asp:LinkButton ID="lnk_GId" runat="server" Text='<%# Eval("G_ID") %>' CommandName="OpenUploadGeneralFile"
                                     CommandArgument='<%# Eval("G_ID") %>' OnCommand="ListItem_Command">
@@ -164,6 +180,8 @@
                         </dx:GridViewDataDateColumn>
                         <dx:GridViewDataTextColumn Caption="ผู้รับ (บริษัท)" FieldName="ContactCom" VisibleIndex="3"
                             Width="25%" EditCellStyle-HorizontalAlign="Center">
+
+<EditCellStyle HorizontalAlign="Center"></EditCellStyle>
                             <EditItemTemplate>
                                 <asp:Label ID="lbl_ContactCompany" runat="server" Text='<%# Eval("ContactCom") %>'></asp:Label>
                             </EditItemTemplate>
@@ -171,6 +189,8 @@
                         </dx:GridViewDataTextColumn>
                         <dx:GridViewDataTextColumn Caption="ผู้รับ (ชื่อ)" FieldName="ContactName" VisibleIndex="4"
                             Width="25%" EditCellStyle-HorizontalAlign="Center">
+
+<EditCellStyle HorizontalAlign="Center"></EditCellStyle>
                             <EditItemTemplate>
                                 <asp:Label ID="lbl_ContactName" runat="server" Text='<%# Eval("ContactName") %>'></asp:Label>
                             </EditItemTemplate>
@@ -211,7 +231,6 @@
                         </dx:GridViewCommandColumn>
                     </Columns>
                     <SettingsEditing Mode="Inline" />
-                    <Settings ShowFilterRow="True" />
                 </dx:ASPxGridView>
                 <asp:SqlDataSource ID="General" runat="server" ConnectionString="<%$ ConnectionStrings:DLMSConnectionString %>"
                     DeleteCommand="DELETE FROM [General] WHERE [G_ID] = @G_ID" InsertCommand="INSERT INTO [General] ([G_ID], [G_Date], [DateSend], [ContactCom], [ContactName], [Title], [Note], [BookingBy]) VALUES (@G_ID, @G_Date, @DateSend, @ContactCom, @ContactName, @Title, @Note, @BookingBy)"

@@ -12,6 +12,7 @@
     </dx:ASPxLabel>
     <dx:ASPxGridView ID="gv_Company" runat="server" AutoGenerateColumns="False" DataSourceID="sds_salesApp"
         KeyFieldName="prospect_id">
+        <SettingsPager PageSize="30" />
         <Columns>
             <%--<dx:GridViewCommandColumn VisibleIndex="19" Caption="Edit" Width="9%">
                 <DeleteButton Visible="True">
