@@ -2,6 +2,8 @@
     CodeBehind="CreateQuotation.aspx.vb" Inherits="Bonzen_DLMS.CreateQuotation" %>
 
 <%@ Register Assembly="DevExpress.Web.v13.1, Version=13.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"
+    Namespace="DevExpress.Web.ASPxUploadControl" TagPrefix="dx" %>
+<%@ Register Assembly="DevExpress.Web.v13.1, Version=13.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"
     Namespace="DevExpress.Web.ASPxPanel" TagPrefix="dx" %>
 <%@ Register Assembly="DevExpress.Web.v13.1, Version=13.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"
     Namespace="DevExpress.Web.ASPxCallbackPanel" TagPrefix="dx" %>
@@ -11,6 +13,8 @@
     Namespace="DevExpress.Web.ASPxEditors" TagPrefix="dx" %>
 <%@ Register Assembly="DevExpress.Web.ASPxScheduler.v13.1, Version=13.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"
     Namespace="DevExpress.Web.ASPxScheduler.Controls" TagPrefix="dxwschsc" %>
+<%@ Register Assembly="DevExpress.Web.v13.1, Version=13.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"
+    Namespace="DevExpress.Web.ASPxGridView" TagPrefix="dx1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
     <style type="text/css">
         .style1
@@ -51,7 +55,7 @@
                                 IncrementalFilteringMode="Contains" DataSourceID="lds_Company" TextField="prospect_nameTH"
                                 ValueField="prospect_id" EnableCallbackMode="True" CallbackPageSize="20">
                                 <%--<ClientSideEvents SelectedIndexChanged="function(s, e) { cbp_company.PerformCallback('Change Company'); }" />--%>
-                                <ClientSideEvents SelectedIndexChanged="function(s, e) { OnCompanyChanged(s); }"/>
+                                <ClientSideEvents SelectedIndexChanged="function(s, e) { OnCompanyChanged(s); }" />
                             </dx:ASPxComboBox>
                             <asp:LinqDataSource ID="lds_Company" runat="server" ContextTypeName="Bonzen_DLMS.DlmsDataContext"
                                 Select="new (prospect_id, prospect_nameTH, prospect_nameEN, short_name, status_id, detail, main_id, 
@@ -75,14 +79,12 @@
                         </td>
                         <td class="style2">
                             <dx:ASPxComboBox ID="cmb_attn" ClientInstanceName="cmb_attn" runat="server" Height="20px"
-                                Width="360px" IncrementalFilteringMode="Contains"
-                                DataSourceID="lds_Attn" TextField="c_name" ValueField="c_id"
-                                DropDownStyle="DropDown">
+                                Width="360px" IncrementalFilteringMode="Contains" DataSourceID="lds_Attn" TextField="c_name"
+                                ValueField="c_id" DropDownStyle="DropDown">
                             </dx:ASPxComboBox>
                             <%--Select="new (Company_ID_Attn, Company_Attn, Company_ID)" --%>
                             <asp:LinqDataSource ID="lds_Attn" runat="server" ContextTypeName="Bonzen_DLMS.DlmsDataContext"
-                                TableName="vw_CompanyAttns"
-                                Where="prospect_id == @Company_ID">
+                                TableName="vw_CompanyAttns" Where="prospect_id == @Company_ID">
                                 <WhereParameters>
                                     <asp:ControlParameter Name="Company_ID" Type="String" ControlID="cmb_company" PropertyName="Value"
                                         DefaultValue="1" />
@@ -166,6 +168,67 @@
     <h2>
         Select Main Detail
     </h2>
+    <p>
+        <script language="javascript" type="text/javascript">
+            function OnFileUploadComplete(s, e) {
+                btnUpdate.DoClick();
+            }
+        </script>
+        <table width="50%">
+            <tr>
+                <td class="auto-style4" style="width: 50%">
+                    <dx:ASPxLabel ID="lbl_QNewUpload" runat="server" Text="New Upload" />
+                    &nbsp;&nbsp;
+                    <dx:ASPxLabel ID="lbl_QNo" runat="server" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <asp:UpdatePanel ID="Updatepanel1" runat="server">
+                        <ContentTemplate>
+                            <dx:ASPxButton ID="btnUpdate" runat="server" ClientInstanceName="btnUpdate" ClientVisible="false"
+                                OnClick="Updatepanel1_Refresh">
+                            </dx:ASPxButton>
+                        </ContentTemplate>
+                        <Triggers>
+                            <asp:AsyncPostBackTrigger ControlID="btnUpdate" EventName="Click" />
+                        </Triggers>
+                    </asp:UpdatePanel>
+                    <dx:ASPxUploadControl ID="ulc_QuotationFile" runat="server" ShowUploadButton="True"
+                        ShowProgressPanel="True" OnFileUploadComplete="UploadControl_FileUploadComplete"
+                        Width="280px">
+                        <ValidationSettings AllowedFileExtensions="...(\.pdf|\.doc)" ShowErrors="false" />
+                        <ClientSideEvents FileUploadComplete="OnFileUploadComplete" />
+                    </dx:ASPxUploadControl>
+                </td>
+            </tr>
+            <tr>
+                <td class="auto-style4" style="width: 50%">
+                    <dx:ASPxLabel ID="lbl_QuotationNumber" runat="server" Text="Company : " />
+                    &nbsp;&nbsp;
+                    <dx:ASPxLabel ID="lbl_QCompanyName" runat="server" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <dx:ASPxGridView ID="gv_QFile" runat="server" Width="100%" KeyFieldName="Q_FileID">
+                        <Settings ShowColumnHeaders="false" />
+                        <Columns>
+                            <dx:GridViewDataColumn>
+                                <DataItemTemplate>
+                                    <asp:HyperLink ID="Link" runat="server" NavigateUrl='<%#Eval("link") %>' ForeColor="#6798de"
+                                        ToolTip='<%#Eval("filename")%>'><%#Eval("filename")%>
+                                    </asp:HyperLink>
+                                </DataItemTemplate>
+                            </dx:GridViewDataColumn>
+                            <dx:GridViewDataDateColumn FieldName="Q_FileDate" Visible="false" SortOrder="Descending">
+                            </dx:GridViewDataDateColumn>
+                        </Columns>
+                    </dx:ASPxGridView>
+                </td>
+            </tr>
+        </table>
+    </p>
     <table width="100%">
         <tr>
             <td>
@@ -241,20 +304,22 @@
                     <dx:GridViewDataColumn FieldName="Price" Caption="Price" Width="20%">
                         <DataItemTemplate>
                             <%--<dx:ASPxTextBox ID="txt_Price" runat="server" Text='<%# Eval("Price") %>' Width="100%" />--%>
-                            <dx:ASPxSpinEdit ID="spe_Price" runat="server" NumberType="Float" DecimalPlaces="2" Number='<%# Eval("Price") %>' 
-                                DisplayFormatString="{0:n2}" Increment="0.25" MinValue="0" Width="100%" />
+                            <dx:ASPxSpinEdit ID="spe_Price" runat="server" NumberType="Float" DecimalPlaces="2"
+                                Number='<%# Eval("Price") %>' DisplayFormatString="{0:n2}" Increment="0.25" MinValue="0"
+                                Width="100%" />
                         </DataItemTemplate>
                     </dx:GridViewDataColumn>
                     <dx:GridViewDataColumn Caption="Unit" Width="10%">
                         <DataItemTemplate>
                             <%--<dx:ASPxTextBox ID="txt_Unit" runat="server" Text='<%# Eval("Unit") %>' Width="100%">
                             </dx:ASPxTextBox>--%>
-                            <dx:ASPxSpinEdit ID="spe_Unit" runat="server" NumberType="Float" DecimalPlaces="1" Number='<%# Bind("Unit") %>' MinValue="0" Increment="0.5" Width="100%" />
+                            <dx:ASPxSpinEdit ID="spe_Unit" runat="server" NumberType="Float" DecimalPlaces="1"
+                                Number='<%# Bind("Unit") %>' MinValue="0" Increment="0.5" Width="100%" />
                         </DataItemTemplate>
                     </dx:GridViewDataColumn>
                     <dx:GridViewCommandColumn Width="20%">
                         <CustomButtons>
-                            <dx:GridViewCommandColumnCustomButton ID="btn_Delete" Text="Delete"  />
+                            <dx:GridViewCommandColumnCustomButton ID="btn_Delete" Text="Delete" />
                         </CustomButtons>
                     </dx:GridViewCommandColumn>
                 </Columns>

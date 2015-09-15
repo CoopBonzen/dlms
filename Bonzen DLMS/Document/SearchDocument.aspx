@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="vb" AutoEventWireup="false" MasterPageFile="~/Site.Master"
+﻿<%@ Page Title="" Language="vb" AutoEventWireup="false" MasterPageFile="~/Site.Master" culture="en-GB"
     CodeBehind="SearchDocument.aspx.vb" Inherits="Bonzen_DLMS.SearchDocument" %>
 
 <%@ Register Assembly="DevExpress.Web.v13.1, Version=13.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"
@@ -26,7 +26,7 @@
         <h3 class="style4">
             Quotation & Proposal</h3>
         <p>
-               &nbsp;&nbsp;&nbsp;<span class="style3">Recent Quotation &amp; Proposal in last 30 days</span></p>
+               &nbsp;&nbsp;&nbsp;<span class="style3">Latest Quotation &amp; Proposal (last 30 days)</span></p>
         <p class="lead">
             <dx:ASPxGridView ID="gv_quotationProposal" 
                 ClientInstanceName="gv_quotationProposal" runat="server" AutoGenerateColumns="False"
@@ -149,7 +149,7 @@
             <h3 class="style4">
                 General</h3>
         <p>
-               &nbsp;&nbsp;&nbsp;<span class="style3">Recent General in last 30 days</span></p>
+               &nbsp;&nbsp;&nbsp;<span class="style3">Latest General document</span></p>
             <p class="lead">
                 <dx:ASPxGridView ID="gv_general" ClientInstanceName="gv_general" runat="server" 
                     AutoGenerateColumns="False" DataSourceID="General"
@@ -234,7 +234,7 @@
                 </dx:ASPxGridView>
                 <asp:SqlDataSource ID="General" runat="server" ConnectionString="<%$ ConnectionStrings:DLMSConnectionString %>"
                     DeleteCommand="DELETE FROM [General] WHERE [G_ID] = @G_ID" InsertCommand="INSERT INTO [General] ([G_ID], [G_Date], [DateSend], [ContactCom], [ContactName], [Title], [Note], [BookingBy]) VALUES (@G_ID, @G_Date, @DateSend, @ContactCom, @ContactName, @Title, @Note, @BookingBy)"
-                    SelectCommand="SELECT * FROM [General]WHERE DATEDIFF(day,G_Date,getdate()) between 0 and 30 ORDER BY [G_ID], [G_Date] DESC " UpdateCommand="UPDATE [General] SET [Title] = @Title WHERE [G_ID] = @G_ID">
+                    SelectCommand="SELECT TOP 10 * FROM [General] ORDER BY [G_ID] DESC " UpdateCommand="UPDATE [General] SET [Title] = @Title WHERE [G_ID] = @G_ID">
                     <DeleteParameters>
                         <asp:Parameter Name="G_ID" Type="String" />
                     </DeleteParameters>

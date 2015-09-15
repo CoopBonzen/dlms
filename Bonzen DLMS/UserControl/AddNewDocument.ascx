@@ -253,7 +253,7 @@
                             TextField="Q_ID" ValueField="Q_ID" DataSourceID="lds_Quotation">
                         </dx:ASPxComboBox>
                         <asp:LinqDataSource ID="lds_Quotation" runat="server" ContextTypeName="Bonzen_DLMS.DlmsDataContext"
-                            OrderBy="Q_ID" TableName="QuotationProposals" Where="P_ID == NULL">
+                            OrderBy="Q_ID DESC" TableName="QuotationProposals" Where="P_ID == NULL ">
                         </asp:LinqDataSource>
                     </td>
                 </tr>
