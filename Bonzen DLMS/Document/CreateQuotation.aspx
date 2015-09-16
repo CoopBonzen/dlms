@@ -217,8 +217,7 @@
                             <dx:GridViewDataColumn>
                                 <DataItemTemplate>
                                     <asp:HyperLink ID="Link" runat="server" NavigateUrl='<%#Eval("link") %>' ForeColor="#6798de"
-                                        ToolTip='<%#Eval("filename")%>'><%#Eval("filename")%>
-                                    </asp:HyperLink>
+                                        ToolTip='<%#Eval("filename")%>'><%#Eval("filename")%></asp:HyperLink>
                                 </DataItemTemplate>
                             </dx:GridViewDataColumn>
                             <dx:GridViewDataDateColumn FieldName="Q_FileDate" Visible="false" SortOrder="Descending">

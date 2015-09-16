@@ -9,15 +9,6 @@ Public Class CreateQuotation
     Inherits System.Web.UI.Page
 
     'เพิ่มUpload'
-    'Public Property GeneralCode() As String
-    '    Get
-    '        Return ViewState("GeneralCode")
-    '    End Get
-    '    Set(ByVal value As String)
-    '        ViewState("GeneralCode") = value
-    '    End Set
-    'End Property
-
     Public Property QuotationCode() As String
         Get
             Return ViewState("QuotationCode")
@@ -29,7 +20,7 @@ Public Class CreateQuotation
 
     Public ReadOnly Property UploadDirectory() As String
         Get
-            Return WebConfigurationManager.AppSettings("GeneralUploadFolder")
+            Return WebConfigurationManager.AppSettings("QuotationUploadFolder")
         End Get
 
     End Property
@@ -98,16 +89,6 @@ Public Class CreateQuotation
             AddDataInForm(RequestQId)
         End If
 
-        'เพิ่มUpload'
-        'GeneralCode = Request.QueryString("gId")
-
-        'lbl_GNo.Text = GeneralCode
-        'lbl_GCompanyName.Text = GetCompanyBygId(GeneralCode)
-        'gv_GFile.DataBind()
-        'If Not IsPostBack Then
-        '    GetFiles()
-        'End If
-
         QuotationCode = Request.QueryString("qId")
 
         lbl_QNo.Text = QuotationCode
@@ -156,13 +137,13 @@ Public Class CreateQuotation
                         .Q_ID = QuotationCode
                         .Q_FileID = qFileId
                         .Q_FileName = file.FileName
-                        '.Q_FileDate = Now
+                        .Q_FileDate = Now
                     End With
                     Using ctx As New DlmsDataContext
                         ctx.QuotationFiles.InsertOnSubmit(QuotationFile)
                         ctx.SubmitChanges()
                     End Using
-                    'Response.Redirect("../Document/GeneralUpload.aspx?gId=" & GeneralCode)
+                    'Response.Redirect("../Document/CreateQuotation.aspx?gId=" & QuotationCode)
                 End If
             Next i
         End If

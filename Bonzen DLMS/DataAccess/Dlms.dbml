@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="DLMS" Class="DlmsDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="WebSettings" ConnectionString="Data Source=ANOCHA-STP\MSSQLSERVER_R2;Initial Catalog=DLMS;User ID=sa" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="DLMSConnectionString" Provider="System.Data.SqlClient" />
+  <Connection Mode="WebSettings" ConnectionString="Data Source=(local)\MSSQLSERVER_R2;Initial Catalog=DLMS_db;User ID=sa" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="DLMSConnectionString" Provider="System.Data.SqlClient" />
   <Table Name="dbo.UserGroupRole" Member="UserGroupRoles">
     <Type Name="UserGroupRole">
       <Column Name="user_group_id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
@@ -78,6 +78,7 @@
       <Column Name="Q_FileExtension" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
       <Column Name="Q_FileContent" Type="System.Data.Linq.Binary" DbType="VarBinary(MAX)" CanBeNull="true" UpdateCheck="Never" />
       <Column Name="Q_FileID" Type="System.String" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="" Member="Q_FileDate" Type="System.String" CanBeNull="false" />
       <Association Name="QuotationFile_QuotationProposal" Member="QuotationProposals" ThisKey="Q_ID" OtherKey="Q_ID" Type="QuotationProposal" />
     </Type>
   </Table>
