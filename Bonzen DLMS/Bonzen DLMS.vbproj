@@ -129,6 +129,7 @@
     <Content Include="Manage\ModuleQuotation.aspx" />
     <Content Include="Manage\Privilege.aspx" />
     <Content Include="Manage\User.aspx" />
+    <Content Include="Preview\PreviewControl.ascx" />
     <Content Include="Report\Report.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -332,6 +333,13 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Preview\PreviewControl.ascx.designer.vb">
+      <DependentUpon>PreviewControl.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Preview\PreviewControl.ascx.vb">
+      <DependentUpon>PreviewControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Report\Report.aspx.designer.vb">
       <DependentUpon>Report.aspx</DependentUpon>

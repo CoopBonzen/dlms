@@ -40,6 +40,9 @@
             cbp_company.PerformCallback(cmb_company.GetValue());
         }
 
+        function OnFileUploadComplete(s, e) {
+            btnUpdate.DoClick();
+        }
     </script>
     <dx:ASPxCallbackPanel ID="cbp_company" ClientInstanceName="cbp_company" runat="server">
         <PanelCollection>
@@ -55,7 +58,7 @@
                                 IncrementalFilteringMode="Contains" DataSourceID="lds_Company" TextField="prospect_nameTH"
                                 ValueField="prospect_id" EnableCallbackMode="True" CallbackPageSize="20">
                                 <%--<ClientSideEvents SelectedIndexChanged="function(s, e) { cbp_company.PerformCallback('Change Company'); }" />--%>
-                                <ClientSideEvents SelectedIndexChanged="function(s, e) { OnCompanyChanged(s); }" />
+                                <ClientSideEvents SelectedIndexChanged="function(s, e) { OnCompanyChanged(s); }"/>
                             </dx:ASPxComboBox>
                             <asp:LinqDataSource ID="lds_Company" runat="server" ContextTypeName="Bonzen_DLMS.DlmsDataContext"
                                 Select="new (prospect_id, prospect_nameTH, prospect_nameEN, short_name, status_id, detail, main_id, 
@@ -79,12 +82,14 @@
                         </td>
                         <td class="style2">
                             <dx:ASPxComboBox ID="cmb_attn" ClientInstanceName="cmb_attn" runat="server" Height="20px"
-                                Width="360px" IncrementalFilteringMode="Contains" DataSourceID="lds_Attn" TextField="c_name"
-                                ValueField="c_id" DropDownStyle="DropDown">
+                                Width="360px" IncrementalFilteringMode="Contains"
+                                DataSourceID="lds_Attn" TextField="c_name" ValueField="c_id"
+                                DropDownStyle="DropDown">
                             </dx:ASPxComboBox>
                             <%--Select="new (Company_ID_Attn, Company_Attn, Company_ID)" --%>
                             <asp:LinqDataSource ID="lds_Attn" runat="server" ContextTypeName="Bonzen_DLMS.DlmsDataContext"
-                                TableName="vw_CompanyAttns" Where="prospect_id == @Company_ID">
+                                TableName="vw_CompanyAttns"
+                                Where="prospect_id == @Company_ID">
                                 <WhereParameters>
                                     <asp:ControlParameter Name="Company_ID" Type="String" ControlID="cmb_company" PropertyName="Value"
                                         DefaultValue="1" />
@@ -166,14 +171,9 @@
     <p>
     </p>
     <h2>
-        Select Main Detail
+        Upload Quotation
     </h2>
     <p>
-        <script language="javascript" type="text/javascript">
-            function OnFileUploadComplete(s, e) {
-                btnUpdate.DoClick();
-            }
-        </script>
         <table width="50%">
             <tr>
                 <td class="auto-style4" style="width: 50%">
@@ -197,7 +197,7 @@
                     <dx:ASPxUploadControl ID="ulc_QuotationFile" runat="server" ShowUploadButton="True"
                         ShowProgressPanel="True" OnFileUploadComplete="UploadControl_FileUploadComplete"
                         Width="280px">
-                        <ValidationSettings AllowedFileExtensions="...(\.pdf|\.doc)" ShowErrors="false" />
+                        <ValidationSettings AllowedFileExtensions=".doc" ShowErrors="false" />
                         <ClientSideEvents FileUploadComplete="OnFileUploadComplete" />
                     </dx:ASPxUploadControl>
                 </td>
@@ -211,7 +211,8 @@
             </tr>
             <tr>
                 <td>
-                    <dx:ASPxGridView ID="gv_QFile" runat="server" Width="100%" KeyFieldName="Q_FileID">
+                    <dx:ASPxGridView ID="gv_QFile" runat="server" Width="100%" 
+                        KeyFieldName="Q_FileID" AutoGenerateColumns="False">
                         <Settings ShowColumnHeaders="false" />
                         <Columns>
                             <dx:GridViewDataColumn>
@@ -228,7 +229,7 @@
             </tr>
         </table>
     </p>
-    <table width="100%">
+   <%--  <table width="100%">
         <tr>
             <td>
                 <dx:ASPxComboBox ID="cmb_QuotationDescription" runat="server" DropDownStyle="DropDownList"
@@ -270,10 +271,6 @@
     </table>
     <p>
         <div style="clear: left; margin-top: 5px;">
-            <%--<div style="float: left; width: 100px;">
-                <dx:ASPxLabel ID="lbl_EmpIDList" runat="server" ClientVisible="false" Text="Selected ID List:"
-                    Width="100%" />
-            </div>--%>
             <div style="float: left; width: 200px;">
                 <dx:ASPxTextBox ID="txt_selectedsub" ClientInstanceName="txt_selectedsub" runat="server"
                     ClientVisible="false" Width="100%" />
@@ -302,7 +299,6 @@
                     <dx:GridViewDataColumn FieldName="Q_Detail_Sub" Caption="Detail" Width="30%" />
                     <dx:GridViewDataColumn FieldName="Price" Caption="Price" Width="20%">
                         <DataItemTemplate>
-                            <%--<dx:ASPxTextBox ID="txt_Price" runat="server" Text='<%# Eval("Price") %>' Width="100%" />--%>
                             <dx:ASPxSpinEdit ID="spe_Price" runat="server" NumberType="Float" DecimalPlaces="2"
                                 Number='<%# Eval("Price") %>' DisplayFormatString="{0:n2}" Increment="0.25" MinValue="0"
                                 Width="100%" />
@@ -310,8 +306,6 @@
                     </dx:GridViewDataColumn>
                     <dx:GridViewDataColumn Caption="Unit" Width="10%">
                         <DataItemTemplate>
-                            <%--<dx:ASPxTextBox ID="txt_Unit" runat="server" Text='<%# Eval("Unit") %>' Width="100%">
-                            </dx:ASPxTextBox>--%>
                             <dx:ASPxSpinEdit ID="spe_Unit" runat="server" NumberType="Float" DecimalPlaces="1"
                                 Number='<%# Bind("Unit") %>' MinValue="0" Increment="0.5" Width="100%" />
                         </DataItemTemplate>
@@ -338,9 +332,6 @@
         </div>
         <br />
         <div style="margin-top: 5px; margin-bottom: 0px;">
-            <%--<div style="float: left; width: 100px;">
-                <dx:ASPxLabel ID="lbl_subData" runat="server" Text="Employee data:" Width="100%" />
-            </div>--%>
             <div style="float: left; width: 400px;">
                 <dx:ASPxCallbackPanel ID="cbp_subData" ClientInstanceName="cbp_subData" runat="server"
                     Width="100%">
@@ -353,20 +344,20 @@
                     </PanelCollection>
                 </dx:ASPxCallbackPanel>
             </div>
-        </div>
-        <div style="float: right; margin-left: 5px;">
-            <dx:ASPxButton ID="btn_AddQuotation" runat="server" Text="Add Quotation">
-            </dx:ASPxButton>
-        </div>
-        <div style="float: right; margin-left: 5px;">
-            <dx:ASPxButton ID="btn_SaveQuotation" runat="server" Text="Update">
-            </dx:ASPxButton>
-        </div>
-        <div style="float: right; margin-left: 5px;">
-            <dx:ASPxButton ID="btn_PrintQuotation" runat="server" Text="Approve">
-            </dx:ASPxButton>
-        </div>
-        <br />
-        <br />
-    </p>
+        </div>--%>
+    <div style="float: right; margin-left: 5px;">
+        <dx:ASPxButton ID="btn_AddQuotation" runat="server" Text="Add Quotation">
+        </dx:ASPxButton>
+    </div>
+    <div style="float: right; margin-left: 5px;">
+        <dx:ASPxButton ID="btn_SaveQuotation" runat="server" Text="Update">
+        </dx:ASPxButton>
+    </div>
+    <div style="float: right; margin-left: 5px;">
+        <dx:ASPxButton ID="btn_PrintQuotation" runat="server" Text="Approve">
+        </dx:ASPxButton>
+    </div>
+    <br />
+    <br />
+    <%-- </p>--%>
 </asp:Content>

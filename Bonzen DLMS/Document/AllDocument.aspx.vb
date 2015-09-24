@@ -63,6 +63,10 @@ Public Class AllDocument
                 Response.Redirect("../Document/GeneralUpload.aspx?gId=" & e.CommandArgument)
             Case "PrintQuotation"
                 Response.Redirect("../Report/Report.aspx?quotaId=" & e.CommandArgument)
+                'Case "PreviewQuotation"
+                '    Response.Redirect("../Preview/PreviewControl.ascx?quotaId=" & e.CommandArgument)
+                'Case "StatusQuotation"
+                '    Response.Redirect("../Document/CreateQuotation.aspx?qId=" & e.CommandArgument)
         End Select
     End Sub
 

@@ -1083,126 +1083,6 @@ gv_QFile control.
 Auto-generated field.
 To modify move field declaration from designer file to code-behind file.
 </remarks>
-</member><member name="F:Bonzen_DLMS.CreateQuotation.cmb_QuotationDescription">
-	<summary>
-cmb_QuotationDescription control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Bonzen_DLMS.CreateQuotation.LinqDataSource_QuotationDescription">
-	<summary>
-LinqDataSource_QuotationDescription control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Bonzen_DLMS.CreateQuotation.lb_QuotationDescriptionSub">
-	<summary>
-lb_QuotationDescriptionSub control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Bonzen_DLMS.CreateQuotation.LinqDataSource_QuotationDescriptionSub">
-	<summary>
-LinqDataSource_QuotationDescriptionSub control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Bonzen_DLMS.CreateQuotation.txt_selectedsub">
-	<summary>
-txt_selectedsub control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Bonzen_DLMS.CreateQuotation.btn_Add">
-	<summary>
-btn_Add control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Bonzen_DLMS.CreateQuotation.gv_addmodule">
-	<summary>
-gv_addmodule control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Bonzen_DLMS.CreateQuotation.btn_Delete">
-	<summary>
-btn_Delete control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Bonzen_DLMS.CreateQuotation.lbl_remark">
-	<summary>
-lbl_remark control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Bonzen_DLMS.CreateQuotation.memo_remark">
-	<summary>
-memo_remark control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Bonzen_DLMS.CreateQuotation.lbl_condition">
-	<summary>
-lbl_condition control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Bonzen_DLMS.CreateQuotation.memo_condition">
-	<summary>
-memo_condition control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Bonzen_DLMS.CreateQuotation.cbp_subData">
-	<summary>
-cbp_subData control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Bonzen_DLMS.CreateQuotation.pnc_subData">
-	<summary>
-pnc_subData control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Bonzen_DLMS.CreateQuotation.txt_subData">
-	<summary>
-txt_subData control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
 </member><member name="F:Bonzen_DLMS.CreateQuotation.btn_AddQuotation">
 	<summary>
 btn_AddQuotation control.
@@ -1886,6 +1766,54 @@ To modify move field declaration from designer file to code-behind file.
 </member><member name="F:Bonzen_DLMS.User.lbl_Error">
 	<summary>
 lbl_Error control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Bonzen_DLMS.PreviewControl.pop_PreviewQuotation">
+	<summary>
+pop_PreviewQuotation control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Bonzen_DLMS.PreviewControl.lbl_QNewUpload">
+	<summary>
+lbl_QNewUpload control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Bonzen_DLMS.PreviewControl.lbl_QNo">
+	<summary>
+lbl_QNo control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Bonzen_DLMS.PreviewControl.lbl_QuotationNumber">
+	<summary>
+lbl_QuotationNumber control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Bonzen_DLMS.PreviewControl.lbl_QCompanyName">
+	<summary>
+lbl_QCompanyName control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Bonzen_DLMS.PreviewControl.gv_QFile">
+	<summary>
+gv_QFile control.
 </summary>
 	<remarks>
 Auto-generated field.

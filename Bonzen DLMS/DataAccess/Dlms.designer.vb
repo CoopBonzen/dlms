@@ -22,7 +22,7 @@ Imports System.Linq.Expressions
 Imports System.Reflection
 
 
-<Global.System.Data.Linq.Mapping.DatabaseAttribute(Name:="DLMS")>  _
+<Global.System.Data.Linq.Mapping.DatabaseAttribute(Name:="DLMS_db")>  _
 Partial Public Class DlmsDataContext
 	Inherits System.Data.Linq.DataContext
 	
@@ -73,12 +73,6 @@ Partial Public Class DlmsDataContext
     End Sub
   Partial Private Sub DeleteQuotationDetail(instance As QuotationDetail)
     End Sub
-  Partial Private Sub InsertQuotationFile(instance As QuotationFile)
-    End Sub
-  Partial Private Sub UpdateQuotationFile(instance As QuotationFile)
-    End Sub
-  Partial Private Sub DeleteQuotationFile(instance As QuotationFile)
-    End Sub
   Partial Private Sub InsertQuotationProposal(instance As QuotationProposal)
     End Sub
   Partial Private Sub UpdateQuotationProposal(instance As QuotationProposal)
@@ -108,6 +102,12 @@ Partial Public Class DlmsDataContext
   Partial Private Sub UpdateQuotationItem(instance As QuotationItem)
     End Sub
   Partial Private Sub DeleteQuotationItem(instance As QuotationItem)
+    End Sub
+  Partial Private Sub InsertQuotationFile(instance As QuotationFile)
+    End Sub
+  Partial Private Sub UpdateQuotationFile(instance As QuotationFile)
+    End Sub
+  Partial Private Sub DeleteQuotationFile(instance As QuotationFile)
     End Sub
   #End Region
 	
@@ -184,12 +184,6 @@ Partial Public Class DlmsDataContext
 		End Get
 	End Property
 	
-	Public ReadOnly Property QuotationFiles() As System.Data.Linq.Table(Of QuotationFile)
-		Get
-			Return Me.GetTable(Of QuotationFile)
-		End Get
-	End Property
-	
 	Public ReadOnly Property QuotationProposals() As System.Data.Linq.Table(Of QuotationProposal)
 		Get
 			Return Me.GetTable(Of QuotationProposal)
@@ -229,6 +223,12 @@ Partial Public Class DlmsDataContext
 	Public ReadOnly Property vw_CompanyAttns() As System.Data.Linq.Table(Of vw_CompanyAttn)
 		Get
 			Return Me.GetTable(Of vw_CompanyAttn)
+		End Get
+	End Property
+	
+	Public ReadOnly Property QuotationFiles() As System.Data.Linq.Table(Of QuotationFile)
+		Get
+			Return Me.GetTable(Of QuotationFile)
 		End Get
 	End Property
 End Class
@@ -1388,222 +1388,6 @@ Partial Public Class QuotationDetail
 	End Sub
 End Class
 
-<Global.System.Data.Linq.Mapping.TableAttribute(Name:="dbo.QuotationFile")>  _
-Partial Public Class QuotationFile
-	Implements System.ComponentModel.INotifyPropertyChanging, System.ComponentModel.INotifyPropertyChanged
-	
-	Private Shared emptyChangingEventArgs As PropertyChangingEventArgs = New PropertyChangingEventArgs(String.Empty)
-	
-	Private _Q_ID As String
-	
-	Private _Q_FileName As String
-	
-	Private _Q_ContentType As String
-	
-	Private _Q_FileExtension As String
-	
-	Private _Q_FileContent As System.Data.Linq.Binary
-	
-	Private _Q_FileID As String
-	
-	Private _Q_FileDate As String
-	
-	Private _QuotationProposals As EntitySet(Of QuotationProposal)
-	
-    #Region "Extensibility Method Definitions"
-    Partial Private Sub OnLoaded()
-    End Sub
-    Partial Private Sub OnValidate(action As System.Data.Linq.ChangeAction)
-    End Sub
-    Partial Private Sub OnCreated()
-    End Sub
-    Partial Private Sub OnQ_IDChanging(value As String)
-    End Sub
-    Partial Private Sub OnQ_IDChanged()
-    End Sub
-    Partial Private Sub OnQ_FileNameChanging(value As String)
-    End Sub
-    Partial Private Sub OnQ_FileNameChanged()
-    End Sub
-    Partial Private Sub OnQ_ContentTypeChanging(value As String)
-    End Sub
-    Partial Private Sub OnQ_ContentTypeChanged()
-    End Sub
-    Partial Private Sub OnQ_FileExtensionChanging(value As String)
-    End Sub
-    Partial Private Sub OnQ_FileExtensionChanged()
-    End Sub
-    Partial Private Sub OnQ_FileContentChanging(value As System.Data.Linq.Binary)
-    End Sub
-    Partial Private Sub OnQ_FileContentChanged()
-    End Sub
-    Partial Private Sub OnQ_FileIDChanging(value As String)
-    End Sub
-    Partial Private Sub OnQ_FileIDChanged()
-    End Sub
-    Partial Private Sub OnQ_FileDateChanging(value As String)
-    End Sub
-    Partial Private Sub OnQ_FileDateChanged()
-    End Sub
-    #End Region
-	
-	Public Sub New()
-		MyBase.New
-		Me._QuotationProposals = New EntitySet(Of QuotationProposal)(AddressOf Me.attach_QuotationProposals, AddressOf Me.detach_QuotationProposals)
-		OnCreated
-	End Sub
-	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_Q_ID", DbType:="VarChar(50) NOT NULL", CanBeNull:=false)>  _
-	Public Property Q_ID() As String
-		Get
-			Return Me._Q_ID
-		End Get
-		Set
-			If (String.Equals(Me._Q_ID, value) = false) Then
-				Me.OnQ_IDChanging(value)
-				Me.SendPropertyChanging
-				Me._Q_ID = value
-				Me.SendPropertyChanged("Q_ID")
-				Me.OnQ_IDChanged
-			End If
-		End Set
-	End Property
-	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_Q_FileName", DbType:="VarChar(200)")>  _
-	Public Property Q_FileName() As String
-		Get
-			Return Me._Q_FileName
-		End Get
-		Set
-			If (String.Equals(Me._Q_FileName, value) = false) Then
-				Me.OnQ_FileNameChanging(value)
-				Me.SendPropertyChanging
-				Me._Q_FileName = value
-				Me.SendPropertyChanged("Q_FileName")
-				Me.OnQ_FileNameChanged
-			End If
-		End Set
-	End Property
-	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_Q_ContentType", DbType:="VarChar(200)")>  _
-	Public Property Q_ContentType() As String
-		Get
-			Return Me._Q_ContentType
-		End Get
-		Set
-			If (String.Equals(Me._Q_ContentType, value) = false) Then
-				Me.OnQ_ContentTypeChanging(value)
-				Me.SendPropertyChanging
-				Me._Q_ContentType = value
-				Me.SendPropertyChanged("Q_ContentType")
-				Me.OnQ_ContentTypeChanged
-			End If
-		End Set
-	End Property
-	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_Q_FileExtension", DbType:="VarChar(10)")>  _
-	Public Property Q_FileExtension() As String
-		Get
-			Return Me._Q_FileExtension
-		End Get
-		Set
-			If (String.Equals(Me._Q_FileExtension, value) = false) Then
-				Me.OnQ_FileExtensionChanging(value)
-				Me.SendPropertyChanging
-				Me._Q_FileExtension = value
-				Me.SendPropertyChanged("Q_FileExtension")
-				Me.OnQ_FileExtensionChanged
-			End If
-		End Set
-	End Property
-	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_Q_FileContent", DbType:="VarBinary(MAX)", UpdateCheck:=UpdateCheck.Never)>  _
-	Public Property Q_FileContent() As System.Data.Linq.Binary
-		Get
-			Return Me._Q_FileContent
-		End Get
-		Set
-			If (Object.Equals(Me._Q_FileContent, value) = false) Then
-				Me.OnQ_FileContentChanging(value)
-				Me.SendPropertyChanging
-				Me._Q_FileContent = value
-				Me.SendPropertyChanged("Q_FileContent")
-				Me.OnQ_FileContentChanged
-			End If
-		End Set
-	End Property
-	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_Q_FileID", CanBeNull:=false, IsPrimaryKey:=true)>  _
-	Public Property Q_FileID() As String
-		Get
-			Return Me._Q_FileID
-		End Get
-		Set
-			If (String.Equals(Me._Q_FileID, value) = false) Then
-				Me.OnQ_FileIDChanging(value)
-				Me.SendPropertyChanging
-				Me._Q_FileID = value
-				Me.SendPropertyChanged("Q_FileID")
-				Me.OnQ_FileIDChanged
-			End If
-		End Set
-	End Property
-	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Name:="", Storage:="_Q_FileDate", CanBeNull:=false)>  _
-	Public Property Q_FileDate() As String
-		Get
-			Return Me._Q_FileDate
-		End Get
-		Set
-			If (String.Equals(Me._Q_FileDate, value) = false) Then
-				Me.OnQ_FileDateChanging(value)
-				Me.SendPropertyChanging
-				Me._Q_FileDate = value
-				Me.SendPropertyChanged("Q_FileDate")
-				Me.OnQ_FileDateChanged
-			End If
-		End Set
-	End Property
-	
-	<Global.System.Data.Linq.Mapping.AssociationAttribute(Name:="QuotationFile_QuotationProposal", Storage:="_QuotationProposals", ThisKey:="Q_ID", OtherKey:="Q_ID")>  _
-	Public Property QuotationProposals() As EntitySet(Of QuotationProposal)
-		Get
-			Return Me._QuotationProposals
-		End Get
-		Set
-			Me._QuotationProposals.Assign(value)
-		End Set
-	End Property
-	
-	Public Event PropertyChanging As PropertyChangingEventHandler Implements System.ComponentModel.INotifyPropertyChanging.PropertyChanging
-	
-	Public Event PropertyChanged As PropertyChangedEventHandler Implements System.ComponentModel.INotifyPropertyChanged.PropertyChanged
-	
-	Protected Overridable Sub SendPropertyChanging()
-		If ((Me.PropertyChangingEvent Is Nothing)  _
-					= false) Then
-			RaiseEvent PropertyChanging(Me, emptyChangingEventArgs)
-		End If
-	End Sub
-	
-	Protected Overridable Sub SendPropertyChanged(ByVal propertyName As [String])
-		If ((Me.PropertyChangedEvent Is Nothing)  _
-					= false) Then
-			RaiseEvent PropertyChanged(Me, New PropertyChangedEventArgs(propertyName))
-		End If
-	End Sub
-	
-	Private Sub attach_QuotationProposals(ByVal entity As QuotationProposal)
-		Me.SendPropertyChanging
-		entity.QuotationFile = Me
-	End Sub
-	
-	Private Sub detach_QuotationProposals(ByVal entity As QuotationProposal)
-		Me.SendPropertyChanging
-		entity.QuotationFile = Nothing
-	End Sub
-End Class
-
 <Global.System.Data.Linq.Mapping.TableAttribute(Name:="dbo.QuotationProposal")>  _
 Partial Public Class QuotationProposal
 	Implements System.ComponentModel.INotifyPropertyChanging, System.ComponentModel.INotifyPropertyChanged
@@ -1630,7 +1414,7 @@ Partial Public Class QuotationProposal
 	
 	Private _RunningNo As Integer
 	
-	Private _QuotationFile As EntityRef(Of QuotationFile)
+	Private _QuotationFiles As EntitySet(Of QuotationFile)
 	
     #Region "Extensibility Method Definitions"
     Partial Private Sub OnLoaded()
@@ -1683,7 +1467,7 @@ Partial Public Class QuotationProposal
 	
 	Public Sub New()
 		MyBase.New
-		Me._QuotationFile = CType(Nothing, EntityRef(Of QuotationFile))
+		Me._QuotationFiles = New EntitySet(Of QuotationFile)(AddressOf Me.attach_QuotationFiles, AddressOf Me.detach_QuotationFiles)
 		OnCreated
 	End Sub
 	
@@ -1694,9 +1478,6 @@ Partial Public Class QuotationProposal
 		End Get
 		Set
 			If (String.Equals(Me._Q_ID, value) = false) Then
-				If Me._QuotationFile.HasLoadedOrAssignedValue Then
-					Throw New System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException()
-				End If
 				Me.OnQ_IDChanging(value)
 				Me.SendPropertyChanging
 				Me._Q_ID = value
@@ -1852,31 +1633,13 @@ Partial Public Class QuotationProposal
 		End Set
 	End Property
 	
-	<Global.System.Data.Linq.Mapping.AssociationAttribute(Name:="QuotationFile_QuotationProposal", Storage:="_QuotationFile", ThisKey:="Q_ID", OtherKey:="Q_ID", IsForeignKey:=true)>  _
-	Public Property QuotationFile() As QuotationFile
+	<Global.System.Data.Linq.Mapping.AssociationAttribute(Name:="QuotationProposal_QuotationFile", Storage:="_QuotationFiles", ThisKey:="Q_ID", OtherKey:="Q_ID")>  _
+	Public Property QuotationFiles() As EntitySet(Of QuotationFile)
 		Get
-			Return Me._QuotationFile.Entity
+			Return Me._QuotationFiles
 		End Get
 		Set
-			Dim previousValue As QuotationFile = Me._QuotationFile.Entity
-			If ((Object.Equals(previousValue, value) = false)  _
-						OrElse (Me._QuotationFile.HasLoadedOrAssignedValue = false)) Then
-				Me.SendPropertyChanging
-				If ((previousValue Is Nothing)  _
-							= false) Then
-					Me._QuotationFile.Entity = Nothing
-					previousValue.QuotationProposals.Remove(Me)
-				End If
-				Me._QuotationFile.Entity = value
-				If ((value Is Nothing)  _
-							= false) Then
-					value.QuotationProposals.Add(Me)
-					Me._Q_ID = value.Q_ID
-				Else
-					Me._Q_ID = CType(Nothing, String)
-				End If
-				Me.SendPropertyChanged("QuotationFile")
-			End If
+			Me._QuotationFiles.Assign(value)
 		End Set
 	End Property
 	
@@ -1896,6 +1659,16 @@ Partial Public Class QuotationProposal
 					= false) Then
 			RaiseEvent PropertyChanged(Me, New PropertyChangedEventArgs(propertyName))
 		End If
+	End Sub
+	
+	Private Sub attach_QuotationFiles(ByVal entity As QuotationFile)
+		Me.SendPropertyChanging
+		entity.QuotationProposal = Me
+	End Sub
+	
+	Private Sub detach_QuotationFiles(ByVal entity As QuotationFile)
+		Me.SendPropertyChanging
+		entity.QuotationProposal = Nothing
 	End Sub
 End Class
 
@@ -3498,4 +3271,232 @@ Partial Public Class vw_CompanyAttn
 			End If
 		End Set
 	End Property
+End Class
+
+<Global.System.Data.Linq.Mapping.TableAttribute(Name:="dbo.QuotationFile")>  _
+Partial Public Class QuotationFile
+	Implements System.ComponentModel.INotifyPropertyChanging, System.ComponentModel.INotifyPropertyChanged
+	
+	Private Shared emptyChangingEventArgs As PropertyChangingEventArgs = New PropertyChangingEventArgs(String.Empty)
+	
+	Private _Q_FileID As Integer
+	
+	Private _Q_ID As String
+	
+	Private _Q_FileName As String
+	
+	Private _Q_ContentType As String
+	
+	Private _Q_FileExtension As String
+	
+	Private _Q_FileContent As System.Data.Linq.Binary
+	
+	Private _Q_FileDate As System.Nullable(Of Date)
+	
+	Private _QuotationProposal As EntityRef(Of QuotationProposal)
+	
+    #Region "Extensibility Method Definitions"
+    Partial Private Sub OnLoaded()
+    End Sub
+    Partial Private Sub OnValidate(action As System.Data.Linq.ChangeAction)
+    End Sub
+    Partial Private Sub OnCreated()
+    End Sub
+    Partial Private Sub OnQ_FileIDChanging(value As Integer)
+    End Sub
+    Partial Private Sub OnQ_FileIDChanged()
+    End Sub
+    Partial Private Sub OnQ_IDChanging(value As String)
+    End Sub
+    Partial Private Sub OnQ_IDChanged()
+    End Sub
+    Partial Private Sub OnQ_FileNameChanging(value As String)
+    End Sub
+    Partial Private Sub OnQ_FileNameChanged()
+    End Sub
+    Partial Private Sub OnQ_ContentTypeChanging(value As String)
+    End Sub
+    Partial Private Sub OnQ_ContentTypeChanged()
+    End Sub
+    Partial Private Sub OnQ_FileExtensionChanging(value As String)
+    End Sub
+    Partial Private Sub OnQ_FileExtensionChanged()
+    End Sub
+    Partial Private Sub OnQ_FileContentChanging(value As System.Data.Linq.Binary)
+    End Sub
+    Partial Private Sub OnQ_FileContentChanged()
+    End Sub
+    Partial Private Sub OnQ_FileDateChanging(value As System.Nullable(Of Date))
+    End Sub
+    Partial Private Sub OnQ_FileDateChanged()
+    End Sub
+    #End Region
+	
+	Public Sub New()
+		MyBase.New
+		Me._QuotationProposal = CType(Nothing, EntityRef(Of QuotationProposal))
+		OnCreated
+	End Sub
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_Q_FileID", DbType:="Int NOT NULL", IsPrimaryKey:=true)>  _
+	Public Property Q_FileID() As Integer
+		Get
+			Return Me._Q_FileID
+		End Get
+		Set
+			If ((Me._Q_FileID = value)  _
+						= false) Then
+				Me.OnQ_FileIDChanging(value)
+				Me.SendPropertyChanging
+				Me._Q_FileID = value
+				Me.SendPropertyChanged("Q_FileID")
+				Me.OnQ_FileIDChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_Q_ID", DbType:="VarChar(50) NOT NULL", CanBeNull:=false)>  _
+	Public Property Q_ID() As String
+		Get
+			Return Me._Q_ID
+		End Get
+		Set
+			If (String.Equals(Me._Q_ID, value) = false) Then
+				If Me._QuotationProposal.HasLoadedOrAssignedValue Then
+					Throw New System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException()
+				End If
+				Me.OnQ_IDChanging(value)
+				Me.SendPropertyChanging
+				Me._Q_ID = value
+				Me.SendPropertyChanged("Q_ID")
+				Me.OnQ_IDChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_Q_FileName", DbType:="VarChar(200)")>  _
+	Public Property Q_FileName() As String
+		Get
+			Return Me._Q_FileName
+		End Get
+		Set
+			If (String.Equals(Me._Q_FileName, value) = false) Then
+				Me.OnQ_FileNameChanging(value)
+				Me.SendPropertyChanging
+				Me._Q_FileName = value
+				Me.SendPropertyChanged("Q_FileName")
+				Me.OnQ_FileNameChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_Q_ContentType", DbType:="VarChar(200)")>  _
+	Public Property Q_ContentType() As String
+		Get
+			Return Me._Q_ContentType
+		End Get
+		Set
+			If (String.Equals(Me._Q_ContentType, value) = false) Then
+				Me.OnQ_ContentTypeChanging(value)
+				Me.SendPropertyChanging
+				Me._Q_ContentType = value
+				Me.SendPropertyChanged("Q_ContentType")
+				Me.OnQ_ContentTypeChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_Q_FileExtension", DbType:="VarChar(10)")>  _
+	Public Property Q_FileExtension() As String
+		Get
+			Return Me._Q_FileExtension
+		End Get
+		Set
+			If (String.Equals(Me._Q_FileExtension, value) = false) Then
+				Me.OnQ_FileExtensionChanging(value)
+				Me.SendPropertyChanging
+				Me._Q_FileExtension = value
+				Me.SendPropertyChanged("Q_FileExtension")
+				Me.OnQ_FileExtensionChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_Q_FileContent", DbType:="VarBinary(MAX)", CanBeNull:=true, UpdateCheck:=UpdateCheck.Never)>  _
+	Public Property Q_FileContent() As System.Data.Linq.Binary
+		Get
+			Return Me._Q_FileContent
+		End Get
+		Set
+			If (Object.Equals(Me._Q_FileContent, value) = false) Then
+				Me.OnQ_FileContentChanging(value)
+				Me.SendPropertyChanging
+				Me._Q_FileContent = value
+				Me.SendPropertyChanged("Q_FileContent")
+				Me.OnQ_FileContentChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_Q_FileDate", DbType:="DateTime")>  _
+	Public Property Q_FileDate() As System.Nullable(Of Date)
+		Get
+			Return Me._Q_FileDate
+		End Get
+		Set
+			If (Me._Q_FileDate.Equals(value) = false) Then
+				Me.OnQ_FileDateChanging(value)
+				Me.SendPropertyChanging
+				Me._Q_FileDate = value
+				Me.SendPropertyChanged("Q_FileDate")
+				Me.OnQ_FileDateChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.AssociationAttribute(Name:="QuotationProposal_QuotationFile", Storage:="_QuotationProposal", ThisKey:="Q_ID", OtherKey:="Q_ID", IsForeignKey:=true)>  _
+	Public Property QuotationProposal() As QuotationProposal
+		Get
+			Return Me._QuotationProposal.Entity
+		End Get
+		Set
+			Dim previousValue As QuotationProposal = Me._QuotationProposal.Entity
+			If ((Object.Equals(previousValue, value) = false)  _
+						OrElse (Me._QuotationProposal.HasLoadedOrAssignedValue = false)) Then
+				Me.SendPropertyChanging
+				If ((previousValue Is Nothing)  _
+							= false) Then
+					Me._QuotationProposal.Entity = Nothing
+					previousValue.QuotationFiles.Remove(Me)
+				End If
+				Me._QuotationProposal.Entity = value
+				If ((value Is Nothing)  _
+							= false) Then
+					value.QuotationFiles.Add(Me)
+					Me._Q_ID = value.Q_ID
+				Else
+					Me._Q_ID = CType(Nothing, String)
+				End If
+				Me.SendPropertyChanged("QuotationProposal")
+			End If
+		End Set
+	End Property
+	
+	Public Event PropertyChanging As PropertyChangingEventHandler Implements System.ComponentModel.INotifyPropertyChanging.PropertyChanging
+	
+	Public Event PropertyChanged As PropertyChangedEventHandler Implements System.ComponentModel.INotifyPropertyChanged.PropertyChanged
+	
+	Protected Overridable Sub SendPropertyChanging()
+		If ((Me.PropertyChangingEvent Is Nothing)  _
+					= false) Then
+			RaiseEvent PropertyChanging(Me, emptyChangingEventArgs)
+		End If
+	End Sub
+	
+	Protected Overridable Sub SendPropertyChanged(ByVal propertyName As [String])
+		If ((Me.PropertyChangedEvent Is Nothing)  _
+					= false) Then
+			RaiseEvent PropertyChanged(Me, New PropertyChangedEventArgs(propertyName))
+		End If
+	End Sub
 End Class

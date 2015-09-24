@@ -126,7 +126,8 @@
                                 VisibleIndex="8" Width="8%">
                                 <DataItemTemplate>
                                     <asp:LinkButton ID="lnk_Status" runat="server" CommandArgument='<%# Eval("Quota_ID") %>'
-                                        CommandName="StatusQuotation" OnCommand="ListItem_Command" Text="Status" Visible='<%# Eval("Show") %>'>
+                                        CommandName="StatusQuotation" OnCommand="ListItem_Command" Text="Create" Visible='<%# Eval("Show") %>'>
+                                       
                                     </asp:LinkButton>
                                 </DataItemTemplate>
                                 <CellStyle HorizontalAlign="Center">

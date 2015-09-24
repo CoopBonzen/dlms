@@ -1,8 +1,13 @@
-﻿Imports DevExpress.Web.ASPxClasses
+﻿Imports System.Data
+Imports System.Data.DataTable
+Imports System.Data.SqlClient
+Imports DevExpress.Web.ASPxClasses
 Imports DevExpress.Web.ASPxEditors
 Imports DevExpress.Web.ASPxGridView
-Imports System.Web.Configuration
 Imports DevExpress.Web.ASPxUploadControl
+Imports System.IO
+Imports System.Web.Configuration
+
 
 
 Public Class CreateQuotation
@@ -29,20 +34,20 @@ Public Class CreateQuotation
     Private ReadOnly Property SelectedDetailIDList() As List(Of Integer)
         Get
             Dim idList As New List(Of Integer)
-            If Not String.IsNullOrWhiteSpace(txt_selectedsub.Text) Then
-                Dim strIDList As List(Of String) = txt_selectedsub.Text.Split(",").ToList
-                idList = (From strId In strIDList Select CInt(strId)).ToList
-            End If
+            'If Not String.IsNullOrWhiteSpace(txt_selectedsub.Text) Then
+            '    Dim strIDList As List(Of String) = txt_selectedsub.Text.Split(",").ToList
+            '    idList = (From strId In strIDList Select CInt(strId)).ToList
+            'End If
             Return idList
         End Get
     End Property
-
+    ''
     Private ReadOnly Property strAddedDetailSubList() As List(Of String)
         Get
             Dim subDataList As New List(Of String)
-            If Not String.IsNullOrWhiteSpace(txt_subData.Text) Then
-                subDataList = txt_subData.Text.Split(";").ToList
-            End If
+            'If Not String.IsNullOrWhiteSpace(txt_subData.Text) Then
+            '    subDataList = txt_subData.Text.Split(";").ToList
+            'End If
             Return subDataList
         End Get
     End Property
@@ -50,14 +55,15 @@ Public Class CreateQuotation
     Private ReadOnly Property AddedDetailIDList() As List(Of Integer)
         Get
             Dim subIDList As New List(Of Integer)
-            If Not String.IsNullOrWhiteSpace(txt_subData.Text) Then
-                Dim subDataList As List(Of String) = strAddedDetailSubList
-                For i As Integer = 0 To subDataList.Count - 1
-                    Dim subData As String() = subDataList(i).Split("|")
-                    Dim subId As Integer = CInt(subData(0))
-                    subIDList.Add(subId)
-                Next
-            End If
+
+            'If Not String.IsNullOrWhiteSpace(txt_subData.Text) Then
+            '    Dim subDataList As List(Of String) = strAddedDetailSubList
+            '    For i As Integer = 0 To subDataList.Count - 1
+            '        Dim subData As String() = subDataList(i).Split("|")
+            '        Dim subId As Integer = CInt(subData(0))
+            '        subIDList.Add(subId)
+            '    Next
+            'End If
             Return subIDList
         End Get
     End Property
@@ -78,7 +84,7 @@ Public Class CreateQuotation
         'txt_subData.Text = ""
 
         'ของเก่า'
-        gv_addmodule.JSProperties("cpStrAllSubData") = String.Empty
+        'gv_addmodule.JSProperties("cpStrAllSubData") = String.Empty
         If (Not IsCallback) Then
             FillSubQuotationCombo("1")
             FillAttnCombo(Session("Company_ID"))
@@ -109,8 +115,8 @@ Public Class CreateQuotation
     Public Function GetCompanyBygId(ByVal qId As String)
         Using ctx As New DlmsDataContext
             Dim companyName As String
-            companyName = (From q In ctx.Quotations Where q.Quota_ID = qId _
-                           Select q.company_name).SingleOrDefault
+            companyName = (From q In ctx.QuotationProposals Where q.Q_ID = qId _
+                           Select q.ContactCom).SingleOrDefault
             Return companyName
         End Using
     End Function
@@ -132,15 +138,15 @@ Public Class CreateQuotation
                         IO.Directory.CreateDirectory(path)
                     End If
                     file.SaveAs(path & "\" & file.FileName)
-                    Dim QuotationFile As New QuotationFile
-                    With QuotationFile
+                    Dim quotationFile As New QuotationFile
+                    With quotationFile
                         .Q_ID = QuotationCode
                         .Q_FileID = qFileId
                         .Q_FileName = file.FileName
                         .Q_FileDate = Now
                     End With
                     Using ctx As New DlmsDataContext
-                        ctx.QuotationFiles.InsertOnSubmit(QuotationFile)
+                        ctx.QuotationFiles.InsertOnSubmit(quotationFile)
                         ctx.SubmitChanges()
                     End Using
                     'Response.Redirect("../Document/CreateQuotation.aspx?gId=" & QuotationCode)
@@ -247,7 +253,7 @@ Public Class CreateQuotation
 
     'End Sub
 
-    Public Sub AddDataInForm(ByVal Q_No)
+     Public Sub AddDataInForm(Q_No)
         'GetQuotationDate(Q_No)
         txt_quotation.Text = Q_No
         dte_quotationDate.Text = GetQuotationDate(Q_No)
@@ -277,8 +283,8 @@ Public Class CreateQuotation
                 txt_tel.Text = .tel
                 txt_fax.Text = .fax
                 txt_email.Text = .email
-                memo_remark.Text = .remark
-                memo_condition.Text = .condition
+                'memo_remark.Text = .remark
+                'memo_condition.Text = .condition
 
                 Using ctx = New DlmsDataContext
                     Dim quota_item As New List(Of QuotationItem)
@@ -294,7 +300,7 @@ Public Class CreateQuotation
                         End With
                         subDataList.Add(StrDetailData(q_DescriptionSub, i.unit))
                     Next
-                    txt_subData.Text = String.Join(";", subDataList)
+                    'txt_subData.Text = String.Join(";", subDataList)
                     gv_addmodule_DataBind()
                 End Using
             End With
@@ -329,36 +335,36 @@ Public Class CreateQuotation
     '    cmb_attn.DataBind()
     'End Sub
 
-    Private Sub cbp_subData_Callback(ByVal sender As Object, ByVal e As DevExpress.Web.ASPxClasses.CallbackEventArgsBase) Handles cbp_subData.Callback
-        If e.Parameter.ToString = "Add Detail" Then
-            Dim allsubList As List(Of QuotationDescriptionSub) = GetQuotationSubList()
-            Dim newDetailIDList As List(Of Integer) = AddedDetailIDList
-            newDetailIDList.AddRange(SelectedDetailIDList)
-            newDetailIDList = (From id In newDetailIDList Order By id Distinct).ToList
-            Dim strEmpDataList As New List(Of String)
-            For i As Integer = 0 To newDetailIDList.Count - 1
-                Dim index As Integer = i
-                Dim data As String = GetStrsubDataFromTable(newDetailIDList(index))
-                If String.IsNullOrWhiteSpace(data) Then
-                    'Dim emp As Employee = (From em In  Where em.empId = newEmployeeIDList(index)).SingleOrDefault
-                    Dim quosub As QuotationDescriptionSub = GetQuotationSubListById(newDetailIDList(index))
-                    data = StrDetailData(quosub)
-                End If
-                If Not String.IsNullOrWhiteSpace(data) Then
-                    strEmpDataList.Add(data)
-                End If
-            Next
-            txt_subData.Text = String.Join(";", strEmpDataList)
-        ElseIf e.Parameter.ToString.StartsWith("Set Price") Then
-            Dim cmdInfo As String() = e.Parameter.ToString.Split(":")
-            Dim params As String() = cmdInfo(1).Split(",")
-            SetStrDataValue(params(0), 3, If(IsNumeric(params(1)), params(1), 0))
-        ElseIf e.Parameter.ToString.StartsWith("Set Unit") Then
-            Dim cmdInfo As String() = e.Parameter.ToString.Split(":")
-            Dim params As String() = cmdInfo(1).Split(",")
-            SetStrDataValue(params(0), 4, If(IsNumeric(params(1)), params(1), 0))
-        End If
-    End Sub
+    'Private Sub cbp_subData_Callback(ByVal sender As Object, ByVal e As DevExpress.Web.ASPxClasses.CallbackEventArgsBase) Handles cbp_subData.Callback
+    '    If e.Parameter.ToString = "Add Detail" Then
+    '        Dim allsubList As List(Of QuotationDescriptionSub) = GetQuotationSubList()
+    '        Dim newDetailIDList As List(Of Integer) = AddedDetailIDList
+    '        newDetailIDList.AddRange(SelectedDetailIDList)
+    '        newDetailIDList = (From id In newDetailIDList Order By id Distinct).ToList
+    '        Dim strEmpDataList As New List(Of String)
+    '        For i As Integer = 0 To newDetailIDList.Count - 1
+    '            Dim index As Integer = i
+    '            Dim data As String = GetStrsubDataFromTable(newDetailIDList(index))
+    '            If String.IsNullOrWhiteSpace(data) Then
+    '                'Dim emp As Employee = (From em In  Where em.empId = newEmployeeIDList(index)).SingleOrDefault
+    '                Dim quosub As QuotationDescriptionSub = GetQuotationSubListById(newDetailIDList(index))
+    '                data = StrDetailData(quosub)
+    '            End If
+    '            If Not String.IsNullOrWhiteSpace(data) Then
+    '                strEmpDataList.Add(data)
+    '            End If
+    '        Next
+    '        'txt_subData.Text = String.Join(";", strEmpDataList)
+    '    ElseIf e.Parameter.ToString.StartsWith("Set Price") Then
+    '        Dim cmdInfo As String() = e.Parameter.ToString.Split(":")
+    '        Dim params As String() = cmdInfo(1).Split(",")
+    '        SetStrDataValue(params(0), 3, If(IsNumeric(params(1)), params(1), 0))
+    '    ElseIf e.Parameter.ToString.StartsWith("Set Unit") Then
+    '        Dim cmdInfo As String() = e.Parameter.ToString.Split(":")
+    '        Dim params As String() = cmdInfo(1).Split(",")
+    '        SetStrDataValue(params(0), 4, If(IsNumeric(params(1)), params(1), 0))
+    '    End If
+    'End Sub
 
     Private Function StrDetailData(ByVal quosub As QuotationDescriptionSub, Optional ByVal unit As Decimal = 1) As String
         If quosub IsNot Nothing Then
@@ -377,13 +383,13 @@ Public Class CreateQuotation
     End Function
 
     Private Function GetStrsubDataFromTable(ByVal subId As Integer) As String
-        If Not String.IsNullOrWhiteSpace(txt_subData.Text) Then
-            Dim subDataList As List(Of String) = strAddedDetailSubList
-            For i As Integer = 0 To subDataList.Count - 1
-                Dim subData As String() = subDataList(i).Split("|")
-                If CInt(subData(0)) = subId Then Return subDataList(i)
-            Next
-        End If
+        'If Not String.IsNullOrWhiteSpace(txt_subData.Text) Then
+        '    Dim subDataList As List(Of String) = strAddedDetailSubList
+        '    For i As Integer = 0 To subDataList.Count - 1
+        '        Dim subData As String() = subDataList(i).Split("|")
+        '        If CInt(subData(0)) = subId Then Return subDataList(i)
+        '    Next
+        'End If
         Return String.Empty
     End Function
 
@@ -461,51 +467,51 @@ Public Class CreateQuotation
     '    Con.Close() : Return dt
     'End Function
 
-    Private Sub gv_addmodule_CustomButtonCallback(ByVal sender As Object, ByVal e As DevExpress.Web.ASPxGridView.ASPxGridViewCustomButtonCallbackEventArgs) Handles gv_addmodule.CustomButtonCallback
-        If e.ButtonID = "btn_Delete" Then
-            Dim subId As Integer = gv_addmodule.GetRowValues(e.VisibleIndex, "ID_Q_Detail_Sub")
-            Dim strAllSubData As String = txt_subData.Text
-            Dim strEmpData As String = GetStrsubDataFromTable(subId)
-            If txt_subData.Text.Contains(";" & strEmpData) Then
-                strAllSubData = strAllSubData.Replace(";" & strEmpData, "")
-            ElseIf txt_subData.Text.Contains(strEmpData & ";") Then
-                strAllSubData = strAllSubData.Replace(strEmpData & ";", "")
-            Else
-                strAllSubData = String.Empty
-            End If
-            gv_addmodule.JSProperties("cpStrAllSubData") = "Delete employee:" & strAllSubData
-        End If
-    End Sub
+    'Private Sub gv_addmodule_CustomButtonCallback(ByVal sender As Object, ByVal e As DevExpress.Web.ASPxGridView.ASPxGridViewCustomButtonCallbackEventArgs) Handles gv_addmodule.CustomButtonCallback
+    '    If e.ButtonID = "btn_Delete" Then
+    '        'Dim subId As Integer = gv_addmodule.GetRowValues(e.VisibleIndex, "ID_Q_Detail_Sub")
+    '        'Dim strAllSubData As String = txt_subData.Text
+    '        'Dim strEmpData As String = GetStrsubDataFromTable(subId)
+    '        'If txt_subData.Text.Contains(";" & strEmpData) Then
+    '        '    strAllSubData = strAllSubData.Replace(";" & strEmpData, "")
+    '        'ElseIf txt_subData.Text.Contains(strEmpData & ";") Then
+    '        '    strAllSubData = strAllSubData.Replace(strEmpData & ";", "")
+    '        'Else
+    '        '    strAllSubData = String.Empty
+    '        'End If
+    '        'gv_addmodule.JSProperties("cpStrAllSubData") = "Delete employee:" & strAllSubData
+    '    End If
+    'End Sub
 
-    Private Sub gv_addmodule_CustomCallback(ByVal sender As Object, ByVal e As DevExpress.Web.ASPxGridView.ASPxGridViewCustomCallbackEventArgs) Handles gv_addmodule.CustomCallback
-        If e.Parameters.ToString = "Bind data" Then gv_addmodule_DataBind()
-    End Sub
+    'Private Sub gv_addmodule_CustomCallback(ByVal sender As Object, ByVal e As DevExpress.Web.ASPxGridView.ASPxGridViewCustomCallbackEventArgs) Handles gv_addmodule.CustomCallback
+    '    If e.Parameters.ToString = "Bind data" Then gv_addmodule_DataBind()
+    'End Sub
 
     Private Sub gv_addmodule_DataBind()
         Dim dt = GetDetailSubList()
-        gv_addmodule.DataSource = dt
-        gv_addmodule.DataBind()
+        'gv_addmodule.DataSource = dt
+        'gv_addmodule.DataBind()
     End Sub
 
-    Private Sub gv_addmodule_HtmlRowCreated(ByVal sender As Object, ByVal e As DevExpress.Web.ASPxGridView.ASPxGridViewTableRowEventArgs) Handles gv_addmodule.HtmlRowCreated
-        If e.RowType = GridViewRowType.Data Then
-            Dim subId As Integer = e.KeyValue
-            Dim colnPrice As GridViewDataColumn = gv_addmodule.Columns("Price")
-            Dim spePrice As ASPxSpinEdit = gv_addmodule.FindRowCellTemplateControl(e.VisibleIndex, colnPrice, "spe_Price")
-            spePrice.ClientSideEvents.LostFocus = "function(s, e) { cbp_subData.PerformCallback('Set Price:" & subId & ",' + s.GetValue()); }"
+    'Private Sub gv_addmodule_HtmlRowCreated(ByVal sender As Object, ByVal e As DevExpress.Web.ASPxGridView.ASPxGridViewTableRowEventArgs) Handles gv_addmodule.HtmlRowCreated
+    '    If e.RowType = GridViewRowType.Data Then
+    '        Dim subId As Integer = e.KeyValue
+    '        'Dim colnPrice As GridViewDataColumn = gv_addmodule.Columns("Price")
+    '        'Dim spePrice As ASPxSpinEdit = gv_addmodule.FindRowCellTemplateControl(e.VisibleIndex, colnPrice, "spe_Price")
+    '        'spePrice.ClientSideEvents.LostFocus = "function(s, e) { cbp_subData.PerformCallback('Set Price:" & subId & ",' + s.GetValue()); }"
 
-            Dim colnUnit As GridViewDataColumn = gv_addmodule.Columns("Unit")
-            Dim speUnit As ASPxSpinEdit = gv_addmodule.FindRowCellTemplateControl(e.VisibleIndex, colnUnit, "spe_Unit")
-            speUnit.ClientSideEvents.LostFocus = "function(s, e) { cbp_subData.PerformCallback('Set Unit:" & subId & ",' + s.GetValue()); }"
-        End If
-    End Sub
+    '        'Dim colnUnit As GridViewDataColumn = gv_addmodule.Columns("Unit")
+    '        'Dim speUnit As ASPxSpinEdit = gv_addmodule.FindRowCellTemplateControl(e.VisibleIndex, colnUnit, "spe_Unit")
+    '        'speUnit.ClientSideEvents.LostFocus = "function(s, e) { cbp_subData.PerformCallback('Set Unit:" & subId & ",' + s.GetValue()); }"
+    '    End If
+    'End Sub
 
     Private Sub SetStrDataValue(ByVal subId As Integer, ByVal colnIndex As Integer, ByVal value As Double)
         Dim oldStrsubData As String = GetStrsubDataFromTable(subId)
         Dim strData As String() = oldStrsubData.Split("|")
         strData(colnIndex) = value
         Dim newStrsubData As String = String.Join("|", strData)
-        txt_subData.Text = txt_subData.Text.Replace(oldStrsubData, newStrsubData)
+        'txt_subData.Text = txt_subData.Text.Replace(oldStrsubData, newStrsubData)
     End Sub
 
     Private Sub btn_AddQuotation_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles btn_AddQuotation.Click
@@ -531,8 +537,8 @@ Public Class CreateQuotation
                     .bonzen_email = txt_bonzenemail.Text.Trim
                     'ยังไม่ได้ update Total
                     '.total_amount = sumAmount
-                    .remark = memo_remark.Text
-                    .condition = memo_condition.Text
+                    '.remark = memo_remark.Text
+                    '.condition = memo_condition.Text
                 End With
                 ctx.Quotations.InsertOnSubmit(TbQuotation)
                 ctx.SubmitChanges()
@@ -646,8 +652,8 @@ Public Class CreateQuotation
                 .bonzen_email = txt_bonzenemail.Text.Trim
                 'ยังไม่ได้ update Total
                 '.total_amount = 
-                .remark = memo_remark.Text
-                .condition = memo_condition.Text
+                '.remark = memo_remark.Text
+                '.condition = memo_condition.Text
             End With
             ctx.SubmitChanges()
             UpdateQuotationItem()
