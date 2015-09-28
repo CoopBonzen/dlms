@@ -1,5 +1,5 @@
-﻿<%@ Page Title="" Language="vb" AutoEventWireup="false" MasterPageFile="~/Site.Master" culture="en-GB"
-    CodeBehind="SearchDocument.aspx.vb" Inherits="Bonzen_DLMS.SearchDocument" %>
+﻿<%@ Page Title="" Language="vb" AutoEventWireup="false" MasterPageFile="~/Site.Master"
+    Culture="en-GB" CodeBehind="SearchDocument.aspx.vb" Inherits="Bonzen_DLMS.SearchDocument" %>
 
 <%@ Register Assembly="DevExpress.Web.v13.1, Version=13.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"
     Namespace="DevExpress.Web.ASPxGridView" TagPrefix="dx" %>
@@ -24,13 +24,13 @@
     </div>
     <div class="jumbotron">
         <h3 class="style4">
-            Quotation & Proposal</h3>
-        <p>
-               &nbsp;&nbsp;&nbsp;<span class="style3">Latest Quotation &amp; Proposal (last 30 days)</span></p>
+            Latest Quotation &amp; Proposal (last 30 days)</h3>
+        <%--<p>
+               &nbsp;&nbsp;&nbsp;<span class="style3">Latest Quotation &amp; Proposal (last 30 days)</span></p>--%>
         <p class="lead">
-            <dx:ASPxGridView ID="gv_quotationProposal" 
-                ClientInstanceName="gv_quotationProposal" runat="server" AutoGenerateColumns="False"
-                DataSourceID="Quo_Prop" KeyFieldName="Q_ID" Width="894px">
+            <dx:ASPxGridView ID="gv_quotationProposal" ClientInstanceName="gv_quotationProposal"
+                runat="server" AutoGenerateColumns="False" DataSourceID="Quo_Prop" KeyFieldName="Q_ID"
+                Width="894px">
                 <Columns>
                     <dx:GridViewDataTextColumn Caption="หมายเลข Quotation" FieldName="Q_ID" ReadOnly="True"
                         VisibleIndex="0" CellStyle-HorizontalAlign="Center" Width="8%" SortOrder="Descending">
@@ -56,7 +56,7 @@
                         <Settings AutoFilterCondition="Contains" />
                     </dx:GridViewDataTextColumn>
                     <dx:GridViewDataTextColumn Caption="เรื่อง" FieldName="Title" VisibleIndex="6" Width="20%">
-                    <Settings AutoFilterCondition="Contains" />
+                        <Settings AutoFilterCondition="Contains" />
                     </dx:GridViewDataTextColumn>
                     <dx:GridViewDataTextColumn Caption="ผู้จอง" FieldName="BookingBy" VisibleIndex="7"
                         Width="8%">
@@ -73,8 +73,8 @@
                         </CellStyle>
                         <Settings AutoFilterCondition="Contains" />
                     </dx:GridViewDataTextColumn>
-                    <dx:GridViewDataTextColumn Caption="พิมพ์ใบเสนอราคา" Name="Print" VisibleIndex="8" ReadOnly="True"
-                        CellStyle-HorizontalAlign="Center" Width="8%">
+                    <dx:GridViewDataTextColumn Caption="พิมพ์ใบเสนอราคา" Name="Print" VisibleIndex="8"
+                        ReadOnly="True" CellStyle-HorizontalAlign="Center" Width="8%">
                         <DataItemTemplate>
                             <asp:LinkButton ID="lnk_Print" runat="server" Text="Print" CommandName="PrintQuotation"
                                 OnCommand="ListItem_Command" CommandArgument='<%# Eval("Quota_ID") %>' Visible='<%# Eval("Show") %>'>
@@ -147,18 +147,18 @@
         </p>
         <div>
             <h3 class="style4">
-                General</h3>
-        <p>
-               &nbsp;&nbsp;&nbsp;<span class="style3">Latest General document</span></p>
+                Latest General document</h3>
+            <%--<p>
+               &nbsp;&nbsp;&nbsp;<span class="style3">Latest General document</span></p>--%>
             <p class="lead">
-                <dx:ASPxGridView ID="gv_general" ClientInstanceName="gv_general" runat="server" 
-                    AutoGenerateColumns="False" DataSourceID="General"
-                    KeyFieldName="G_ID" Width="894px">
+                <dx:ASPxGridView ID="gv_general" ClientInstanceName="gv_general" runat="server" AutoGenerateColumns="False"
+                    DataSourceID="General" KeyFieldName="G_ID" Width="894px">
                     <Columns>
-                        <dx:GridViewDataTextColumn Caption="หมายเลขจดหมาย" FieldName="G_ID" ReadOnly="True" SortOrder="Descending"
-                            VisibleIndex="0" CellStyle-HorizontalAlign="Center" EditCellStyle-HorizontalAlign="Center" Width="8%">
-
-<EditCellStyle HorizontalAlign="Center"></EditCellStyle>
+                        <dx:GridViewDataTextColumn Caption="หมายเลขจดหมาย" FieldName="G_ID" ReadOnly="True"
+                            SortOrder="Descending" VisibleIndex="0" CellStyle-HorizontalAlign="Center" EditCellStyle-HorizontalAlign="Center"
+                            Width="8%">
+                            <EditCellStyle HorizontalAlign="Center">
+                            </EditCellStyle>
                             <DataItemTemplate>
                                 <asp:LinkButton ID="lnk_GId" runat="server" Text='<%# Eval("G_ID") %>' CommandName="OpenUploadGeneralFile"
                                     CommandArgument='<%# Eval("G_ID") %>' OnCommand="ListItem_Command">
@@ -180,8 +180,8 @@
                         </dx:GridViewDataDateColumn>
                         <dx:GridViewDataTextColumn Caption="ผู้รับ (บริษัท)" FieldName="ContactCom" VisibleIndex="3"
                             Width="25%" EditCellStyle-HorizontalAlign="Center">
-
-<EditCellStyle HorizontalAlign="Center"></EditCellStyle>
+                            <EditCellStyle HorizontalAlign="Center">
+                            </EditCellStyle>
                             <EditItemTemplate>
                                 <asp:Label ID="lbl_ContactCompany" runat="server" Text='<%# Eval("ContactCom") %>'></asp:Label>
                             </EditItemTemplate>
@@ -189,8 +189,8 @@
                         </dx:GridViewDataTextColumn>
                         <dx:GridViewDataTextColumn Caption="ผู้รับ (ชื่อ)" FieldName="ContactName" VisibleIndex="4"
                             Width="25%" EditCellStyle-HorizontalAlign="Center">
-
-<EditCellStyle HorizontalAlign="Center"></EditCellStyle>
+                            <EditCellStyle HorizontalAlign="Center">
+                            </EditCellStyle>
                             <EditItemTemplate>
                                 <asp:Label ID="lbl_ContactName" runat="server" Text='<%# Eval("ContactName") %>'></asp:Label>
                             </EditItemTemplate>
@@ -202,7 +202,7 @@
                             </EditItemTemplate>
                             <Settings AutoFilterCondition="Contains" />
                         </dx:GridViewDataTextColumn>
-                       <%-- <dx:GridViewDataTextColumn Caption="หมายเหตุ" FieldName="Note" VisibleIndex="6" Width="8%">
+                        <%-- <dx:GridViewDataTextColumn Caption="หมายเหตุ" FieldName="Note" VisibleIndex="6" Width="8%">
                             <EditItemTemplate>
                                 <asp:TextBox ID="txt_Note" runat="server"></asp:TextBox>
                             </EditItemTemplate>

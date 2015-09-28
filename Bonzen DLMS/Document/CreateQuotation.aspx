@@ -58,7 +58,7 @@
                                 IncrementalFilteringMode="Contains" DataSourceID="lds_Company" TextField="prospect_nameTH"
                                 ValueField="prospect_id" EnableCallbackMode="True" CallbackPageSize="20">
                                 <%--<ClientSideEvents SelectedIndexChanged="function(s, e) { cbp_company.PerformCallback('Change Company'); }" />--%>
-                                <ClientSideEvents SelectedIndexChanged="function(s, e) { OnCompanyChanged(s); }"/>
+                                <ClientSideEvents SelectedIndexChanged="function(s, e) { OnCompanyChanged(s); }" />
                             </dx:ASPxComboBox>
                             <asp:LinqDataSource ID="lds_Company" runat="server" ContextTypeName="Bonzen_DLMS.DlmsDataContext"
                                 Select="new (prospect_id, prospect_nameTH, prospect_nameEN, short_name, status_id, detail, main_id, 
@@ -82,14 +82,12 @@
                         </td>
                         <td class="style2">
                             <dx:ASPxComboBox ID="cmb_attn" ClientInstanceName="cmb_attn" runat="server" Height="20px"
-                                Width="360px" IncrementalFilteringMode="Contains"
-                                DataSourceID="lds_Attn" TextField="c_name" ValueField="c_id"
-                                DropDownStyle="DropDown">
+                                Width="360px" IncrementalFilteringMode="Contains" DataSourceID="lds_Attn" TextField="c_name"
+                                ValueField="c_id" DropDownStyle="DropDown">
                             </dx:ASPxComboBox>
                             <%--Select="new (Company_ID_Attn, Company_Attn, Company_ID)" --%>
                             <asp:LinqDataSource ID="lds_Attn" runat="server" ContextTypeName="Bonzen_DLMS.DlmsDataContext"
-                                TableName="vw_CompanyAttns"
-                                Where="prospect_id == @Company_ID">
+                                TableName="vw_CompanyAttns" Where="prospect_id == @Company_ID">
                                 <WhereParameters>
                                     <asp:ControlParameter Name="Company_ID" Type="String" ControlID="cmb_company" PropertyName="Value"
                                         DefaultValue="1" />
@@ -197,7 +195,7 @@
                     <dx:ASPxUploadControl ID="ulc_QuotationFile" runat="server" ShowUploadButton="True"
                         ShowProgressPanel="True" OnFileUploadComplete="UploadControl_FileUploadComplete"
                         Width="280px">
-                        <ValidationSettings AllowedFileExtensions=".doc" ShowErrors="false" />
+                        <ValidationSettings AllowedFileExtensions=".pdf, .doc, .docx" ShowErrors="false" />
                         <ClientSideEvents FileUploadComplete="OnFileUploadComplete" />
                     </dx:ASPxUploadControl>
                 </td>
@@ -211,25 +209,41 @@
             </tr>
             <tr>
                 <td>
-                    <dx:ASPxGridView ID="gv_QFile" runat="server" Width="100%" 
-                        KeyFieldName="Q_FileID" AutoGenerateColumns="False">
+                    <dx:ASPxGridView ID="gv_QFile" runat="server" Width="100%" KeyFieldName="Q_FileID"
+                        AutoGenerateColumns="False">
+                        <SettingsPager Visible="False">
+                        </SettingsPager>
                         <Settings ShowColumnHeaders="false" />
                         <Columns>
-                            <dx:GridViewDataColumn>
+                            <dx:GridViewDataColumn VisibleIndex="1">
                                 <DataItemTemplate>
                                     <asp:HyperLink ID="Link" runat="server" NavigateUrl='<%#Eval("link") %>' ForeColor="#6798de"
                                         ToolTip='<%#Eval("filename")%>'><%#Eval("filename")%></asp:HyperLink>
                                 </DataItemTemplate>
                             </dx:GridViewDataColumn>
+                            <%--<dx:GridViewCommandColumn ButtonType="Image" Caption="Delete Tiile" ShowInCustomizationForm="True"
+                                VisibleIndex="" Width="8%">
+                                <DeleteButton Visible="True">
+                                    <Image AlternateText="Delete" Url="../images/trash.gif"></Image>
+                                </DeleteButton>
+                            </dx:GridViewCommandColumn>--%>
+                            <dx:GridViewCommandColumn ShowSelectCheckbox="True" VisibleIndex="0" Width="8%">
+                                <ClearFilterButton Visible="True">
+                                </ClearFilterButton>
+                            </dx:GridViewCommandColumn>
                             <dx:GridViewDataDateColumn FieldName="Q_FileDate" Visible="false" SortOrder="Descending">
                             </dx:GridViewDataDateColumn>
                         </Columns>
                     </dx:ASPxGridView>
+                    <br />
+                    <dx:ASPxButton ID="btnDeleteSelectedRows" runat="server" OnClick="btnDeleteSelectedRows_Click"
+                        Text="Delete selected rows" Width="137px">
+                    </dx:ASPxButton>
                 </td>
             </tr>
         </table>
     </p>
-   <%--  <table width="100%">
+    <%--  <table width="100%">
         <tr>
             <td>
                 <dx:ASPxComboBox ID="cmb_QuotationDescription" runat="server" DropDownStyle="DropDownList"

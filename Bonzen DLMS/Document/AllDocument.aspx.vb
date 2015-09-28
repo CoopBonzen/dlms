@@ -7,6 +7,7 @@ Public Class AllDocument
     Private _dataaccess As New DataAccessModule
 
 
+
     Public Property DataAccess() As DataAccessModule
         Get
             Return _dataaccess
@@ -64,7 +65,7 @@ Public Class AllDocument
             Case "PrintQuotation"
                 Response.Redirect("../Report/Report.aspx?quotaId=" & e.CommandArgument)
                 'Case "PreviewQuotation"
-                '    Response.Redirect("../Preview/PreviewControl.ascx?quotaId=" & e.CommandArgument)
+                'Response.Redirect("../Preview/PreviewControl.ascx?qId=" & e.CommandArgument)
                 'Case "StatusQuotation"
                 '    Response.Redirect("../Document/CreateQuotation.aspx?qId=" & e.CommandArgument)
         End Select

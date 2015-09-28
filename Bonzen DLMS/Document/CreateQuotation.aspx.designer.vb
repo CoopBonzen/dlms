@@ -302,6 +302,15 @@ Partial Public Class CreateQuotation
     Protected WithEvents gv_QFile As Global.DevExpress.Web.ASPxGridView.ASPxGridView
 
     '''<summary>
+    '''btnDeleteSelectedRows control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents btnDeleteSelectedRows As Global.DevExpress.Web.ASPxEditors.ASPxButton
+
+    '''<summary>
     '''btn_AddQuotation control.
     '''</summary>
     '''<remarks>

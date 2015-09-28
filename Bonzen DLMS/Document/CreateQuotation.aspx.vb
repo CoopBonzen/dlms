@@ -95,6 +95,11 @@ Public Class CreateQuotation
             AddDataInForm(RequestQId)
         End If
 
+        'Delete File
+        If (Not IsPostBack) Then
+            gv_QFile.DataBind()
+        End If
+
         QuotationCode = Request.QueryString("qId")
 
         lbl_QNo.Text = QuotationCode
@@ -103,6 +108,9 @@ Public Class CreateQuotation
         If Not IsPostBack Then
             GetFiles()
         End If
+
+
+
     End Sub
 
     'เพิ่มUpload'
@@ -156,7 +164,8 @@ Public Class CreateQuotation
     End Sub
 
     Protected Sub Updatepanel1_Refresh(ByVal sender As Object, ByVal e As System.EventArgs)
-        Response.Redirect("../Document/CreateQuotation.aspx?gId=" & QuotationCode)
+        Response.Redirect("../Document/CreateQuotation.aspx?qId=" & QuotationCode)
+
     End Sub
 
     Public Sub GetFiles()
@@ -194,6 +203,51 @@ Public Class CreateQuotation
             Return Quotations
         End Using
     End Function
+
+    'Delete File
+    Private Function GetDataSource() As List(Of QuotationFile)
+        Dim lst As List(Of QuotationFile) = New List(Of QuotationFile)()
+        For i As Integer = 1 To 10
+            Dim obj As QuotationFile = New QuotationFile()
+            obj.Q_FileID = i
+            obj.Q_FileName = String.Format("Name_{0}", i)
+            lst.Add(obj)
+        Next i
+        Return lst
+    End Function
+    Private ReadOnly Property DSource() As List(Of QuotationFile)
+        Get
+            Dim lst As List(Of QuotationFile) = Nothing
+            If Session("DSource") Is Nothing Then
+                lst = GetDataSource()
+                Session("DSource") = lst
+            Else
+                lst = TryCast(Session("DSource"), List(Of QuotationFile))
+            End If
+            Return lst
+        End Get
+    End Property
+    Protected Sub gv_QFile_DataBinding(ByVal sender As Object, ByVal e As EventArgs)
+        TryCast(sender, ASPxGridView).DataSource = DSource
+    End Sub
+
+    Protected Sub btnDeleteSelectedRows_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnDeleteSelectedRows.Click
+        Dim lst As List(Of QuotationFile) = DSource
+        Dim selectedValues As List(Of Object) = gv_QFile.GetSelectedFieldValues(gv_QFile.KeyFieldName)
+        For Each value As Object In selectedValues
+            Dim obj As QuotationFile = lst.Find(Function(s) s.Q_FileID = Convert.ToInt32(lst))
+            lst.Remove(obj)
+            'Using ctx = New DlmsDataContext
+            '    Dim quta As QuotationFile = (From r In ctx.QuotationFiles Where r.Q_FileID = Convert.ToInt32(lst)).SingleOrDefault
+            '    ctx.QuotationFiles.DeleteOnSubmit(quta)
+            '    ctx.SubmitChanges()
+            'End Using
+        Next value
+        gv_QFile.DataBind()
+    End Sub
+
+
+
 
     'Public Sub SetDefaultRemark()
     '    memo_remark.Text = "1.  กำหนดยื่นราคา 30 วัน " & vbCrLf & _
@@ -376,9 +430,9 @@ Public Class CreateQuotation
 
     Private Function GetQuotationDate(ByVal qId As String) As String
         Using ctx As New DlmsDataContext
-            Dim Quotation As String = (From q In ctx.QuotationProposals _
-                                        Where q.Q_ID = qId Select q.Q_Date).SingleOrDefault
-            Return Quotation
+            'Dim Quotation As String = (From q In ctx.QuotationProposals _
+            '                            Where q.Q_ID = qId Select q.Q_Date).SingleOrDefault
+            'Return Quotation
         End Using
     End Function
 
@@ -713,4 +767,7 @@ Public Class CreateQuotation
     Private Sub lds_Attn_Selecting(ByVal sender As Object, ByVal e As System.Web.UI.WebControls.LinqDataSourceSelectEventArgs) Handles lds_Attn.Selecting
         e.WhereParameters("Company_ID") = If(IsNumeric(Session("Company_ID")), CInt(Session("Company_ID")), 0)
     End Sub
+
+    
+
 End Class

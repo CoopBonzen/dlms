@@ -16,8 +16,6 @@ Public Class AddNewDocument
         End Set
     End Property
 
-    Private Property base As Object
-
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         If String.IsNullOrEmpty(Session("Username")) Then Response.Redirect("~/Login.aspx")
         cmb_DocumentType.JSProperties("cpRunNo") = String.Empty
@@ -171,11 +169,5 @@ Public Class AddNewDocument
     Private Sub cmb_attn_Callback(ByVal sender As Object, ByVal e As DevExpress.Web.ASPxClasses.CallbackEventArgsBase) Handles cmb_attn.Callback
         cmb_attn.DataBind()
     End Sub
-
-
-    'Protected Sub btnQ_OK_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnQ_OK.Click
-    ''Response.RedirectPermanent("SearchDocument.aspx")
-    ''base.OnLoad(e)
-    'End Sub
 
 End Class

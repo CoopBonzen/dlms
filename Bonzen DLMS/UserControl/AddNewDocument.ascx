@@ -113,6 +113,7 @@
                                        }
                                        else if (s.cpRunNo.indexOf('BZ-P') == 0) {
                                            CIN_pop_proposal.Show();
+                                           CIN_cbb_QId.PerformCallback();
                                            lbl_PNo.SetText(s.cpRunNo);
                                        }
                                        else if (s.cpRunNo.indexOf('BZ-G') == 0) {
@@ -208,25 +209,23 @@
                                     var check = true;
                                     var DateValue = Q_Date.GetValue();
                                     if (DateValue == null) {
-                                        lbl_ErrorQuo.SetVisible(true);
-                                        lbl_ErrorQuo.SetValue("กรุณาระบุวันที่(Date)");
+                                        lbl_Validate.SetVisible(true);
+                                        lbl_Validate.SetValue("กรุณาระบุวันที่(Date)");
                                         check = false;
                                     }
                                     var TextValue = txtb_QTitle.GetValue();
                                     if (TextValue == null) {
-                                        lbl_ErrorQuo.SetVisible(true);
-                                        lbl_ErrorQuo.SetValue("กรุณาระบุชื่อเรื่อง(Title) ");
+                                        lbl_Validate.SetVisible(true);
+                                        lbl_Validate.SetValue("กรุณาระบุชื่อเรื่อง(Title) ");
                                         check = false;
                                     }
                                     if (check) {
                                         cb_PopupInit.PerformCallback('ClickBtnQ_Ok');
-                                        lbl_ErrorQuo.SetValue("");
-                                        lbl_ErrorQuo.SetVisible(false);
+                                        lbl_Validate.SetValue("");
+                                        lbl_Validate.SetVisible(false);
                                         CIN_pop_quotation.Hide();
-
                                     }
-                                }
-                                                                             
+                                }                                                 
                             </script>
                         </div>
                     </td>
@@ -249,12 +248,15 @@
                     </td>
                     <td style="width: 60%">
                         <%--<dx:ASPxDropDownEdit ID="dp_P" runat="server" />--%>
-                        <dx:ASPxComboBox ID="cbb_QId" runat="server" ClientInstanceName="cbb_QId" IncrementalFilteringMode="Contains"
-                            TextField="Q_ID" ValueField="Q_ID" DataSourceID="lds_Quotation">
+                        <dx:ASPxComboBox ID="cbb_QId" runat="server" ClientInstanceName="CIN_cbb_QId" IncrementalFilteringMode="Contains"
+                            TextField="Q_ID" ValueField="Q_ID" DataSourceID="sds_Quotation">
                         </dx:ASPxComboBox>
-                        <asp:LinqDataSource ID="lds_Quotation" runat="server" ContextTypeName="Bonzen_DLMS.DlmsDataContext"
-                            OrderBy="Q_ID DESC" TableName="QuotationProposals" Where="P_ID == NULL ">
-                        </asp:LinqDataSource>
+                        <%--<asp:LinqDataSource ID="lds_Quotation" runat="server" ContextTypeName="Bonzen_DLMS.DlmsDataContext"
+                            OrderBy="Q_ID DESC" TableName="QuotationProposals" Where="DATEDIFF(day,Q_Date,getdate()) between 0 and 30">
+                        </asp:LinqDataSource>--%>
+                        <asp:SqlDataSource runat="server" ID="sds_Quotation" ConnectionString="<%$ ConnectionStrings:DLMSConnectionString %>"
+                            SelectCommand="SELECT * FROM [QuotationProposal] WHERE (DATEDIFF(day,[Q_Date],getdate()) between 0 and 30) ORDER BY [P_ID] DESC">
+                        </asp:SqlDataSource>
                     </td>
                 </tr>
                 <tr>

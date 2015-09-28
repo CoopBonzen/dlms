@@ -635,9 +635,9 @@ cbb_QId control.
 Auto-generated field.
 To modify move field declaration from designer file to code-behind file.
 </remarks>
-</member><member name="F:Bonzen_DLMS.AddNewDocument.lds_Quotation">
+</member><member name="F:Bonzen_DLMS.AddNewDocument.sds_Quotation">
 	<summary>
-lds_Quotation control.
+sds_Quotation control.
 </summary>
 	<remarks>
 Auto-generated field.
@@ -1078,6 +1078,14 @@ To modify move field declaration from designer file to code-behind file.
 </member><member name="F:Bonzen_DLMS.CreateQuotation.gv_QFile">
 	<summary>
 gv_QFile control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Bonzen_DLMS.CreateQuotation.btnDeleteSelectedRows">
+	<summary>
+btnDeleteSelectedRows control.
 </summary>
 	<remarks>
 Auto-generated field.
@@ -1766,6 +1774,14 @@ To modify move field declaration from designer file to code-behind file.
 </member><member name="F:Bonzen_DLMS.User.lbl_Error">
 	<summary>
 lbl_Error control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Bonzen_DLMS.PreviewControl.btn_PreviewQuotation">
+	<summary>
+btn_PreviewQuotation control.
 </summary>
 	<remarks>
 Auto-generated field.

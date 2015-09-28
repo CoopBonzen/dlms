@@ -194,13 +194,13 @@ Partial Public Class AddNewDocument
     Protected WithEvents cbb_QId As Global.DevExpress.Web.ASPxEditors.ASPxComboBox
 
     '''<summary>
-    '''lds_Quotation control.
+    '''sds_Quotation control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents lds_Quotation As Global.System.Web.UI.WebControls.LinqDataSource
+    Protected WithEvents sds_Quotation As Global.System.Web.UI.WebControls.SqlDataSource
 
     '''<summary>
     '''lbl_P control.

@@ -11,6 +11,7 @@
     Namespace="DevExpress.Web.ASPxRoundPanel" TagPrefix="dx" %>
 <%@ Register Assembly="DevExpress.Web.v13.1, Version=13.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"
     Namespace="DevExpress.Web.ASPxPanel" TagPrefix="dx" %>
+<%@ Register Src="../Preview/PreviewControl.ascx" TagName="PreviewControl" TagPrefix="uc1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
     <style type="text/css">
         .style2
@@ -46,14 +47,6 @@
                                     <ClientSideEvents SelectedIndexChanged="function(s, e) { CIN_gv_quotationProposalAll.PerformCallback(); }">
                                     </ClientSideEvents>
                                 </dx:ASPxComboBox>
-                                <%--<dx:ASPxComboBox ID="cmb_searchYearQ" runat="server" IncrementalFilteringMode="Contains"
-                                    ValueField="ayear" TextField="ayear" ValueType="System.Int32" DataSourceID="Quo_Year"
-                                    AutoPostBack="True" Height="17px" Width="97px">                                    
-                                    <ClientSideEvents SelectedIndexChanged="function(s, e) { CIN_gv_quotationProposalAll.PerformCallback(); }">
-                                    </ClientSideEvents>
-                                </dx:ASPxComboBox>--%>
-                                <%--<ClientSideEvents SelectedIndexChanged="function(s, e) { gv_quotationProposal.PerformCallback(s.GetValue()); }">
-                                    </ClientSideEvents>  OnLoad="cmb_searchYear_Load"   --%>
                                 <asp:SqlDataSource ID="Quo_Year" runat="server" ConnectionString="<%$ ConnectionStrings:DLMSConnectionString %>"
                                     SelectCommand="SELECT distinct(YEAR(QuotationProposal.Q_Date)) as ayear FROM [QuotationProposal] ORDER BY ayear DESC">
                                 </asp:SqlDataSource>
@@ -112,7 +105,7 @@
                                 <CellStyle HorizontalAlign="Center">
                                 </CellStyle>
                             </dx:GridViewDataTextColumn>
-                            <dx:GridViewDataTextColumn Caption="พิมพ์ใบเสนอราคา" Name="Print" ReadOnly="True"
+                            <%--<dx:GridViewDataTextColumn Caption="พิมพ์ใบเสนอราคา" Name="Print" ReadOnly="True"
                                 ShowInCustomizationForm="True" VisibleIndex="8" Width="8%">
                                 <DataItemTemplate>
                                     <asp:LinkButton ID="lnk_Print" runat="server" CommandArgument='<%# Eval("Quota_ID") %>'
@@ -121,7 +114,7 @@
                                 </DataItemTemplate>
                                 <CellStyle HorizontalAlign="Center">
                                 </CellStyle>
-                            </dx:GridViewDataTextColumn>
+                            </dx:GridViewDataTextColumn>--%>
                             <dx:GridViewDataTextColumn Caption="สถานะ" Name="Status" ReadOnly="True" ShowInCustomizationForm="True"
                                 VisibleIndex="8" Width="8%">
                                 <DataItemTemplate>
@@ -139,6 +132,7 @@
                                     <asp:LinkButton ID="lnk_Preview" runat="server" CommandArgument='<%# Eval("Quota_ID") %>'
                                         CommandName="PreviewQuotation" OnCommand="ListItem_Command" Text="Preview" Visible='<%# Eval("Show") %>'>
                                     </asp:LinkButton>
+                                    <%-- <uc1:PreviewControl ID="PreviewControl" runat="server"/>--%>
                                 </DataItemTemplate>
                                 <CellStyle HorizontalAlign="Center">
                                 </CellStyle>

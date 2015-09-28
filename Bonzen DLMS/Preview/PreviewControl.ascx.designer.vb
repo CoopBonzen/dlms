@@ -14,6 +14,15 @@ Option Explicit On
 Partial Public Class PreviewControl
 
     '''<summary>
+    '''btn_PreviewQuotation control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents btn_PreviewQuotation As Global.DevExpress.Web.ASPxEditors.ASPxButton
+
+    '''<summary>
     '''pop_PreviewQuotation control.
     '''</summary>
     '''<remarks>

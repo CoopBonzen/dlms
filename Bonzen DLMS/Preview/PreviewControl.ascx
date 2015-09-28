@@ -40,6 +40,11 @@
         width: 159px;
     }
 </style>
+<dx:ASPxButton ID="btn_PreviewQuotation" runat="server" Text="Preview" AutoPostBack="false"
+    ClientInstanceName="CIN_btn_PreviewQuotation" Width="69px">
+    <%--<ClientSideEvents Click ="function (s,e){CIN_pop_AddDocument.Show();}" />‏--%>
+    <ClientSideEvents Click="function (s,e){ CIN_pop_PreviewQuotation.Show();}" />
+</dx:ASPxButton>
 <dx:ASPxPopupControl ID="pop_PreviewQuotation" runat="server" ClientInstanceName="CIN_pop_PreviewQuotation"
     HeaderText="Preview Quotation" PopupVerticalAlign="WindowCenter" AllowResize="True"
     CloseAction="CloseButton" Modal="True" AllowDragging="True" PopupHorizontalAlign="WindowCenter"

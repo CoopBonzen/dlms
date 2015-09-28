@@ -29,7 +29,7 @@ Public Class PreviewControl
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         If String.IsNullOrEmpty(Session("Username")) Then Response.Redirect("~/Login.aspx")
-
+       
 
         QuotationCode = Request.QueryString("qId")
 
@@ -93,7 +93,7 @@ Public Class PreviewControl
     End Sub
 
     Protected Sub Updatepanel1_Refresh(ByVal sender As Object, ByVal e As System.EventArgs)
-        Response.Redirect("../Document/CreateQuotation.aspx?gId=" & QuotationCode)
+        Response.Redirect("../Document/CreateQuotation.aspx?qId=" & QuotationCode)
     End Sub
 
     Public Sub GetFiles()
