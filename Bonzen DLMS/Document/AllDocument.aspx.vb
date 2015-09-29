@@ -34,6 +34,7 @@ Public Class AllDocument
         user = DataAccess.GetUserByUsername(username)
 
         'user.user_group_id
+        Dim aa = QuotationStatusEnum.New
     End Sub
 
     Private Sub gv_general_HtmlRowPrepared(ByVal sender As Object, ByVal e As DevExpress.Web.ASPxGridView.ASPxGridViewTableRowEventArgs) Handles gv_generalAll.HtmlRowPrepared
@@ -64,10 +65,6 @@ Public Class AllDocument
                 Response.Redirect("../Document/GeneralUpload.aspx?gId=" & e.CommandArgument)
             Case "PrintQuotation"
                 Response.Redirect("../Report/Report.aspx?quotaId=" & e.CommandArgument)
-                'Case "PreviewQuotation"
-                'Response.Redirect("../Preview/PreviewControl.ascx?qId=" & e.CommandArgument)
-                'Case "StatusQuotation"
-                '    Response.Redirect("../Document/CreateQuotation.aspx?qId=" & e.CommandArgument)
         End Select
     End Sub
 

@@ -109,6 +109,8 @@ Public Class CreateQuotation
             GetFiles()
         End If
 
+        'Dim ctx As New DlmsDataContext
+        'Dim groups As Integer = (From  q In ctx.UserGroups Where q.user_group_id = 
 
 
     End Sub
@@ -777,7 +779,7 @@ Public Class CreateQuotation
         e.WhereParameters("Company_ID") = If(IsNumeric(Session("Company_ID")), CInt(Session("Company_ID")), 0)
     End Sub
 
-    
+
 
     Private Sub gv_QFile_HtmlDataCellPrepared(ByVal sender As Object, ByVal e As DevExpress.Web.ASPxGridView.ASPxGridViewTableDataCellEventArgs) Handles gv_QFile.HtmlDataCellPrepared
         If e.DataColumn.FieldName = "Q_FileID" Then
@@ -790,4 +792,9 @@ Public Class CreateQuotation
                 End If
         End If
     End Sub
+
+  
+
+
+
 End Class
