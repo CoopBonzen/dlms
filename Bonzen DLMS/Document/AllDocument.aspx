@@ -127,7 +127,7 @@
                                 </CellStyle>
                             </dx:GridViewDataTextColumn>
                             <dx:GridViewDataTextColumn Caption="ไฟล์ที่แนบ" Name="Preview" ReadOnly="True" ShowInCustomizationForm="True"
-                                VisibleIndex="8" Width="8%">
+                                VisibleIndex="9" Width="8%">
                                 <DataItemTemplate>
                                     <asp:LinkButton ID="lnk_Preview" runat="server" CommandArgument='<%# Eval("Quota_ID") %>'
                                         CommandName="PreviewQuotation" OnCommand="ListItem_Command" Text="Preview" Visible='<%# Eval("Show") %>'>

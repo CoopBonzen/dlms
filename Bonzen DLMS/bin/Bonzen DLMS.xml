@@ -1075,6 +1075,14 @@ lbl_QCompanyName control.
 Auto-generated field.
 To modify move field declaration from designer file to code-behind file.
 </remarks>
+</member><member name="F:Bonzen_DLMS.CreateQuotation.txt_qFile">
+	<summary>
+txt_qFile control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
 </member><member name="F:Bonzen_DLMS.CreateQuotation.gv_QFile">
 	<summary>
 gv_QFile control.

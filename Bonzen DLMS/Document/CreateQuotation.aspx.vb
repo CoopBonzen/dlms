@@ -170,6 +170,7 @@ Public Class CreateQuotation
 
     Public Sub GetFiles()
         Dim dt As New DataTable
+        dt.Columns.Add("Q_FileID", GetType(String))
         dt.Columns.Add("filename", GetType(String))
         dt.Columns.Add("link", GetType(String))
 
@@ -185,7 +186,7 @@ Public Class CreateQuotation
                     Dim fpath As String = "DownloadFile.aspx?FilePath=" & Web.HttpUtility.UrlEncode(Path & "\" & f.Name)
                     For Each i In quotationList
                         If i.Q_FileName = fname Then
-                            dt.Rows.Add(fname, fpath)
+                            dt.Rows.Add(i.Q_FileID, fname, fpath)
                         End If
                     Next
                 Next
@@ -232,18 +233,26 @@ Public Class CreateQuotation
     End Sub
 
     Protected Sub btnDeleteSelectedRows_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnDeleteSelectedRows.Click
-        Dim lst As List(Of QuotationFile) = DSource
-        Dim selectedValues As List(Of Object) = gv_QFile.GetSelectedFieldValues(gv_QFile.KeyFieldName)
-        For Each value As Object In selectedValues
-            Dim obj As QuotationFile = lst.Find(Function(s) s.Q_FileID = Convert.ToInt32(lst))
-            lst.Remove(obj)
-            'Using ctx = New DlmsDataContext
-            '    Dim quta As QuotationFile = (From r In ctx.QuotationFiles Where r.Q_FileID = Convert.ToInt32(lst)).SingleOrDefault
-            '    ctx.QuotationFiles.DeleteOnSubmit(quta)
-            '    ctx.SubmitChanges()
-            'End Using
-        Next value
-        gv_QFile.DataBind()
+        ''Dim lst As List(Of QuotationFile) = DSource
+        ''Dim selectedValues As List(Of Object) = gv_QFile.GetSelectedFieldValues(gv_QFile.KeyFieldName)
+        ''For Each value As Object In selectedValues
+        ''    Dim obj As QuotationFile = lst.Find(Function(s) s.Q_FileID = Convert.ToInt32(lst))
+        ''    lst.Remove(obj)
+        ''Next value
+        ''gv_QFile.DataBind()
+
+        Using ctx = New DlmsDataContext
+            If Not IsNothing(txt_qFile.Text.Trim) And Not txt_qFile.Text.Trim = "" Then
+                Dim aFileId() As String = txt_qFile.Text.Split(",")
+                For i = 0 To aFileId.Length - 1
+                    Dim quta As QuotationFile = (From r In ctx.QuotationFiles Where r.Q_FileID = Convert.ToInt32(aFileId(i))).SingleOrDefault
+                    ctx.QuotationFiles.DeleteOnSubmit(quta)
+                    ctx.SubmitChanges()
+                Next
+            End If
+            GetFiles()
+            txt_qFile.Text = Nothing
+        End Using
     End Sub
 
 
@@ -430,9 +439,9 @@ Public Class CreateQuotation
 
     Private Function GetQuotationDate(ByVal qId As String) As String
         Using ctx As New DlmsDataContext
-            'Dim Quotation As String = (From q In ctx.QuotationProposals _
-            '                            Where q.Q_ID = qId Select q.Q_Date).SingleOrDefault
-            'Return Quotation
+            Dim Quotation As String = (From q In ctx.QuotationProposals _
+                                        Where q.Q_ID = qId Select q.Q_Date).SingleOrDefault
+            Return Quotation
         End Using
     End Function
 
@@ -770,4 +779,15 @@ Public Class CreateQuotation
 
     
 
+    Private Sub gv_QFile_HtmlDataCellPrepared(ByVal sender As Object, ByVal e As DevExpress.Web.ASPxGridView.ASPxGridViewTableDataCellEventArgs) Handles gv_QFile.HtmlDataCellPrepared
+        If e.DataColumn.FieldName = "Q_FileID" Then
+                Dim chk_Selected As ASPxCheckBox = gv_QFile.FindRowCellTemplateControlByKey(e.CellValue, e.DataColumn, "chk_selected")
+                If chk_Selected IsNot Nothing Then
+                    chk_Selected.Checked = False
+                    chk_Selected.ClientSideEvents.CheckedChanged = "function(s, e) { " & _
+                                                                   "if (s.GetValue()) AddQfileList(" & e.CellValue & "); " & _
+                                                                   "else RemoveQfileList(" & e.CellValue & ");}"
+                End If
+        End If
+    End Sub
 End Class

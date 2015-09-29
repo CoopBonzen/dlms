@@ -43,6 +43,34 @@
         function OnFileUploadComplete(s, e) {
             btnUpdate.DoClick();
         }
+
+
+        //check box
+        function IsStringContain(str, substr) {
+            return str.indexOf(substr) != -1;
+        }
+
+        function RemoveItemFromStrList(strList, item) {
+            if (IsStringContain(strList, ',' + item.toString())) strList = strList.replace(',' + item.toString(), '');
+            else if (IsStringContain(strList, item.toString() + ',')) strList = strList.replace(item.toString() + ',', '');
+            else strList = strList.replace(item.toString(), '');
+            return strList
+        }
+
+        function AddQfileList(qFileID) {
+            var qFileList = CIN_txt_qFile.GetText();
+            if (!IsStringContain(qFileList, qFileID.toString())) {
+                if (qFileList != '') qFileList += ',';
+                CIN_txt_qFile.SetText(qFileList + qFileID.toString());
+            }
+        }
+
+        function RemoveQfileList(qFileID) {
+            var qFileList = CIN_txt_qFile.GetText();
+            var newQfileList = RemoveItemFromStrList(qFileList, qFileID.toString());
+            CIN_txt_qFile.SetText(newQfileList);
+            //CIN_cbp_requestTime.PerformCallback();
+        }
     </script>
     <dx:ASPxCallbackPanel ID="cbp_company" ClientInstanceName="cbp_company" runat="server">
         <PanelCollection>
@@ -209,13 +237,23 @@
             </tr>
             <tr>
                 <td>
+                    <dx:ASPxTextBox ID="txt_qFile" runat="server" ClientInstanceName="CIN_txt_qFile"
+                        ClientVisible="false">
+                    </dx:ASPxTextBox>
                     <dx:ASPxGridView ID="gv_QFile" runat="server" Width="100%" KeyFieldName="Q_FileID"
                         AutoGenerateColumns="False">
                         <SettingsPager Visible="False">
                         </SettingsPager>
-                        <Settings ShowColumnHeaders="false" />
+                        <%--<Settings ShowColumnHeaders="false" />--%>
                         <Columns>
-                            <dx:GridViewDataColumn VisibleIndex="1">
+                            <dx:GridViewDataColumn Caption=" " FieldName="Q_FileID" Width="50px">
+                                <CellStyle HorizontalAlign="Center" />
+                                <DataItemTemplate>
+                                    <dx:ASPxCheckBox ID="chk_selected" runat="server" ClientInstanceName="CIN_chk_selected"
+                                        CheckState="Unchecked" />
+                                </DataItemTemplate>
+                            </dx:GridViewDataColumn>
+                            <dx:GridViewDataColumn>
                                 <DataItemTemplate>
                                     <asp:HyperLink ID="Link" runat="server" NavigateUrl='<%#Eval("link") %>' ForeColor="#6798de"
                                         ToolTip='<%#Eval("filename")%>'><%#Eval("filename")%></asp:HyperLink>
@@ -227,10 +265,10 @@
                                     <Image AlternateText="Delete" Url="../images/trash.gif"></Image>
                                 </DeleteButton>
                             </dx:GridViewCommandColumn>--%>
-                            <dx:GridViewCommandColumn ShowSelectCheckbox="True" VisibleIndex="0" Width="8%">
+                            <%--<dx:GridViewCommandColumn ShowSelectCheckbox="True" VisibleIndex="0" Width="8%">
                                 <ClearFilterButton Visible="True">
                                 </ClearFilterButton>
-                            </dx:GridViewCommandColumn>
+                            </dx:GridViewCommandColumn>--%>
                             <dx:GridViewDataDateColumn FieldName="Q_FileDate" Visible="false" SortOrder="Descending">
                             </dx:GridViewDataDateColumn>
                         </Columns>
