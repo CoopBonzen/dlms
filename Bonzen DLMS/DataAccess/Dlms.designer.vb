@@ -2092,6 +2092,8 @@ Partial Public Class Quotation
 	
 	Private _condition As String
 	
+	Private _Quota_Status As String
+	
 	Private _QuotationItems As EntitySet(Of QuotationItem)
 	
     #Region "Extensibility Method Definitions"
@@ -2164,6 +2166,10 @@ Partial Public Class Quotation
     Partial Private Sub OnconditionChanging(value As String)
     End Sub
     Partial Private Sub OnconditionChanged()
+    End Sub
+    Partial Private Sub OnQuota_StatusChanging(value As String)
+    End Sub
+    Partial Private Sub OnQuota_StatusChanged()
     End Sub
     #End Region
 	
@@ -2426,6 +2432,22 @@ Partial Public Class Quotation
 				Me._condition = value
 				Me.SendPropertyChanged("condition")
 				Me.OnconditionChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_Quota_Status", CanBeNull:=false)>  _
+	Public Property Quota_Status() As String
+		Get
+			Return Me._Quota_Status
+		End Get
+		Set
+			If (String.Equals(Me._Quota_Status, value) = false) Then
+				Me.OnQuota_StatusChanging(value)
+				Me.SendPropertyChanging
+				Me._Quota_Status = value
+				Me.SendPropertyChanged("Quota_Status")
+				Me.OnQuota_StatusChanged
 			End If
 		End Set
 	End Property
@@ -3422,7 +3444,7 @@ Partial Public Class QuotationFile
 		End Set
 	End Property
 	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_Q_FileContent", DbType:="VarBinary(MAX)", CanBeNull:=true, UpdateCheck:=UpdateCheck.Never)>  _
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_Q_FileContent", DbType:="VarBinary(MAX)", UpdateCheck:=UpdateCheck.Never)>  _
 	Public Property Q_FileContent() As System.Data.Linq.Binary
 		Get
 			Return Me._Q_FileContent

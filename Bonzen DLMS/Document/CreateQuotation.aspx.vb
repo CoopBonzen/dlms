@@ -600,6 +600,8 @@ Public Class CreateQuotation
                     .quotation_from = txt_from.Text.Trim
                     .bonzen_tel = txt_bonzentel.Text.Trim
                     .bonzen_email = txt_bonzenemail.Text.Trim
+                    .Quota_Status = QuotationStatusEnum.New
+
                     'ยังไม่ได้ update Total
                     '.total_amount = sumAmount
                     '.remark = memo_remark.Text
@@ -691,7 +693,16 @@ Public Class CreateQuotation
     End Sub
 
     Private Sub btn_PrintQuotation_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles btn_PrintQuotation.Click
-        Response.Redirect("../Report/Report.aspx?quotaId=" & QuotationID)
+        Using ctx As New DlmsDataContext
+            Dim maxId = (From r In ctx.Quotations Select CType(r.Quota_ID, Integer?)).Max
+            Dim nextId = If(maxId.HasValue, maxId + 1, 1)
+            Dim TbQuotation As New Quotation
+            With TbQuotation
+                .Quota_Status = QuotationStatusEnum.Approve
+            End With
+
+        End Using
+        'Response.Redirect("../Report/Report.aspx?quotaId=" & QuotationID)
     End Sub
 
     Private Sub btn_SaveQuotation_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles btn_SaveQuotation.Click
