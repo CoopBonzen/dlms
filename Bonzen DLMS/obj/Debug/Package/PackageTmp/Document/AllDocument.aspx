@@ -2,6 +2,8 @@
     Culture="en-GB" CodeBehind="AllDocument.aspx.vb" Inherits="Bonzen_DLMS.AllDocument" %>
 
 <%@ Register Assembly="DevExpress.Web.v13.1, Version=13.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"
+    Namespace="DevExpress.Web.ASPxPopupControl" TagPrefix="dx" %>
+<%@ Register Assembly="DevExpress.Web.v13.1, Version=13.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"
     Namespace="DevExpress.Web.ASPxGridView" TagPrefix="dx" %>
 <%@ Register Assembly="DevExpress.Web.v13.1, Version=13.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"
     Namespace="DevExpress.Web.ASPxEditors" TagPrefix="dx" %>
@@ -30,8 +32,63 @@
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
+    <div class="jumbotron">
+      <%--  <dx:ASPxButton ID="btn_PreviewQuotation" runat="server" Text="Preview" AutoPostBack="false"
+            ClientInstanceName="CIN_btn_PreviewQuotation" Width="69px" AutoGenerateColumns="False">
+            <ClientSideEvents Click="function (s,e){ CIN_pop_PreviewQuotation.Show();}" />
+        </dx:ASPxButton>--%>
+        <dx:ASPxPopupControl ID="pop_PreviewQuotation" runat="server" ClientInstanceName="CIN_pop_PreviewQuotation"
+            HeaderText="Preview Quotation" PopupVerticalAlign="WindowCenter" AllowResize="True"
+            CloseAction="CloseButton" Modal="True" AllowDragging="True" PopupHorizontalAlign="WindowCenter"
+            ShowFooter="false" Width="500px" Height="200px">
+            <HeaderStyle HorizontalAlign="Center" BackColor="#5066AC" ForeColor="White" Font-Bold="True" />
+            <ContentCollection>
+                <dx:PopupControlContentControl>
+                    <table>
+                        <tr>
+                            <td class="auto-style4" style="width: 50%">
+                                <dx:ASPxLabel ID="lbl_QNewUpload" runat="server" Text="New Upload">
+                                </dx:ASPxLabel>
+                                &nbsp;&nbsp;
+                                <dx:ASPxLabel ID="lbl_QNo" runat="server">
+                                </dx:ASPxLabel>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="auto-style4" style="width: 50%">
+                                <dx:ASPxLabel ID="lbl_QuotationNumber" runat="server" Text="Company : ">
+                                </dx:ASPxLabel>
+                                &nbsp;&nbsp;
+                                <dx:ASPxLabel ID="lbl_QCompanyName" runat="server">
+                                </dx:ASPxLabel>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <dx:ASPxGridView ID="gv_QFile" runat="server" AutoGenerateColumns="False" KeyFieldName="Q_FileID"
+                                    Width="100%">
+                                    <Columns>
+                                        <dx:GridViewDataColumn ShowInCustomizationForm="True" VisibleIndex="0">
+                                            <DataItemTemplate>
+                                                <asp:HyperLink ID="Link" runat="server" ForeColor="#6798de" NavigateUrl='<%#Eval("link") %>'
+                                                    ToolTip='<%#Eval("filename")%>'><%#Eval("filename")%></asp:HyperLink>
+                                            </DataItemTemplate>
+                                        </dx:GridViewDataColumn>
+                                        <dx:GridViewDataDateColumn FieldName="Q_FileDate" ShowInCustomizationForm="True"
+                                            SortIndex="0" SortOrder="Descending" Visible="False">
+                                        </dx:GridViewDataDateColumn>
+                                    </Columns>
+                                    <Settings ShowColumnHeaders="False" />
+                                </dx:ASPxGridView>
+                            </td>
+                        </tr>
+                    </table>
+                </dx:PopupControlContentControl>
+            </ContentCollection>
+        </dx:ASPxPopupControl>
+    </div>
     <h3>
-        <strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Quotation & Proposal</strong></h3>
+        <strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Quotation & Proposal</strong></h3>
     <p class="lead">
         <dx:ASPxRoundPanel ID="ASPxRoundPanel2" runat="server" Width="920px" HeaderText="">
             <PanelCollection>
@@ -129,10 +186,14 @@
                             <dx:GridViewDataTextColumn Caption="ไฟล์ที่แนบ" Name="Preview" ReadOnly="True" ShowInCustomizationForm="True"
                                 VisibleIndex="9" Width="8%">
                                 <DataItemTemplate>
-                                    <asp:LinkButton ID="lnk_Preview" runat="server" CommandArgument='<%# Eval("Quota_ID") %>'
+                                    <%--<asp:LinkButton ID="lnk_Preview" runat="server" CommandArgument='<%# Eval("Quota_ID") %>'
                                         CommandName="PreviewQuotation" OnCommand="ListItem_Command" Text="Preview" Visible='<%# Eval("Show") %>'>
-                                    </asp:LinkButton>
+                                    </asp:LinkButton>--%>
                                     <%-- <uc1:PreviewControl ID="PreviewControl" runat="server"/>--%>
+                                    <dx:ASPxButton ID="btn_PreviewQuotation" runat="server" Text="Preview" AutoPostBack="false" CommandArgument='<%# Eval("Quota_ID") %>'
+                                        ClientInstanceName="CIN_btn_PreviewQuotation" Width="65px" AutoGenerateColumns="False" Visible='<%# Eval("Show") %>'>
+                                        <ClientSideEvents Click="function (s,e){ CIN_pop_PreviewQuotation.Show();}" />
+                                    </dx:ASPxButton>
                                 </DataItemTemplate>
                                 <CellStyle HorizontalAlign="Center">
                                 </CellStyle>
@@ -143,7 +204,7 @@
                     </dx:ASPxGridView>
                     <asp:SqlDataSource ID="Quo_Prop" runat="server" ConnectionString="<%$ ConnectionStrings:DLMSConnectionString %>"
                         DeleteCommand="DELETE FROM [QuotationProposal] WHERE [Q_ID] = @Q_ID" InsertCommand="INSERT INTO [QuotationProposal] ([Q_ID], [Q_Date], [DateSend], [ContactCom], [ContactName], [Title], [BookingBy], [P_ID]) VALUES (@Q_ID, @Q_Date, @DateSend, @ContactCom, @ContactName, @Title, @BookingBy, @P_ID)"
-                        SelectCommand="SELECT QuotationProposal.*, Quotation.Quota_ID, CASE WHEN Quotation.Quota_ID Is NULL THEN 'False' ELSE 'True' END As Show,  Quotation.company_name, Quotation.attn FROM QuotationProposal LEFT OUTER JOIN Quotation ON QuotationProposal.Q_ID = Quotation.quotation_no WHERE YEAR(QuotationProposal.Q_Date) = @ayear"
+                        SelectCommand="SELECT QuotationProposal.*, Quotation.Quota_ID, CASE WHEN Quotation.Quota_ID Is NULL THEN 'False' ELSE 'True' END As Show, Quotation.company_name, Quotation.attn FROM QuotationProposal LEFT OUTER JOIN Quotation ON QuotationProposal.Q_ID = Quotation.quotation_no WHERE YEAR(QuotationProposal.Q_Date) = @ayear"
                         UpdateCommand="UPDATE [QuotationProposal] SET [Q_Date] = @Q_Date, [DateSend] = @DateSend, [ContactCom] = @ContactCom, [ContactName] = @ContactName, [Title] = @Title, [BookingBy] = @BookingBy, [P_ID] = @P_ID WHERE [Q_ID] = @Q_ID">
                         <SelectParameters>
                             <asp:ControlParameter ControlID="cmb_searchYearQ" Name="ayear" PropertyName="Value" />
@@ -183,9 +244,10 @@
                         <asp:Parameter Name="BookingBy" Type="String" />
                         <asp:Parameter Name="G_ID" Type="String" />--%>
     </p>
+    </p>
     <div>
         <h3>
-            <strong>General</strong></h3>
+            <strong>&nbsp;&nbsp;&nbsp;&nbsp; General</strong></h3>
         <p class="lead">
             <dx:ASPxRoundPanel ID="ASPxRoundPanel1" runat="server" Width="919px" Height="265px"
                 HeaderText="">

@@ -194,8 +194,7 @@
     </dx:ASPxCallbackPanel>
     <p>
     </p>
-    <p>
-    </p>
+  
     <h2>
         Upload Quotation
     </h2>

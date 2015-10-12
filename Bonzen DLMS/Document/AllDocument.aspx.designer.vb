@@ -14,6 +14,69 @@ Option Explicit On
 Partial Public Class AllDocument
 
     '''<summary>
+    '''pop_PreviewQuotation control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents pop_PreviewQuotation As Global.DevExpress.Web.ASPxPopupControl.ASPxPopupControl
+
+    '''<summary>
+    '''cbp_PreviewQuotation control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents cbp_PreviewQuotation As Global.DevExpress.Web.ASPxCallbackPanel.ASPxCallbackPanel
+
+    '''<summary>
+    '''lbl_QNewUpload control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lbl_QNewUpload As Global.DevExpress.Web.ASPxEditors.ASPxLabel
+
+    '''<summary>
+    '''lbl_QNo control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lbl_QNo As Global.DevExpress.Web.ASPxEditors.ASPxLabel
+
+    '''<summary>
+    '''lbl_QuotationNumber control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lbl_QuotationNumber As Global.DevExpress.Web.ASPxEditors.ASPxLabel
+
+    '''<summary>
+    '''lbl_QCompanyName control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lbl_QCompanyName As Global.DevExpress.Web.ASPxEditors.ASPxLabel
+
+    '''<summary>
+    '''gv_QFile control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents gv_QFile As Global.DevExpress.Web.ASPxGridView.ASPxGridView
+
+    '''<summary>
     '''ASPxRoundPanel2 control.
     '''</summary>
     '''<remarks>

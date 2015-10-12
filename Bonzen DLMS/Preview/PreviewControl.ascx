@@ -73,25 +73,24 @@
                 </tr>
                 <tr>
                     <td>
-                        <dx:ASPxGridView ID="gv_QFile" runat="server" AutoGenerateColumns="False" 
-                            KeyFieldName="Q_FileID" Width="100%">
+                        <dx:ASPxGridView ID="gv_QFile" runat="server" AutoGenerateColumns="False" KeyFieldName="Q_FileID"
+                            Width="100%">
                             <Columns>
                                 <dx:GridViewDataColumn ShowInCustomizationForm="True" VisibleIndex="0">
                                     <DataItemTemplate>
-                                        <asp:HyperLink ID="Link" runat="server" ForeColor="#6798de" 
-                                            NavigateUrl='<%#Eval("link") %>' ToolTip='<%#Eval("filename")%>'><%#Eval("filename")%></asp:HyperLink>
+                                        <asp:HyperLink ID="Link" runat="server" ForeColor="#6798de" NavigateUrl='<%#Eval("link") %>'
+                                            ToolTip='<%#Eval("filename")%>'><%#Eval("filename")%></asp:HyperLink>
                                     </DataItemTemplate>
                                 </dx:GridViewDataColumn>
-                                <dx:GridViewDataDateColumn FieldName="Q_FileDate" 
-                                    ShowInCustomizationForm="True" SortIndex="0" SortOrder="Descending" 
-                                    Visible="False">
+                                <dx:GridViewDataDateColumn FieldName="Q_FileDate" ShowInCustomizationForm="True"
+                                    SortIndex="0" SortOrder="Descending" Visible="False">
                                 </dx:GridViewDataDateColumn>
                             </Columns>
                             <Settings ShowColumnHeaders="False" />
                         </dx:ASPxGridView>
                     </td>
                 </tr>
-                    
+            </table>
         </dx:PopupControlContentControl>
     </ContentCollection>
 </dx:ASPxPopupControl>

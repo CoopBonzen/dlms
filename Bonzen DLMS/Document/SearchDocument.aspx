@@ -2,25 +2,106 @@
     Culture="en-GB" CodeBehind="SearchDocument.aspx.vb" Inherits="Bonzen_DLMS.SearchDocument" %>
 
 <%@ Register Assembly="DevExpress.Web.v13.1, Version=13.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"
+    Namespace="DevExpress.Web.ASPxCallbackPanel" TagPrefix="dx" %>
+<%@ Register Assembly="DevExpress.Web.v13.1, Version=13.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"
+    Namespace="DevExpress.Web.ASPxPopupControl" TagPrefix="dx" %>
+<%@ Register Assembly="DevExpress.Web.v13.1, Version=13.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"
     Namespace="DevExpress.Web.ASPxGridView" TagPrefix="dx" %>
 <%@ Register Assembly="DevExpress.Web.v13.1, Version=13.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"
     Namespace="DevExpress.Web.ASPxEditors" TagPrefix="dx" %>
+<%@ Register Assembly="DevExpress.Web.v13.1, Version=13.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"
+    Namespace="DevExpress.Web.ASPxNavBar" TagPrefix="dx" %>
+<%@ Register Assembly="DevExpress.Web.v13.1, Version=13.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"
+    Namespace="DevExpress.Web.ASPxRoundPanel" TagPrefix="dx" %>
+<%@ Register Assembly="DevExpress.Web.v13.1, Version=13.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"
+    Namespace="DevExpress.Web.ASPxPanel" TagPrefix="dx" %>
+<%@ Register Assembly="DevExpress.Web.v13.1, Version=13.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"
+    Namespace="DevExpress.Web.ASPxCallback" TagPrefix="dx" %>
 <%@ Register Src="../UserControl/AddNewDocument.ascx" TagName="AddNewDocument" TagPrefix="uc1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
     <style type="text/css">
-        .style3
-        {
-            font-size: 1.2em;
-        }
         .style4
         {
             font-size: 1.6em;
         }
+        .style5
+        {
+            width: 248px;
+        }
+        .style6
+        {
+            width: 300px;
+        }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
+    <script type="text/javascript">
+        function btn_PreviewQuotation_Click(s, e) {
+            CIN_pop_PreviewQuotation.Show();
+        }
+     
+
+    </script>
     <div class="jumbotron">
         <uc1:AddNewDocument ID="AddNewDocument" runat="server" />
+    </div>
+    <div class="jumbotron">
+        <dx:ASPxPopupControl ID="pop_PreviewQuotation" runat="server" ClientInstanceName="CIN_pop_PreviewQuotation"
+            HeaderText="Preview Quotation" PopupVerticalAlign="WindowCenter" AllowResize="True"
+            CloseAction="CloseButton" Modal="True" AllowDragging="True" PopupHorizontalAlign="WindowCenter"
+            ShowFooter="false" Width="500px" Height="200px">
+            <HeaderStyle HorizontalAlign="Center" BackColor="#5066AC" ForeColor="White" Font-Bold="True" />
+            <ContentCollection>
+                <dx:PopupControlContentControl>
+                    <dx:ASPxCallbackPanel ID="cbp_PreviewQuotation" runat="server" Width="440px" 
+                        ClientInstanceName="CIN_cbp_PreviewQuotation">
+                        <PanelCollection>
+                            <dx:PanelContent>
+                                <table>
+                                    <tr>
+                                        <td class="style6">
+                                            <dx:ASPxLabel ID="lbl_QNewUpload" runat="server" Text="หมายเลข Quotation">
+                                            </dx:ASPxLabel>
+                                            &nbsp;&nbsp;
+                                            <dx:ASPxLabel ID="lbl_QNo" runat="server">
+                                            </dx:ASPxLabel>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="style6">
+                                            <dx:ASPxLabel ID="lbl_QuotationNumber" runat="server" Text="Company : ">
+                                            </dx:ASPxLabel>
+                                            &nbsp;&nbsp;
+                                            <dx:ASPxLabel ID="lbl_QCompanyName" runat="server">
+                                            </dx:ASPxLabel>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="style6">
+                                            <dx:ASPxGridView ID="gv_QFile" runat="server" AutoGenerateColumns="False" KeyFieldName="Q_FileID"
+                                                Width="148%">
+                                                <Columns>
+                                                    <dx:GridViewDataColumn ShowInCustomizationForm="True" VisibleIndex="0">
+                                                        <DataItemTemplate>
+                                                            <asp:HyperLink ID="Link" runat="server" ForeColor="#6798de" NavigateUrl='<%#Eval("link") %>'
+                                                                ToolTip='<%#Eval("filename")%>'><%#Eval("filename")%></asp:HyperLink>
+                                                        </DataItemTemplate>
+                                                    </dx:GridViewDataColumn>
+                                                    <dx:GridViewDataDateColumn FieldName="Q_FileDate" ShowInCustomizationForm="True"
+                                                        SortIndex="0" SortOrder="Descending" Visible="False">
+                                                    </dx:GridViewDataDateColumn>
+                                                </Columns>
+                                                <Settings ShowColumnHeaders="False" />
+                                            </dx:ASPxGridView>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </dx:PanelContent>
+                        </PanelCollection>
+                    </dx:ASPxCallbackPanel>
+                </dx:PopupControlContentControl>
+            </ContentCollection>
+        </dx:ASPxPopupControl>
     </div>
     <div class="jumbotron">
         <h3 class="style4">
@@ -83,7 +164,12 @@
                         <CellStyle HorizontalAlign="Center">
                         </CellStyle>
                     </dx:GridViewDataTextColumn>
-                    <%--<dx:GridViewDataTextColumn Name="Quota_ID" FieldName="Quota_ID" Visible="false"></dx:GridViewDataTextColumn>--%>
+                    <dx:GridViewDataColumn Caption="Preview" Name="Preview" VisibleIndex="9">
+                        <DataItemTemplate>
+                            <dx:ASPxButton ID="btn_PreviewQuotation" runat="server" Text="Preview" AutoPostBack="false"
+                                ClientInstanceName="CIN_btn_PreviewQuotation" Width="65px" />
+                        </DataItemTemplate>
+                    </dx:GridViewDataColumn>
                 </Columns>
                 <SettingsEditing Mode="Inline" />
             </dx:ASPxGridView>

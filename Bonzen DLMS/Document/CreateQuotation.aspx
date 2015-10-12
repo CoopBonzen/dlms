@@ -194,8 +194,6 @@
     </dx:ASPxCallbackPanel>
     <p>
     </p>
-    <p>
-    </p>
     <h2>
         Upload Quotation
     </h2>
@@ -203,7 +201,7 @@
         <table width="50%">
             <tr>
                 <td class="auto-style4" style="width: 50%">
-                    <dx:ASPxLabel ID="lbl_QNewUpload" runat="server" Text="New Upload" />
+                    <dx:ASPxLabel ID="lbl_QNewUpload" runat="server" Text="หมายเลข Quotation" />
                     &nbsp;&nbsp;
                     <dx:ASPxLabel ID="lbl_QNo" runat="server" />
                 </td>
@@ -246,29 +244,19 @@
                         </SettingsPager>
                         <%--<Settings ShowColumnHeaders="false" />--%>
                         <Columns>
-                            <dx:GridViewDataColumn Caption=" " FieldName="Q_FileID" Width="50px">
+                            <dx:GridViewDataColumn Caption="  #" FieldName="Q_FileID" Width="40px">
                                 <CellStyle HorizontalAlign="Center" />
                                 <DataItemTemplate>
                                     <dx:ASPxCheckBox ID="chk_selected" runat="server" ClientInstanceName="CIN_chk_selected"
                                         CheckState="Unchecked" />
                                 </DataItemTemplate>
                             </dx:GridViewDataColumn>
-                            <dx:GridViewDataColumn>
+                            <dx:GridViewDataColumn Caption="File Name">
                                 <DataItemTemplate>
                                     <asp:HyperLink ID="Link" runat="server" NavigateUrl='<%#Eval("link") %>' ForeColor="#6798de"
                                         ToolTip='<%#Eval("filename")%>'><%#Eval("filename")%></asp:HyperLink>
                                 </DataItemTemplate>
                             </dx:GridViewDataColumn>
-                            <%--<dx:GridViewCommandColumn ButtonType="Image" Caption="Delete Tiile" ShowInCustomizationForm="True"
-                                VisibleIndex="" Width="8%">
-                                <DeleteButton Visible="True">
-                                    <Image AlternateText="Delete" Url="../images/trash.gif"></Image>
-                                </DeleteButton>
-                            </dx:GridViewCommandColumn>--%>
-                            <%--<dx:GridViewCommandColumn ShowSelectCheckbox="True" VisibleIndex="0" Width="8%">
-                                <ClearFilterButton Visible="True">
-                                </ClearFilterButton>
-                            </dx:GridViewCommandColumn>--%>
                             <dx:GridViewDataDateColumn FieldName="Q_FileDate" Visible="false" SortOrder="Descending">
                             </dx:GridViewDataDateColumn>
                         </Columns>

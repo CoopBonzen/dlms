@@ -124,7 +124,7 @@
       <Column Name="Vat" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="Vat_amount" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
       <Column Name="condition" Type="System.String" DbType="Text" CanBeNull="true" UpdateCheck="Never" />
-      <Column Member="Quota_Status" Type="System.String" CanBeNull="false" />
+      <Column Name="Quota_Status" Type="System.String" CanBeNull="false" />
       <Association Name="Quotation_QuotationItem" Member="QuotationItems" ThisKey="Quota_ID" OtherKey="Quota_ID" Type="QuotationItem" />
     </Type>
   </Table>

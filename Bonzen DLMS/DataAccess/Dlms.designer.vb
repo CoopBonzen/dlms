@@ -3444,7 +3444,7 @@ Partial Public Class QuotationFile
 		End Set
 	End Property
 	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_Q_FileContent", DbType:="VarBinary(MAX)", UpdateCheck:=UpdateCheck.Never)>  _
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_Q_FileContent", DbType:="VarBinary(MAX)", CanBeNull:=true, UpdateCheck:=UpdateCheck.Never)>  _
 	Public Property Q_FileContent() As System.Data.Linq.Binary
 		Get
 			Return Me._Q_FileContent

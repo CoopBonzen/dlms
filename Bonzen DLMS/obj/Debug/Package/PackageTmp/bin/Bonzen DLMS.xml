@@ -1315,6 +1315,54 @@ Login control.
 Auto-generated field.
 To modify move field declaration from designer file to code-behind file.
 </remarks>
+</member><member name="F:Bonzen_DLMS.AllDocument.pop_PreviewQuotation">
+	<summary>
+pop_PreviewQuotation control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Bonzen_DLMS.AllDocument.lbl_QNewUpload">
+	<summary>
+lbl_QNewUpload control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Bonzen_DLMS.AllDocument.lbl_QNo">
+	<summary>
+lbl_QNo control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Bonzen_DLMS.AllDocument.lbl_QuotationNumber">
+	<summary>
+lbl_QuotationNumber control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Bonzen_DLMS.AllDocument.lbl_QCompanyName">
+	<summary>
+lbl_QCompanyName control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Bonzen_DLMS.AllDocument.gv_QFile">
+	<summary>
+gv_QFile control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
 </member><member name="F:Bonzen_DLMS.AllDocument.ASPxRoundPanel2">
 	<summary>
 ASPxRoundPanel2 control.

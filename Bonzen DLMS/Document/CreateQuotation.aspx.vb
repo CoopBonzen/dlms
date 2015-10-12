@@ -94,6 +94,11 @@ Public Class CreateQuotation
             'SetDefaultCondition()
             AddDataInForm(RequestQId)
         End If
+        'Button Admin
+        Dim User = Session("Username")
+        If Not IsPostBack Then
+            SetUserGroup(User)
+        End If
 
         'Delete File
         If (Not IsPostBack) Then
@@ -318,7 +323,7 @@ Public Class CreateQuotation
 
     'End Sub
 
-     Public Sub AddDataInForm(Q_No)
+      Public Sub AddDataInForm(Q_No)
         'GetQuotationDate(Q_No)
         txt_quotation.Text = Q_No
         dte_quotationDate.Text = GetQuotationDate(Q_No)
@@ -447,16 +452,16 @@ Public Class CreateQuotation
         End Using
     End Function
 
-    Private Function GetStrsubDataFromTable(ByVal subId As Integer) As String
-        'If Not String.IsNullOrWhiteSpace(txt_subData.Text) Then
-        '    Dim subDataList As List(Of String) = strAddedDetailSubList
-        '    For i As Integer = 0 To subDataList.Count - 1
-        '        Dim subData As String() = subDataList(i).Split("|")
-        '        If CInt(subData(0)) = subId Then Return subDataList(i)
-        '    Next
-        'End If
-        Return String.Empty
-    End Function
+    'Private Function GetStrsubDataFromTable(ByVal subId As Integer) As String
+    '    If Not String.IsNullOrWhiteSpace(txt_subData.Text) Then
+    '        Dim subDataList As List(Of String) = strAddedDetailSubList
+    '        For i As Integer = 0 To subDataList.Count - 1
+    '            Dim subData As String() = subDataList(i).Split("|")
+    '            If CInt(subData(0)) = subId Then Return subDataList(i)
+    '        Next
+    '    End If
+    '    Return String.Empty
+    'End Function
 
     Public Function GetQuotationSubList() As List(Of QuotationDescriptionSub)
         Using ctx As New DlmsDataContext
@@ -534,17 +539,17 @@ Public Class CreateQuotation
 
     'Private Sub gv_addmodule_CustomButtonCallback(ByVal sender As Object, ByVal e As DevExpress.Web.ASPxGridView.ASPxGridViewCustomButtonCallbackEventArgs) Handles gv_addmodule.CustomButtonCallback
     '    If e.ButtonID = "btn_Delete" Then
-    '        'Dim subId As Integer = gv_addmodule.GetRowValues(e.VisibleIndex, "ID_Q_Detail_Sub")
-    '        'Dim strAllSubData As String = txt_subData.Text
-    '        'Dim strEmpData As String = GetStrsubDataFromTable(subId)
-    '        'If txt_subData.Text.Contains(";" & strEmpData) Then
-    '        '    strAllSubData = strAllSubData.Replace(";" & strEmpData, "")
-    '        'ElseIf txt_subData.Text.Contains(strEmpData & ";") Then
-    '        '    strAllSubData = strAllSubData.Replace(strEmpData & ";", "")
-    '        'Else
-    '        '    strAllSubData = String.Empty
-    '        'End If
-    '        'gv_addmodule.JSProperties("cpStrAllSubData") = "Delete employee:" & strAllSubData
+    '        Dim subId As Integer = gv_addmodule.GetRowValues(e.VisibleIndex, "ID_Q_Detail_Sub")
+    '        Dim strAllSubData As String = txt_subData.Text
+    '        Dim strEmpData As String = GetStrsubDataFromTable(subId)
+    '        If txt_subData.Text.Contains(";" & strEmpData) Then
+    '            strAllSubData = strAllSubData.Replace(";" & strEmpData, "")
+    '        ElseIf txt_subData.Text.Contains(strEmpData & ";") Then
+    '            strAllSubData = strAllSubData.Replace(strEmpData & ";", "")
+    '        Else
+    '            strAllSubData = String.Empty
+    '        End If
+    '        gv_addmodule.JSProperties("cpStrAllSubData") = "Delete employee:" & strAllSubData
     '    End If
     'End Sub
 
@@ -561,23 +566,23 @@ Public Class CreateQuotation
     'Private Sub gv_addmodule_HtmlRowCreated(ByVal sender As Object, ByVal e As DevExpress.Web.ASPxGridView.ASPxGridViewTableRowEventArgs) Handles gv_addmodule.HtmlRowCreated
     '    If e.RowType = GridViewRowType.Data Then
     '        Dim subId As Integer = e.KeyValue
-    '        'Dim colnPrice As GridViewDataColumn = gv_addmodule.Columns("Price")
-    '        'Dim spePrice As ASPxSpinEdit = gv_addmodule.FindRowCellTemplateControl(e.VisibleIndex, colnPrice, "spe_Price")
-    '        'spePrice.ClientSideEvents.LostFocus = "function(s, e) { cbp_subData.PerformCallback('Set Price:" & subId & ",' + s.GetValue()); }"
+    '        Dim colnPrice As GridViewDataColumn = gv_addmodule.Columns("Price")
+    '        Dim spePrice As ASPxSpinEdit = gv_addmodule.FindRowCellTemplateControl(e.VisibleIndex, colnPrice, "spe_Price")
+    '        spePrice.ClientSideEvents.LostFocus = "function(s, e) { cbp_subData.PerformCallback('Set Price:" & subId & ",' + s.GetValue()); }"
 
-    '        'Dim colnUnit As GridViewDataColumn = gv_addmodule.Columns("Unit")
-    '        'Dim speUnit As ASPxSpinEdit = gv_addmodule.FindRowCellTemplateControl(e.VisibleIndex, colnUnit, "spe_Unit")
-    '        'speUnit.ClientSideEvents.LostFocus = "function(s, e) { cbp_subData.PerformCallback('Set Unit:" & subId & ",' + s.GetValue()); }"
+    '        Dim colnUnit As GridViewDataColumn = gv_addmodule.Columns("Unit")
+    '        Dim speUnit As ASPxSpinEdit = gv_addmodule.FindRowCellTemplateControl(e.VisibleIndex, colnUnit, "spe_Unit")
+    '        speUnit.ClientSideEvents.LostFocus = "function(s, e) { cbp_subData.PerformCallback('Set Unit:" & subId & ",' + s.GetValue()); }"
     '    End If
     'End Sub
 
-    Private Sub SetStrDataValue(ByVal subId As Integer, ByVal colnIndex As Integer, ByVal value As Double)
-        Dim oldStrsubData As String = GetStrsubDataFromTable(subId)
-        Dim strData As String() = oldStrsubData.Split("|")
-        strData(colnIndex) = value
-        Dim newStrsubData As String = String.Join("|", strData)
-        'txt_subData.Text = txt_subData.Text.Replace(oldStrsubData, newStrsubData)
-    End Sub
+    'Private Sub SetStrDataValue(ByVal subId As Integer, ByVal colnIndex As Integer, ByVal value As Double)
+    '    Dim oldStrsubData As String = GetStrsubDataFromTable(subId)
+    '    Dim strData As String() = oldStrsubData.Split("|")
+    '    strData(colnIndex) = value
+    '    Dim newStrsubData As String = String.Join("|", strData)
+    '    txt_subData.Text = txt_subData.Text.Replace(oldStrsubData, newStrsubData)
+    'End Sub
 
     Private Sub btn_AddQuotation_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles btn_AddQuotation.Click
         Using ctx As New DlmsDataContext
@@ -600,8 +605,6 @@ Public Class CreateQuotation
                     .quotation_from = txt_from.Text.Trim
                     .bonzen_tel = txt_bonzentel.Text.Trim
                     .bonzen_email = txt_bonzenemail.Text.Trim
-                    .Quota_Status = QuotationStatusEnum.New
-
                     'ยังไม่ได้ update Total
                     '.total_amount = sumAmount
                     '.remark = memo_remark.Text
@@ -693,16 +696,7 @@ Public Class CreateQuotation
     End Sub
 
     Private Sub btn_PrintQuotation_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles btn_PrintQuotation.Click
-        Using ctx As New DlmsDataContext
-            Dim maxId = (From r In ctx.Quotations Select CType(r.Quota_ID, Integer?)).Max
-            Dim nextId = If(maxId.HasValue, maxId + 1, 1)
-            Dim TbQuotation As New Quotation
-            With TbQuotation
-                .Quota_Status = QuotationStatusEnum.Approve
-            End With
-
-        End Using
-        'Response.Redirect("../Report/Report.aspx?quotaId=" & QuotationID)
+        Response.Redirect("../Report/Report.aspx?quotaId=" & QuotationID)
     End Sub
 
     Private Sub btn_SaveQuotation_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles btn_SaveQuotation.Click
@@ -804,8 +798,17 @@ Public Class CreateQuotation
         End If
     End Sub
 
-  
+    Private Sub SetUserGroup(ByVal User As String)
+        Dim ctx As New DlmsDataContext
+        'Dim UserId = (From u In ctx.Users Where u.user_id = User).SingleOrDefault
+        Dim Group = (From g In ctx.Users Where g.user_name = User).SingleOrDefault
+        If Group.user_group_id = 1 Then
+            btnDeleteSelectedRows.Enabled = True
+            btn_PrintQuotation.Enabled = True
+        Else
+            btnDeleteSelectedRows.Enabled = False
+            btn_PrintQuotation.Enabled = False
+        End If
 
-
-
+    End Sub
 End Class
