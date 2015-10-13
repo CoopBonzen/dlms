@@ -653,19 +653,19 @@ Public Class CreateQuotation
                 ctx.QuotationItems.InsertOnSubmit(TbQuotationItem)
                 ctx.SubmitChanges()
             Next
-            UpdateTotalInQuotation(Quota_ID, sumAmount)
+            'UpdateTotalInQuotation(Quota_ID, sumAmount)
         End Using
     End Sub
 
-    Private Sub UpdateTotalInQuotation(ByVal quotaId As Integer, ByVal sumAmount As Decimal)
-        Using ctx As New DlmsDataContext
-            Dim Quotation = (From q In ctx.Quotations Where q.Quota_ID = quotaId).SingleOrDefault
-            Quotation.total_amount = sumAmount
-            Quotation.Vat = 7
-            Quotation.Vat_amount = sumAmount * 1.07
-            ctx.SubmitChanges()
-        End Using
-    End Sub
+    'Private Sub UpdateTotalInQuotation(ByVal quotaId As Integer, ByVal sumAmount As Decimal)
+    '    Using ctx As New DlmsDataContext
+    '        Dim Quotation = (From q In ctx.Quotations Where q.Quota_ID = quotaId).SingleOrDefault
+    '        Quotation.total_amount = sumAmount
+    '        Quotation.Vat = 7
+    '        Quotation.Vat_amount = sumAmount * 1.07
+    '        ctx.SubmitChanges()
+    '    End Using
+    'End Sub
 
     Private Sub UpdateCompanyAndAttnInQuotationProposal(ByVal quotaNo As String, ByVal companyName As String, ByVal attnName As String)
         Using ctx As New DlmsDataContext
@@ -783,8 +783,6 @@ Public Class CreateQuotation
     Private Sub lds_Attn_Selecting(ByVal sender As Object, ByVal e As System.Web.UI.WebControls.LinqDataSourceSelectEventArgs) Handles lds_Attn.Selecting
         e.WhereParameters("Company_ID") = If(IsNumeric(Session("Company_ID")), CInt(Session("Company_ID")), 0)
     End Sub
-
-
 
     Private Sub gv_QFile_HtmlDataCellPrepared(ByVal sender As Object, ByVal e As DevExpress.Web.ASPxGridView.ASPxGridViewTableDataCellEventArgs) Handles gv_QFile.HtmlDataCellPrepared
         If e.DataColumn.FieldName = "Q_FileID" Then
