@@ -91,12 +91,6 @@ Partial Public Class DlmsDataContext
     End Sub
   Partial Private Sub DeleteUserGroup(instance As UserGroup)
     End Sub
-  Partial Private Sub InsertQuotation(instance As Quotation)
-    End Sub
-  Partial Private Sub UpdateQuotation(instance As Quotation)
-    End Sub
-  Partial Private Sub DeleteQuotation(instance As Quotation)
-    End Sub
   Partial Private Sub InsertQuotationItem(instance As QuotationItem)
     End Sub
   Partial Private Sub UpdateQuotationItem(instance As QuotationItem)
@@ -108,6 +102,12 @@ Partial Public Class DlmsDataContext
   Partial Private Sub UpdateQuotationFile(instance As QuotationFile)
     End Sub
   Partial Private Sub DeleteQuotationFile(instance As QuotationFile)
+    End Sub
+  Partial Private Sub InsertQuotation(instance As Quotation)
+    End Sub
+  Partial Private Sub UpdateQuotation(instance As Quotation)
+    End Sub
+  Partial Private Sub DeleteQuotation(instance As Quotation)
     End Sub
   #End Region
 	
@@ -202,12 +202,6 @@ Partial Public Class DlmsDataContext
 		End Get
 	End Property
 	
-	Public ReadOnly Property Quotations() As System.Data.Linq.Table(Of Quotation)
-		Get
-			Return Me.GetTable(Of Quotation)
-		End Get
-	End Property
-	
 	Public ReadOnly Property QuotationItems() As System.Data.Linq.Table(Of QuotationItem)
 		Get
 			Return Me.GetTable(Of QuotationItem)
@@ -229,6 +223,12 @@ Partial Public Class DlmsDataContext
 	Public ReadOnly Property QuotationFiles() As System.Data.Linq.Table(Of QuotationFile)
 		Get
 			Return Me.GetTable(Of QuotationFile)
+		End Get
+	End Property
+	
+	Public ReadOnly Property Quotations() As System.Data.Linq.Table(Of Quotation)
+		Get
+			Return Me.GetTable(Of Quotation)
 		End Get
 	End Property
 End Class
@@ -2054,443 +2054,6 @@ Partial Public Class UserGroup
 	End Sub
 End Class
 
-<Global.System.Data.Linq.Mapping.TableAttribute(Name:="dbo.Quotation")>  _
-Partial Public Class Quotation
-	Implements System.ComponentModel.INotifyPropertyChanging, System.ComponentModel.INotifyPropertyChanged
-	
-	Private Shared emptyChangingEventArgs As PropertyChangingEventArgs = New PropertyChangingEventArgs(String.Empty)
-	
-	Private _Q_ID As Integer
-	
-	Private _company_name As String
-	
-	Private _attn As String
-	
-	Private _tel As String
-	
-	Private _fax As String
-	
-	Private _email As String
-	
-	Private _quotation_no As String
-	
-	Private _quotation_date As System.Nullable(Of Date)
-	
-	Private _quotation_from As String
-	
-	Private _bonzen_tel As String
-	
-	Private _bonzen_email As String
-	
-	Private _total_amount As System.Nullable(Of Decimal)
-	
-	Private _remark As String
-	
-	Private _Vat As System.Nullable(Of Integer)
-	
-	Private _Vat_amount As System.Nullable(Of Decimal)
-	
-	Private _condition As String
-	
-	Private _Quota_Status As String
-	
-	Private _QuotationItems As EntitySet(Of QuotationItem)
-	
-    #Region "Extensibility Method Definitions"
-    Partial Private Sub OnLoaded()
-    End Sub
-    Partial Private Sub OnValidate(action As System.Data.Linq.ChangeAction)
-    End Sub
-    Partial Private Sub OnCreated()
-    End Sub
-    Partial Private Sub OnQuota_IDChanging(value As Integer)
-    End Sub
-    Partial Private Sub OnQuota_IDChanged()
-    End Sub
-    Partial Private Sub Oncompany_nameChanging(value As String)
-    End Sub
-    Partial Private Sub Oncompany_nameChanged()
-    End Sub
-    Partial Private Sub OnattnChanging(value As String)
-    End Sub
-    Partial Private Sub OnattnChanged()
-    End Sub
-    Partial Private Sub OntelChanging(value As String)
-    End Sub
-    Partial Private Sub OntelChanged()
-    End Sub
-    Partial Private Sub OnfaxChanging(value As String)
-    End Sub
-    Partial Private Sub OnfaxChanged()
-    End Sub
-    Partial Private Sub OnemailChanging(value As String)
-    End Sub
-    Partial Private Sub OnemailChanged()
-    End Sub
-    Partial Private Sub Onquotation_noChanging(value As String)
-    End Sub
-    Partial Private Sub Onquotation_noChanged()
-    End Sub
-    Partial Private Sub Onquotation_dateChanging(value As System.Nullable(Of Date))
-    End Sub
-    Partial Private Sub Onquotation_dateChanged()
-    End Sub
-    Partial Private Sub Onquotation_fromChanging(value As String)
-    End Sub
-    Partial Private Sub Onquotation_fromChanged()
-    End Sub
-    Partial Private Sub Onbonzen_telChanging(value As String)
-    End Sub
-    Partial Private Sub Onbonzen_telChanged()
-    End Sub
-    Partial Private Sub Onbonzen_emailChanging(value As String)
-    End Sub
-    Partial Private Sub Onbonzen_emailChanged()
-    End Sub
-    Partial Private Sub Ontotal_amountChanging(value As System.Nullable(Of Decimal))
-    End Sub
-    Partial Private Sub Ontotal_amountChanged()
-    End Sub
-    Partial Private Sub OnremarkChanging(value As String)
-    End Sub
-    Partial Private Sub OnremarkChanged()
-    End Sub
-    Partial Private Sub OnVatChanging(value As System.Nullable(Of Integer))
-    End Sub
-    Partial Private Sub OnVatChanged()
-    End Sub
-    Partial Private Sub OnVat_amountChanging(value As System.Nullable(Of Decimal))
-    End Sub
-    Partial Private Sub OnVat_amountChanged()
-    End Sub
-    Partial Private Sub OnconditionChanging(value As String)
-    End Sub
-    Partial Private Sub OnconditionChanged()
-    End Sub
-    Partial Private Sub OnQuota_StatusChanging(value As String)
-    End Sub
-    Partial Private Sub OnQuota_StatusChanged()
-    End Sub
-    #End Region
-	
-	Public Sub New()
-		MyBase.New
-		Me._QuotationItems = New EntitySet(Of QuotationItem)(AddressOf Me.attach_QuotationItems, AddressOf Me.detach_QuotationItems)
-		OnCreated
-	End Sub
-	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_Q_ID", DbType:="Int NOT NULL", IsPrimaryKey:=true)>  _
-	Public Property Quota_ID() As Integer
-		Get
-			Return Me._Q_ID
-		End Get
-		Set
-			If ((Me._Q_ID = value)  _
-						= false) Then
-				Me.OnQuota_IDChanging(value)
-				Me.SendPropertyChanging
-				Me._Q_ID = value
-				Me.SendPropertyChanged("Quota_ID")
-				Me.OnQuota_IDChanged
-			End If
-		End Set
-	End Property
-	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_company_name", DbType:="VarChar(200)")>  _
-	Public Property company_name() As String
-		Get
-			Return Me._company_name
-		End Get
-		Set
-			If (String.Equals(Me._company_name, value) = false) Then
-				Me.Oncompany_nameChanging(value)
-				Me.SendPropertyChanging
-				Me._company_name = value
-				Me.SendPropertyChanged("company_name")
-				Me.Oncompany_nameChanged
-			End If
-		End Set
-	End Property
-	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_attn", DbType:="VarChar(200)")>  _
-	Public Property attn() As String
-		Get
-			Return Me._attn
-		End Get
-		Set
-			If (String.Equals(Me._attn, value) = false) Then
-				Me.OnattnChanging(value)
-				Me.SendPropertyChanging
-				Me._attn = value
-				Me.SendPropertyChanged("attn")
-				Me.OnattnChanged
-			End If
-		End Set
-	End Property
-	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_tel", DbType:="VarChar(200)")>  _
-	Public Property tel() As String
-		Get
-			Return Me._tel
-		End Get
-		Set
-			If (String.Equals(Me._tel, value) = false) Then
-				Me.OntelChanging(value)
-				Me.SendPropertyChanging
-				Me._tel = value
-				Me.SendPropertyChanged("tel")
-				Me.OntelChanged
-			End If
-		End Set
-	End Property
-	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_fax", DbType:="VarChar(200)")>  _
-	Public Property fax() As String
-		Get
-			Return Me._fax
-		End Get
-		Set
-			If (String.Equals(Me._fax, value) = false) Then
-				Me.OnfaxChanging(value)
-				Me.SendPropertyChanging
-				Me._fax = value
-				Me.SendPropertyChanged("fax")
-				Me.OnfaxChanged
-			End If
-		End Set
-	End Property
-	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_email", DbType:="VarChar(200)")>  _
-	Public Property email() As String
-		Get
-			Return Me._email
-		End Get
-		Set
-			If (String.Equals(Me._email, value) = false) Then
-				Me.OnemailChanging(value)
-				Me.SendPropertyChanging
-				Me._email = value
-				Me.SendPropertyChanged("email")
-				Me.OnemailChanged
-			End If
-		End Set
-	End Property
-	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_quotation_no", DbType:="NVarChar(200)")>  _
-	Public Property quotation_no() As String
-		Get
-			Return Me._quotation_no
-		End Get
-		Set
-			If (String.Equals(Me._quotation_no, value) = false) Then
-				Me.Onquotation_noChanging(value)
-				Me.SendPropertyChanging
-				Me._quotation_no = value
-				Me.SendPropertyChanged("quotation_no")
-				Me.Onquotation_noChanged
-			End If
-		End Set
-	End Property
-	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_quotation_date", DbType:="Date")>  _
-	Public Property quotation_date() As System.Nullable(Of Date)
-		Get
-			Return Me._quotation_date
-		End Get
-		Set
-			If (Me._quotation_date.Equals(value) = false) Then
-				Me.Onquotation_dateChanging(value)
-				Me.SendPropertyChanging
-				Me._quotation_date = value
-				Me.SendPropertyChanged("quotation_date")
-				Me.Onquotation_dateChanged
-			End If
-		End Set
-	End Property
-	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_quotation_from", DbType:="VarChar(200)")>  _
-	Public Property quotation_from() As String
-		Get
-			Return Me._quotation_from
-		End Get
-		Set
-			If (String.Equals(Me._quotation_from, value) = false) Then
-				Me.Onquotation_fromChanging(value)
-				Me.SendPropertyChanging
-				Me._quotation_from = value
-				Me.SendPropertyChanged("quotation_from")
-				Me.Onquotation_fromChanged
-			End If
-		End Set
-	End Property
-	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_bonzen_tel", DbType:="NVarChar(200)")>  _
-	Public Property bonzen_tel() As String
-		Get
-			Return Me._bonzen_tel
-		End Get
-		Set
-			If (String.Equals(Me._bonzen_tel, value) = false) Then
-				Me.Onbonzen_telChanging(value)
-				Me.SendPropertyChanging
-				Me._bonzen_tel = value
-				Me.SendPropertyChanged("bonzen_tel")
-				Me.Onbonzen_telChanged
-			End If
-		End Set
-	End Property
-	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_bonzen_email", DbType:="NVarChar(200)")>  _
-	Public Property bonzen_email() As String
-		Get
-			Return Me._bonzen_email
-		End Get
-		Set
-			If (String.Equals(Me._bonzen_email, value) = false) Then
-				Me.Onbonzen_emailChanging(value)
-				Me.SendPropertyChanging
-				Me._bonzen_email = value
-				Me.SendPropertyChanged("bonzen_email")
-				Me.Onbonzen_emailChanged
-			End If
-		End Set
-	End Property
-	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_total_amount", DbType:="Decimal(18,2)")>  _
-	Public Property total_amount() As System.Nullable(Of Decimal)
-		Get
-			Return Me._total_amount
-		End Get
-		Set
-			If (Me._total_amount.Equals(value) = false) Then
-				Me.Ontotal_amountChanging(value)
-				Me.SendPropertyChanging
-				Me._total_amount = value
-				Me.SendPropertyChanged("total_amount")
-				Me.Ontotal_amountChanged
-			End If
-		End Set
-	End Property
-	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_remark", DbType:="text", UpdateCheck:=UpdateCheck.Never)>  _
-	Public Property remark() As String
-		Get
-			Return Me._remark
-		End Get
-		Set
-			If (String.Equals(Me._remark, value) = false) Then
-				Me.OnremarkChanging(value)
-				Me.SendPropertyChanging
-				Me._remark = value
-				Me.SendPropertyChanged("remark")
-				Me.OnremarkChanged
-			End If
-		End Set
-	End Property
-	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_Vat", DbType:="Int")>  _
-	Public Property Vat() As System.Nullable(Of Integer)
-		Get
-			Return Me._Vat
-		End Get
-		Set
-			If (Me._Vat.Equals(value) = false) Then
-				Me.OnVatChanging(value)
-				Me.SendPropertyChanging
-				Me._Vat = value
-				Me.SendPropertyChanged("Vat")
-				Me.OnVatChanged
-			End If
-		End Set
-	End Property
-	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_Vat_amount", DbType:="Decimal(18,2)")>  _
-	Public Property Vat_amount() As System.Nullable(Of Decimal)
-		Get
-			Return Me._Vat_amount
-		End Get
-		Set
-			If (Me._Vat_amount.Equals(value) = false) Then
-				Me.OnVat_amountChanging(value)
-				Me.SendPropertyChanging
-				Me._Vat_amount = value
-				Me.SendPropertyChanged("Vat_amount")
-				Me.OnVat_amountChanged
-			End If
-		End Set
-	End Property
-	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_condition", DbType:="Text", UpdateCheck:=UpdateCheck.Never)>  _
-	Public Property condition() As String
-		Get
-			Return Me._condition
-		End Get
-		Set
-			If (String.Equals(Me._condition, value) = false) Then
-				Me.OnconditionChanging(value)
-				Me.SendPropertyChanging
-				Me._condition = value
-				Me.SendPropertyChanged("condition")
-				Me.OnconditionChanged
-			End If
-		End Set
-	End Property
-	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_Quota_Status", CanBeNull:=false)>  _
-	Public Property Quota_Status() As String
-		Get
-			Return Me._Quota_Status
-		End Get
-		Set
-			If (String.Equals(Me._Quota_Status, value) = false) Then
-				Me.OnQuota_StatusChanging(value)
-				Me.SendPropertyChanging
-				Me._Quota_Status = value
-				Me.SendPropertyChanged("Quota_Status")
-				Me.OnQuota_StatusChanged
-			End If
-		End Set
-	End Property
-	
-	<Global.System.Data.Linq.Mapping.AssociationAttribute(Name:="Quotation_QuotationItem", Storage:="_QuotationItems", ThisKey:="Quota_ID", OtherKey:="Quota_ID")>  _
-	Public Property QuotationItems() As EntitySet(Of QuotationItem)
-		Get
-			Return Me._QuotationItems
-		End Get
-		Set
-			Me._QuotationItems.Assign(value)
-		End Set
-	End Property
-	
-	Public Event PropertyChanging As PropertyChangingEventHandler Implements System.ComponentModel.INotifyPropertyChanging.PropertyChanging
-	
-	Public Event PropertyChanged As PropertyChangedEventHandler Implements System.ComponentModel.INotifyPropertyChanged.PropertyChanged
-	
-	Protected Overridable Sub SendPropertyChanging()
-		If ((Me.PropertyChangingEvent Is Nothing)  _
-					= false) Then
-			RaiseEvent PropertyChanging(Me, emptyChangingEventArgs)
-		End If
-	End Sub
-	
-	Protected Overridable Sub SendPropertyChanged(ByVal propertyName As [String])
-		If ((Me.PropertyChangedEvent Is Nothing)  _
-					= false) Then
-			RaiseEvent PropertyChanged(Me, New PropertyChangedEventArgs(propertyName))
-		End If
-	End Sub
-	
-	Private Sub attach_QuotationItems(ByVal entity As QuotationItem)
-		Me.SendPropertyChanging
-		entity.Quotation = Me
-	End Sub
-	
-	Private Sub detach_QuotationItems(ByVal entity As QuotationItem)
-		Me.SendPropertyChanging
-		entity.Quotation = Nothing
-	End Sub
-End Class
-
 <Global.System.Data.Linq.Mapping.TableAttribute(Name:="dbo.QuotationItem")>  _
 Partial Public Class QuotationItem
 	Implements System.ComponentModel.INotifyPropertyChanging, System.ComponentModel.INotifyPropertyChanged
@@ -2509,9 +2072,9 @@ Partial Public Class QuotationItem
 	
 	Private _Q_ID As System.Nullable(Of Integer)
 	
-	Private _Quotation As EntityRef(Of Quotation)
-	
 	Private _QuotationDescriptionSub As EntityRef(Of QuotationDescriptionSub)
+	
+	Private _Quotation As EntityRef(Of Quotation)
 	
     #Region "Extensibility Method Definitions"
     Partial Private Sub OnLoaded()
@@ -2548,8 +2111,8 @@ Partial Public Class QuotationItem
 	
 	Public Sub New()
 		MyBase.New
-		Me._Quotation = CType(Nothing, EntityRef(Of Quotation))
 		Me._QuotationDescriptionSub = CType(Nothing, EntityRef(Of QuotationDescriptionSub))
+		Me._Quotation = CType(Nothing, EntityRef(Of Quotation))
 		OnCreated
 	End Sub
 	
@@ -2656,34 +2219,6 @@ Partial Public Class QuotationItem
 		End Set
 	End Property
 	
-	<Global.System.Data.Linq.Mapping.AssociationAttribute(Name:="Quotation_QuotationItem", Storage:="_Quotation", ThisKey:="Quota_ID", OtherKey:="Quota_ID", IsForeignKey:=true)>  _
-	Public Property Quotation() As Quotation
-		Get
-			Return Me._Quotation.Entity
-		End Get
-		Set
-			Dim previousValue As Quotation = Me._Quotation.Entity
-			If ((Object.Equals(previousValue, value) = false)  _
-						OrElse (Me._Quotation.HasLoadedOrAssignedValue = false)) Then
-				Me.SendPropertyChanging
-				If ((previousValue Is Nothing)  _
-							= false) Then
-					Me._Quotation.Entity = Nothing
-					previousValue.QuotationItems.Remove(Me)
-				End If
-				Me._Quotation.Entity = value
-				If ((value Is Nothing)  _
-							= false) Then
-					value.QuotationItems.Add(Me)
-					Me._Q_ID = value.Quota_ID
-				Else
-					Me._Q_ID = CType(Nothing, Nullable(Of Integer))
-				End If
-				Me.SendPropertyChanged("Quotation")
-			End If
-		End Set
-	End Property
-	
 	<Global.System.Data.Linq.Mapping.AssociationAttribute(Name:="QuotationDescriptionSub_QuotationItem", Storage:="_QuotationDescriptionSub", ThisKey:="ID_Q_Detail_Sub", OtherKey:="ID_Q_Detail_Sub", IsForeignKey:=true)>  _
 	Public Property QuotationDescriptionSub() As QuotationDescriptionSub
 		Get
@@ -2708,6 +2243,34 @@ Partial Public Class QuotationItem
 					Me._ID_Q_Detail_Sub = CType(Nothing, Nullable(Of Integer))
 				End If
 				Me.SendPropertyChanged("QuotationDescriptionSub")
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.AssociationAttribute(Name:="Quotation_QuotationItem", Storage:="_Quotation", ThisKey:="Quota_ID", OtherKey:="Quota_ID", IsForeignKey:=true)>  _
+	Public Property Quotation() As Quotation
+		Get
+			Return Me._Quotation.Entity
+		End Get
+		Set
+			Dim previousValue As Quotation = Me._Quotation.Entity
+			If ((Object.Equals(previousValue, value) = false)  _
+						OrElse (Me._Quotation.HasLoadedOrAssignedValue = false)) Then
+				Me.SendPropertyChanging
+				If ((previousValue Is Nothing)  _
+							= false) Then
+					Me._Quotation.Entity = Nothing
+					previousValue.QuotationItems.Remove(Me)
+				End If
+				Me._Quotation.Entity = value
+				If ((value Is Nothing)  _
+							= false) Then
+					value.QuotationItems.Add(Me)
+					Me._Q_ID = value.Quota_ID
+				Else
+					Me._Q_ID = CType(Nothing, Nullable(Of Integer))
+				End If
+				Me.SendPropertyChanged("Quotation")
 			End If
 		End Set
 	End Property
@@ -3444,7 +3007,7 @@ Partial Public Class QuotationFile
 		End Set
 	End Property
 	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_Q_FileContent", DbType:="VarBinary(MAX)", CanBeNull:=true, UpdateCheck:=UpdateCheck.Never)>  _
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_Q_FileContent", DbType:="VarBinary(MAX)", UpdateCheck:=UpdateCheck.Never)>  _
 	Public Property Q_FileContent() As System.Data.Linq.Binary
 		Get
 			Return Me._Q_FileContent
@@ -3520,5 +3083,442 @@ Partial Public Class QuotationFile
 					= false) Then
 			RaiseEvent PropertyChanged(Me, New PropertyChangedEventArgs(propertyName))
 		End If
+	End Sub
+End Class
+
+<Global.System.Data.Linq.Mapping.TableAttribute(Name:="dbo.Quotation")>  _
+Partial Public Class Quotation
+	Implements System.ComponentModel.INotifyPropertyChanging, System.ComponentModel.INotifyPropertyChanged
+	
+	Private Shared emptyChangingEventArgs As PropertyChangingEventArgs = New PropertyChangingEventArgs(String.Empty)
+	
+	Private _Quota_ID As Integer
+	
+	Private _company_name As String
+	
+	Private _attn As String
+	
+	Private _tel As String
+	
+	Private _fax As String
+	
+	Private _email As String
+	
+	Private _quotation_no As String
+	
+	Private _quotation_date As System.Nullable(Of Date)
+	
+	Private _quotation_from As String
+	
+	Private _bonzen_tel As String
+	
+	Private _bonzen_email As String
+	
+	Private _total_amount As System.Nullable(Of Decimal)
+	
+	Private _remark As String
+	
+	Private _Vat As System.Nullable(Of Integer)
+	
+	Private _Vat_amount As System.Nullable(Of Decimal)
+	
+	Private _condition As String
+	
+	Private _quota_status As System.Nullable(Of Integer)
+	
+	Private _QuotationItems As EntitySet(Of QuotationItem)
+	
+    #Region "Extensibility Method Definitions"
+    Partial Private Sub OnLoaded()
+    End Sub
+    Partial Private Sub OnValidate(action As System.Data.Linq.ChangeAction)
+    End Sub
+    Partial Private Sub OnCreated()
+    End Sub
+    Partial Private Sub OnQuota_IDChanging(value As Integer)
+    End Sub
+    Partial Private Sub OnQuota_IDChanged()
+    End Sub
+    Partial Private Sub Oncompany_nameChanging(value As String)
+    End Sub
+    Partial Private Sub Oncompany_nameChanged()
+    End Sub
+    Partial Private Sub OnattnChanging(value As String)
+    End Sub
+    Partial Private Sub OnattnChanged()
+    End Sub
+    Partial Private Sub OntelChanging(value As String)
+    End Sub
+    Partial Private Sub OntelChanged()
+    End Sub
+    Partial Private Sub OnfaxChanging(value As String)
+    End Sub
+    Partial Private Sub OnfaxChanged()
+    End Sub
+    Partial Private Sub OnemailChanging(value As String)
+    End Sub
+    Partial Private Sub OnemailChanged()
+    End Sub
+    Partial Private Sub Onquotation_noChanging(value As String)
+    End Sub
+    Partial Private Sub Onquotation_noChanged()
+    End Sub
+    Partial Private Sub Onquotation_dateChanging(value As System.Nullable(Of Date))
+    End Sub
+    Partial Private Sub Onquotation_dateChanged()
+    End Sub
+    Partial Private Sub Onquotation_fromChanging(value As String)
+    End Sub
+    Partial Private Sub Onquotation_fromChanged()
+    End Sub
+    Partial Private Sub Onbonzen_telChanging(value As String)
+    End Sub
+    Partial Private Sub Onbonzen_telChanged()
+    End Sub
+    Partial Private Sub Onbonzen_emailChanging(value As String)
+    End Sub
+    Partial Private Sub Onbonzen_emailChanged()
+    End Sub
+    Partial Private Sub Ontotal_amountChanging(value As System.Nullable(Of Decimal))
+    End Sub
+    Partial Private Sub Ontotal_amountChanged()
+    End Sub
+    Partial Private Sub OnremarkChanging(value As String)
+    End Sub
+    Partial Private Sub OnremarkChanged()
+    End Sub
+    Partial Private Sub OnVatChanging(value As System.Nullable(Of Integer))
+    End Sub
+    Partial Private Sub OnVatChanged()
+    End Sub
+    Partial Private Sub OnVat_amountChanging(value As System.Nullable(Of Decimal))
+    End Sub
+    Partial Private Sub OnVat_amountChanged()
+    End Sub
+    Partial Private Sub OnconditionChanging(value As String)
+    End Sub
+    Partial Private Sub OnconditionChanged()
+    End Sub
+    Partial Private Sub Onquota_statusChanging(value As System.Nullable(Of Integer))
+    End Sub
+    Partial Private Sub Onquota_statusChanged()
+    End Sub
+    #End Region
+	
+	Public Sub New()
+		MyBase.New
+		Me._QuotationItems = New EntitySet(Of QuotationItem)(AddressOf Me.attach_QuotationItems, AddressOf Me.detach_QuotationItems)
+		OnCreated
+	End Sub
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_Quota_ID", DbType:="Int NOT NULL", IsPrimaryKey:=true)>  _
+	Public Property Quota_ID() As Integer
+		Get
+			Return Me._Quota_ID
+		End Get
+		Set
+			If ((Me._Quota_ID = value)  _
+						= false) Then
+				Me.OnQuota_IDChanging(value)
+				Me.SendPropertyChanging
+				Me._Quota_ID = value
+				Me.SendPropertyChanged("Quota_ID")
+				Me.OnQuota_IDChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_company_name", DbType:="VarChar(200)")>  _
+	Public Property company_name() As String
+		Get
+			Return Me._company_name
+		End Get
+		Set
+			If (String.Equals(Me._company_name, value) = false) Then
+				Me.Oncompany_nameChanging(value)
+				Me.SendPropertyChanging
+				Me._company_name = value
+				Me.SendPropertyChanged("company_name")
+				Me.Oncompany_nameChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_attn", DbType:="VarChar(200)")>  _
+	Public Property attn() As String
+		Get
+			Return Me._attn
+		End Get
+		Set
+			If (String.Equals(Me._attn, value) = false) Then
+				Me.OnattnChanging(value)
+				Me.SendPropertyChanging
+				Me._attn = value
+				Me.SendPropertyChanged("attn")
+				Me.OnattnChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_tel", DbType:="VarChar(200)")>  _
+	Public Property tel() As String
+		Get
+			Return Me._tel
+		End Get
+		Set
+			If (String.Equals(Me._tel, value) = false) Then
+				Me.OntelChanging(value)
+				Me.SendPropertyChanging
+				Me._tel = value
+				Me.SendPropertyChanged("tel")
+				Me.OntelChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_fax", DbType:="VarChar(200)")>  _
+	Public Property fax() As String
+		Get
+			Return Me._fax
+		End Get
+		Set
+			If (String.Equals(Me._fax, value) = false) Then
+				Me.OnfaxChanging(value)
+				Me.SendPropertyChanging
+				Me._fax = value
+				Me.SendPropertyChanged("fax")
+				Me.OnfaxChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_email", DbType:="VarChar(200)")>  _
+	Public Property email() As String
+		Get
+			Return Me._email
+		End Get
+		Set
+			If (String.Equals(Me._email, value) = false) Then
+				Me.OnemailChanging(value)
+				Me.SendPropertyChanging
+				Me._email = value
+				Me.SendPropertyChanged("email")
+				Me.OnemailChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_quotation_no", DbType:="NVarChar(200)")>  _
+	Public Property quotation_no() As String
+		Get
+			Return Me._quotation_no
+		End Get
+		Set
+			If (String.Equals(Me._quotation_no, value) = false) Then
+				Me.Onquotation_noChanging(value)
+				Me.SendPropertyChanging
+				Me._quotation_no = value
+				Me.SendPropertyChanged("quotation_no")
+				Me.Onquotation_noChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_quotation_date", DbType:="Date")>  _
+	Public Property quotation_date() As System.Nullable(Of Date)
+		Get
+			Return Me._quotation_date
+		End Get
+		Set
+			If (Me._quotation_date.Equals(value) = false) Then
+				Me.Onquotation_dateChanging(value)
+				Me.SendPropertyChanging
+				Me._quotation_date = value
+				Me.SendPropertyChanged("quotation_date")
+				Me.Onquotation_dateChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_quotation_from", DbType:="VarChar(200)")>  _
+	Public Property quotation_from() As String
+		Get
+			Return Me._quotation_from
+		End Get
+		Set
+			If (String.Equals(Me._quotation_from, value) = false) Then
+				Me.Onquotation_fromChanging(value)
+				Me.SendPropertyChanging
+				Me._quotation_from = value
+				Me.SendPropertyChanged("quotation_from")
+				Me.Onquotation_fromChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_bonzen_tel", DbType:="NVarChar(200)")>  _
+	Public Property bonzen_tel() As String
+		Get
+			Return Me._bonzen_tel
+		End Get
+		Set
+			If (String.Equals(Me._bonzen_tel, value) = false) Then
+				Me.Onbonzen_telChanging(value)
+				Me.SendPropertyChanging
+				Me._bonzen_tel = value
+				Me.SendPropertyChanged("bonzen_tel")
+				Me.Onbonzen_telChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_bonzen_email", DbType:="NVarChar(200)")>  _
+	Public Property bonzen_email() As String
+		Get
+			Return Me._bonzen_email
+		End Get
+		Set
+			If (String.Equals(Me._bonzen_email, value) = false) Then
+				Me.Onbonzen_emailChanging(value)
+				Me.SendPropertyChanging
+				Me._bonzen_email = value
+				Me.SendPropertyChanged("bonzen_email")
+				Me.Onbonzen_emailChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_total_amount", DbType:="Decimal(18,2)")>  _
+	Public Property total_amount() As System.Nullable(Of Decimal)
+		Get
+			Return Me._total_amount
+		End Get
+		Set
+			If (Me._total_amount.Equals(value) = false) Then
+				Me.Ontotal_amountChanging(value)
+				Me.SendPropertyChanging
+				Me._total_amount = value
+				Me.SendPropertyChanged("total_amount")
+				Me.Ontotal_amountChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_remark", DbType:="Text", UpdateCheck:=UpdateCheck.Never)>  _
+	Public Property remark() As String
+		Get
+			Return Me._remark
+		End Get
+		Set
+			If (String.Equals(Me._remark, value) = false) Then
+				Me.OnremarkChanging(value)
+				Me.SendPropertyChanging
+				Me._remark = value
+				Me.SendPropertyChanged("remark")
+				Me.OnremarkChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_Vat", DbType:="Int")>  _
+	Public Property Vat() As System.Nullable(Of Integer)
+		Get
+			Return Me._Vat
+		End Get
+		Set
+			If (Me._Vat.Equals(value) = false) Then
+				Me.OnVatChanging(value)
+				Me.SendPropertyChanging
+				Me._Vat = value
+				Me.SendPropertyChanged("Vat")
+				Me.OnVatChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_Vat_amount", DbType:="Decimal(18,2)")>  _
+	Public Property Vat_amount() As System.Nullable(Of Decimal)
+		Get
+			Return Me._Vat_amount
+		End Get
+		Set
+			If (Me._Vat_amount.Equals(value) = false) Then
+				Me.OnVat_amountChanging(value)
+				Me.SendPropertyChanging
+				Me._Vat_amount = value
+				Me.SendPropertyChanged("Vat_amount")
+				Me.OnVat_amountChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_condition", DbType:="Text", UpdateCheck:=UpdateCheck.Never)>  _
+	Public Property condition() As String
+		Get
+			Return Me._condition
+		End Get
+		Set
+			If (String.Equals(Me._condition, value) = false) Then
+				Me.OnconditionChanging(value)
+				Me.SendPropertyChanging
+				Me._condition = value
+				Me.SendPropertyChanged("condition")
+				Me.OnconditionChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_quota_status", DbType:="Int")>  _
+	Public Property quota_status() As System.Nullable(Of Integer)
+		Get
+			Return Me._quota_status
+		End Get
+		Set
+			If (Me._quota_status.Equals(value) = false) Then
+				Me.Onquota_statusChanging(value)
+				Me.SendPropertyChanging
+				Me._quota_status = value
+				Me.SendPropertyChanged("quota_status")
+				Me.Onquota_statusChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.AssociationAttribute(Name:="Quotation_QuotationItem", Storage:="_QuotationItems", ThisKey:="Quota_ID", OtherKey:="Quota_ID")>  _
+	Public Property QuotationItems() As EntitySet(Of QuotationItem)
+		Get
+			Return Me._QuotationItems
+		End Get
+		Set
+			Me._QuotationItems.Assign(value)
+		End Set
+	End Property
+	
+	Public Event PropertyChanging As PropertyChangingEventHandler Implements System.ComponentModel.INotifyPropertyChanging.PropertyChanging
+	
+	Public Event PropertyChanged As PropertyChangedEventHandler Implements System.ComponentModel.INotifyPropertyChanged.PropertyChanged
+	
+	Protected Overridable Sub SendPropertyChanging()
+		If ((Me.PropertyChangingEvent Is Nothing)  _
+					= false) Then
+			RaiseEvent PropertyChanging(Me, emptyChangingEventArgs)
+		End If
+	End Sub
+	
+	Protected Overridable Sub SendPropertyChanged(ByVal propertyName As [String])
+		If ((Me.PropertyChangedEvent Is Nothing)  _
+					= false) Then
+			RaiseEvent PropertyChanged(Me, New PropertyChangedEventArgs(propertyName))
+		End If
+	End Sub
+	
+	Private Sub attach_QuotationItems(ByVal entity As QuotationItem)
+		Me.SendPropertyChanging
+		entity.Quotation = Me
+	End Sub
+	
+	Private Sub detach_QuotationItems(ByVal entity As QuotationItem)
+		Me.SendPropertyChanging
+		entity.Quotation = Nothing
 	End Sub
 End Class

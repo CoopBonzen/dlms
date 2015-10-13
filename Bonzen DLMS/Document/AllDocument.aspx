@@ -195,7 +195,7 @@
                             <dx:GridViewDataTextColumn Caption="สถานะ" Name="Status" ReadOnly="True" ShowInCustomizationForm="True"
                                 VisibleIndex="8" Width="8%">
                                 <DataItemTemplate>
-                                    <%--<dx:ASPxLabel ID="lbl_statusType" runat="server" Text='<%# CType(Eval("Quota_Status"), QuotationStatusEnum).ToString %>'>
+                                    <%--<dx:ASPxLabel ID="lbl_statusType" runat="server" Text='<%# CType(Eval("quota_status"), QuotationStatusEnum).ToString %>'>
                                     </dx:ASPxLabel>--%>
                                 </DataItemTemplate>
                                 <CellStyle HorizontalAlign="Center">

@@ -89,25 +89,12 @@
         <classShapeMoniker Id="f7b793c6-856e-4f1b-a09f-93971d0f6a3f" />
       </nodes>
     </associationConnector>
-    <classShape Id="7886795c-c277-4b74-804c-3872f6a29fd3" absoluteBounds="3.125, 4.5, 2, 4.0785139973958326">
-      <DataClassMoniker Name="/DlmsDataContext/Quotation" />
-      <nestedChildShapes>
-        <elementListCompartment Id="dec1fdd5-1d81-4708-912b-b3ab7eac59ca" absoluteBounds="3.14, 4.9600000000000009, 1.9700000000000002, 3.518513997395833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
     <classShape Id="7c9b5d97-e9a9-47cc-bcdc-35fb4db33213" absoluteBounds="3.125, 8.625, 2, 1.9631982421875005">
       <DataClassMoniker Name="/DlmsDataContext/QuotationItem" />
       <nestedChildShapes>
         <elementListCompartment Id="bba40b40-a5c1-4709-89c3-65f31a9f396f" absoluteBounds="3.1399999999999997, 9.085, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(4.125 : 8.57851399739583); (4.125 : 8.625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
-      <AssociationMoniker Name="/DlmsDataContext/Quotation/Quotation_QuotationItem" />
-      <nodes>
-        <classShapeMoniker Id="7886795c-c277-4b74-804c-3872f6a29fd3" />
-        <classShapeMoniker Id="7c9b5d97-e9a9-47cc-bcdc-35fb4db33213" />
-      </nodes>
-    </associationConnector>
     <associationConnector edgePoints="[(2.875 : 9.41429768880208); (3.125 : 9.41429768880208)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/DlmsDataContext/QuotationDescriptionSub/QuotationDescriptionSub_QuotationItem" />
       <nodes>
@@ -140,11 +127,24 @@
         <elementListCompartment Id="470c16fa-e4c0-443d-bbf0-0b3b99f82ed2" absoluteBounds="5.64, 7.21, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(8.25 : 5.53125); (6.03125 : 5.53125); (6.03125 : 6.75)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(8.25 : 7.17870198567708); (7.625 : 7.17870198567708)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/DlmsDataContext/QuotationProposal/QuotationProposal_QuotationFile" />
       <nodes>
         <classShapeMoniker Id="2970c60f-2625-4f94-97a2-9f97b1f1a214" />
         <classShapeMoniker Id="a81225e4-620e-4d13-b4a6-3e2916ff1e7c" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="49da587f-ec1a-4719-94eb-0ad8790d8556" absoluteBounds="3.125, 4.375, 2, 4.0785139973958326">
+      <DataClassMoniker Name="/DlmsDataContext/Quotation" />
+      <nestedChildShapes>
+        <elementListCompartment Id="119dd981-5758-406e-a3cc-ddc0efbcb077" absoluteBounds="3.1399999999999997, 4.835, 1.9700000000000002, 3.518513997395833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(4.125 : 8.45351399739583); (4.125 : 8.625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DlmsDataContext/Quotation/Quotation_QuotationItem" />
+      <nodes>
+        <classShapeMoniker Id="49da587f-ec1a-4719-94eb-0ad8790d8556" />
+        <classShapeMoniker Id="7c9b5d97-e9a9-47cc-bcdc-35fb4db33213" />
       </nodes>
     </associationConnector>
   </nestedChildShapes>

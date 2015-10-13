@@ -106,28 +106,6 @@
       <Association Name="UserGroup_User" Member="Users" ThisKey="user_group_id" OtherKey="user_group_id" Type="User" />
     </Type>
   </Table>
-  <Table Name="dbo.Quotation" Member="Quotations">
-    <Type Name="Quotation">
-      <Column Name="Quota_ID" Storage="_Q_ID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="company_name" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
-      <Column Name="attn" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
-      <Column Name="tel" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
-      <Column Name="fax" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
-      <Column Name="email" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
-      <Column Name="quotation_no" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
-      <Column Name="quotation_date" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-      <Column Name="quotation_from" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
-      <Column Name="bonzen_tel" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
-      <Column Name="bonzen_email" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
-      <Column Name="total_amount" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
-      <Column Name="remark" Type="System.String" DbType="text" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="Vat" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="Vat_amount" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
-      <Column Name="condition" Type="System.String" DbType="Text" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="Quota_Status" Type="System.String" CanBeNull="false" />
-      <Association Name="Quotation_QuotationItem" Member="QuotationItems" ThisKey="Quota_ID" OtherKey="Quota_ID" Type="QuotationItem" />
-    </Type>
-  </Table>
   <Table Name="dbo.QuotationItem" Member="QuotationItems">
     <Type Name="QuotationItem">
       <Column Name="QItem_ID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
@@ -136,8 +114,8 @@
       <Column Name="unit" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
       <Column Name="amount" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
       <Column Name="Quota_ID" Storage="_Q_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Association Name="Quotation_QuotationItem" Member="Quotation" ThisKey="Quota_ID" OtherKey="Quota_ID" Type="Quotation" IsForeignKey="true" />
       <Association Name="QuotationDescriptionSub_QuotationItem" Member="QuotationDescriptionSub" ThisKey="ID_Q_Detail_Sub" OtherKey="ID_Q_Detail_Sub" Type="QuotationDescriptionSub" IsForeignKey="true" />
+      <Association Name="Quotation_QuotationItem" Member="Quotation" ThisKey="Quota_ID" OtherKey="Quota_ID" Type="Quotation" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.vw_Company" Member="vw_Companies">
@@ -197,6 +175,28 @@
       <Column Name="Q_FileContent" Type="System.Data.Linq.Binary" DbType="VarBinary(MAX)" CanBeNull="true" UpdateCheck="Never" />
       <Column Name="Q_FileDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Association Name="QuotationProposal_QuotationFile" Member="QuotationProposal" ThisKey="Q_ID" OtherKey="Q_ID" Type="QuotationProposal" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Quotation" Member="Quotations">
+    <Type Name="Quotation">
+      <Column Name="Quota_ID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="company_name" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="attn" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="tel" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="fax" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="email" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="quotation_no" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="quotation_date" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="quotation_from" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="bonzen_tel" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="bonzen_email" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="total_amount" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="remark" Type="System.String" DbType="Text" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Vat" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Vat_amount" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="condition" Type="System.String" DbType="Text" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="quota_status" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Quotation_QuotationItem" Member="QuotationItems" ThisKey="Quota_ID" OtherKey="Quota_ID" Type="QuotationItem" />
     </Type>
   </Table>
 </Database>
