@@ -35,10 +35,12 @@
             lb_QuotationDescriptionSub.PerformCallback(cmb_QuotationDescription.GetValue());
         }
 
-
+        
         function OnCompanyChanged(cmb_company) {
             cbp_company.PerformCallback(cmb_company.GetValue());
+            
         }
+
 
         function OnFileUploadComplete(s, e) {
             btnUpdate.DoClick();
@@ -121,6 +123,12 @@
                                         DefaultValue="1" />
                                 </WhereParameters>
                             </asp:LinqDataSource>
+                            <%--<asp:SqlDataSource runat="server" ID="sds_Attn" ConnectionString="<%$ ConnectionStrings:DLMSConnectionString %>"
+                                SelectCommand="SELECT * FROM [vw_CompanyAttn] WHERE prospect_id = @Company_ID">
+                                <SelectParameters>
+                                    <asp:ControlParameter Name="Company_ID" Type="String" ControlID="cmb_company" PropertyName="Value"/>
+                                </SelectParameters>
+                            </asp:SqlDataSource>--%>
                         </td>
                         <td class="style1">
                             <dx:ASPxLabel ID="ASPxLabel7" runat="server" Text="Date">

@@ -255,7 +255,7 @@
                             OrderBy="Q_ID DESC" TableName="QuotationProposals" Where="DATEDIFF(day,Q_Date,getdate()) between 0 and 30">
                         </asp:LinqDataSource>--%>
                         <asp:SqlDataSource runat="server" ID="sds_Quotation" ConnectionString="<%$ ConnectionStrings:DLMSConnectionString %>"
-                            SelectCommand="SELECT * FROM [QuotationProposal] WHERE [P_ID] IS NULL AND (DATEDIFF(yyyy,[Q_Date],getdate()) = 0 ) ORDER BY [Q_ID] DESC">
+                            SelectCommand="SELECT Q_ID FROM [QuotationProposal] WHERE [P_ID] IS NULL AND (DATEDIFF(yyyy,[Q_Date],getdate()) = 0 ) ORDER BY [Q_ID] DESC">
                         </asp:SqlDataSource>
                     </td>
                 </tr>
