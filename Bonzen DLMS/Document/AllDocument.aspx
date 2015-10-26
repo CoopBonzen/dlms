@@ -192,8 +192,9 @@
                                 <CellStyle HorizontalAlign="Center">
                                 </CellStyle>
                             </dx:GridViewDataTextColumn>--%>
-                            <dx:GridViewDataTextColumn Caption="สถานะ" Name="Status" ReadOnly="True" ShowInCustomizationForm="True"
-                                VisibleIndex="8" Width="8%">
+                            <dx:GridViewDataTextColumn Caption="สถานะ" FieldName="quota_status" ReadOnly="True"
+                                ShowInCustomizationForm="True" VisibleIndex="8" Width="8%">
+                                <Settings AutoFilterCondition="Contains" />
                                 <DataItemTemplate>
                                     <%--<dx:ASPxLabel ID="lbl_statusType" runat="server" Text='<%# CType(Eval("quota_status"), QuotationStatusEnum).ToString %>'>
                                     </dx:ASPxLabel>--%>
@@ -204,7 +205,7 @@
                             <dx:GridViewDataColumn Caption="Preview" Name="Preview" VisibleIndex="9">
                                 <DataItemTemplate>
                                     <dx:ASPxButton ID="btn_PreviewQuotation" runat="server" Text="Preview" AutoPostBack="false"
-                                        ClientInstanceName="CIN_btn_PreviewQuotation" Width="65px" />
+                                        ClientInstanceName="CIN_btn_PreviewQuotation" Width="65px" Visible='<%# Eval("ShowQF") %>' />
                                 </DataItemTemplate>
                             </dx:GridViewDataColumn>
                         </Columns>
@@ -213,7 +214,7 @@
                     </dx:ASPxGridView>
                     <asp:SqlDataSource ID="Quo_Prop" runat="server" ConnectionString="<%$ ConnectionStrings:DLMSConnectionString %>"
                         DeleteCommand="DELETE FROM [QuotationProposal] WHERE [Q_ID] = @Q_ID" InsertCommand="INSERT INTO [QuotationProposal] ([Q_ID], [Q_Date], [DateSend], [ContactCom], [ContactName], [Title], [BookingBy], [P_ID]) VALUES (@Q_ID, @Q_Date, @DateSend, @ContactCom, @ContactName, @Title, @BookingBy, @P_ID)"
-                        SelectCommand="SELECT QuotationProposal.*, Quotation.Quota_ID, CASE WHEN Quotation.Quota_ID Is NULL THEN 'False' ELSE 'True' END As Show, Quotation.company_name, Quotation.attn FROM QuotationProposal LEFT OUTER JOIN Quotation ON QuotationProposal.Q_ID = Quotation.quotation_no WHERE YEAR(QuotationProposal.Q_Date) = @ayear"
+                        SelectCommand="SELECT DISTINCT QuotationProposal.*, Quotation.Quota_ID, CASE WHEN Quotation.Quota_ID Is NULL THEN 'False' ELSE 'True' END As ShowQ, Quotation.company_name, Quotation.attn, QuotationFile.Q_ID, CASE WHEN QuotationFile.Q_ID Is NULL THEN 'False' ELSE 'True' END As ShowQF FROM QuotationProposal LEFT OUTER JOIN Quotation ON QuotationProposal.Q_ID = Quotation.quotation_no	LEFT OUTER JOIN QuotationFile ON QuotationProposal.Q_ID = QuotationFile.Q_ID WHERE YEAR(QuotationProposal.Q_Date) = @ayear"
                         UpdateCommand="UPDATE [QuotationProposal] SET [Q_Date] = @Q_Date, [DateSend] = @DateSend, [ContactCom] = @ContactCom, [ContactName] = @ContactName, [Title] = @Title, [BookingBy] = @BookingBy, [P_ID] = @P_ID WHERE [Q_ID] = @Q_ID">
                         <SelectParameters>
                             <asp:ControlParameter ControlID="cmb_searchYearQ" Name="ayear" PropertyName="Value" />
@@ -252,7 +253,6 @@
                         <asp:Parameter Name="ContactName" Type="String" />
                         <asp:Parameter Name="BookingBy" Type="String" />
                         <asp:Parameter Name="G_ID" Type="String" />--%>
-    </p>
     </p>
     <div>
         <h3>
@@ -359,7 +359,8 @@
                         </dx:ASPxGridView>
                         <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:DLMSConnectionString %>"
                             DeleteCommand="DELETE FROM [General] WHERE [G_ID] = @G_ID" InsertCommand="INSERT INTO [General] ([G_ID], [G_Date], [DateSend], [ContactCom], [ContactName], [Title], [Note], [BookingBy]) VALUES (@G_ID, @G_Date, @DateSend, @ContactCom, @ContactName, @Title, @Note, @BookingBy)"
-                            SelectCommand="SELECT * FROM [General] WHERE YEAR(General.G_Date) = @ayear" UpdateCommand="UPDATE [General] SET [Title] = @Title WHERE [G_ID] = @G_ID">
+                            SelectCommand="SELECT General.* FROM [General] WHERE YEAR(General.G_Date) = @ayear"
+                            UpdateCommand="UPDATE [General] SET [Title] = @Title WHERE [G_ID] = @G_ID">
                             <SelectParameters>
                                 <asp:ControlParameter ControlID="cmb_searchYearG" Name="ayear" PropertyName="Value" />
                             </SelectParameters>
