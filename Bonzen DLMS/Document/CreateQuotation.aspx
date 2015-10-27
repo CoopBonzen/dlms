@@ -35,10 +35,10 @@
             lb_QuotationDescriptionSub.PerformCallback(cmb_QuotationDescription.GetValue());
         }
 
-        
+
         function OnCompanyChanged(cmb_company) {
             cbp_company.PerformCallback(cmb_company.GetValue());
-            
+
         }
 
 
@@ -393,6 +393,18 @@
                 </dx:ASPxCallbackPanel>
             </div>
         </div>--%>
+    <table>
+        <tr>
+            <td class="style1">
+                <dx:ASPxLabel ID="ASPxLabel15" runat="server" Text="Remark">
+                </dx:ASPxLabel>
+            </td>
+            <td class="style2">
+                <dx:ASPxTextBox ID="txt_remark" runat="server" Width="360px" Height="20px">
+                </dx:ASPxTextBox>
+            </td>
+        </tr>
+    </table>
     <div style="float: right; margin-left: 5px;">
         <dx:ASPxButton ID="btn_AddQuotation" runat="server" Text="Add Quotation">
         </dx:ASPxButton>

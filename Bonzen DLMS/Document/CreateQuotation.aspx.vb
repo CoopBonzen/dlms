@@ -355,6 +355,7 @@ Public Class CreateQuotation
                 txt_email.Text = .email
                 'memo_remark.Text = .remark
                 'memo_condition.Text = .condition
+                txt_remark.Text = .remark
 
                 Using ctx = New DlmsDataContext
                     Dim quota_item As New List(Of QuotationItem)
@@ -605,6 +606,7 @@ Public Class CreateQuotation
                     .quotation_from = txt_from.Text.Trim
                     .bonzen_tel = txt_bonzentel.Text.Trim
                     .bonzen_email = txt_bonzenemail.Text.Trim
+                    .remark = txt_remark.Text.Trim
                     'status
                     .quota_status = QuotationStatusEnum.New
                     'ยังไม่ได้ update Total
@@ -731,6 +733,7 @@ Public Class CreateQuotation
                 .quotation_from = txt_from.Text.Trim
                 .bonzen_tel = txt_bonzentel.Text.Trim
                 .bonzen_email = txt_bonzenemail.Text.Trim
+                .remark = txt_remark.Text.Trim
                 'ยังไม่ได้ update Total
                 '.total_amount = 
                 '.remark = memo_remark.Text
@@ -740,6 +743,7 @@ Public Class CreateQuotation
             UpdateQuotationItem()
             UpdateCompanyAndAttnInQuotationProposal(quotationNo, companyName, attnName)
         End Using
+        GetFiles()
     End Sub
 
     Public Sub UpdateQuotationItem()
