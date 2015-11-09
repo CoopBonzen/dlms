@@ -17,6 +17,8 @@
     Namespace="DevExpress.Web.ASPxPanel" TagPrefix="dx" %>
 <%@ Register Assembly="DevExpress.Web.v13.1, Version=13.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"
     Namespace="DevExpress.Web.ASPxCallback" TagPrefix="dx" %>
+<%@ Register Assembly="DevExpress.Web.v13.1, Version=13.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"
+    Namespace="DevExpress.Web.Data.WebDataRow" TagPrefix="dx" %>
 <%@ Register Src="../UserControl/AddNewDocument.ascx" TagName="AddNewDocument" TagPrefix="uc1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
     <style type="text/css">
@@ -34,7 +36,7 @@
         }
     </style>
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
+<asp:content id="Content2" contentplaceholderid="MainContent" runat="server">
     <script type="text/javascript">
         function btn_PreviewQuotation_Click(s, e) {
             CIN_pop_PreviewQuotation.Show();
@@ -43,7 +45,7 @@
 
     </script>
     <div class="jumbotron">
-        <uc1:AddNewDocument ID="AddNewDocument" runat="server" />
+        <uc1:addnewdocument id="AddNewDocument" runat="server" />
     </div>
     <div class="jumbotron">
         <dx:ASPxPopupControl ID="pop_PreviewQuotation" runat="server" ClientInstanceName="CIN_pop_PreviewQuotation"
@@ -79,7 +81,7 @@
                                         <td class="style6">
                                             <dx:ASPxGridView ID="gv_QFile" runat="server" AutoGenerateColumns="False" KeyFieldName="Q_FileID"
                                                 Width="148%">
-                                                <Columns>
+                                                <columns>
                                                     <dx:GridViewDataColumn ShowInCustomizationForm="True" VisibleIndex="0">
                                                         <DataItemTemplate>
                                                             <asp:HyperLink ID="Link" runat="server" ForeColor="#6798de" NavigateUrl='<%#Eval("link") %>'
@@ -89,8 +91,8 @@
                                                     <dx:GridViewDataDateColumn FieldName="Q_FileDate" ShowInCustomizationForm="True"
                                                         SortIndex="0" SortOrder="Descending" Visible="False">
                                                     </dx:GridViewDataDateColumn>
-                                                </Columns>
-                                                <Settings ShowColumnHeaders="False" />
+                                                </columns>
+                                                <settings showcolumnheaders="False" />
                                             </dx:ASPxGridView>
                                         </td>
                                     </tr>
@@ -115,9 +117,9 @@
                     <dx:GridViewDataTextColumn Caption="หมายเลข Quotation" FieldName="Q_ID" ReadOnly="True"
                         VisibleIndex="0" CellStyle-HorizontalAlign="Center" Width="8%" SortOrder="Descending">
                         <DataItemTemplate>
-                            <asp:LinkButton ID="lnk_QId" runat="server" Text='<%# Eval("Q_ID") %>' CommandName="OpenCreateQuotation"
-                                CommandArgument='<%# Eval("Q_ID") %>' OnCommand="ListItem_Command">
-                            </asp:LinkButton>
+                            <asp:linkbutton id="lnk_QId" runat="server" text='<%# Eval("Q_ID") %>' commandname="OpenCreateQuotation"
+                                commandargument='<%# Eval("Q_ID") %>' oncommand="ListItem_Command">
+                            </asp:linkbutton>
                         </DataItemTemplate>
                         <CellStyle HorizontalAlign="Center">
                         </CellStyle>
@@ -145,9 +147,9 @@
                     <dx:GridViewDataTextColumn Caption="หมายเลข Proposal" FieldName="P_ID" VisibleIndex="1"
                         ReadOnly="True" CellStyle-HorizontalAlign="Center" Width="8%">
                         <DataItemTemplate>
-                            <asp:LinkButton ID="lnk_PId" runat="server" Text='<%# Eval("P_ID") %>' CommandName="OpenUploadProposalFile"
-                                CommandArgument='<%# Eval("P_ID") %>' OnCommand="ListItem_Command">
-                            </asp:LinkButton>
+                            <asp:linkbutton id="lnk_PId" runat="server" text='<%# Eval("P_ID") %>' commandname="OpenUploadProposalFile"
+                                commandargument='<%# Eval("P_ID") %>' oncommand="ListItem_Command">
+                            </asp:linkbutton>
                         </DataItemTemplate>
                         <CellStyle HorizontalAlign="Center">
                         </CellStyle>
@@ -163,12 +165,12 @@
                         <CellStyle HorizontalAlign="Center">
                         </CellStyle>
                     </dx:GridViewDataTextColumn>--%>
-                    <dx:GridViewDataTextColumn Caption="สถานะ" FieldName="quota_status" ReadOnly="True"
-                        VisibleIndex="8" Width="8%">
-                        <DataItemTemplate>
-                            <%-- <dx:ASPxLabel ID="lbl_statusType" runat="server" Text='<%# CType(Eval("quota_status"), QuotationStatusEnum).ToString %>'>
-                            </dx:ASPxLabel>--%>
-                        </DataItemTemplate>
+                    <dx:GridViewDataTextColumn Caption="สถานะ" Name="Status" ReadOnly="True" VisibleIndex="8"
+                        Width="8%">
+                        <%--<DataItemTemplate>
+                             <dx:ASPxLabel ID="lbl_statusType" runat="server" Text='<%#CType(Eval("quota_status"), QuotationStatusEnum).ToString %>'>
+                            </dx:ASPxLabel>
+                        </DataItemTemplate>--%>
                         <CellStyle HorizontalAlign="Center">
                         </CellStyle>
                     </dx:GridViewDataTextColumn>
@@ -181,14 +183,14 @@
                 </Columns>
                 <SettingsEditing Mode="Inline" />
             </dx:ASPxGridView>
-            <asp:SqlDataSource ID="Quo_Prop" runat="server" ConnectionString="<%$ ConnectionStrings:DLMSConnectionString %>"
-                DeleteCommand="DELETE FROM [QuotationProposal] WHERE [Q_ID] = @Q_ID" InsertCommand="INSERT INTO [QuotationProposal] ([Q_ID], [Q_Date], [DateSend], [ContactCom], [ContactName], [Title], [BookingBy], [P_ID]) VALUES (@Q_ID, @Q_Date, @DateSend, @ContactCom, @ContactName, @Title, @BookingBy, @P_ID)"
-                SelectCommand="SELECT DISTINCT QuotationProposal.*, Quotation.Quota_ID, CASE WHEN Quotation.Quota_ID Is NULL THEN 'False' ELSE 'True' END As ShowQ, Quotation.company_name, Quotation.attn, QuotationFile.Q_ID, CASE WHEN QuotationFile.Q_ID Is NULL THEN 'False' ELSE 'True' END As ShowQF FROM QuotationProposal LEFT OUTER JOIN Quotation ON QuotationProposal.Q_ID = Quotation.quotation_no	LEFT OUTER JOIN QuotationFile ON QuotationProposal.Q_ID = QuotationFile.Q_ID WHERE Q_Date >= DATEADD(day, -30, getdate()) ORDER BY Q_Date DESC"
-                UpdateCommand="UPDATE [QuotationProposal] SET [Q_Date] = @Q_Date, [DateSend] = @DateSend, [ContactCom] = @ContactCom, [ContactName] = @ContactName, [Title] = @Title, [BookingBy] = @BookingBy, [P_ID] = @P_ID WHERE [Q_ID] = @Q_ID">
-                <DeleteParameters>
+            <asp:sqldatasource id="Quo_Prop" runat="server" connectionstring="<%$ ConnectionStrings:DLMSConnectionString %>"
+                deletecommand="DELETE FROM [QuotationProposal] WHERE [Q_ID] = @Q_ID" insertcommand="INSERT INTO [QuotationProposal] ([Q_ID], [Q_Date], [DateSend], [ContactCom], [ContactName], [Title], [BookingBy], [P_ID]) VALUES (@Q_ID, @Q_Date, @DateSend, @ContactCom, @ContactName, @Title, @BookingBy, @P_ID)"
+                selectcommand="SELECT DISTINCT QuotationProposal.*, Quotation.Quota_ID, CASE WHEN Quotation.Quota_ID Is NULL THEN 'False' ELSE 'True' END As ShowQ, Quotation.company_name, Quotation.attn, QuotationFile.Q_ID, CASE WHEN QuotationFile.Q_ID Is NULL THEN 'False' ELSE 'True' END As ShowQF FROM QuotationProposal LEFT OUTER JOIN Quotation ON QuotationProposal.Q_ID = Quotation.quotation_no	LEFT OUTER JOIN QuotationFile ON QuotationProposal.Q_ID = QuotationFile.Q_ID WHERE Q_Date >= DATEADD(day, -30, getdate()) ORDER BY Q_Date DESC"
+                updatecommand="UPDATE [QuotationProposal] SET [Q_Date] = @Q_Date, [DateSend] = @DateSend, [ContactCom] = @ContactCom, [ContactName] = @ContactName, [Title] = @Title, [BookingBy] = @BookingBy, [P_ID] = @P_ID WHERE [Q_ID] = @Q_ID">
+                <deleteparameters>
                     <asp:Parameter Name="Q_ID" Type="String" />
-                </DeleteParameters>
-                <InsertParameters>
+                </deleteparameters>
+                <insertparameters>
                     <asp:Parameter Name="Q_ID" Type="String" />
                     <asp:Parameter DbType="Date" Name="Q_Date" />
                     <asp:Parameter DbType="Date" Name="DateSend" />
@@ -197,8 +199,8 @@
                     <asp:Parameter Name="Title" Type="String" />
                     <asp:Parameter Name="BookingBy" Type="String" />
                     <asp:Parameter Name="P_ID" Type="String" />
-                </InsertParameters>
-                <UpdateParameters>
+                </insertparameters>
+                <updateparameters>
                     <asp:Parameter Name="Title" Type="String" />
                     <%--<asp:Parameter DbType="Date" Name="Q_Date" />
                     <asp:Parameter DbType="Date" Name="DateSend" />
@@ -207,8 +209,8 @@
                     <asp:Parameter Name="BookingBy" Type="String" />
                     <asp:Parameter Name="P_ID" Type="String" />
                     <asp:Parameter Name="Q_ID" Type="String" />--%>
-                </UpdateParameters>
-            </asp:SqlDataSource>
+                </updateparameters>
+            </asp:sqldatasource>
             <%--<asp:SqlDataSource ID="Quo_Prop" runat="server" ConnectionString="<%$ ConnectionStrings:DLMSConnectionString %>"
                 DeleteCommand="DELETE FROM [QuotationProposal] WHERE [Q_ID] = @Q_ID" InsertCommand="INSERT INTO [QuotationProposal] ([Q_ID], [Q_Date], [DateSend], [ContactCom], [ContactName], [Title], [BookingBy], [P_ID]) VALUES (@Q_ID, @Q_Date, @DateSend, @ContactCom, @ContactName, @Title, @BookingBy, @P_ID)"
                 
@@ -254,12 +256,12 @@
                             <EditCellStyle HorizontalAlign="Center">
                             </EditCellStyle>
                             <DataItemTemplate>
-                                <asp:LinkButton ID="lnk_GId" runat="server" Text='<%# Eval("G_ID") %>' CommandName="OpenUploadGeneralFile"
-                                    CommandArgument='<%# Eval("G_ID") %>' OnCommand="ListItem_Command">
-                                </asp:LinkButton>
+                                <asp:linkbutton id="lnk_GId" runat="server" text='<%# Eval("G_ID") %>' commandname="OpenUploadGeneralFile"
+                                    commandargument='<%# Eval("G_ID") %>' oncommand="ListItem_Command">
+                                </asp:linkbutton>
                             </DataItemTemplate>
                             <EditItemTemplate>
-                                <asp:Label ID="lbl_GId" runat="server" Text='<%# Eval("G_ID") %>'></asp:Label>
+                                <asp:label id="lbl_GId" runat="server" text='<%# Eval("G_ID") %>'></asp:label>
                             </EditItemTemplate>
                             <CellStyle HorizontalAlign="Center">
                             </CellStyle>
@@ -268,7 +270,8 @@
                         <dx:GridViewDataDateColumn Caption="วันที่ในจดหมาย" FieldName="G_Date" VisibleIndex="1"
                             Width="8%">
                             <EditItemTemplate>
-                                <asp:Label ID="lbl_GDate" runat="server" Text='<%# Eval("G_Date", "{0:d/MM/yyyy}") %>'></asp:Label>
+                                <asp:label id="lbl_GDate" runat="server" text='<%# Eval("G_Date", "{0:d/MM/yyyy}") %>'>
+                                </asp:label>
                             </EditItemTemplate>
                             <Settings AutoFilterCondition="Contains" />
                         </dx:GridViewDataDateColumn>
@@ -277,7 +280,8 @@
                             <EditCellStyle HorizontalAlign="Center">
                             </EditCellStyle>
                             <EditItemTemplate>
-                                <asp:Label ID="lbl_ContactCompany" runat="server" Text='<%# Eval("ContactCom") %>'></asp:Label>
+                                <asp:label id="lbl_ContactCompany" runat="server" text='<%# Eval("ContactCom") %>'>
+                                </asp:label>
                             </EditItemTemplate>
                             <Settings AutoFilterCondition="Contains" />
                         </dx:GridViewDataTextColumn>
@@ -286,13 +290,15 @@
                             <EditCellStyle HorizontalAlign="Center">
                             </EditCellStyle>
                             <EditItemTemplate>
-                                <asp:Label ID="lbl_ContactName" runat="server" Text='<%# Eval("ContactName") %>'></asp:Label>
+                                <asp:label id="lbl_ContactName" runat="server" text='<%# Eval("ContactName") %>'>
+                                </asp:label>
                             </EditItemTemplate>
                             <Settings AutoFilterCondition="Contains" />
                         </dx:GridViewDataTextColumn>
                         <dx:GridViewDataTextColumn Caption="เรื่อง" FieldName="Title" VisibleIndex="5" Width="18%">
                             <EditItemTemplate>
-                                <asp:TextBox ID="txt_Note" runat="server" Text='<%# Bind("Title") %>'></asp:TextBox>
+                                <asp:textbox id="txt_Note" runat="server" text='<%# Bind("Title") %>'>
+                                </asp:textbox>
                             </EditItemTemplate>
                             <Settings AutoFilterCondition="Contains" />
                         </dx:GridViewDataTextColumn>
@@ -304,7 +310,7 @@
                         <dx:GridViewDataTextColumn Caption="ผู้จอง" FieldName="BookingBy" VisibleIndex="7"
                             Width="8%">
                             <EditItemTemplate>
-                                <asp:Label ID="lbl_BookingBy" runat="server" Text='<%# Eval("BookingBy") %>'></asp:Label>
+                                <asp:label id="lbl_BookingBy" runat="server" text='<%# Eval("BookingBy") %>'></asp:label>
                             </EditItemTemplate>
                             <Settings AutoFilterCondition="Contains" />
                         </dx:GridViewDataTextColumn>
@@ -326,13 +332,14 @@
                     </Columns>
                     <SettingsEditing Mode="Inline" />
                 </dx:ASPxGridView>
-                <asp:SqlDataSource ID="General" runat="server" ConnectionString="<%$ ConnectionStrings:DLMSConnectionString %>"
-                    DeleteCommand="DELETE FROM [General] WHERE [G_ID] = @G_ID" InsertCommand="INSERT INTO [General] ([G_ID], [G_Date], [DateSend], [ContactCom], [ContactName], [Title], [Note], [BookingBy]) VALUES (@G_ID, @G_Date, @DateSend, @ContactCom, @ContactName, @Title, @Note, @BookingBy)"
-                    SelectCommand="SELECT TOP 10 General.* FROM [General] ORDER BY [G_ID] DESC " UpdateCommand="UPDATE [General] SET [Title] = @Title WHERE [G_ID] = @G_ID">
-                    <DeleteParameters>
+                <asp:sqldatasource id="General" runat="server" connectionstring="<%$ ConnectionStrings:DLMSConnectionString %>"
+                    deletecommand="DELETE FROM [General] WHERE [G_ID] = @G_ID" insertcommand="INSERT INTO [General] ([G_ID], [G_Date], [DateSend], [ContactCom], [ContactName], [Title], [Note], [BookingBy]) VALUES (@G_ID, @G_Date, @DateSend, @ContactCom, @ContactName, @Title, @Note, @BookingBy)"
+                    selectcommand="SELECT TOP 10 General.* FROM [General] ORDER BY [G_ID] DESC "
+                    updatecommand="UPDATE [General] SET [Title] = @Title WHERE [G_ID] = @G_ID">
+                    <deleteparameters>
                         <asp:Parameter Name="G_ID" Type="String" />
-                    </DeleteParameters>
-                    <InsertParameters>
+                    </deleteparameters>
+                    <insertparameters>
                         <asp:Parameter Name="G_ID" Type="String" />
                         <asp:Parameter DbType="Date" Name="G_Date" />
                         <asp:Parameter DbType="Date" Name="DateSend" />
@@ -341,8 +348,8 @@
                         <asp:Parameter Name="Title" Type="String" />
                         <asp:Parameter Name="Note" Type="String" />
                         <asp:Parameter Name="BookingBy" Type="String" />
-                    </InsertParameters>
-                    <UpdateParameters>
+                    </insertparameters>
+                    <updateparameters>
                         <asp:Parameter Name="Title" Type="String" />
                         <%--<asp:Parameter Name="Note" Type="String" />
                         <asp:Parameter DbType="Date" Name="DateSend" />
@@ -350,9 +357,9 @@
                         <asp:Parameter Name="ContactName" Type="String" />
                         <asp:Parameter Name="BookingBy" Type="String" />
                         <asp:Parameter Name="G_ID" Type="String" />--%>
-                    </UpdateParameters>
-                </asp:SqlDataSource>
+                    </updateparameters>
+                </asp:sqldatasource>
             </p>
         </div>
     </div>
-</asp:Content>
+</asp:content>

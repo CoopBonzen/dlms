@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="DLMS_db" Class="DlmsDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="WebSettings" ConnectionString="Data Source=(local)\MSSQLSERVER_R2;Initial Catalog=DLMS_db;User ID=sa" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="DLMSConnectionString" Provider="System.Data.SqlClient" />
+  <Connection Mode="WebSettings" ConnectionString="Data Source=(local)\MSSQLSERVER_R2;Initial Catalog=DLMS_db;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="DLMS_dbConnectionString" Provider="System.Data.SqlClient" />
   <Table Name="dbo.UserGroupRole" Member="UserGroupRoles">
     <Type Name="UserGroupRole">
       <Column Name="user_group_id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
@@ -83,17 +83,6 @@
       <Column Name="Q_CreateDate" Storage="_CreateDate" Type="System.DateTime" CanBeNull="false" />
       <Column Name="Q_RunningNo" Storage="_RunningNo" Type="System.Int32" CanBeNull="false" />
       <Association Name="QuotationProposal_QuotationFile" Member="QuotationFiles" ThisKey="Q_ID" OtherKey="Q_ID" Type="QuotationFile" />
-    </Type>
-  </Table>
-  <Table Name="dbo.[User]" Member="Users">
-    <Type Name="User">
-      <Column Name="user_id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="user_group_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="full_name" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
-      <Column Name="user_name" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="password" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="active" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
-      <Association Name="UserGroup_User" Member="UserGroup" ThisKey="user_group_id" OtherKey="user_group_id" Type="UserGroup" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.UserGroup" Member="UserGroups">
@@ -197,6 +186,27 @@
       <Column Name="condition" Type="System.String" DbType="Text" CanBeNull="true" UpdateCheck="Never" />
       <Column Name="quota_status" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Association Name="Quotation_QuotationItem" Member="QuotationItems" ThisKey="Quota_ID" OtherKey="Quota_ID" Type="QuotationItem" />
+    </Type>
+  </Table>
+  <Table Name="dbo.vw_ContactPerson" Member="vw_ContactPersons">
+    <Type Name="vw_ContactPerson">
+      <Column Name="prospect_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="cp_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="cp_name" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="cp_position" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="cp_tel" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="cp_email" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.[User]" Member="Users">
+    <Type Name="User">
+      <Column Name="user_id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="user_group_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="full_name" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="user_name" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="password" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="active" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Association Name="UserGroup_User" Member="UserGroup" ThisKey="user_group_id" OtherKey="user_group_id" Type="UserGroup" IsForeignKey="true" />
     </Type>
   </Table>
 </Database>

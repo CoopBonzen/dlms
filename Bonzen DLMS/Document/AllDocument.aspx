@@ -43,7 +43,7 @@
         }
     </style>
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
+<asp:content id="Content2" contentplaceholderid="MainContent" runat="server">
     <script type="text/javascript">
         function btn_PreviewQuotation_Click(s, e) {
             CIN_pop_PreviewQuotation.Show();
@@ -51,10 +51,10 @@
 
     </script>
     <div class="jumbotron">
-        <dx:ASPxPopupControl ID="pop_PreviewQuotation" runat="server" ClientInstanceName="CIN_pop_PreviewQuotation"
-            HeaderText="Preview Quotation" PopupVerticalAlign="WindowCenter" AllowResize="True"
-            CloseAction="CloseButton" Modal="True" AllowDragging="True" PopupHorizontalAlign="WindowCenter"
-            ShowFooter="false" Width="412px" Height="200px">
+        <dx:aspxpopupcontrol id="pop_PreviewQuotation" runat="server" clientinstancename="CIN_pop_PreviewQuotation"
+            headertext="Preview Quotation" popupverticalalign="WindowCenter" allowresize="True"
+            closeaction="CloseButton" modal="True" allowdragging="True" popuphorizontalalign="WindowCenter"
+            showfooter="false" width="412px" height="200px">
             <HeaderStyle HorizontalAlign="Center" BackColor="#5066AC" ForeColor="White" Font-Bold="True" />
             <ContentCollection>
                 <dx:PopupControlContentControl>
@@ -105,12 +105,12 @@
                     </dx:ASPxCallbackPanel>
                 </dx:PopupControlContentControl>
             </ContentCollection>
-        </dx:ASPxPopupControl>
+        </dx:aspxpopupcontrol>
     </div>
     <h3>
         <strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Quotation & Proposal</strong></h3>
     <p class="lead">
-        <dx:ASPxRoundPanel ID="ASPxRoundPanel2" runat="server" Width="920px" HeaderText="">
+        <dx:aspxroundpanel id="ASPxRoundPanel2" runat="server" width="920px" headertext="">
             <PanelCollection>
                 <dx:PanelContent runat="server" SupportsDisabledAttribute="True">
                     <table style="width: 100%;">
@@ -192,15 +192,11 @@
                                 <CellStyle HorizontalAlign="Center">
                                 </CellStyle>
                             </dx:GridViewDataTextColumn>--%>
-                            <dx:GridViewDataTextColumn Caption="สถานะ" FieldName="quota_status" ReadOnly="True"
-                                ShowInCustomizationForm="True" VisibleIndex="8" Width="8%">
-                                <Settings AutoFilterCondition="Contains" />
+                            <dx:GridViewDataTextColumn Caption="สถานะ" Name="Status" VisibleIndex="8" >
                                 <DataItemTemplate>
                                     <%--<dx:ASPxLabel ID="lbl_statusType" runat="server" Text='<%# CType(Eval("quota_status"), QuotationStatusEnum).ToString %>'>
                                     </dx:ASPxLabel>--%>
                                 </DataItemTemplate>
-                                <CellStyle HorizontalAlign="Center">
-                                </CellStyle>
                             </dx:GridViewDataTextColumn>
                             <dx:GridViewDataColumn Caption="Preview" Name="Preview" VisibleIndex="9">
                                 <DataItemTemplate>
@@ -246,7 +242,7 @@
                     </asp:SqlDataSource>
                 </dx:PanelContent>
             </PanelCollection>
-        </dx:ASPxRoundPanel>
+        </dx:aspxroundpanel>
         <%--<asp:Parameter Name="Note" Type="String" />
                         <asp:Parameter DbType="Date" Name="DateSend" />
                         <asp:Parameter Name="ContactCom" Type="String" />
@@ -258,8 +254,8 @@
         <h3>
             <strong>&nbsp;&nbsp;&nbsp;&nbsp; General</strong></h3>
         <p class="lead">
-            <dx:ASPxRoundPanel ID="ASPxRoundPanel1" runat="server" Width="919px" Height="265px"
-                HeaderText="">
+            <dx:aspxroundpanel id="ASPxRoundPanel1" runat="server" width="919px" height="265px"
+                headertext="">
                 <PanelCollection>
                     <dx:PanelContent runat="server" SupportsDisabledAttribute="True">
                         <table style="width: 100%;">
@@ -389,7 +385,7 @@
                         </asp:SqlDataSource>
                     </dx:PanelContent>
                 </PanelCollection>
-            </dx:ASPxRoundPanel>
+            </dx:aspxroundpanel>
         </p>
     </div>
-</asp:Content>
+</asp:content>

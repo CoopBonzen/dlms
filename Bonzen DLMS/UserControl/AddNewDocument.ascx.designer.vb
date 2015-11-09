@@ -320,13 +320,13 @@ Partial Public Class AddNewDocument
     Protected WithEvents cmb_attn As Global.DevExpress.Web.ASPxEditors.ASPxComboBox
 
     '''<summary>
-    '''lds_Attn control.
+    '''lds_Cont control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents lds_Attn As Global.System.Web.UI.WebControls.LinqDataSource
+    Protected WithEvents lds_Cont As Global.System.Web.UI.WebControls.LinqDataSource
 
     '''<summary>
     '''lbl_GTitle control.

@@ -1443,9 +1443,9 @@ cmb_attn control.
 Auto-generated field.
 To modify move field declaration from designer file to code-behind file.
 </remarks>
-</member><member name="F:Bonzen_DLMS.AddNewDocument.lds_Attn">
+</member><member name="F:Bonzen_DLMS.AddNewDocument.lds_Cont">
 	<summary>
-lds_Attn control.
+lds_Cont control.
 </summary>
 	<remarks>
 Auto-generated field.

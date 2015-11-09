@@ -27,7 +27,7 @@
         }
     </style>
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
+<asp:content id="Content2" contentplaceholderid="MainContent" runat="server">
     <script language="javascript" type="text/javascript">
         function OnQuotationChanged(cmb_QuotationDescription) {
             txt_selectedsub.SetText('');
@@ -74,7 +74,7 @@
             //CIN_cbp_requestTime.PerformCallback();
         }
     </script>
-    <dx:ASPxCallbackPanel ID="cbp_company" ClientInstanceName="cbp_company" runat="server">
+    <dx:aspxcallbackpanel id="cbp_company" clientinstancename="cbp_company" runat="server">
         <PanelCollection>
             <dx:PanelContent ID="pnc_Header" runat="server">
                 <table class="dxflInternalEditorTable">
@@ -91,9 +91,7 @@
                                 <ClientSideEvents SelectedIndexChanged="function(s, e) { OnCompanyChanged(s); }" />
                             </dx:ASPxComboBox>
                             <asp:LinqDataSource ID="lds_Company" runat="server" ContextTypeName="Bonzen_DLMS.DlmsDataContext"
-                                Select="new (prospect_id, prospect_nameTH, prospect_nameEN, short_name, status_id, detail, main_id, 
-                                sub_id, prospect_address, district, amphur, province_name, zipcode, tel_number, fax, mail, website, 
-                                activate, username)" TableName="vw_Companies">
+                                Select="new (prospect_id, prospect_nameTH, prospect_nameEN, tel_number, fax, mail)" TableName="vw_Companies">
                             </asp:LinqDataSource>
                         </td>
                         <td class="style1">
@@ -112,24 +110,17 @@
                         </td>
                         <td class="style2">
                             <dx:ASPxComboBox ID="cmb_attn" ClientInstanceName="cmb_attn" runat="server" Height="20px"
-                                Width="360px" IncrementalFilteringMode="Contains" DataSourceID="lds_Attn" TextField="c_name"
-                                ValueField="c_id" DropDownStyle="DropDown">
+                                Width="360px" IncrementalFilteringMode="Contains" DataSourceID="lds_Attn" TextField="cp_name"
+                                ValueField="cp_id" DropDownStyle="DropDown" EnableCallbackMode="True">
                             </dx:ASPxComboBox>
-                            <%--Select="new (Company_ID_Attn, Company_Attn, Company_ID)" --%>
-                            <asp:LinqDataSource ID="lds_Attn" runat="server" ContextTypeName="Bonzen_DLMS.DlmsDataContext"
-                                TableName="vw_CompanyAttns" Where="prospect_id == @Company_ID">
+                             <asp:LinqDataSource ID="lds_Attn" runat="server" ContextTypeName="Bonzen_DLMS.DlmsDataContext"
+                                TableName="vw_ContactPersons" Where="prospect_id == @Company_ID">
                                 <WhereParameters>
                                     <asp:ControlParameter Name="Company_ID" Type="String" ControlID="cmb_company" PropertyName="Value"
                                         DefaultValue="1" />
                                 </WhereParameters>
                             </asp:LinqDataSource>
-                            <%--<asp:SqlDataSource runat="server" ID="sds_Attn" ConnectionString="<%$ ConnectionStrings:DLMSConnectionString %>"
-                                SelectCommand="SELECT * FROM [vw_CompanyAttn] WHERE prospect_id = @Company_ID">
-                                <SelectParameters>
-                                    <asp:ControlParameter Name="Company_ID" Type="String" ControlID="cmb_company" PropertyName="Value"/>
-                                </SelectParameters>
-                            </asp:SqlDataSource>--%>
-                        </td>
+                         </td>
                         <td class="style1">
                             <dx:ASPxLabel ID="ASPxLabel7" runat="server" Text="Date">
                             </dx:ASPxLabel>
@@ -199,7 +190,7 @@
                 </table>
             </dx:PanelContent>
         </PanelCollection>
-    </dx:ASPxCallbackPanel>
+    </dx:aspxcallbackpanel>
     <p>
     </p>
     <h2>
@@ -209,45 +200,45 @@
         <table width="50%">
             <tr>
                 <td class="auto-style4" style="width: 50%">
-                    <dx:ASPxLabel ID="lbl_QNewUpload" runat="server" Text="หมายเลข Quotation" />
+                    <dx:aspxlabel id="lbl_QNewUpload" runat="server" text="หมายเลข Quotation" />
                     &nbsp;&nbsp;
-                    <dx:ASPxLabel ID="lbl_QNo" runat="server" />
+                    <dx:aspxlabel id="lbl_QNo" runat="server" />
                 </td>
             </tr>
             <tr>
                 <td>
-                    <asp:UpdatePanel ID="Updatepanel1" runat="server">
-                        <ContentTemplate>
+                    <asp:updatepanel id="Updatepanel1" runat="server">
+                        <contenttemplate>
                             <dx:ASPxButton ID="btnUpdate" runat="server" ClientInstanceName="btnUpdate" ClientVisible="false"
                                 OnClick="Updatepanel1_Refresh">
                             </dx:ASPxButton>
-                        </ContentTemplate>
-                        <Triggers>
+                        </contenttemplate>
+                        <triggers>
                             <asp:AsyncPostBackTrigger ControlID="btnUpdate" EventName="Click" />
-                        </Triggers>
-                    </asp:UpdatePanel>
-                    <dx:ASPxUploadControl ID="ulc_QuotationFile" runat="server" ShowUploadButton="True"
-                        ShowProgressPanel="True" OnFileUploadComplete="UploadControl_FileUploadComplete"
-                        Width="280px">
+                        </triggers>
+                    </asp:updatepanel>
+                    <dx:aspxuploadcontrol id="ulc_QuotationFile" runat="server" showuploadbutton="True"
+                        showprogresspanel="True" onfileuploadcomplete="UploadControl_FileUploadComplete"
+                        width="280px">
                         <ValidationSettings AllowedFileExtensions=".pdf, .doc, .docx" ShowErrors="false" />
                         <ClientSideEvents FileUploadComplete="OnFileUploadComplete" />
-                    </dx:ASPxUploadControl>
+                    </dx:aspxuploadcontrol>
                 </td>
             </tr>
             <tr>
                 <td class="auto-style4" style="width: 50%">
-                    <dx:ASPxLabel ID="lbl_QuotationNumber" runat="server" Text="Company : " />
+                    <dx:aspxlabel id="lbl_QuotationNumber" runat="server" text="Company : " />
                     &nbsp;&nbsp;
-                    <dx:ASPxLabel ID="lbl_QCompanyName" runat="server" />
+                    <dx:aspxlabel id="lbl_QCompanyName" runat="server" />
                 </td>
             </tr>
             <tr>
                 <td>
-                    <dx:ASPxTextBox ID="txt_qFile" runat="server" ClientInstanceName="CIN_txt_qFile"
-                        ClientVisible="false">
-                    </dx:ASPxTextBox>
-                    <dx:ASPxGridView ID="gv_QFile" runat="server" Width="100%" KeyFieldName="Q_FileID"
-                        AutoGenerateColumns="False">
+                    <dx:aspxtextbox id="txt_qFile" runat="server" clientinstancename="CIN_txt_qFile"
+                        clientvisible="false">
+                    </dx:aspxtextbox>
+                    <dx:aspxgridview id="gv_QFile" runat="server" width="100%" keyfieldname="Q_FileID"
+                        autogeneratecolumns="False">
                         <SettingsPager Visible="False">
                         </SettingsPager>
                         <%--<Settings ShowColumnHeaders="false" />--%>
@@ -268,11 +259,11 @@
                             <dx:GridViewDataDateColumn FieldName="Q_FileDate" Visible="false" SortOrder="Descending">
                             </dx:GridViewDataDateColumn>
                         </Columns>
-                    </dx:ASPxGridView>
+                    </dx:aspxgridview>
                     <br />
-                    <dx:ASPxButton ID="btnDeleteSelectedRows" runat="server" OnClick="btnDeleteSelectedRows_Click"
-                        Text="Delete selected rows" Width="137px">
-                    </dx:ASPxButton>
+                    <dx:aspxbutton id="btnDeleteSelectedRows" runat="server" onclick="btnDeleteSelectedRows_Click"
+                        text="Delete selected rows" width="137px">
+                    </dx:aspxbutton>
                 </td>
             </tr>
         </table>
@@ -396,28 +387,28 @@
     <table>
         <tr>
             <td class="style1">
-                <dx:ASPxLabel ID="ASPxLabel15" runat="server" Text="Remark">
-                </dx:ASPxLabel>
+                <dx:aspxlabel id="ASPxLabel15" runat="server" text="Remark">
+                </dx:aspxlabel>
             </td>
             <td class="style2">
-                <dx:ASPxTextBox ID="txt_remark" runat="server" Width="360px" Height="20px">
-                </dx:ASPxTextBox>
+                <dx:aspxtextbox id="txt_remark" runat="server" width="360px" height="20px">
+                </dx:aspxtextbox>
             </td>
         </tr>
     </table>
     <div style="float: right; margin-left: 5px;">
-        <dx:ASPxButton ID="btn_AddQuotation" runat="server" Text="Add Quotation">
-        </dx:ASPxButton>
+        <dx:aspxbutton id="btn_AddQuotation" runat="server" text="Add Quotation">
+        </dx:aspxbutton>
     </div>
     <div style="float: right; margin-left: 5px;">
-        <dx:ASPxButton ID="btn_SaveQuotation" runat="server" Text="Update">
-        </dx:ASPxButton>
+        <dx:aspxbutton id="btn_SaveQuotation" runat="server" text="Update">
+        </dx:aspxbutton>
     </div>
     <div style="float: right; margin-left: 5px;">
-        <dx:ASPxButton ID="btn_PrintQuotation" runat="server" Text="Approve">
-        </dx:ASPxButton>
+        <dx:aspxbutton id="btn_PrintQuotation" runat="server" text="Approve">
+        </dx:aspxbutton>
     </div>
     <br />
     <br />
     <%-- </p>--%>
-</asp:Content>
+</asp:content>

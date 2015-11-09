@@ -206,6 +206,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Dlms.dbml</DependentUpon>
     </Compile>
+    <Compile Include="DataAccess\Dlms.vb">
+      <DependentUpon>Dlms.dbml</DependentUpon>
+    </Compile>
     <Compile Include="DataAccess\FileFunction.vb" />
     <Compile Include="DataAccess\LinqModule.vb" />
     <Compile Include="Default.aspx.vb">

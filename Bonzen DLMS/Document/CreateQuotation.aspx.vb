@@ -114,10 +114,6 @@ Public Class CreateQuotation
             GetFiles()
         End If
 
-        'Dim ctx As New DlmsDataContext
-        'Dim groups As Integer = (From  q In ctx.UserGroups Where q.user_group_id = 
-
-
     End Sub
 
     'เพิ่มUpload'
@@ -323,7 +319,7 @@ Public Class CreateQuotation
 
     'End Sub
 
-      Public Sub AddDataInForm(Q_No)
+    Public Sub AddDataInForm(ByVal Q_No)
         'GetQuotationDate(Q_No)
         txt_quotation.Text = Q_No
         dte_quotationDate.Text = GetQuotationDate(Q_No)
@@ -801,13 +797,13 @@ Public Class CreateQuotation
 
     Private Sub gv_QFile_HtmlDataCellPrepared(ByVal sender As Object, ByVal e As DevExpress.Web.ASPxGridView.ASPxGridViewTableDataCellEventArgs) Handles gv_QFile.HtmlDataCellPrepared
         If e.DataColumn.FieldName = "Q_FileID" Then
-                Dim chk_Selected As ASPxCheckBox = gv_QFile.FindRowCellTemplateControlByKey(e.CellValue, e.DataColumn, "chk_selected")
-                If chk_Selected IsNot Nothing Then
-                    chk_Selected.Checked = False
-                    chk_Selected.ClientSideEvents.CheckedChanged = "function(s, e) { " & _
-                                                                   "if (s.GetValue()) AddQfileList(" & e.CellValue & "); " & _
-                                                                   "else RemoveQfileList(" & e.CellValue & ");}"
-                End If
+            Dim chk_Selected As ASPxCheckBox = gv_QFile.FindRowCellTemplateControlByKey(e.CellValue, e.DataColumn, "chk_selected")
+            If chk_Selected IsNot Nothing Then
+                chk_Selected.Checked = False
+                chk_Selected.ClientSideEvents.CheckedChanged = "function(s, e) { " & _
+                                                               "if (s.GetValue()) AddQfileList(" & e.CellValue & "); " & _
+                                                               "else RemoveQfileList(" & e.CellValue & ");}"
+            End If
         End If
     End Sub
 
@@ -824,4 +820,6 @@ Public Class CreateQuotation
         End If
 
     End Sub
+
+
 End Class

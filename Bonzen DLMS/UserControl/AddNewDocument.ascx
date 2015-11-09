@@ -45,15 +45,15 @@
         height: 18px;
     }
 </style>
-<dx:ASPxButton ID="btn_AddDocument" runat="server" Text="Add New Document" AutoPostBack="false"
-    ClientInstanceName="CIN_btn_AddDocument">
+<dx:aspxbutton id="btn_AddDocument" runat="server" text="Add New Document" autopostback="false"
+    clientinstancename="CIN_btn_AddDocument">
     <%--<ClientSideEvents Click ="function (s,e){CIN_pop_AddDocument.Show();}" />‏--%>
     <ClientSideEvents Click="function (s,e){ CIN_pop_AddDocument.Show();}" />
-</dx:ASPxButton>
-<dx:ASPxPopupControl ID="pop_AddDocument" runat="server" ClientInstanceName="CIN_pop_AddDocument"
-    HeaderText="Add New Document" PopupVerticalAlign="WindowCenter" AllowResize="True"
-    CloseAction="CloseButton" Modal="True" AllowDragging="True" PopupHorizontalAlign="WindowCenter"
-    ShowFooter="false" Width="500px">
+</dx:aspxbutton>
+<dx:aspxpopupcontrol id="pop_AddDocument" runat="server" clientinstancename="CIN_pop_AddDocument"
+    headertext="Add New Document" popupverticalalign="WindowCenter" allowresize="True"
+    closeaction="CloseButton" modal="True" allowdragging="True" popuphorizontalalign="WindowCenter"
+    showfooter="false" width="500px">
     <HeaderStyle HorizontalAlign="Center" BackColor="#5066AC" ForeColor="White" Font-Bold="True" />
     <ContentCollection>
         <dx:PopupControlContentControl>
@@ -103,8 +103,8 @@
             </table>
         </dx:PopupControlContentControl>
     </ContentCollection>
-</dx:ASPxPopupControl>
-<dx:ASPxCallback ID="cb_PopupInit" ClientInstanceName="cb_PopupInit" runat="server">
+</dx:aspxpopupcontrol>
+<dx:aspxcallback id="cb_PopupInit" clientinstancename="cb_PopupInit" runat="server">
     <ClientSideEvents EndCallback="function(s, e) {
                                        if (s.cpRunNo.indexOf('Q') == 0) {
                                            CIN_pop_quotation.Show();
@@ -129,11 +129,11 @@
                                            gv_general.PerformCallback('Bind data');
                                        }
                                    }" />
-</dx:ASPxCallback>
-<dx:ASPxPopupControl ID="pop_quotation" runat="server" ClientInstanceName="CIN_pop_quotation"
-    HeaderText="Quotation" PopupVerticalAlign="WindowCenter" AllowResize="True" CloseAction="CloseButton"
-    Modal="True" AllowDragging="True" PopupHorizontalAlign="WindowCenter" ShowFooter="false"
-    Width="500px">
+</dx:aspxcallback>
+<dx:aspxpopupcontrol id="pop_quotation" runat="server" clientinstancename="CIN_pop_quotation"
+    headertext="Quotation" popupverticalalign="WindowCenter" allowresize="True" closeaction="CloseButton"
+    modal="True" allowdragging="True" popuphorizontalalign="WindowCenter" showfooter="false"
+    width="500px">
     <HeaderStyle HorizontalAlign="Center" BackColor="#5066AC" ForeColor="White" Font-Bold="True" />
     <ContentCollection>
         <dx:PopupControlContentControl>
@@ -233,11 +233,11 @@
             </table>
         </dx:PopupControlContentControl>
     </ContentCollection>
-</dx:ASPxPopupControl>
-<dx:ASPxPopupControl ID="pop_proposal" runat="server" ClientInstanceName="CIN_pop_proposal"
-    HeaderText="Proposal" PopupVerticalAlign="WindowCenter" AllowResize="True" CloseAction="CloseButton"
-    Modal="True" AllowDragging="True" PopupHorizontalAlign="WindowCenter" ShowFooter="false"
-    Width="500px">
+</dx:aspxpopupcontrol>
+<dx:aspxpopupcontrol id="pop_proposal" runat="server" clientinstancename="CIN_pop_proposal"
+    headertext="Proposal" popupverticalalign="WindowCenter" allowresize="True" closeaction="CloseButton"
+    modal="True" allowdragging="True" popuphorizontalalign="WindowCenter" showfooter="false"
+    width="500px">
     <HeaderStyle HorizontalAlign="Center" BackColor="#5066AC" ForeColor="White" Font-Bold="True" />
     <ContentCollection>
         <dx:PopupControlContentControl>
@@ -252,7 +252,7 @@
                             TextField="Q_ID" ValueField="Q_ID" DataSourceID="sds_Quotation">
                         </dx:ASPxComboBox>
                         <%--<asp:LinqDataSource ID="lds_Quotation" runat="server" ContextTypeName="Bonzen_DLMS.DlmsDataContext"
-                            OrderBy="Q_ID DESC" TableName="QuotationProposals" Where="DATEDIFF(day,Q_Date,getdate()) between 0 and 30">
+                            OrderBy="Q_ID DESC" TableName="QuotationProposals" Where="WHERE [P_ID] IS NULL AND (DATEDIFF(yyyy,[Q_Date],getdate()) = 0 )">
                         </asp:LinqDataSource>--%>
                         <asp:SqlDataSource runat="server" ID="sds_Quotation" ConnectionString="<%$ ConnectionStrings:DLMSConnectionString %>"
                             SelectCommand="SELECT Q_ID FROM [QuotationProposal] WHERE [P_ID] IS NULL AND (DATEDIFF(yyyy,[Q_Date],getdate()) = 0 ) ORDER BY [Q_ID] DESC">
@@ -321,11 +321,11 @@
             </table>
         </dx:PopupControlContentControl>
     </ContentCollection>
-</dx:ASPxPopupControl>
-<dx:ASPxPopupControl ID="pop_general" runat="server" ClientInstanceName="CIN_pop_general"
-    HeaderText="General" PopupVerticalAlign="WindowCenter" AllowResize="True" CloseAction="CloseButton"
-    Modal="True" AllowDragging="True" PopupHorizontalAlign="WindowCenter" ShowFooter="false"
-    Width="500px">
+</dx:aspxpopupcontrol>
+<dx:aspxpopupcontrol id="pop_general" runat="server" clientinstancename="CIN_pop_general"
+    headertext="General" popupverticalalign="WindowCenter" allowresize="True" closeaction="CloseButton"
+    modal="True" allowdragging="True" popuphorizontalalign="WindowCenter" showfooter="false"
+    width="500px">
     <HeaderStyle HorizontalAlign="Center" BackColor="#5066AC" ForeColor="White" Font-Bold="True" />
     <ContentCollection>
         <dx:PopupControlContentControl>
@@ -344,13 +344,11 @@
                         </dx:ASPxLabel>
                     </td>
                     <td>
-                        <dx:ASPxComboBox ID="cmb_company" ClientInstanceName="cmb_company" runat="server"
-                            IncrementalFilteringMode="Contains" ValueType="System.String" DataSourceID="lds_Company"
-                            TextField="prospect_nameTH" ValueField="prospect_nameTH" EnableCallbackMode="True"
-                            CallbackPageSize="20" DropDownStyle="DropDown">
+                        <dx:ASPxComboBox ID="cmb_company" runat="server" Height="20px" Width="360px" DropDownStyle="DropDown"
+                                IncrementalFilteringMode="Contains" DataSourceID="lds_Company" TextField="prospect_nameTH"
+                                ValueField="prospect_id" EnableCallbackMode="True" CallbackPageSize="20">
                             <ClientSideEvents SelectedIndexChanged="function(s, e) { cmb_attn.PerformCallback('Change Company'); }" />
-                            <ClientSideEvents SelectedIndexChanged="function(s, e) { cmb_attn.PerformCallback(&#39;Change Company&#39;); }">
-                            </ClientSideEvents>
+                            <ClientSideEvents SelectedIndexChanged="function(s, e) { cmb_attn.PerformCallback(&#39;Change Company&#39;); }"/>
                         </dx:ASPxComboBox>
                         <asp:LinqDataSource ID="lds_Company" runat="server" ContextTypeName="Bonzen_DLMS.DlmsDataContext"
                             Select="new (prospect_id, prospect_nameTH)" TableName="vw_Companies">
@@ -368,19 +366,17 @@
                         </dx:ASPxLabel>
                     </td>
                     <td>
-                        <dx:ASPxComboBox ID="cmb_attn" ClientInstanceName="cmb_attn" runat="server" Height="20px"
-                            Width="360px" IncrementalFilteringMode="Contains" DataSourceID="lds_Attn" TextField="c_name"
-                            ValueField="c_name" DropDownStyle="DropDown">
-                        </dx:ASPxComboBox>
-                        <asp:LinqDataSource ID="lds_Attn" runat="server" ContextTypeName="Bonzen_DLMS.DlmsDataContext"
-                            Select="new (c_id, c_name, prospect_id)" TableName="vw_CompanyAttns" Where="prospect_id == @Company_ID">
-                            <WhereParameters>
-                                <asp:ControlParameter Name="Company_ID" Type="Int32" ControlID="cmb_company" PropertyName="Value"
-                                    DefaultValue="1" />
-                                <%--<asp:SessionParameter DefaultValue="1" Name="Company_ID" SessionField="Company_ID"
-                                        Type="Int32" />--%>
-                            </WhereParameters>
-                        </asp:LinqDataSource>
+                       <dx:ASPxComboBox ID="cmb_attn" ClientInstanceName="cmb_attn" runat="server" Height="20px"
+                                Width="300px" IncrementalFilteringMode="Contains" DataSourceID="lds_Cont" TextField="cp_name"
+                                ValueField="cp_id" DropDownStyle="DropDown">
+                            </dx:ASPxComboBox>
+                             <asp:LinqDataSource ID="lds_Cont" runat="server" ContextTypeName="Bonzen_DLMS.DlmsDataContext" 
+                            TableName="vw_ContactPersons" Where="prospect_id == @Company_ID" >
+                                <WhereParameters>
+                                    <asp:ControlParameter Name="Company_ID" Type="Int32" ControlID="cmb_company" PropertyName="Value"
+                                        DefaultValue="1" />
+                                </WhereParameters>
+                            </asp:LinqDataSource>
                     </td>
                 </tr>
                 <tr>
@@ -432,13 +428,13 @@
                                                                               //CIN_pop_general.Hide();  
                                                                               }" />--%>
                                     <ClientSideEvents Click="function(s, e) { ValidationGeneral(e); }" />
-                                    <ClientSideEvents Click="function(s, e) { ValidationGeneral(e); }"></ClientSideEvents>
+<ClientSideEvents Click="function(s, e) { ValidationGeneral(e); }"></ClientSideEvents>
                                 </dx:ASPxButton>
                             </div>
                             <div style="float: left; clear: none; padding-left: 2px;">
                                 <dx:ASPxButton ID="btn_GCencel" runat="server" Text="Cancel" AutoPostBack="false">
-                                    <ClientSideEvents Click="function(s, e) { CIN_pop_general.Hide(); }" />
-                                    <ClientSideEvents Click="function(s, e) { CIN_pop_general.Hide(); }"></ClientSideEvents>
+                                    <ClientSideEvents Click="function(s, e) { CIN_pop_general.Hide(); }" />  
+<ClientSideEvents Click="function(s, e) { CIN_pop_general.Hide(); }"></ClientSideEvents>
                                 </dx:ASPxButton>
                             </div>
                             <script type="text/javascript">
@@ -482,7 +478,7 @@
             </table>
         </dx:PopupControlContentControl>
     </ContentCollection>
-</dx:ASPxPopupControl>
+</dx:aspxpopupcontrol>
 <%--<dxe:ASPxPopupControl runat="server" ID="pop_ManualPost" ClientInstanceName="CIN_pop_ManualPost"
             HeaderText="Manual Post" PopupVerticalAlign="WindowCenter" AllowResize="True"
             CloseAction="CloseButton" Modal="True" AllowDragging="True" PopupHorizontalAlign="WindowCenter"

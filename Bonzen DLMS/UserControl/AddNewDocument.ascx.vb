@@ -27,6 +27,8 @@ Public Class AddNewDocument
         Dim qRunningNo As Integer
         qRunningNo = (From q In ctx.QuotationProposals Where CDate(q.Q_CreateDate).Year = Now.Year
                       Select CType(q.Q_RunningNo, Integer?)).Max.GetValueOrDefault + 1
+        'qRunningNo = (From q In ctx.QuotationProposals
+        '              Select CType(q.Q_RunningNo, Integer?)).Max.GetValueOrDefault + 1
         Return qRunningNo
     End Function
 

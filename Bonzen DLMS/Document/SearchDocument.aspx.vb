@@ -180,4 +180,5 @@ Public Class SearchDocument
             Return Quotations
         End Using
     End Function
+
 End Class
