@@ -35,10 +35,10 @@
             lb_QuotationDescriptionSub.PerformCallback(cmb_QuotationDescription.GetValue());
         }
 
-
+        
         function OnCompanyChanged(cmb_company) {
             cbp_company.PerformCallback(cmb_company.GetValue());
-
+            
         }
 
 
@@ -384,6 +384,7 @@
                 </dx:ASPxCallbackPanel>
             </div>
         </div>--%>
+<<<<<<< HEAD
     <table>
         <tr>
             <td class="style1">
@@ -396,6 +397,8 @@
             </td>
         </tr>
     </table>
+=======
+>>>>>>> parent of 84911a6... Remark
     <div style="float: right; margin-left: 5px;">
         <dx:aspxbutton id="btn_AddQuotation" runat="server" text="Add Quotation">
         </dx:aspxbutton>

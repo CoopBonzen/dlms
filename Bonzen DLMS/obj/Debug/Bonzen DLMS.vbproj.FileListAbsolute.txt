@@ -79,6 +79,7 @@ D:\DLMS.v2\dlms\dlms\Bonzen DLMS\obj\Debug\RdlCompile.compiled
 D:\DLMS.v2\dlms\dlms\Bonzen DLMS\obj\Debug\Bonzen DLMS.dll
 D:\DLMS.v2\dlms\dlms\Bonzen DLMS\obj\Debug\Bonzen DLMS.xml
 D:\DLMS.v2\dlms\dlms\Bonzen DLMS\obj\Debug\Bonzen DLMS.pdb
+<<<<<<< HEAD
 D:\DLMS.v3\dlms\Bonzen DLMS\bin\Bonzen DLMS.dll
 D:\DLMS.v3\dlms\Bonzen DLMS\bin\Bonzen DLMS.pdb
 D:\DLMS.v3\dlms\Bonzen DLMS\bin\Bonzen DLMS.xml
@@ -90,3 +91,5 @@ D:\DLMS.v3\dlms\Bonzen DLMS\obj\Debug\RdlCompile.compiled
 D:\DLMS.v3\dlms\Bonzen DLMS\obj\Debug\Bonzen DLMS.dll
 D:\DLMS.v3\dlms\Bonzen DLMS\obj\Debug\Bonzen DLMS.xml
 D:\DLMS.v3\dlms\Bonzen DLMS\obj\Debug\Bonzen DLMS.pdb
+=======
+>>>>>>> parent of 84911a6... Remark
