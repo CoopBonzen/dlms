@@ -1,0 +1,116 @@
+﻿<%@ Master Language="VB" AutoEventWireup="false" CodeBehind="Site.master.vb" Inherits="Bonzen_DLMS.Site" %>
+
+<%@ Register assembly="DevExpress.Web.v13.1, Version=13.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" namespace="DevExpress.Web.ASPxSiteMapControl" tagprefix="dx" %>
+
+<%@ Register assembly="DevExpress.Web.v13.1, Version=13.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" namespace="DevExpress.Web.ASPxMenu" tagprefix="dx" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head runat="server">
+    <title></title>
+    <link href="~/Styles/Site.css" rel="stylesheet" type="text/css" />
+    <asp:ContentPlaceHolder ID="HeadContent" runat="server">
+    </asp:ContentPlaceHolder>
+    <style type="text/css">
+
+        .main_menu
+        {
+            width: 100px;
+            background-color: #8AE0F2;
+            color: #000;
+            text-align: center;
+            height: 30px;
+            line-height: 30px;
+            margin-right: 5px;
+        }
+        </style>
+</head>
+<body>
+    <div runat="server">
+        <form runat="server">
+        <asp:ScriptManager ID="ScriptManager1" runat="server" EnablePageMethods="True">
+        </asp:ScriptManager>
+        <div class="page">
+            <div class="header">
+                <div class="title">
+                    <div style="font-family: Tahoma; font-size: large; font-weight: bold; color: White;
+                        padding-left: 10px; margin: 20px 20px 20px 20px;">
+                        Document List Management System
+                    </div>
+                </div>
+                <%--<div class="loginDisplay">
+                <asp:LoginView ID="HeadLoginView" runat="server" EnableViewState="false">
+                    <AnonymousTemplate>
+                        [ <a href="~/Account/Login.aspx" ID="HeadLoginStatus" runat="server">Log In</a> ]
+                    </AnonymousTemplate>
+                    <LoggedInTemplate>
+                        Welcome <span class="bold"><asp:LoginName ID="HeadLoginName" runat="server" /></span>!
+                        [ <asp:LoginStatus ID="HeadLoginStatus" runat="server" LogoutAction="Redirect" LogoutText="Log Out" LogoutPageUrl="~/"/> ]
+                    </LoggedInTemplate>
+                </asp:LoginView>
+            </div>--%>
+                <div class="clear hideSkiplink">
+                    <table width="100%">
+                        <tr>
+                            <td style="width: 80%;">
+                                <%--<asp:Menu ID="NavigationMenu" runat="server" CssClass="menu" EnableViewState="False"
+                                    IncludeStyleBlock="False" Orientation="Horizontal">
+                                    <Items>
+                                        <asp:MenuItem NavigateUrl="~/Document/SearchDocument.aspx" Text="Search Document" />
+                                        <asp:MenuItem NavigateUrl="~/ManageCompany/ManageCompany.aspx" Text="Manage Company" />
+                                        <asp:MenuItem Text="ADMIN">
+                                            <asp:MenuItem NavigateUrl="~/Manage/User.aspx" Text="Manage User"></asp:MenuItem>
+                                            <asp:MenuItem NavigateUrl="~/Manage/Privilege.aspx" Text="Manage User Group"></asp:MenuItem>
+                                            <asp:MenuItem NavigateUrl="~/Manage/ModuleQuotation.aspx" Text="Module Quotation">
+                                            </asp:MenuItem>
+                                        </asp:MenuItem>
+                                    </Items>
+                                </asp:Menu>--%>
+                                
+                                <dx:ASPxMenu ID="ASPxMenu1" runat="server" EnableTheming="True" 
+                                    RenderMode="Lightweight" Theme="PlasticBlue">
+                                    <Items>
+                                        <dx:MenuItem NavigateUrl="~/Document/SearchDocument.aspx" Text="Home"/>
+                                        
+                                        <dx:MenuItem NavigateUrl="~/Document/AllDocument.aspx" Text="All Document">
+                                        </dx:MenuItem>
+                                        <dx:MenuItem NavigateUrl="~/ManageCompany/ManageCompany.aspx" 
+                                            Text="Manage Company">
+                                        </dx:MenuItem>
+                                        <dx:MenuItem Text="ADMIN">
+                                            <Items>
+                                                <dx:MenuItem NavigateUrl="~/Manage/User.aspx" Text="Manage User">
+                                                </dx:MenuItem>
+                                                <dx:MenuItem NavigateUrl="~/Manage/Privilege.aspx" 
+                                                    Text="Manage User Group">
+                                                </dx:MenuItem>
+                                                <dx:MenuItem NavigateUrl="~/Manage/ModuleQuotation.aspx" 
+                                                    Text="Module Quotation">
+                                                </dx:MenuItem>
+                                            </Items>
+                                        </dx:MenuItem>
+                                        
+                                    </Items>
+                                </dx:ASPxMenu>
+                            </td>
+                            <td align="right" style="width: 20%;">
+                                <asp:Label ID="lbl_loginname" runat="server" Text="" ForeColor="White"></asp:Label>
+                                &nbsp;
+                                <asp:ImageButton ID="imb_logout" runat="server" ImageUrl="~/Images/logout.png" Visible="false" />
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div class="main">
+                <asp:ContentPlaceHolder ID="MainContent" runat="server" />
+            </div>
+            <div class="clear">
+            </div>
+        </div>
+        <div class="footer">
+        </div>
+        </form>
+    </div>
+</body>
+</html>

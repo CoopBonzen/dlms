@@ -56,8 +56,6 @@ Public Class SearchDocument
         gv_quotationProposal.DataBind()
 
         'pop-up
-        'QuotationCode = Request.QueryString("qId")
-
         'lbl_QNo.Text = QuotationCode
         'lbl_QCompanyName.Text = GetCompanyBygId(QuotationCode)
         'gv_QFile.DataBind()
@@ -89,7 +87,6 @@ Public Class SearchDocument
     Protected Sub ListItem_Command(ByVal sender As Object, ByVal e As CommandEventArgs)
         Select Case e.CommandName
             Case "OpenCreateQuotation"
-                'Session("IsEditing") = True
                 Response.Redirect("../Document/CreateQuotation.aspx?qId=" & e.CommandArgument)
             Case "OpenUploadProposalFile"
                 Response.Redirect("../Document/ProposalUpload.aspx?pId=" & e.CommandArgument)
@@ -108,7 +105,6 @@ Public Class SearchDocument
     Private Sub gv_quotationProposalAll_HtmlRowPrepared(ByVal sender As Object, ByVal e As DevExpress.Web.ASPxGridView.ASPxGridViewTableRowEventArgs) Handles gv_quotationProposal.HtmlRowPrepared
         Dim btn_PreviewQuotation As ASPxButton = CType(gv_quotationProposal.FindRowCellTemplateControl(e.VisibleIndex, gv_quotationProposal.Columns("Preview"), "btn_PreviewQuotation"), ASPxButton)
         If btn_PreviewQuotation IsNot Nothing Then
-            'Dim aa = e.GetValue("Q_ID")
             btn_PreviewQuotation.ClientSideEvents.Click = "function(s, e) { CIN_pop_PreviewQuotation.Show();" & _
                                                                            " CIN_cbp_PreviewQuotation.PerformCallback('" & e.GetValue("Q_ID") & "');}"
         End If
@@ -122,7 +118,6 @@ Public Class SearchDocument
             lbl_QCompanyName.Text = GetCompanyBygId(qID)
             GetFiles(qID)
             gv_QFile.DataBind()
-
 
             Return
         End If

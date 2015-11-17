@@ -191,7 +191,7 @@
   <Table Name="dbo.vw_ContactPerson" Member="vw_ContactPersons">
     <Type Name="vw_ContactPerson">
       <Column Name="prospect_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="cp_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="cp_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="cp_name" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
       <Column Name="cp_position" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
       <Column Name="cp_tel" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />

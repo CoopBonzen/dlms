@@ -1,0 +1,11 @@
+D:\dlms1 R\Bonzen DLMS\bin\Bonzen DLMS.dll
+D:\dlms1 R\Bonzen DLMS\bin\Bonzen DLMS.pdb
+D:\dlms1 R\Bonzen DLMS\bin\Bonzen DLMS.xml
+D:\dlms1 R\Bonzen DLMS\obj\Release\Bonzen DLMS.vbprojResolveAssemblyReference.cache
+D:\dlms1 R\Bonzen DLMS\obj\Release\Bonzen_DLMS.Resources.resources
+D:\dlms1 R\Bonzen DLMS\obj\Release\Bonzen DLMS.vbproj.GenerateResource.Cache
+D:\dlms1 R\Bonzen DLMS\obj\Release\RdlCompile.cache
+D:\dlms1 R\Bonzen DLMS\obj\Release\RdlCompile.compiled
+D:\dlms1 R\Bonzen DLMS\obj\Release\Bonzen DLMS.dll
+D:\dlms1 R\Bonzen DLMS\obj\Release\Bonzen DLMS.xml
+D:\dlms1 R\Bonzen DLMS\obj\Release\Bonzen DLMS.pdb

@@ -320,6 +320,24 @@ Partial Public Class CreateQuotation
     Protected WithEvents btnDeleteSelectedRows As Global.DevExpress.Web.ASPxEditors.ASPxButton
 
     '''<summary>
+    '''ASPxLabel15 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents ASPxLabel15 As Global.DevExpress.Web.ASPxEditors.ASPxLabel
+
+    '''<summary>
+    '''txt_remark control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txt_remark As Global.DevExpress.Web.ASPxEditors.ASPxTextBox
+
+    '''<summary>
     '''btn_AddQuotation control.
     '''</summary>
     '''<remarks>

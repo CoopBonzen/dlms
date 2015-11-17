@@ -8,8 +8,6 @@ Imports DevExpress.Web.ASPxUploadControl
 Imports System.IO
 Imports System.Web.Configuration
 
-
-
 Public Class CreateQuotation
     Inherits System.Web.UI.Page
 
@@ -30,7 +28,7 @@ Public Class CreateQuotation
 
     End Property
 
-    'ของเก่า'
+    'ของเก่า
     Private ReadOnly Property SelectedDetailIDList() As List(Of Integer)
         Get
             Dim idList As New List(Of Integer)
@@ -41,7 +39,7 @@ Public Class CreateQuotation
             Return idList
         End Get
     End Property
-    ''
+
     Private ReadOnly Property strAddedDetailSubList() As List(Of String)
         Get
             Dim subDataList As New List(Of String)
@@ -55,7 +53,6 @@ Public Class CreateQuotation
     Private ReadOnly Property AddedDetailIDList() As List(Of Integer)
         Get
             Dim subIDList As New List(Of Integer)
-
             'If Not String.IsNullOrWhiteSpace(txt_subData.Text) Then
             '    Dim subDataList As List(Of String) = strAddedDetailSubList
             '    For i As Integer = 0 To subDataList.Count - 1
@@ -83,7 +80,7 @@ Public Class CreateQuotation
         Dim RequestQId = Request.QueryString("qId")
         'txt_subData.Text = ""
 
-        'ของเก่า'
+        'ของเก่า
         'gv_addmodule.JSProperties("cpStrAllSubData") = String.Empty
         If (Not IsCallback) Then
             FillSubQuotationCombo("1")
@@ -94,6 +91,7 @@ Public Class CreateQuotation
             'SetDefaultCondition()
             AddDataInForm(RequestQId)
         End If
+
         'Button Admin
         Dim User = Session("Username")
         If Not IsPostBack Then
@@ -258,9 +256,6 @@ Public Class CreateQuotation
         End Using
     End Sub
 
-
-
-
     'Public Sub SetDefaultRemark()
     '    memo_remark.Text = "1.  กำหนดยื่นราคา 30 วัน " & vbCrLf & _
     '                    "2.  การเสนอราคาข้างต้นสาหรับการใช้งานที่อาคารภายใต้การบริหารของ_____________จำนวน ____ อาคาร " & vbCrLf & _
@@ -401,7 +396,7 @@ Public Class CreateQuotation
     '    cmb_attn.DataBind()
     'End Sub
 
-    'Private Sub cbp_subData_Callback(ByVal sender As Object, ByVal e As DevExpress.Web.ASPxClasses.CallbackEventArgsBase) Handles cbp_subData.Callback
+    'Private Sub cbp_subData_Callback(sender As Object, e As DevExpress.Web.ASPxClasses.CallbackEventArgsBase) Handles cbp_subData.Callback
     '    If e.Parameter.ToString = "Add Detail" Then
     '        Dim allsubList As List(Of QuotationDescriptionSub) = GetQuotationSubList()
     '        Dim newDetailIDList As List(Of Integer) = AddedDetailIDList
@@ -420,7 +415,7 @@ Public Class CreateQuotation
     '                strEmpDataList.Add(data)
     '            End If
     '        Next
-    '        'txt_subData.Text = String.Join(";", strEmpDataList)
+    '        txt_subData.Text = String.Join(";", strEmpDataList)
     '    ElseIf e.Parameter.ToString.StartsWith("Set Price") Then
     '        Dim cmdInfo As String() = e.Parameter.ToString.Split(":")
     '        Dim params As String() = cmdInfo(1).Split(",")
@@ -533,7 +528,7 @@ Public Class CreateQuotation
     '    Con.Close() : Return dt
     'End Function
 
-    'Private Sub gv_addmodule_CustomButtonCallback(ByVal sender As Object, ByVal e As DevExpress.Web.ASPxGridView.ASPxGridViewCustomButtonCallbackEventArgs) Handles gv_addmodule.CustomButtonCallback
+    'Private Sub gv_addmodule_CustomButtonCallback(sender As Object, e As DevExpress.Web.ASPxGridView.ASPxGridViewCustomButtonCallbackEventArgs) Handles gv_addmodule.CustomButtonCallback
     '    If e.ButtonID = "btn_Delete" Then
     '        Dim subId As Integer = gv_addmodule.GetRowValues(e.VisibleIndex, "ID_Q_Detail_Sub")
     '        Dim strAllSubData As String = txt_subData.Text
@@ -549,7 +544,7 @@ Public Class CreateQuotation
     '    End If
     'End Sub
 
-    'Private Sub gv_addmodule_CustomCallback(ByVal sender As Object, ByVal e As DevExpress.Web.ASPxGridView.ASPxGridViewCustomCallbackEventArgs) Handles gv_addmodule.CustomCallback
+    'Private Sub gv_addmodule_CustomCallback(sender As Object, e As DevExpress.Web.ASPxGridView.ASPxGridViewCustomCallbackEventArgs) Handles gv_addmodule.CustomCallback
     '    If e.Parameters.ToString = "Bind data" Then gv_addmodule_DataBind()
     'End Sub
 
@@ -559,7 +554,7 @@ Public Class CreateQuotation
         'gv_addmodule.DataBind()
     End Sub
 
-    'Private Sub gv_addmodule_HtmlRowCreated(ByVal sender As Object, ByVal e As DevExpress.Web.ASPxGridView.ASPxGridViewTableRowEventArgs) Handles gv_addmodule.HtmlRowCreated
+    'Private Sub gv_addmodule_HtmlRowCreated(sender As Object, e As DevExpress.Web.ASPxGridView.ASPxGridViewTableRowEventArgs) Handles gv_addmodule.HtmlRowCreated
     '    If e.RowType = GridViewRowType.Data Then
     '        Dim subId As Integer = e.KeyValue
     '        Dim colnPrice As GridViewDataColumn = gv_addmodule.Columns("Price")
@@ -601,6 +596,7 @@ Public Class CreateQuotation
                     .quotation_from = txt_from.Text.Trim
                     .bonzen_tel = txt_bonzentel.Text.Trim
                     .bonzen_email = txt_bonzenemail.Text.Trim
+                    .remark = txt_remark.Text.Trim
                     'status
                     .quota_status = QuotationStatusEnum.New
                     'ยังไม่ได้ update Total
@@ -727,6 +723,7 @@ Public Class CreateQuotation
                 .quotation_from = txt_from.Text.Trim
                 .bonzen_tel = txt_bonzentel.Text.Trim
                 .bonzen_email = txt_bonzenemail.Text.Trim
+                .remark = txt_remark.Text.Trim
                 'ยังไม่ได้ update Total
                 '.total_amount = 
                 '.remark = memo_remark.Text
@@ -816,6 +813,5 @@ Public Class CreateQuotation
         End If
 
     End Sub
-
 
 End Class
