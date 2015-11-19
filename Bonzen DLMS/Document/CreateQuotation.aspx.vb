@@ -80,6 +80,9 @@ Public Class CreateQuotation
         Dim RequestQId = Request.QueryString("qId")
         'txt_subData.Text = ""
 
+        'เช็คสิทธ
+        btn_test.Visible = IsUserRole(Session("Username"), PrivAddCompany)
+
         'ของเก่า
         'gv_addmodule.JSProperties("cpStrAllSubData") = String.Empty
         If (Not IsCallback) Then
@@ -733,6 +736,7 @@ Public Class CreateQuotation
             UpdateQuotationItem()
             UpdateCompanyAndAttnInQuotationProposal(quotationNo, companyName, attnName)
         End Using
+        GetFiles()
     End Sub
 
     Public Sub UpdateQuotationItem()
@@ -811,7 +815,7 @@ Public Class CreateQuotation
             btnDeleteSelectedRows.Enabled = False
             btn_PrintQuotation.Enabled = False
         End If
-
     End Sub
+
 
 End Class

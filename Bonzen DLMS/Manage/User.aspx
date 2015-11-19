@@ -99,7 +99,7 @@
                                 </tr>
                             </InsertItemTemplate>
                             <SelectedItemTemplate>
-                                <tr id="table_row" runat="server">
+                                <tr id="table_row" runat="server" style="background-color:#90EE90">
                                     <td id="Td10" runat="server">
                                         <asp:Label ID="user_nameLabel" runat="server" Text='<%# Eval("user_name") %>' />
                                     </td>

@@ -27,7 +27,7 @@
         }
     </style>
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
+<asp:content id="Content2" contentplaceholderid="MainContent" runat="server">
     <script language="javascript" type="text/javascript">
         function OnQuotationChanged(cmb_QuotationDescription) {
             txt_selectedsub.SetText('');
@@ -80,6 +80,8 @@
                 <table class="dxflInternalEditorTable">
                     <tr>
                         <td class="style1">
+                        <dx:aspxbutton id="btn_test" runat="server" text="test rele" >
+                        </dx:aspxbutton>
                             <dx:ASPxLabel ID="ASPxLabel2" runat="server" Text="Company">
                             </dx:ASPxLabel>
                         </td>
@@ -339,16 +341,16 @@
             </tr>
             <tr>
                 <td>
-                    <asp:UpdatePanel ID="Updatepanel1" runat="server">
-                        <ContentTemplate>
+                    <asp:updatepanel id="Updatepanel1" runat="server">
+                        <contenttemplate>
                             <dx:aspxbutton id="btnUpdate" runat="server" clientinstancename="btnUpdate" clientvisible="false"
                                 onclick="Updatepanel1_Refresh">
                             </dx:aspxbutton>
-                        </ContentTemplate>
-                        <Triggers>
+                        </contenttemplate>
+                        <triggers>
                             <asp:AsyncPostBackTrigger ControlID="btnUpdate" EventName="Click" />
-                        </Triggers>
-                    </asp:UpdatePanel>
+                        </triggers>
+                    </asp:updatepanel>
                     <dx:aspxuploadcontrol id="ulc_QuotationFile" runat="server" showuploadbutton="True"
                         showprogresspanel="True" onfileuploadcomplete="UploadControl_FileUploadComplete"
                         width="280px">
@@ -427,4 +429,4 @@
     <br />
     <br />
     </p>
-</asp:Content>
+</asp:content>

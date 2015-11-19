@@ -19,7 +19,7 @@
     Public Const PrivManageQuotation As String = "ManageQuotationTemplate"
     Public Const PrivAddDescription As String = "AddQuotationDescription"
     Public Const PrivEditDescription As String = "EditQuotationDescription"
-    Public Const PrivDeleteDescription As String = "DeleteQuotationDescription"
+    'Public Const PrivDeleteDescription As String = "DeleteQuotationDescription"
 
 
 #Region "Privilege"
@@ -87,9 +87,23 @@
             .Add(New PrivilegeInfo With {.Name = PrivManageQuotation, .Text = "Manage Quotation Template"})
             .Add(New PrivilegeInfo With {.Name = PrivAddDescription, .Text = "Add Quotation Description"})
             .Add(New PrivilegeInfo With {.Name = PrivEditDescription, .Text = "Edit Quotation Description"})
-            .Add(New PrivilegeInfo With {.Name = PrivDeleteDescription, .Text = "Delete Quotation Description"})
+            '.Add(New PrivilegeInfo With {.Name = PrivDeleteDescription, .Text = "Delete Quotation Description"})
         End With
     End Sub
 #End Region
+
+    Public Function IsUserRole(ByVal user As String, ByVal role As String) As Boolean
+        Dim ctx As New DlmsDataContext
+        'Dim UserId = (From u In ctx.Users Where u.user_id = User).SingleOrDefault
+        Dim UserRole = (From u In ctx.Users _
+                     Join ug In ctx.UserGroups On u.user_group_id Equals ug.user_group_id
+                     Join gr In ctx.UserGroupRoles On ug.user_group_id Equals gr.user_group_id
+                     Where u.user_name = user And gr.role_name.ToLower = role.ToLower).SingleOrDefault
+        If UserRole IsNot Nothing Then
+            Return True
+        Else
+            Return False
+        End If
+    End Function
 
 End Module

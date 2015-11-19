@@ -27,7 +27,7 @@
         }
     </style>
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
+<asp:content id="Content2" contentplaceholderid="MainContent" runat="server">
     <script language="javascript" type="text/javascript">
         function OnQuotationChanged(cmb_QuotationDescription) {
             txt_selectedsub.SetText('');
@@ -339,16 +339,16 @@
             </tr>
             <tr>
                 <td>
-                    <asp:UpdatePanel ID="Updatepanel1" runat="server">
-                        <ContentTemplate>
+                    <asp:updatepanel id="Updatepanel1" runat="server">
+                        <contenttemplate>
                             <dx:aspxbutton id="btnUpdate" runat="server" clientinstancename="btnUpdate" clientvisible="false"
                                 onclick="Updatepanel1_Refresh">
                             </dx:aspxbutton>
-                        </ContentTemplate>
-                        <Triggers>
+                        </contenttemplate>
+                        <triggers>
                             <asp:AsyncPostBackTrigger ControlID="btnUpdate" EventName="Click" />
-                        </Triggers>
-                    </asp:UpdatePanel>
+                        </triggers>
+                    </asp:updatepanel>
                     <dx:aspxuploadcontrol id="ulc_QuotationFile" runat="server" showuploadbutton="True"
                         showprogresspanel="True" onfileuploadcomplete="UploadControl_FileUploadComplete"
                         width="280px">
@@ -412,8 +412,10 @@
             </td>
         </tr>
     </table>
+    <br />
     <div style="float: right; margin-left: 5px;">
         <dx:aspxbutton id="btn_AddQuotation" runat="server" text="Add Quotation">
+        <ClientSideEvents Click="function(s, e) { Validation(e); }" />
             </dx:aspxbutton>
     </div>
     <div style="float: right; margin-left: 5px;">
@@ -424,7 +426,35 @@
         <dx:aspxbutton id="btn_PrintQuotation" runat="server" text="Approve">
             </dx:aspxbutton>
     </div>
+    <td colspan="2" align="center">
+        <dx:aspxlabel id="lbl_ErrorQuo" runat="server" text="" visible="true" clientinstancename="lbl_ErrorQuo"
+            forecolor="Red">
+                        </dx:aspxlabel>
+    </td>
+    <script type="text/javascript">
+        function Validation(e) {
+            var check = true;
+            var companyValue = cmb_company.GetValue();
+            if (companyValue == null) {
+                lbl_Validate.SetVisible(true);
+                lbl_Validate.SetValue("กรุณาระบุวันที่(Date)");
+                check = false;
+            }
+            var attnValue = cmb_attn.GetValue();
+            if (attnValue == null) {
+                lbl_Validate.SetVisible(true);
+                lbl_Validate.SetValue("กรุณาระบุชื่อเรื่อง(Title) ");
+                check = false;
+            }
+            if (check) {
+                cb_PopupInit.PerformCallback('ClickBtnQ_Ok');
+                lbl_Validate.SetValue("");
+                lbl_Validate.SetVisible(false);
+                CIN_pop_quotation.Hide();
+            }
+        }                                                 
+    </script>
     <br />
     <br />
     </p>
-</asp:Content>
+</asp:content>
