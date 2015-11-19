@@ -45,15 +45,15 @@
         height: 18px;
     }
 </style>
-<dx:aspxbutton id="btn_AddDocument" runat="server" text="Add New Document" autopostback="false"
-    clientinstancename="CIN_btn_AddDocument">
+<dx:ASPxButton ID="btn_AddDocument" runat="server" Text="Add New Document" AutoPostBack="false"
+    ClientInstanceName="CIN_btn_AddDocument">
     <%--<ClientSideEvents Click ="function (s,e){CIN_pop_AddDocument.Show();}" />‏--%>
     <ClientSideEvents Click="function (s,e){ CIN_pop_AddDocument.Show();}" />
-</dx:aspxbutton>
-<dx:aspxpopupcontrol id="pop_AddDocument" runat="server" clientinstancename="CIN_pop_AddDocument"
-    headertext="Add New Document" popupverticalalign="WindowCenter" allowresize="True"
-    closeaction="CloseButton" modal="True" allowdragging="True" popuphorizontalalign="WindowCenter"
-    showfooter="false" width="500px">
+</dx:ASPxButton>
+<dx:ASPxPopupControl ID="pop_AddDocument" runat="server" ClientInstanceName="CIN_pop_AddDocument"
+    HeaderText="Add New Document" PopupVerticalAlign="WindowCenter" AllowResize="True"
+    CloseAction="CloseButton" Modal="True" AllowDragging="True" PopupHorizontalAlign="WindowCenter"
+    ShowFooter="false" Width="500px">
     <HeaderStyle HorizontalAlign="Center" BackColor="#5066AC" ForeColor="White" Font-Bold="True" />
     <ContentCollection>
         <dx:PopupControlContentControl>
@@ -103,8 +103,8 @@
             </table>
         </dx:PopupControlContentControl>
     </ContentCollection>
-</dx:aspxpopupcontrol>
-<dx:aspxcallback id="cb_PopupInit" clientinstancename="cb_PopupInit" runat="server">
+</dx:ASPxPopupControl>
+<dx:ASPxCallback ID="cb_PopupInit" ClientInstanceName="cb_PopupInit" runat="server">
     <ClientSideEvents EndCallback="function(s, e) {
                                        if (s.cpRunNo.indexOf('Q') == 0) {
                                            CIN_pop_quotation.Show();
@@ -129,11 +129,11 @@
                                            gv_general.PerformCallback('Bind data');
                                        }
                                    }" />
-</dx:aspxcallback>
-<dx:aspxpopupcontrol id="pop_quotation" runat="server" clientinstancename="CIN_pop_quotation"
-    headertext="Quotation" popupverticalalign="WindowCenter" allowresize="True" closeaction="CloseButton"
-    modal="True" allowdragging="True" popuphorizontalalign="WindowCenter" showfooter="false"
-    width="500px">
+</dx:ASPxCallback>
+<dx:ASPxPopupControl ID="pop_quotation" runat="server" ClientInstanceName="CIN_pop_quotation"
+    HeaderText="Quotation" PopupVerticalAlign="WindowCenter" AllowResize="True" CloseAction="CloseButton"
+    Modal="True" AllowDragging="True" PopupHorizontalAlign="WindowCenter" ShowFooter="false"
+    Width="500px">
     <HeaderStyle HorizontalAlign="Center" BackColor="#5066AC" ForeColor="White" Font-Bold="True" />
     <ContentCollection>
         <dx:PopupControlContentControl>
@@ -181,7 +181,7 @@
                 </tr>
                 <tr>
                     <td colspan="2" align="center">
-                        <dx:ASPxLabel ID="lbl_ErrorQuo" runat="server" Text="" Visible="true" ClientInstanceName="lbl_ErrorQuo"
+                        <dx:ASPxLabel ID="lbl_Validate" runat="server" Text="" Visible="true" ClientInstanceName="lbl_Validate"
                             ForeColor="Red">
                         </dx:ASPxLabel>
                     </td>
@@ -233,11 +233,11 @@
             </table>
         </dx:PopupControlContentControl>
     </ContentCollection>
-</dx:aspxpopupcontrol>
-<dx:aspxpopupcontrol id="pop_proposal" runat="server" clientinstancename="CIN_pop_proposal"
-    headertext="Proposal" popupverticalalign="WindowCenter" allowresize="True" closeaction="CloseButton"
-    modal="True" allowdragging="True" popuphorizontalalign="WindowCenter" showfooter="false"
-    width="500px">
+</dx:ASPxPopupControl>
+<dx:ASPxPopupControl ID="pop_proposal" runat="server" ClientInstanceName="CIN_pop_proposal"
+    HeaderText="Proposal" PopupVerticalAlign="WindowCenter" AllowResize="True" CloseAction="CloseButton"
+    Modal="True" AllowDragging="True" PopupHorizontalAlign="WindowCenter" ShowFooter="false"
+    Width="500px">
     <HeaderStyle HorizontalAlign="Center" BackColor="#5066AC" ForeColor="White" Font-Bold="True" />
     <ContentCollection>
         <dx:PopupControlContentControl>
@@ -301,7 +301,7 @@
                             <script type="text/javascript">
                                 function ValidationProposal(e) {
                                     var check = true;
-                                    var TextValue = cbb_QId.GetValue();
+                                    var TextValue = CIN_cbb_QId.GetValue();
                                     if (TextValue == null) {
                                         lbl_ErrorProp.SetVisible(true);
                                         lbl_ErrorProp.SetValue("กรุณาเลือกหมายเลข Quotation");
@@ -321,11 +321,11 @@
             </table>
         </dx:PopupControlContentControl>
     </ContentCollection>
-</dx:aspxpopupcontrol>
-<dx:aspxpopupcontrol id="pop_general" runat="server" clientinstancename="CIN_pop_general"
-    headertext="General" popupverticalalign="WindowCenter" allowresize="True" closeaction="CloseButton"
-    modal="True" allowdragging="True" popuphorizontalalign="WindowCenter" showfooter="false"
-    width="500px">
+</dx:ASPxPopupControl>
+<dx:ASPxPopupControl ID="pop_general" runat="server" ClientInstanceName="CIN_pop_general"
+    HeaderText="General" PopupVerticalAlign="WindowCenter" AllowResize="True" CloseAction="CloseButton"
+    Modal="True" AllowDragging="True" PopupHorizontalAlign="WindowCenter" ShowFooter="false"
+    Width="500px">
     <HeaderStyle HorizontalAlign="Center" BackColor="#5066AC" ForeColor="White" Font-Bold="True" />
     <ContentCollection>
         <dx:PopupControlContentControl>
@@ -344,12 +344,11 @@
                         </dx:ASPxLabel>
                     </td>
                     <td>
-                        <dx:ASPxComboBox ID="cmb_company" ClientInstanceName="cmb_company" runat="server"
-                            IncrementalFilteringMode="Contains" ValueType="System.String" DataSourceID="lds_Company"
-                            TextField="prospect_nameTH" ValueField="prospect_nameTH" EnableCallbackMode="True"
-                            CallbackPageSize="20" DropDownStyle="DropDown">
-                            <ClientSideEvents SelectedIndexChanged="function(s, e) { cmb_attn.PerformCallback('Change Company'); }" />
-                            <ClientSideEvents SelectedIndexChanged="function(s, e) { cmb_attn.PerformCallback(&#39;Change Company&#39;); }">
+                        <dx:ASPxComboBox ID="cmb_company" ClientInstanceName="CIN_cmb_company" runat="server" Height="20px" Width="360px" DropDownStyle="DropDown"
+                            IncrementalFilteringMode="Contains" DataSourceID="lds_Company" TextField="prospect_nameTH"
+                            ValueField="prospect_id" EnableCallbackMode="True" CallbackPageSize="20">
+                            <ClientSideEvents SelectedIndexChanged="function(s, e) { CIN_cmb_attn.PerformCallback('Change Company'); }" />
+                            <ClientSideEvents SelectedIndexChanged="function(s, e) { CIN_cmb_attn.PerformCallback(&#39;Change Company&#39;); }">
                             </ClientSideEvents>
                         </dx:ASPxComboBox>
                         <asp:LinqDataSource ID="lds_Company" runat="server" ContextTypeName="Bonzen_DLMS.DlmsDataContext"
@@ -368,17 +367,15 @@
                         </dx:ASPxLabel>
                     </td>
                     <td>
-                        <dx:ASPxComboBox ID="cmb_attn" ClientInstanceName="cmb_attn" runat="server" Height="20px"
-                            Width="360px" IncrementalFilteringMode="Contains" DataSourceID="lds_Attn" TextField="c_name"
-                            ValueField="c_name" DropDownStyle="DropDown">
+                        <dx:ASPxComboBox ID="cmb_attn" ClientInstanceName="CIN_cmb_attn" runat="server" Height="20px"
+                            Width="360px" IncrementalFilteringMode="Contains" DataSourceID="lds_Attn" TextField="cp_name"
+                            ValueField="cp_id" DropDownStyle="DropDown">
                         </dx:ASPxComboBox>
                         <asp:LinqDataSource ID="lds_Attn" runat="server" ContextTypeName="Bonzen_DLMS.DlmsDataContext"
-                            Select="new (c_id, c_name, prospect_id)" TableName="vw_CompanyAttns" Where="prospect_id == @Company_ID">
+                            TableName="vw_ContactPersons" Where="prospect_id == @Company_ID">
                             <WhereParameters>
                                 <asp:ControlParameter Name="Company_ID" Type="Int32" ControlID="cmb_company" PropertyName="Value"
                                     DefaultValue="1" />
-                                <%--<asp:SessionParameter DefaultValue="1" Name="Company_ID" SessionField="Company_ID"
-                                        Type="Int32" />--%>
                             </WhereParameters>
                         </asp:LinqDataSource>
                     </td>
@@ -454,20 +451,20 @@
                                         lbl_ErrorGen.SetValue("กรุณาระบุชื่อเรื่อง(Title)");
                                         check = false;
                                     }
-                                    var attnValue = cmb_attn.GetValue();
+                                    var attnValue = CIN_cmb_attn.GetValue();
                                     if (attnValue == null) {
                                         lbl_ErrorGen.SetVisible(true);
                                         lbl_ErrorGen.SetValue("กรุณาระบุผู้รับ(ชื่อ)");
                                         check = false;
                                     }
-                                    var companyValue = cmb_company.GetValue();
+                                    var companyValue = CIN_cmb_company.GetValue();
                                     if (companyValue == null) {
                                         lbl_ErrorGen.SetVisible(true);
                                         lbl_ErrorGen.SetValue("กรุณาระบุผู้รับ(บริษัท)");
                                         check = false;
                                     }
                                     if (check) {
-                                        cb_PopupInit.PerformCallback('ClickBtnQ_Ok');
+                                        cb_PopupInit.PerformCallback('ClickBtnG_Ok');
                                         lbl_ErrorGen.SetValue("");
                                         lbl_ErrorGen.SetVisible(false);
                                         CIN_pop_general.Hide();
@@ -480,7 +477,7 @@
             </table>
         </dx:PopupControlContentControl>
     </ContentCollection>
-</dx:aspxpopupcontrol>
+</dx:ASPxPopupControl>
 <%--<dxe:ASPxPopupControl runat="server" ID="pop_ManualPost" ClientInstanceName="CIN_pop_ManualPost"
             HeaderText="Manual Post" PopupVerticalAlign="WindowCenter" AllowResize="True"
             CloseAction="CloseButton" Modal="True" AllowDragging="True" PopupHorizontalAlign="WindowCenter"

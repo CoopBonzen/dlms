@@ -81,8 +81,9 @@ Public Class CreateQuotation
         'txt_subData.Text = ""
 
         'เช็คสิทธ
-        btn_test.Visible = IsUserRole(Session("Username"), PrivAddCompany)
-
+        btn_ApproveQuotation.Enabled = IsUserRole(Session("Username"), PrivApproveQuotation)
+        btnDeleteSelectedRows.Enabled = IsUserRole(Session("Username"), PrivDeleteFileQuotation)
+        Dim User = Session("Username")
         'ของเก่า
         'gv_addmodule.JSProperties("cpStrAllSubData") = String.Empty
         If (Not IsCallback) Then
@@ -93,17 +94,10 @@ Public Class CreateQuotation
             'SetDefaultRemark()
             'SetDefaultCondition()
             AddDataInForm(RequestQId)
-        End If
-
-        'Button Admin
-        Dim User = Session("Username")
-        If Not IsPostBack Then
-            SetUserGroup(User)
-        End If
-
-        'Delete File
-        If (Not IsPostBack) Then
+            'SetUserGroup(User)
             gv_QFile.DataBind()
+            GetFiles()
+
         End If
 
         QuotationCode = Request.QueryString("qId")
@@ -111,9 +105,7 @@ Public Class CreateQuotation
         lbl_QNo.Text = QuotationCode
         lbl_QCompanyName.Text = GetCompanyBygId(QuotationCode)
         gv_QFile.DataBind()
-        If Not IsPostBack Then
-            GetFiles()
-        End If
+        
 
     End Sub
 
@@ -339,7 +331,7 @@ Public Class CreateQuotation
         If quota IsNot Nothing Then
             btn_AddQuotation.Visible = False
             btn_SaveQuotation.Visible = True
-            btn_PrintQuotation.Visible = True
+            btn_ApproveQuotation.Visible = True
             With quota
                 QuotationID = .Quota_ID
                 cmb_company.Text = .company_name
@@ -370,7 +362,7 @@ Public Class CreateQuotation
             End With
         Else
             btn_SaveQuotation.Visible = False
-            btn_PrintQuotation.Visible = False
+            btn_ApproveQuotation.Visible = False
             btn_AddQuotation.Visible = True
         End If
     End Sub
@@ -615,7 +607,7 @@ Public Class CreateQuotation
                 UpdateCompanyAndAttnInQuotationProposal(quotationNo, companyName, attnName)
                 btn_AddQuotation.Visible = False
                 btn_SaveQuotation.Visible = True
-                btn_PrintQuotation.Visible = True
+                btn_ApproveQuotation.Visible = True
 
                 QuotationID = nextId
             Catch ex As Exception
@@ -692,7 +684,7 @@ Public Class CreateQuotation
         End If
     End Sub
 
-    Private Sub btn_PrintQuotation_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles btn_PrintQuotation.Click
+    Private Sub btn_ApproveQuotation_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles btn_ApproveQuotation.Click
         'Response.Redirect("../Report/Report.aspx?quotaId=" & QuotationID)
         'status
         Using ctx As New DlmsDataContext
@@ -804,18 +796,18 @@ Public Class CreateQuotation
         End If
     End Sub
 
-    Private Sub SetUserGroup(ByVal User As String)
-        Dim ctx As New DlmsDataContext
-        'Dim UserId = (From u In ctx.Users Where u.user_id = User).SingleOrDefault
-        Dim Group = (From g In ctx.Users Where g.user_name = User).SingleOrDefault
-        If Group.user_group_id = 1 Then
-            btnDeleteSelectedRows.Enabled = True
-            btn_PrintQuotation.Enabled = True
-        Else
-            btnDeleteSelectedRows.Enabled = False
-            btn_PrintQuotation.Enabled = False
-        End If
-    End Sub
+    'Private Sub SetUserGroup(ByVal User As String)
+    '    Dim ctx As New DlmsDataContext
+    '    'Dim UserId = (From u In ctx.Users Where u.user_id = User).SingleOrDefault
+    '    Dim Group = (From g In ctx.Users Where g.user_name = User).SingleOrDefault
+    '    If Group.user_group_id = 1 Then
+    '        btnDeleteSelectedRows.Enabled = True
+    '        btn_PrintQuotation.Enabled = True
+    '    Else
+    '        btnDeleteSelectedRows.Enabled = False
+    '        btn_PrintQuotation.Enabled = False
+    '    End If
+    'End Sub
 
 
 End Class

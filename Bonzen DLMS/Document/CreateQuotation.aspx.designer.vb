@@ -32,15 +32,6 @@ Partial Public Class CreateQuotation
     Protected WithEvents pnc_Header As Global.DevExpress.Web.ASPxPanel.PanelContent
 
     '''<summary>
-    '''btn_test control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents btn_test As Global.DevExpress.Web.ASPxEditors.ASPxButton
-
-    '''<summary>
     '''ASPxLabel2 control.
     '''</summary>
     '''<remarks>
@@ -365,11 +356,11 @@ Partial Public Class CreateQuotation
     Protected WithEvents btn_SaveQuotation As Global.DevExpress.Web.ASPxEditors.ASPxButton
 
     '''<summary>
-    '''btn_PrintQuotation control.
+    '''btn_ApproveQuotation control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents btn_PrintQuotation As Global.DevExpress.Web.ASPxEditors.ASPxButton
+    Protected WithEvents btn_ApproveQuotation As Global.DevExpress.Web.ASPxEditors.ASPxButton
 End Class

@@ -140,13 +140,13 @@ Partial Public Class AddNewDocument
     Protected WithEvents lbl_QName As Global.DevExpress.Web.ASPxEditors.ASPxLabel
 
     '''<summary>
-    '''lbl_ErrorQuo control.
+    '''lbl_Validate control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents lbl_ErrorQuo As Global.DevExpress.Web.ASPxEditors.ASPxLabel
+    Protected WithEvents lbl_Validate As Global.DevExpress.Web.ASPxEditors.ASPxLabel
 
     '''<summary>
     '''btnQ_OK control.

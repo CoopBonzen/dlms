@@ -166,7 +166,7 @@ Public Class AddNewDocument
     '    End Using
     'End Sub
 
-    Private Sub cmb_attn_Callback(ByVal sender As Object, ByVal e As DevExpress.Web.ASPxClasses.CallbackEventArgsBase) Handles cmb_attn.Callback
+    Private Sub CIN_cmb_attn_Callback(ByVal sender As Object, ByVal e As DevExpress.Web.ASPxClasses.CallbackEventArgsBase) Handles cmb_attn.Callback
         cmb_attn.DataBind()
     End Sub
 
