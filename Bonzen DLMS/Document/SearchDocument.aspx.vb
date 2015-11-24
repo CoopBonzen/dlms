@@ -92,8 +92,8 @@ Public Class SearchDocument
                 Response.Redirect("../Document/ProposalUpload.aspx?pId=" & e.CommandArgument)
             Case "OpenUploadGeneralFile"
                 Response.Redirect("../Document/GeneralUpload.aspx?gId=" & e.CommandArgument)
-            Case "PrintQuotation"
-                Response.Redirect("../Report/Report.aspx?quotaId=" & e.CommandArgument)
+                'Case "PrintQuotation"
+                '    Response.Redirect("../Report/Report.aspx?quotaId=" & e.CommandArgument)
         End Select
     End Sub
 

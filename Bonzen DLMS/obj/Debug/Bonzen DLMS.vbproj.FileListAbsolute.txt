@@ -122,4 +122,3 @@ D:\DLMS.v1.1\dlms\Bonzen DLMS\obj\Debug\RdlCompile.compiled
 D:\DLMS.v1.1\dlms\Bonzen DLMS\obj\Debug\Bonzen DLMS.dll
 D:\DLMS.v1.1\dlms\Bonzen DLMS\obj\Debug\Bonzen DLMS.xml
 D:\DLMS.v1.1\dlms\Bonzen DLMS\obj\Debug\Bonzen DLMS.pdb
-D:\DLMS.v1.1\dlms\Bonzen DLMS\obj\Debug\Bonzen DLMS.vbprojResolveAssemblyReference.cache

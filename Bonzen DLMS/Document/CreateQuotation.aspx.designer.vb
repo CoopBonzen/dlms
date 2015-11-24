@@ -230,6 +230,15 @@ Partial Public Class CreateQuotation
     Protected WithEvents txt_bonzenemail As Global.DevExpress.Web.ASPxEditors.ASPxTextBox
 
     '''<summary>
+    '''lbl_Error control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lbl_Error As Global.DevExpress.Web.ASPxEditors.ASPxLabel
+
+    '''<summary>
     '''lbl_QNewUpload control.
     '''</summary>
     '''<remarks>

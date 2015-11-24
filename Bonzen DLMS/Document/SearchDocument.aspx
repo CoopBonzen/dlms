@@ -45,7 +45,7 @@
 
     </script>
     <div class="jumbotron">
-        <uc1:addnewdocument id="AddNewDocument" runat="server" />
+        <uc1:AddNewDocument ID="AddNewDocument" runat="server" />
     </div>
     <div class="jumbotron">
         <dx:ASPxPopupControl ID="pop_PreviewQuotation" runat="server" ClientInstanceName="CIN_pop_PreviewQuotation"
@@ -111,46 +111,78 @@
                &nbsp;&nbsp;&nbsp;<span class="style3">Latest Quotation &amp; Proposal (last 30 days)</span></p>--%>
         <p class="lead">
             <dx:ASPxGridView ID="gv_quotationProposal" ClientInstanceName="gv_quotationProposal"
-                runat="server" AutoGenerateColumns="False" DataSourceID="Quo_Prop" KeyFieldName="Q_ID"
+                AutoGenerateColumns="False" runat="server" DataSourceID="Quo_Prop" KeyFieldName="Q_ID"
                 Width="894px">
                 <Columns>
                     <dx:GridViewDataTextColumn Caption="หมายเลข Quotation" FieldName="Q_ID" ReadOnly="True"
                         VisibleIndex="0" CellStyle-HorizontalAlign="Center" Width="8%" SortOrder="Descending">
+                        <EditCellStyle HorizontalAlign="Center">
+                        </EditCellStyle>
                         <DataItemTemplate>
                             <asp:linkbutton id="lnk_QId" runat="server" text='<%# Eval("Q_ID") %>' commandname="OpenCreateQuotation"
                                 commandargument='<%# Eval("Q_ID") %>' oncommand="ListItem_Command">
                             </asp:linkbutton>
                         </DataItemTemplate>
+                        <EditItemTemplate>
+                            <asp:label id="lbl_QId" runat="server" text='<%# Eval("Q_ID") %>'></asp:label>
+                        </EditItemTemplate>
                         <CellStyle HorizontalAlign="Center">
                         </CellStyle>
                         <Settings AutoFilterCondition="Contains" />
                     </dx:GridViewDataTextColumn>
                     <dx:GridViewDataDateColumn Caption="วันที่ในจดหมาย" FieldName="Q_Date" VisibleIndex="2"
                         Width="8%">
+                        <EditItemTemplate>
+                            <asp:label id="lbl_QDate" runat="server" text='<%# Eval("Q_Date", "{0:d/MM/yyyy}") %>'>
+                            </asp:label>
+                        </EditItemTemplate>
                         <Settings AutoFilterCondition="Contains" />
                     </dx:GridViewDataDateColumn>
                     <dx:GridViewDataTextColumn Caption="ผู้รับ (บริษัท)" FieldName="company_name" VisibleIndex="4"
                         Width="20%">
+                        <EditCellStyle HorizontalAlign="Center">
+                        </EditCellStyle>
+                        <EditItemTemplate>
+                            <asp:label id="lbl_ContactCompany" runat="server" text='<%# Eval("company_name") %>'>
+                            </asp:label>
+                        </EditItemTemplate>
                         <Settings AutoFilterCondition="Contains" />
                     </dx:GridViewDataTextColumn>
                     <dx:GridViewDataTextColumn Caption="ผู้รับ (ชื่อ)" FieldName="attn" VisibleIndex="5"
                         Width="20%">
+                        <EditCellStyle HorizontalAlign="Center">
+                        </EditCellStyle>
+                        <EditItemTemplate>
+                            <asp:label id="lbl_ContactName" runat="server" text='<%# Eval("attn") %>'></asp:label>
+                        </EditItemTemplate>
                         <Settings AutoFilterCondition="Contains" />
                     </dx:GridViewDataTextColumn>
                     <dx:GridViewDataTextColumn Caption="เรื่อง" FieldName="Title" VisibleIndex="6" Width="20%">
+                        <EditItemTemplate>
+                            <asp:textbox id="txt_Note" runat="server" text='<%# Bind("Title") %>'>
+                            </asp:textbox>
+                        </EditItemTemplate>
                         <Settings AutoFilterCondition="Contains" />
                     </dx:GridViewDataTextColumn>
                     <dx:GridViewDataTextColumn Caption="ผู้จอง" FieldName="BookingBy" VisibleIndex="7"
                         Width="8%">
+                        <EditItemTemplate>
+                            <asp:label id="lbl_BookingBy" runat="server" text='<%# Eval("BookingBy") %>'></asp:label>
+                        </EditItemTemplate>
                         <Settings AutoFilterCondition="Contains" />
                     </dx:GridViewDataTextColumn>
                     <dx:GridViewDataTextColumn Caption="หมายเลข Proposal" FieldName="P_ID" VisibleIndex="1"
                         ReadOnly="True" CellStyle-HorizontalAlign="Center" Width="8%">
+                        <EditCellStyle HorizontalAlign="Center">
+                        </EditCellStyle>
                         <DataItemTemplate>
                             <asp:linkbutton id="lnk_PId" runat="server" text='<%# Eval("P_ID") %>' commandname="OpenUploadProposalFile"
                                 commandargument='<%# Eval("P_ID") %>' oncommand="ListItem_Command">
                             </asp:linkbutton>
                         </DataItemTemplate>
+                        <EditItemTemplate>
+                            <asp:label id="lbl_PId" runat="server" text='<%# Eval("P_ID") %>'></asp:label>
+                        </EditItemTemplate>
                         <CellStyle HorizontalAlign="Center">
                         </CellStyle>
                         <Settings AutoFilterCondition="Contains" />
@@ -165,20 +197,46 @@
                         <CellStyle HorizontalAlign="Center">
                         </CellStyle>
                     </dx:GridViewDataTextColumn>--%>
+                    <dx:GridViewCommandColumn ButtonType="Image" VisibleIndex="8" ShowInCustomizationForm="True"
+                        Width="8%" Caption="แก้ไข">
+                        <EditButton Visible="True">
+                            <Image AlternateText="Edit" Url="../images/edit.png">
+                            </Image>
+                        </EditButton>
+                        <UpdateButton Visible="True">
+                            <Image AlternateText="Update" Url="../images/disk.png">
+                            </Image>
+                        </UpdateButton>
+                        <CancelButton Visible="True">
+                            <Image AlternateText="Cancel" Url="../images/cancel.gif">
+                            </Image>
+                        </CancelButton>
+                    </dx:GridViewCommandColumn>
                     <dx:GridViewDataTextColumn Caption="สถานะ" Name="Status" ReadOnly="True" VisibleIndex="8"
                         Width="8%">
+                        <EditCellStyle HorizontalAlign="Center">
+                        </EditCellStyle>
                         <%--<DataItemTemplate>
                              <dx:ASPxLabel ID="lbl_statusType" runat="server" Text='<%#CType(Eval("quota_status"), QuotationStatusEnum).ToString %>'>
                             </dx:ASPxLabel>
                         </DataItemTemplate>--%>
+                        <EditItemTemplate>
+                            <%--<asp:label id="lbl_Status" runat="server" text='<%# Eval("Status") %>'></asp:label>--%>
+                        </EditItemTemplate>
                         <CellStyle HorizontalAlign="Center">
                         </CellStyle>
                     </dx:GridViewDataTextColumn>
                     <dx:GridViewDataColumn Caption="Preview" Name="Preview" VisibleIndex="9">
+                        <EditCellStyle HorizontalAlign="Center">
+                        </EditCellStyle>
                         <DataItemTemplate>
                             <dx:ASPxButton ID="btn_PreviewQuotation" runat="server" Text="Preview" AutoPostBack="false"
                                 ClientInstanceName="CIN_btn_PreviewQuotation" Width="65px" Visible='<%# Eval("ShowQF") %>' />
                         </DataItemTemplate>
+                         <EditItemTemplate>
+                            <dx:ASPxButton ID="btn_PreviewQuotation" runat="server" Text="Preview" AutoPostBack="false"
+                                ClientInstanceName="CIN_btn_PreviewQuotation" Width="65px" Visible='<%# Eval("ShowQF") %>' />
+                        </EditItemTemplate>
                     </dx:GridViewDataColumn>
                 </Columns>
                 <SettingsEditing Mode="Inline" />
@@ -186,7 +244,7 @@
             <asp:sqldatasource id="Quo_Prop" runat="server" connectionstring="<%$ ConnectionStrings:DLMSConnectionString %>"
                 deletecommand="DELETE FROM [QuotationProposal] WHERE [Q_ID] = @Q_ID" insertcommand="INSERT INTO [QuotationProposal] ([Q_ID], [Q_Date], [DateSend], [ContactCom], [ContactName], [Title], [BookingBy], [P_ID]) VALUES (@Q_ID, @Q_Date, @DateSend, @ContactCom, @ContactName, @Title, @BookingBy, @P_ID)"
                 selectcommand="SELECT DISTINCT QuotationProposal.*, Quotation.Quota_ID, CASE WHEN Quotation.Quota_ID Is NULL THEN 'False' ELSE 'True' END As ShowQ, Quotation.company_name, Quotation.attn, QuotationFile.Q_ID, CASE WHEN QuotationFile.Q_ID Is NULL THEN 'False' ELSE 'True' END As ShowQF FROM QuotationProposal LEFT OUTER JOIN Quotation ON QuotationProposal.Q_ID = Quotation.quotation_no	LEFT OUTER JOIN QuotationFile ON QuotationProposal.Q_ID = QuotationFile.Q_ID WHERE Q_Date >= DATEADD(day, -30, getdate()) ORDER BY Q_Date DESC"
-                updatecommand="UPDATE [QuotationProposal] SET [Q_Date] = @Q_Date, [DateSend] = @DateSend, [ContactCom] = @ContactCom, [ContactName] = @ContactName, [Title] = @Title, [BookingBy] = @BookingBy, [P_ID] = @P_ID WHERE [Q_ID] = @Q_ID">
+                updatecommand="UPDATE [QuotationProposal] SET [Title] = @Title WHERE [Q_ID] = @Q_ID">
                 <deleteparameters>
                     <asp:Parameter Name="Q_ID" Type="String" />
                 </deleteparameters>

@@ -28,42 +28,60 @@ Public Class CreateQuotation
 
     End Property
 
+    'Check add Quotation
+    Private Function CheckValidatedata() As Boolean
+        If cmb_company.Text.Trim = String.Empty Then
+            lbl_Error.Text = "กรุณากรอก Company"
+            lbl_Error.Visible = True
+            Return False
+        ElseIf cmb_attn.Text.Trim = String.Empty Then
+            lbl_Error.Text = "กรุณากรอก Attn"
+            lbl_Error.Visible = True
+            Return False
+        Else : lbl_Error.Text = ""
+            lbl_Error.Visible = True
+            Return True
+        End If
+    End Function
+
     'ของเก่า
-    Private ReadOnly Property SelectedDetailIDList() As List(Of Integer)
-        Get
-            Dim idList As New List(Of Integer)
-            'If Not String.IsNullOrWhiteSpace(txt_selectedsub.Text) Then
-            '    Dim strIDList As List(Of String) = txt_selectedsub.Text.Split(",").ToList
-            '    idList = (From strId In strIDList Select CInt(strId)).ToList
-            'End If
-            Return idList
-        End Get
-    End Property
+    'Private ReadOnly Property SelectedDetailIDList() As List(Of Integer)
+    '    Get
+    '        Dim idList As New List(Of Integer)
+    '        If Not String.IsNullOrWhiteSpace(txt_selectedsub.Text) Then
+    '            Dim strIDList As List(Of String) = txt_selectedsub.Text.Split(",").ToList
+    '            idList = (From strId In strIDList Select CInt(strId)).ToList
+    '        End If
+    '        Return idList
+    '    End Get
+    'End Property
 
-    Private ReadOnly Property strAddedDetailSubList() As List(Of String)
-        Get
-            Dim subDataList As New List(Of String)
-            'If Not String.IsNullOrWhiteSpace(txt_subData.Text) Then
-            '    subDataList = txt_subData.Text.Split(";").ToList
-            'End If
-            Return subDataList
-        End Get
-    End Property
+    'code เก่า
+    'Private ReadOnly Property strAddedDetailSubList() As List(Of String)
+    '    Get
+    '        Dim subDataList As New List(Of String)
+    '        If Not String.IsNullOrWhiteSpace(txt_subData.Text) Then
+    '            subDataList = txt_subData.Text.Split(";").ToList
+    '        End If
+    '        Return subDataList
+    '    End Get
+    'End Property
 
-    Private ReadOnly Property AddedDetailIDList() As List(Of Integer)
-        Get
-            Dim subIDList As New List(Of Integer)
-            'If Not String.IsNullOrWhiteSpace(txt_subData.Text) Then
-            '    Dim subDataList As List(Of String) = strAddedDetailSubList
-            '    For i As Integer = 0 To subDataList.Count - 1
-            '        Dim subData As String() = subDataList(i).Split("|")
-            '        Dim subId As Integer = CInt(subData(0))
-            '        subIDList.Add(subId)
-            '    Next
-            'End If
-            Return subIDList
-        End Get
-    End Property
+    'code เก่า
+    'Private ReadOnly Property AddedDetailIDList() As List(Of Integer)
+    '    Get
+    '        Dim subIDList As New List(Of Integer)
+    '        If Not String.IsNullOrWhiteSpace(txt_subData.Text) Then
+    '            Dim subDataList As List(Of String) = strAddedDetailSubList
+    '            For i As Integer = 0 To subDataList.Count - 1
+    '                Dim subData As String() = subDataList(i).Split("|")
+    '                Dim subId As Integer = CInt(subData(0))
+    '                subIDList.Add(subId)
+    '            Next
+    '        End If
+    '        Return subIDList
+    '    End Get
+    'End Property
 
     Public Property QuotationID() As Integer
         Get
@@ -78,30 +96,30 @@ Public Class CreateQuotation
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         If String.IsNullOrEmpty(Session("Username")) Then Response.Redirect("~/Login.aspx")
         Dim RequestQId = Request.QueryString("qId")
-        'txt_subData.Text = ""
+
 
         'เช็คสิทธ
         btn_ApproveQuotation.Enabled = IsUserRole(Session("Username"), PrivApproveQuotation)
+        btn_AddQuotation.Enabled = IsUserRole(Session("Username"), PrivCreateQuotation)
+        btn_SaveQuotation.Enabled = IsUserRole(Session("Username"), PrivEditQuotation)
         btnDeleteSelectedRows.Enabled = IsUserRole(Session("Username"), PrivDeleteFileQuotation)
+
         Dim User = Session("Username")
         'ของเก่า
-        'gv_addmodule.JSProperties("cpStrAllSubData") = String.Empty
         If (Not IsCallback) Then
             FillSubQuotationCombo("1")
             FillAttnCombo(Session("Company_ID"))
         End If
         If Not IsPostBack Then
-            'SetDefaultRemark()
-            'SetDefaultCondition()
             AddDataInForm(RequestQId)
-            'SetUserGroup(User)
+            'Upload
             gv_QFile.DataBind()
             GetFiles()
 
         End If
 
+        'เพิ่มUpload'
         QuotationCode = Request.QueryString("qId")
-
         lbl_QNo.Text = QuotationCode
         lbl_QCompanyName.Text = GetCompanyBygId(QuotationCode)
         gv_QFile.DataBind()
@@ -127,7 +145,6 @@ Public Class CreateQuotation
 
     Protected Sub UploadControl_FileUploadComplete(ByVal sender As Object, ByVal e As FileUploadCompleteEventArgs)
         Dim qFileId As Integer = GetNextQFileId()
-        'Dim dateNow As DateTime = System.DateTime.Now
         If QuotationCode Is Nothing Then QuotationCode = Request.QueryString("qId")
 
         Dim uploadControl As ASPxUploadControl = TryCast(sender, ASPxUploadControl)
@@ -135,7 +152,6 @@ Public Class CreateQuotation
             For i As Integer = 0 To uploadControl.UploadedFiles.Length - 1
                 Dim file As UploadedFile = uploadControl.UploadedFiles(i)
 
-                'Dim fileExtension = file.FileName.Split(".")
                 If file.ContentLength > 0 Then
                     Dim path = UploadDirectory & QuotationCode
                     If Not IO.Directory.Exists(path) Then
@@ -153,7 +169,6 @@ Public Class CreateQuotation
                         ctx.QuotationFiles.InsertOnSubmit(quotationFile)
                         ctx.SubmitChanges()
                     End Using
-                    'Response.Redirect("../Document/CreateQuotation.aspx?gId=" & QuotationCode)
                 End If
             Next i
         End If
@@ -229,14 +244,6 @@ Public Class CreateQuotation
     End Sub
 
     Protected Sub btnDeleteSelectedRows_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnDeleteSelectedRows.Click
-        ''Dim lst As List(Of QuotationFile) = DSource
-        ''Dim selectedValues As List(Of Object) = gv_QFile.GetSelectedFieldValues(gv_QFile.KeyFieldName)
-        ''For Each value As Object In selectedValues
-        ''    Dim obj As QuotationFile = lst.Find(Function(s) s.Q_FileID = Convert.ToInt32(lst))
-        ''    lst.Remove(obj)
-        ''Next value
-        ''gv_QFile.DataBind()
-
         Using ctx = New DlmsDataContext
             If Not IsNothing(txt_qFile.Text.Trim) And Not txt_qFile.Text.Trim = "" Then
                 Dim aFileId() As String = txt_qFile.Text.Split(",")
@@ -251,6 +258,7 @@ Public Class CreateQuotation
         End Using
     End Sub
 
+    'code เก่า
     'Public Sub SetDefaultRemark()
     '    memo_remark.Text = "1.  กำหนดยื่นราคา 30 วัน " & vbCrLf & _
     '                    "2.  การเสนอราคาข้างต้นสาหรับการใช้งานที่อาคารภายใต้การบริหารของ_____________จำนวน ____ อาคาร " & vbCrLf & _
@@ -310,7 +318,6 @@ Public Class CreateQuotation
     'End Sub
 
     Public Sub AddDataInForm(ByVal Q_No)
-        'GetQuotationDate(Q_No)
         txt_quotation.Text = Q_No
         dte_quotationDate.Text = GetQuotationDate(Q_No)
 
@@ -339,6 +346,7 @@ Public Class CreateQuotation
                 txt_tel.Text = .tel
                 txt_fax.Text = .fax
                 txt_email.Text = .email
+                'code เก่า
                 'memo_remark.Text = .remark
                 'memo_condition.Text = .condition
 
@@ -356,8 +364,9 @@ Public Class CreateQuotation
                         End With
                         subDataList.Add(StrDetailData(q_DescriptionSub, i.unit))
                     Next
+                    'code เก่า
                     'txt_subData.Text = String.Join(";", subDataList)
-                    gv_addmodule_DataBind()
+                    'gv_addmodule_DataBind()
                 End Using
             End With
         Else
@@ -391,6 +400,7 @@ Public Class CreateQuotation
     '    cmb_attn.DataBind()
     'End Sub
 
+    'code เก่า
     'Private Sub cbp_subData_Callback(sender As Object, e As DevExpress.Web.ASPxClasses.CallbackEventArgsBase) Handles cbp_subData.Callback
     '    If e.Parameter.ToString = "Add Detail" Then
     '        Dim allsubList As List(Of QuotationDescriptionSub) = GetQuotationSubList()
@@ -438,6 +448,7 @@ Public Class CreateQuotation
         End Using
     End Function
 
+    'code เก่า
     'Private Function GetStrsubDataFromTable(ByVal subId As Integer) As String
     '    If Not String.IsNullOrWhiteSpace(txt_subData.Text) Then
     '        Dim subDataList As List(Of String) = strAddedDetailSubList
@@ -474,22 +485,23 @@ Public Class CreateQuotation
         End Using
     End Function
 
-    Public Function GetDetailSubList() As DataTable
-        Dim strDetailDataList As List(Of String) = strAddedDetailSubList
-        Dim dt As New DataTable
-        With dt.Columns
-            .Add("ID_Q_Detail_Sub")
-            .Add("Q_Detail_Main")
-            .Add("Q_Detail_Sub")
-            .Add("Price")
-            .Add("Unit")
-        End With
-        For i As Integer = 0 To strDetailDataList.Count - 1
-            Dim strData As String() = strDetailDataList(i).Split("|")
-            dt.Rows.Add(strData(0), strData(1), strData(2), strData(3), strData(4))
-        Next
-        Return dt
-    End Function
+    'code เก่า
+    'Public Function GetDetailSubList() As DataTable
+    '    Dim strDetailDataList As List(Of String) = strAddedDetailSubList
+    '    Dim dt As New DataTable
+    '    With dt.Columns
+    '        .Add("ID_Q_Detail_Sub")
+    '        .Add("Q_Detail_Main")
+    '        .Add("Q_Detail_Sub")
+    '        .Add("Price")
+    '        .Add("Unit")
+    '    End With
+    '    For i As Integer = 0 To strDetailDataList.Count - 1
+    '        Dim strData As String() = strDetailDataList(i).Split("|")
+    '        dt.Rows.Add(strData(0), strData(1), strData(2), strData(3), strData(4))
+    '    Next
+    '    Return dt
+    'End Function
 
     Public Function GetCompanyData(ByVal companyId As Integer) As vw_Company
         'แก้ให้ดึงข้อมูลจาก DB ของ Salesapp
@@ -523,6 +535,7 @@ Public Class CreateQuotation
     '    Con.Close() : Return dt
     'End Function
 
+    'code เก่า
     'Private Sub gv_addmodule_CustomButtonCallback(sender As Object, e As DevExpress.Web.ASPxGridView.ASPxGridViewCustomButtonCallbackEventArgs) Handles gv_addmodule.CustomButtonCallback
     '    If e.ButtonID = "btn_Delete" Then
     '        Dim subId As Integer = gv_addmodule.GetRowValues(e.VisibleIndex, "ID_Q_Detail_Sub")
@@ -539,16 +552,19 @@ Public Class CreateQuotation
     '    End If
     'End Sub
 
+    'code เก่า
     'Private Sub gv_addmodule_CustomCallback(sender As Object, e As DevExpress.Web.ASPxGridView.ASPxGridViewCustomCallbackEventArgs) Handles gv_addmodule.CustomCallback
     '    If e.Parameters.ToString = "Bind data" Then gv_addmodule_DataBind()
     'End Sub
 
-    Private Sub gv_addmodule_DataBind()
-        Dim dt = GetDetailSubList()
-        'gv_addmodule.DataSource = dt
-        'gv_addmodule.DataBind()
-    End Sub
+    'code เก่า
+    'Private Sub gv_addmodule_DataBind()
+    '    Dim dt = GetDetailSubList()
+    '    'gv_addmodule.DataSource = dt
+    '    'gv_addmodule.DataBind()
+    'End Sub
 
+    'code เก่า
     'Private Sub gv_addmodule_HtmlRowCreated(sender As Object, e As DevExpress.Web.ASPxGridView.ASPxGridViewTableRowEventArgs) Handles gv_addmodule.HtmlRowCreated
     '    If e.RowType = GridViewRowType.Data Then
     '        Dim subId As Integer = e.KeyValue
@@ -562,6 +578,7 @@ Public Class CreateQuotation
     '    End If
     'End Sub
 
+    'code เก่า
     'Private Sub SetStrDataValue(ByVal subId As Integer, ByVal colnIndex As Integer, ByVal value As Double)
     '    Dim oldStrsubData As String = GetStrsubDataFromTable(subId)
     '    Dim strData As String() = oldStrsubData.Split("|")
@@ -571,6 +588,7 @@ Public Class CreateQuotation
     'End Sub
 
     Private Sub btn_AddQuotation_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles btn_AddQuotation.Click
+        If Not CheckValidatedata() Then Exit Sub
         Using ctx As New DlmsDataContext
             Try
                 Dim maxId = (From r In ctx.Quotations Select CType(r.Quota_ID, Integer?)).Max
@@ -603,7 +621,7 @@ Public Class CreateQuotation
                 ctx.SubmitChanges()
 
                 'สั่ง insert Quotation Item
-                InsertQuotationItem(nextId)
+                'InsertQuotationItem(nextId)
                 UpdateCompanyAndAttnInQuotationProposal(quotationNo, companyName, attnName)
                 btn_AddQuotation.Visible = False
                 btn_SaveQuotation.Visible = True
@@ -617,35 +635,37 @@ Public Class CreateQuotation
         End Using
     End Sub
 
-    Public Sub InsertQuotationItem(ByVal Quota_ID As Integer)
-        Using ctx As New DlmsDataContext
-            Dim data As DataTable = GetDetailSubList()
-            Dim sumAmount As Decimal
-            'สั่ง insert ที่ละ รายการ
-            For i = 0 To data.Rows.Count - 1
-                Dim maxId = (From r In ctx.QuotationItems Select CType(r.QItem_ID, Integer?)).Max
-                Dim nextId = If(maxId.HasValue, maxId + 1, 1)
-                Dim TbQuotationItem As New QuotationItem
-                With TbQuotationItem
-                    .QItem_ID = nextId
-                    .ID_Q_Detail_Sub = CInt(data(i)(0))
-                    .price = CInt(data(i)(3))
-                    'Dim speUnit As ASPxSpinEdit
-                    'Dim colnUnit As GridViewDataColumn = gv_addmodule.Columns("Unit")
-                    'speUnit = gv_addmodule.FindRowCellTemplateControl(i, colnUnit, "spe_Unit")
-                    '.price = speUnit.Text
-                    .unit = CDec(data(i)(4))
-                    .amount = CInt(data(i)(3)) * CDec(data(i)(4))
-                    sumAmount += (CInt(data(i)(3)) * CDec(data(i)(4)))
-                    .Quota_ID = Quota_ID
-                End With
-                ctx.QuotationItems.InsertOnSubmit(TbQuotationItem)
-                ctx.SubmitChanges()
-            Next
-            'UpdateTotalInQuotation(Quota_ID, sumAmount)
-        End Using
-    End Sub
+    'code เก่า
+    'Public Sub InsertQuotationItem(ByVal Quota_ID As Integer)
+    '    Using ctx As New DlmsDataContext
+    '        Dim data As DataTable = GetDetailSubList()
+    '        Dim sumAmount As Decimal
+    '        'สั่ง insert ที่ละ รายการ
+    '        For i = 0 To data.Rows.Count - 1
+    '            Dim maxId = (From r In ctx.QuotationItems Select CType(r.QItem_ID, Integer?)).Max
+    '            Dim nextId = If(maxId.HasValue, maxId + 1, 1)
+    '            Dim TbQuotationItem As New QuotationItem
+    '            With TbQuotationItem
+    '                .QItem_ID = nextId
+    '                .ID_Q_Detail_Sub = CInt(data(i)(0))
+    '                .price = CInt(data(i)(3))
+    '                'Dim speUnit As ASPxSpinEdit
+    '                'Dim colnUnit As GridViewDataColumn = gv_addmodule.Columns("Unit")
+    '                'speUnit = gv_addmodule.FindRowCellTemplateControl(i, colnUnit, "spe_Unit")
+    '                '.price = speUnit.Text
+    '                .unit = CDec(data(i)(4))
+    '                .amount = CInt(data(i)(3)) * CDec(data(i)(4))
+    '                sumAmount += (CInt(data(i)(3)) * CDec(data(i)(4)))
+    '                .Quota_ID = Quota_ID
+    '            End With
+    '            ctx.QuotationItems.InsertOnSubmit(TbQuotationItem)
+    '            ctx.SubmitChanges()
+    '        Next
+    '        'UpdateTotalInQuotation(Quota_ID, sumAmount)
+    '    End Using
+    'End Sub
 
+    'code เก่า
     'Private Sub UpdateTotalInQuotation(ByVal quotaId As Integer, ByVal sumAmount As Decimal)
     '    Using ctx As New DlmsDataContext
     '        Dim Quotation = (From q In ctx.Quotations Where q.Quota_ID = quotaId).SingleOrDefault
@@ -725,60 +745,61 @@ Public Class CreateQuotation
                 '.condition = memo_condition.Text
             End With
             ctx.SubmitChanges()
-            UpdateQuotationItem()
+            'UpdateQuotationItem()
             UpdateCompanyAndAttnInQuotationProposal(quotationNo, companyName, attnName)
         End Using
         GetFiles()
     End Sub
 
-    Public Sub UpdateQuotationItem()
-        Using ctx As New DlmsDataContext
-            Dim data As DataTable = GetDetailSubList()
-            For i As Integer = 0 To data.Rows.Count - 1
-                Dim TbQuotationItem As New QuotationItem
-                TbQuotationItem = (From qi In ctx.QuotationItems Where qi.ID_Q_Detail_Sub = CInt(data.Rows(i)("ID_Q_Detail_Sub")) And qi.Quota_ID = QuotationID).SingleOrDefault
+    'code เก่า
+    'Public Sub UpdateQuotationItem()
+    '    Using ctx As New DlmsDataContext
+    '        Dim data As DataTable = GetDetailSubList()
+    '        For i As Integer = 0 To data.Rows.Count - 1
+    '            Dim TbQuotationItem As New QuotationItem
+    '            TbQuotationItem = (From qi In ctx.QuotationItems Where qi.ID_Q_Detail_Sub = CInt(data.Rows(i)("ID_Q_Detail_Sub")) And qi.Quota_ID = QuotationID).SingleOrDefault
 
-                If TbQuotationItem IsNot Nothing Then
-                    'Update
-                    With TbQuotationItem
-                        '.QItem_ID = nextId
-                        '.ID_Q_Detail_Sub = CInt(data(i)(0))
-                        .price = CInt(data(i)(3))
-                        .unit = CDec(data(i)(4))
-                        'Dim speUnit As ASPxSpinEdit
-                        'Dim colnUnit As GridViewDataColumn = gv_addmodule.Columns("Unit")
-                        'speUnit = gv_addmodule.FindRowCellTemplateControl(i, colnUnit, "spe_Unit")
+    '            If TbQuotationItem IsNot Nothing Then
+    '                'Update
+    '                With TbQuotationItem
+    '                    '.QItem_ID = nextId
+    '                    '.ID_Q_Detail_Sub = CInt(data(i)(0))
+    '                    .price = CInt(data(i)(3))
+    '                    .unit = CDec(data(i)(4))
+    '                    'Dim speUnit As ASPxSpinEdit
+    '                    'Dim colnUnit As GridViewDataColumn = gv_addmodule.Columns("Unit")
+    '                    'speUnit = gv_addmodule.FindRowCellTemplateControl(i, colnUnit, "spe_Unit")
 
-                        .amount = CInt(data(i)(3)) * CDec(data(i)(4))
-                        '.Quota_ID = QuotationID
-                    End With
-                Else
-                    'Insert
-                    'data(i)("ID_Q_Detail_Sub")
-                    Dim maxId = (From r In ctx.QuotationItems Select CType(r.QItem_ID, Integer?)).Max
-                    Dim nextId = If(maxId.HasValue, maxId + 1, 1)
-                    Dim New_Record As New QuotationItem
-                    With New_Record
-                        .QItem_ID = nextId
-                        .ID_Q_Detail_Sub = CInt(data(i)(0))
-                        .price = CInt(data(i)(3))
-                        .unit = CDec(data(i)(4))
-                        .amount = CInt(data(i)(3)) * CDec(data(i)(4))
-                        .Quota_ID = QuotationID
-                    End With
-                    ctx.QuotationItems.InsertOnSubmit(New_Record)
-                End If
-                ctx.SubmitChanges()
-            Next
-            Dim originalSubList As List(Of QuotationItem) = (From r In ctx.QuotationItems Where r.Quota_ID = QuotationID).ToList
-            For Each item In originalSubList
-                If Not AddedDetailIDList.Contains(item.ID_Q_Detail_Sub) Then
-                    ctx.QuotationItems.DeleteOnSubmit(item)
-                End If
-            Next
-            ctx.SubmitChanges()
-        End Using
-    End Sub
+    '                    .amount = CInt(data(i)(3)) * CDec(data(i)(4))
+    '                    '.Quota_ID = QuotationID
+    '                End With
+    '            Else
+    '                'Insert
+    '                'data(i)("ID_Q_Detail_Sub")
+    '                Dim maxId = (From r In ctx.QuotationItems Select CType(r.QItem_ID, Integer?)).Max
+    '                Dim nextId = If(maxId.HasValue, maxId + 1, 1)
+    '                Dim New_Record As New QuotationItem
+    '                With New_Record
+    '                    .QItem_ID = nextId
+    '                    .ID_Q_Detail_Sub = CInt(data(i)(0))
+    '                    .price = CInt(data(i)(3))
+    '                    .unit = CDec(data(i)(4))
+    '                    .amount = CInt(data(i)(3)) * CDec(data(i)(4))
+    '                    .Quota_ID = QuotationID
+    '                End With
+    '                ctx.QuotationItems.InsertOnSubmit(New_Record)
+    '            End If
+    '            ctx.SubmitChanges()
+    '        Next
+    '        Dim originalSubList As List(Of QuotationItem) = (From r In ctx.QuotationItems Where r.Quota_ID = QuotationID).ToList
+    '        For Each item In originalSubList
+    '            If Not AddedDetailIDList.Contains(item.ID_Q_Detail_Sub) Then
+    '                ctx.QuotationItems.DeleteOnSubmit(item)
+    '            End If
+    '        Next
+    '        ctx.SubmitChanges()
+    '    End Using
+    'End Sub
 
     Private Sub lds_Attn_Selecting(ByVal sender As Object, ByVal e As System.Web.UI.WebControls.LinqDataSourceSelectEventArgs) Handles lds_Attn.Selecting
         e.WhereParameters("Company_ID") = If(IsNumeric(Session("Company_ID")), CInt(Session("Company_ID")), 0)
