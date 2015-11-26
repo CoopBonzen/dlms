@@ -20,6 +20,7 @@ Public Class AddNewDocument
         If String.IsNullOrEmpty(Session("Username")) Then Response.Redirect("~/Login.aspx")
         cmb_DocumentType.JSProperties("cpRunNo") = String.Empty
         cb_PopupInit.JSProperties("cpRefreshData") = False
+
     End Sub
 
 #Region "Gen Id"

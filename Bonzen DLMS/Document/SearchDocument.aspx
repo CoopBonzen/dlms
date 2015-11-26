@@ -228,7 +228,8 @@
                             </dx:ASPxLabel>
                         </DataItemTemplate>
                         <EditItemTemplate>
-                            <%--<asp:label id="lbl_Status" runat="server" text='<%# Eval("Status") %>'></asp:label>--%>
+                            <dx:ASPxLabel ID="lbl_statusType" runat="server" Text='<%#CType(Eval("quota_status"), QuotationStatusEnum).ToString %>'>
+                            </dx:ASPxLabel>
                         </EditItemTemplate>
                         <CellStyle HorizontalAlign="Center">
                         </CellStyle>
@@ -250,7 +251,13 @@
             </dx:ASPxGridView>
             <asp:SqlDataSource ID="Quo_Prop" runat="server" ConnectionString="<%$ ConnectionStrings:DLMSConnectionString %>"
                 DeleteCommand="DELETE FROM [QuotationProposal] WHERE [Q_ID] = @Q_ID" InsertCommand="INSERT INTO [QuotationProposal] ([Q_ID], [Q_Date], [DateSend], [ContactCom], [ContactName], [Title], [BookingBy], [P_ID]) VALUES (@Q_ID, @Q_Date, @DateSend, @ContactCom, @ContactName, @Title, @BookingBy, @P_ID)"
-                SelectCommand="SELECT DISTINCT QuotationProposal.Q_ID, QuotationProposal.P_ID, QuotationProposal.Q_Date, Quotation.company_name, Quotation.attn, QuotationProposal.Title, QuotationProposal.BookingBy, Quotation.Quota_ID, QuotationFile.Q_ID, CASE WHEN QuotationFile.Q_ID Is NULL THEN 'False' ELSE 'True' END As ShowQF, Quotation.quota_status FROM QuotationProposal LEFT OUTER JOIN Quotation ON QuotationProposal.Q_ID = Quotation.quotation_no LEFT OUTER JOIN QuotationFile ON QuotationProposal.Q_ID = QuotationFile.Q_ID WHERE Q_Date >= DATEADD(day, -30, getdate()) ORDER BY Q_Date DESC"
+                SelectCommand=" SELECT DISTINCT QuotationProposal.Q_ID, QuotationProposal.P_ID, QuotationProposal.Q_Date, Quotation.company_name, Quotation.attn, QuotationProposal.Title, QuotationProposal.BookingBy, Quotation.Quota_ID, QuotationFile.Q_ID, 
+                                CASE WHEN QuotationFile.Q_ID Is NULL THEN 'False' ELSE 'True' END As ShowQF, 
+                                CASE WHEN Quotation.quota_status is null THEN 1 ELSE Quotation.quota_status END AS quota_status
+                                FROM QuotationProposal 
+                                LEFT OUTER JOIN Quotation ON QuotationProposal.Q_ID = Quotation.quotation_no	
+                                LEFT OUTER JOIN QuotationFile ON QuotationProposal.Q_ID = QuotationFile.Q_ID                  
+                                WHERE Q_Date >= DATEADD(day, -30, getdate()) ORDER BY Q_Date DESC"
                 UpdateCommand="UPDATE [QuotationProposal] SET [Title] = @Title WHERE [Q_ID] = @Q_ID">
                 <DeleteParameters>
                     <asp:Parameter Name="Q_ID" Type="String" />
@@ -380,7 +387,7 @@
                             <Settings AutoFilterCondition="Contains" />
                         </dx:GridViewDataTextColumn>
                         <dx:GridViewCommandColumn ButtonType="Image" VisibleIndex="8" ShowInCustomizationForm="True"
-                            Width="8%" Caption="Edit Tiile">
+                            Width="8%" Caption="แก้ไข">
                             <EditButton Visible="True">
                                 <Image AlternateText="Edit" Url="../images/edit.png">
                                 </Image>

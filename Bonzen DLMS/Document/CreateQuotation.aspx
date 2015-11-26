@@ -41,11 +41,9 @@
 
         }
 
-
         function OnFileUploadComplete(s, e) {
             btnUpdate.DoClick();
         }
-
 
         //check box
         function IsStringContain(str, substr) {

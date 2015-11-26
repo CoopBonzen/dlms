@@ -115,6 +115,7 @@ Public Class CreateQuotation
             'Upload
             gv_QFile.DataBind()
             GetFiles()
+            SetApprove(RequestQId)
 
         End If
 
@@ -818,18 +819,42 @@ Public Class CreateQuotation
         End If
     End Sub
 
-    'Private Sub SetUserGroup(ByVal User As String)
-    '    Dim ctx As New DlmsDataContext
-    '    'Dim UserId = (From u In ctx.Users Where u.user_id = User).SingleOrDefault
-    '    Dim Group = (From g In ctx.Users Where g.user_name = User).SingleOrDefault
-    '    If Group.user_group_id = 1 Then
-    '        btnDeleteSelectedRows.Enabled = True
-    '        btn_PrintQuotation.Enabled = True
-    '    Else
-    '        btnDeleteSelectedRows.Enabled = False
-    '        btn_PrintQuotation.Enabled = False
-    '    End If
-    'End Sub
+    Private Sub SetApprove(ByVal RequestQId As String)
+        Dim ctx As New DlmsDataContext
+        Dim Approve = (From g In ctx.Quotations Where g.quotation_no = RequestQId).SingleOrDefault
+        If Approve.quota_status = 1 Then
+            btnDeleteSelectedRows.Enabled = True
+            btn_ApproveQuotation.Enabled = True
+            btn_SaveQuotation.Enabled = True
+            cmb_company.Enabled = True
+            txt_quotation.Enabled = True
+            cmb_attn.Enabled = True
+            dte_quotationDate.Enabled = True
+            txt_tel.Enabled = True
+            txt_from.Enabled = True
+            txt_fax.Enabled = True
+            txt_bonzentel.Enabled = True
+            txt_email.Enabled = True
+            txt_bonzenemail.Enabled = True
+            ulc_QuotationFile.Enabled = True
+
+        Else
+            btnDeleteSelectedRows.Enabled = False
+            btn_ApproveQuotation.Enabled = False
+            btn_SaveQuotation.Enabled = False
+            cmb_company.Enabled = False
+            txt_quotation.Enabled = False
+            cmb_attn.Enabled = False
+            dte_quotationDate.Enabled = False
+            txt_tel.Enabled = False
+            txt_from.Enabled = False
+            txt_fax.Enabled = False
+            txt_bonzentel.Enabled = False
+            txt_email.Enabled = False
+            txt_bonzenemail.Enabled = False
+            ulc_QuotationFile.Enabled = False
+        End If
+    End Sub
 
 
 End Class

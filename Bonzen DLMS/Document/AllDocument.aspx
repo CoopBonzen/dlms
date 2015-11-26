@@ -236,12 +236,13 @@
                         Width="8%">
                         <EditCellStyle HorizontalAlign="Center">
                         </EditCellStyle>
-                        <%--<DataItemTemplate>
+                        <DataItemTemplate>
                              <dx:ASPxLabel ID="lbl_statusType" runat="server" Text='<%#CType(Eval("quota_status"), QuotationStatusEnum).ToString %>'>
                             </dx:ASPxLabel>
-                        </DataItemTemplate>--%>
+                        </DataItemTemplate>
                         <EditItemTemplate>
-                            <%--<asp:label id="lbl_Status" runat="server" text='<%# Eval("Status") %>'></asp:label>--%>
+                            <dx:ASPxLabel ID="lbl_statusType" runat="server" Text='<%#CType(Eval("quota_status"), QuotationStatusEnum).ToString %>'>
+                            </dx:ASPxLabel>
                         </EditItemTemplate>
                         <CellStyle HorizontalAlign="Center">
                         </CellStyle>
@@ -264,7 +265,13 @@
                     </dx:ASPxGridView>
                     <asp:SqlDataSource ID="Quo_Prop" runat="server" ConnectionString="<%$ ConnectionStrings:DLMSConnectionString %>"
                         DeleteCommand="DELETE FROM [QuotationProposal] WHERE [Q_ID] = @Q_ID" InsertCommand="INSERT INTO [QuotationProposal] ([Q_ID], [Q_Date], [DateSend], [ContactCom], [ContactName], [Title], [BookingBy], [P_ID]) VALUES (@Q_ID, @Q_Date, @DateSend, @ContactCom, @ContactName, @Title, @BookingBy, @P_ID)"
-                        SelectCommand="SELECT DISTINCT QuotationProposal.*, Quotation.Quota_ID, CASE WHEN Quotation.Quota_ID Is NULL THEN 'False' ELSE 'True' END As ShowQ, Quotation.company_name, Quotation.attn, QuotationFile.Q_ID, CASE WHEN QuotationFile.Q_ID Is NULL THEN 'False' ELSE 'True' END As ShowQF FROM QuotationProposal LEFT OUTER JOIN Quotation ON QuotationProposal.Q_ID = Quotation.quotation_no	LEFT OUTER JOIN QuotationFile ON QuotationProposal.Q_ID = QuotationFile.Q_ID WHERE YEAR(QuotationProposal.Q_Date) = @ayear"
+                        SelectCommand=" SELECT DISTINCT QuotationProposal.Q_ID, QuotationProposal.P_ID, QuotationProposal.Q_Date, Quotation.company_name, Quotation.attn, QuotationProposal.Title, QuotationProposal.BookingBy, Quotation.Quota_ID, QuotationFile.Q_ID, 
+                                        CASE WHEN QuotationFile.Q_ID Is NULL THEN 'False' ELSE 'True' END As ShowQF, 
+                                        CASE WHEN Quotation.quota_status is null THEN 1 ELSE Quotation.quota_status END AS quota_status
+                                        FROM QuotationProposal 
+                                        LEFT OUTER JOIN Quotation ON QuotationProposal.Q_ID = Quotation.quotation_no	
+                                        LEFT OUTER JOIN QuotationFile ON QuotationProposal.Q_ID = QuotationFile.Q_ID 
+                                        WHERE YEAR(QuotationProposal.Q_Date) = @ayear "                        
                         UpdateCommand="UPDATE [QuotationProposal] SET [Q_Date] = @Q_Date, [DateSend] = @DateSend, [ContactCom] = @ContactCom, [ContactName] = @ContactName, [Title] = @Title, [BookingBy] = @BookingBy, [P_ID] = @P_ID WHERE [Q_ID] = @Q_ID">
                         <SelectParameters>
                             <asp:ControlParameter ControlID="cmb_searchYearQ" Name="ayear" PropertyName="Value" />
@@ -388,7 +395,7 @@
                                         <asp:Label ID="lbl_BookingBy" runat="server" Text='<%# Eval("BookingBy") %>'></asp:Label>
                                     </EditItemTemplate>
                                 </dx:GridViewDataTextColumn>
-                                <dx:GridViewCommandColumn ButtonType="Image" Caption="Edit Tiile" ShowInCustomizationForm="True"
+                                <dx:GridViewCommandColumn ButtonType="Image" Caption="แก้ไข" ShowInCustomizationForm="True"
                                     VisibleIndex="8" Width="8%">
                                     <EditButton Visible="True">
                                         <Image AlternateText="Edit" Url="../images/edit.png">
