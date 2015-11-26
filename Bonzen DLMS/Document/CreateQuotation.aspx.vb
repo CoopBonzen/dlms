@@ -123,6 +123,7 @@ Public Class CreateQuotation
         lbl_QNo.Text = QuotationCode
         lbl_QCompanyName.Text = GetCompanyBygId(QuotationCode)
         gv_QFile.DataBind()
+        GetFiles()
         
 
     End Sub

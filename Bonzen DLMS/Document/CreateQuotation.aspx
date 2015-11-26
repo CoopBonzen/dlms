@@ -27,7 +27,7 @@
         }
     </style>
 </asp:Content>
-<asp:content id="Content2" contentplaceholderid="MainContent" runat="server">
+<asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <script language="javascript" type="text/javascript">
         function OnQuotationChanged(cmb_QuotationDescription) {
             txt_selectedsub.SetText('');
@@ -74,7 +74,7 @@
             //CIN_cbp_requestTime.PerformCallback();
         }
     </script>
-    <dx:aspxcallbackpanel id="cbp_company" clientinstancename="cbp_company" runat="server">
+    <dx:ASPxCallbackPanel ID="cbp_company" ClientInstanceName="cbp_company" runat="server">
         <PanelCollection>
             <dx:PanelContent ID="pnc_Header" runat="server">
                 <table class="dxflInternalEditorTable">
@@ -86,9 +86,10 @@
                             </dx:ASPxLabel>
                         </td>
                         <td class="style2">
-                            <dx:ASPxComboBox ID="cmb_company" ClientInstanceName="CIN_cmb_company" runat="server" Height="20px" Width="360px" DropDownStyle="DropDown"
-                                IncrementalFilteringMode="Contains" DataSourceID="lds_Company" TextField="prospect_nameTH"
-                                ValueField="prospect_id" EnableCallbackMode="True" CallbackPageSize="20">
+                            <dx:ASPxComboBox ID="cmb_company" ClientInstanceName="CIN_cmb_company" runat="server"
+                                Height="20px" Width="360px" DropDownStyle="DropDown" IncrementalFilteringMode="Contains"
+                                DataSourceID="lds_Company" TextField="prospect_nameTH" ValueField="prospect_id"
+                                EnableCallbackMode="True" CallbackPageSize="20">
                                 <%--<ClientSideEvents SelectedIndexChanged="function(s, e) { cbp_company.PerformCallback('Change Company'); }" />--%>
                                 <ClientSideEvents SelectedIndexChanged="function(s, e) { OnCompanyChanged(s); }" />
                             </dx:ASPxComboBox>
@@ -194,15 +195,15 @@
                 </table>
             </dx:PanelContent>
         </PanelCollection>
-    </dx:aspxcallbackpanel>
+    </dx:ASPxCallbackPanel>
     <p>
     </p>
     <p>
     </p>
     <td colspan="2" align="center">
-        <dx:aspxlabel id="lbl_Error" runat="server" text="" visible="true" clientinstancename="lbl_Error"
-            forecolor="Red" style="text-align: center">
-         </dx:aspxlabel>
+        <dx:ASPxLabel ID="lbl_Error" runat="server" Text="" Visible="true" ClientInstanceName="lbl_Error"
+            ForeColor="Red" Style="text-align: center">
+        </dx:ASPxLabel>
     </td>
     <%--  <h2>
         Select Main Detail
@@ -339,48 +340,50 @@
         <table width="50%">
             <tr>
                 <td class="auto-style4" style="width: 50%">
-                    <dx:aspxlabel id="lbl_QNewUpload" runat="server" text="หมายเลข Quotation" />
+                    <dx:ASPxLabel ID="lbl_QNewUpload" runat="server" Text="หมายเลข Quotation" />
                     &nbsp;&nbsp;
-                    <dx:aspxlabel id="lbl_QNo" runat="server" />
+                    <dx:ASPxLabel ID="lbl_QNo" runat="server" />
                 </td>
             </tr>
             <tr>
                 <td>
-                    <asp:updatepanel id="Updatepanel1" runat="server">
-                        <contenttemplate>
+                    <asp:UpdatePanel ID="Updatepanel1" runat="server">
+                        <ContentTemplate>
                             <dx:ASPxButton ID="btnUpdate" runat="server" ClientInstanceName="btnUpdate" ClientVisible="false"
                                 OnClick="Updatepanel1_Refresh">
                             </dx:ASPxButton>
-                        </contenttemplate>
-                        <triggers>
+                        </ContentTemplate>
+                        <Triggers>
                             <asp:AsyncPostBackTrigger ControlID="btnUpdate" EventName="Click" />
-                        </triggers>
-                    </asp:updatepanel>
-                    <dx:aspxuploadcontrol id="ulc_QuotationFile" runat="server" showuploadbutton="True"
-                        showprogresspanel="True" onfileuploadcomplete="UploadControl_FileUploadComplete"
-                        width="280px">
-                        <ValidationSettings AllowedFileExtensions=".pdf, .doc, .docx" ShowErrors="false" />
+                        </Triggers>
+                    </asp:UpdatePanel>
+                    <dx:ASPxUploadControl ID="ulc_QuotationFile" runat="server" ShowUploadButton="True"
+                        ShowProgressPanel="True" OnFileUploadComplete="UploadControl_FileUploadComplete"
+                        Width="280px">
+                        <ValidationSettings AllowedFileExtensions=".pdf,.doc,.docx,.xlsx,.xls" ShowErrors="false" />
                         <ClientSideEvents FileUploadComplete="OnFileUploadComplete" />
-                    </dx:aspxuploadcontrol>
+                    </dx:ASPxUploadControl>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <dx:ASPxTextBox ID="txt_qFile" runat="server" ClientInstanceName="CIN_txt_qFile"
+                        ClientVisible="false">
+                    </dx:ASPxTextBox>
+                    
                 </td>
             </tr>
             <tr>
                 <td class="auto-style4" style="width: 50%">
-                    <dx:aspxlabel id="lbl_QuotationNumber" runat="server" text="Company : " />
+                    <dx:ASPxLabel ID="lbl_QuotationNumber" runat="server" Text="Company : " />
                     &nbsp;&nbsp;
-                    <dx:aspxlabel id="lbl_QCompanyName" runat="server" />
+                    <dx:ASPxLabel ID="lbl_QCompanyName" runat="server" />
                 </td>
             </tr>
             <tr>
                 <td>
-                    <dx:aspxtextbox id="txt_qFile" runat="server" clientinstancename="CIN_txt_qFile"
-                        clientvisible="false">
-                    </dx:aspxtextbox>
-                    <dx:aspxgridview id="gv_QFile" runat="server" width="100%" keyfieldname="Q_FileID"
-                        autogeneratecolumns="False">
-                        <SettingsPager Visible="False">
-                        </SettingsPager>
-                        <%--<Settings ShowColumnHeaders="false" />--%>
+                    <dx:ASPxGridView ID="gv_QFile" runat="server" Width="100%" KeyFieldName="Q_FileID">
+                        <Settings ShowColumnHeaders="false" />
                         <Columns>
                             <dx:GridViewDataColumn Caption="  #" FieldName="Q_FileID" Width="40px">
                                 <CellStyle HorizontalAlign="Center" />
@@ -392,17 +395,18 @@
                             <dx:GridViewDataColumn Caption="File Name">
                                 <DataItemTemplate>
                                     <asp:HyperLink ID="Link" runat="server" NavigateUrl='<%#Eval("link") %>' ForeColor="#6798de"
-                                        ToolTip='<%#Eval("filename")%>'><%#Eval("filename")%></asp:HyperLink>
+                                        ToolTip='<%#Eval("filename")%>'><%#Eval("filename")%>
+                                </asp:HyperLink>
                                 </DataItemTemplate>
                             </dx:GridViewDataColumn>
                             <dx:GridViewDataDateColumn FieldName="Q_FileDate" Visible="false" SortOrder="Descending">
                             </dx:GridViewDataDateColumn>
                         </Columns>
-                    </dx:aspxgridview>
-                    <br />
-                    <dx:aspxbutton id="btnDeleteSelectedRows" runat="server" onclick="btnDeleteSelectedRows_Click"
-                        text="Delete selected rows" width="137px">
-                    </dx:aspxbutton>
+                    </dx:ASPxGridView>
+                    <br/>
+                    <dx:ASPxButton ID="btnDeleteSelectedRows" runat="server" OnClick="btnDeleteSelectedRows_Click"
+                        Text="Delete selected rows" Width="137px">
+                    </dx:ASPxButton>
                 </td>
             </tr>
         </table>
@@ -410,28 +414,28 @@
     <table>
         <tr>
             <td class="style1">
-                <dx:aspxlabel id="ASPxLabel15" runat="server" text="Remark">
-                </dx:aspxlabel>
+                <dx:ASPxLabel ID="ASPxLabel15" runat="server" Text="Remark">
+                </dx:ASPxLabel>
             </td>
             <td class="style2">
-                <dx:aspxtextbox id="txt_remark" runat="server" width="360px" height="20px">
-                </dx:aspxtextbox>
+                <dx:ASPxTextBox ID="txt_remark" runat="server" Width="360px" Height="20px">
+                </dx:ASPxTextBox>
             </td>
         </tr>
     </table>
     <div style="float: right; margin-left: 5px;">
-        <dx:aspxbutton id="btn_AddQuotation" runat="server" text="Add Quotation">
-        </dx:aspxbutton>
+        <dx:ASPxButton ID="btn_AddQuotation" runat="server" Text="Add Quotation">
+        </dx:ASPxButton>
     </div>
     <div style="float: right; margin-left: 5px;">
-        <dx:aspxbutton id="btn_SaveQuotation" runat="server" text="Update">
-        </dx:aspxbutton>
+        <dx:ASPxButton ID="btn_SaveQuotation" runat="server" Text="Update">
+        </dx:ASPxButton>
     </div>
     <div style="float: right; margin-left: 5px;">
-        <dx:aspxbutton id="btn_ApproveQuotation" runat="server" text="Approve">
-        </dx:aspxbutton>
+        <dx:ASPxButton ID="btn_ApproveQuotation" runat="server" Text="Approve">
+        </dx:ASPxButton>
     </div>
     <br />
     <br />
     </p>
-</asp:content>
+</asp:Content>

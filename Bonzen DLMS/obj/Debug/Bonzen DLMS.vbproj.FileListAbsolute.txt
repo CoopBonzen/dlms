@@ -34,16 +34,6 @@ D:\DLMS\dlms\Bonzen DLMS\obj\Debug\RdlCompile.compiled
 D:\DLMS\dlms\Bonzen DLMS\obj\Debug\Bonzen DLMS.dll
 D:\DLMS\dlms\Bonzen DLMS\obj\Debug\Bonzen DLMS.xml
 D:\DLMS\dlms\Bonzen DLMS\obj\Debug\Bonzen DLMS.pdb
-D:\dlms\Bonzen DLMS\bin\Bonzen DLMS.dll
-D:\dlms\Bonzen DLMS\bin\Bonzen DLMS.pdb
-D:\dlms\Bonzen DLMS\bin\Bonzen DLMS.xml
-D:\dlms\Bonzen DLMS\obj\Debug\Bonzen_DLMS.Resources.resources
-D:\dlms\Bonzen DLMS\obj\Debug\Bonzen DLMS.vbproj.GenerateResource.Cache
-D:\dlms\Bonzen DLMS\obj\Debug\RdlCompile.cache
-D:\dlms\Bonzen DLMS\obj\Debug\RdlCompile.compiled
-D:\dlms\Bonzen DLMS\obj\Debug\Bonzen DLMS.dll
-D:\dlms\Bonzen DLMS\obj\Debug\Bonzen DLMS.xml
-D:\dlms\Bonzen DLMS\obj\Debug\Bonzen DLMS.pdb
 D:\DLMS.v1\dlms\Bonzen DLMS\bin\Bonzen DLMS.dll
 D:\DLMS.v1\dlms\Bonzen DLMS\bin\Bonzen DLMS.pdb
 D:\DLMS.v1\dlms\Bonzen DLMS\bin\Bonzen DLMS.xml
@@ -55,7 +45,6 @@ D:\DLMS.v1\dlms\Bonzen DLMS\obj\Debug\RdlCompile.compiled
 D:\DLMS.v1\dlms\Bonzen DLMS\obj\Debug\Bonzen DLMS.dll
 D:\DLMS.v1\dlms\Bonzen DLMS\obj\Debug\Bonzen DLMS.xml
 D:\DLMS.v1\dlms\Bonzen DLMS\obj\Debug\Bonzen DLMS.pdb
-D:\dlms\Bonzen DLMS\obj\Debug\Bonzen DLMS.vbprojResolveAssemblyReference.cache
 D:\DLMS.v2\dlms\Bonzen DLMS\bin\Bonzen DLMS.dll
 D:\DLMS.v2\dlms\Bonzen DLMS\bin\Bonzen DLMS.pdb
 D:\DLMS.v2\dlms\Bonzen DLMS\bin\Bonzen DLMS.xml
@@ -122,3 +111,14 @@ D:\DLMS.v1.1\dlms\Bonzen DLMS\obj\Debug\RdlCompile.compiled
 D:\DLMS.v1.1\dlms\Bonzen DLMS\obj\Debug\Bonzen DLMS.dll
 D:\DLMS.v1.1\dlms\Bonzen DLMS\obj\Debug\Bonzen DLMS.xml
 D:\DLMS.v1.1\dlms\Bonzen DLMS\obj\Debug\Bonzen DLMS.pdb
+D:\dlms\Bonzen DLMS\bin\Bonzen DLMS.dll
+D:\dlms\Bonzen DLMS\bin\Bonzen DLMS.pdb
+D:\dlms\Bonzen DLMS\bin\Bonzen DLMS.xml
+D:\dlms\Bonzen DLMS\obj\Debug\Bonzen_DLMS.Resources.resources
+D:\dlms\Bonzen DLMS\obj\Debug\Bonzen DLMS.vbproj.GenerateResource.Cache
+D:\dlms\Bonzen DLMS\obj\Debug\RdlCompile.cache
+D:\dlms\Bonzen DLMS\obj\Debug\RdlCompile.compiled
+D:\dlms\Bonzen DLMS\obj\Debug\Bonzen DLMS.dll
+D:\dlms\Bonzen DLMS\obj\Debug\Bonzen DLMS.xml
+D:\dlms\Bonzen DLMS\obj\Debug\Bonzen DLMS.pdb
+D:\dlms\Bonzen DLMS\obj\Debug\Bonzen DLMS.vbprojResolveAssemblyReference.cache

@@ -39,7 +39,7 @@
                 <dx:ASPxUploadControl ID="ulc_GeneralFile" runat="server" ShowUploadButton="True"
                     ShowProgressPanel="True" OnFileUploadComplete="UploadControl_FileUploadComplete"
                     Width="280px">
-                    <ValidationSettings AllowedFileExtensions=".pdf" ShowErrors="false" />
+                    <ValidationSettings AllowedFileExtensions=".pdf,.doc,.docx,.xlsx,.xls" ShowErrors="false" />
                     <ClientSideEvents FileUploadComplete="OnFileUploadComplete" />
                 </dx:ASPxUploadControl>
             </td>

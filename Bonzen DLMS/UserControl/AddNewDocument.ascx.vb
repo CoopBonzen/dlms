@@ -119,10 +119,12 @@ Public Class AddNewDocument
     Public Sub CreateGeneral(ByVal GId As String)
         Using ctx As New DlmsDataContext
             Dim g As New General
+            Dim companyName As String = cmb_company.Text.Trim
+            Dim contactName As String = cmb_attn.Text.Trim
             With g
                 .G_ID = GId
-                .ContactCom = cmb_company.Value
-                .ContactName = cmb_attn.Value
+                .ContactCom = companyName
+                .ContactName = contactName
                 .Title = txtb_GTitle.Text.Trim
                 .G_Date = G_Date.Text.Trim
                 .BookingBy = Session("UserFullname")

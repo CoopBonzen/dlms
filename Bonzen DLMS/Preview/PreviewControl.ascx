@@ -18,23 +18,19 @@
         width: 262px;
         text-align: left;
     }
-    
     .auto-style4
     {
         width: 153px;
         text-align: left;
     }
-    
     .auto-style5
     {
         width: 153px;
     }
-    
     .auto-style6
     {
         width: 194px;
     }
-    
     .auto-style7
     {
         width: 159px;
@@ -73,20 +69,22 @@
                 </tr>
                 <tr>
                     <td>
-                        <dx:ASPxGridView ID="gv_QFile" runat="server" AutoGenerateColumns="False" KeyFieldName="Q_FileID"
-                            Width="100%">
+                        <dx:ASPxGridView ID="gv_QFile" runat="server" Width="100%" KeyFieldName="Q_FileID">
+                            <Settings ShowColumnHeaders="false" />
                             <Columns>
-                                <dx:GridViewDataColumn ShowInCustomizationForm="True" VisibleIndex="0">
+                                <dx:GridViewDataColumn Caption="  #" FieldName="Q_FileID" Width="40px">
+                                    <CellStyle HorizontalAlign="Center" />
+                                </dx:GridViewDataColumn>
+                                <dx:GridViewDataColumn Caption="File Name">
                                     <DataItemTemplate>
-                                        <asp:HyperLink ID="Link" runat="server" ForeColor="#6798de" NavigateUrl='<%#Eval("link") %>'
-                                            ToolTip='<%#Eval("filename")%>'><%#Eval("filename")%></asp:HyperLink>
+                                        <asp:HyperLink ID="Link" runat="server" NavigateUrl='<%#Eval("link") %>' ForeColor="#6798de"
+                                            ToolTip='<%#Eval("filename")%>'><%#Eval("filename")%>
+                                </asp:HyperLink>
                                     </DataItemTemplate>
                                 </dx:GridViewDataColumn>
-                                <dx:GridViewDataDateColumn FieldName="Q_FileDate" ShowInCustomizationForm="True"
-                                    SortIndex="0" SortOrder="Descending" Visible="False">
+                                <dx:GridViewDataDateColumn FieldName="Q_FileDate" Visible="false" SortOrder="Descending">
                                 </dx:GridViewDataDateColumn>
                             </Columns>
-                            <Settings ShowColumnHeaders="False" />
                         </dx:ASPxGridView>
                     </td>
                 </tr>

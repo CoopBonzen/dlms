@@ -32,10 +32,13 @@ Public Class GeneralUpload
 
         lbl_GNo.Text = GeneralCode
         lbl_GCompanyName.Text = GetCompanyBygId(GeneralCode)
+        'gv_GFile.DataBind()
+        'If Not IsPostBack Then
+        '    GetFiles()
+        'End If
+        'Upload
         gv_GFile.DataBind()
-        If Not IsPostBack Then
-            GetFiles()
-        End If
+        GetFiles()
     End Sub
 
     Public Function GetNextGFileId() As Integer

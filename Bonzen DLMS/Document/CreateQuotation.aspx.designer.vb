@@ -284,6 +284,15 @@ Partial Public Class CreateQuotation
     Protected WithEvents ulc_QuotationFile As Global.DevExpress.Web.ASPxUploadControl.ASPxUploadControl
 
     '''<summary>
+    '''txt_qFile control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txt_qFile As Global.DevExpress.Web.ASPxEditors.ASPxTextBox
+
+    '''<summary>
     '''lbl_QuotationNumber control.
     '''</summary>
     '''<remarks>
@@ -300,15 +309,6 @@ Partial Public Class CreateQuotation
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents lbl_QCompanyName As Global.DevExpress.Web.ASPxEditors.ASPxLabel
-
-    '''<summary>
-    '''txt_qFile control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents txt_qFile As Global.DevExpress.Web.ASPxEditors.ASPxTextBox
 
     '''<summary>
     '''gv_QFile control.
