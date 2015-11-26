@@ -100,16 +100,6 @@ D:\dlms1 R\Bonzen DLMS\obj\Debug\RdlCompile.compiled
 D:\dlms1 R\Bonzen DLMS\obj\Debug\Bonzen DLMS.dll
 D:\dlms1 R\Bonzen DLMS\obj\Debug\Bonzen DLMS.xml
 D:\dlms1 R\Bonzen DLMS\obj\Debug\Bonzen DLMS.pdb
-D:\DLMS.v1.1\dlms\Bonzen DLMS\bin\Bonzen DLMS.dll
-D:\DLMS.v1.1\dlms\Bonzen DLMS\bin\Bonzen DLMS.pdb
-D:\DLMS.v1.1\dlms\Bonzen DLMS\bin\Bonzen DLMS.xml
-D:\DLMS.v1.1\dlms\Bonzen DLMS\obj\Debug\Bonzen_DLMS.Resources.resources
-D:\DLMS.v1.1\dlms\Bonzen DLMS\obj\Debug\Bonzen DLMS.vbproj.GenerateResource.Cache
-D:\DLMS.v1.1\dlms\Bonzen DLMS\obj\Debug\RdlCompile.cache
-D:\DLMS.v1.1\dlms\Bonzen DLMS\obj\Debug\RdlCompile.compiled
-D:\DLMS.v1.1\dlms\Bonzen DLMS\obj\Debug\Bonzen DLMS.dll
-D:\DLMS.v1.1\dlms\Bonzen DLMS\obj\Debug\Bonzen DLMS.xml
-D:\DLMS.v1.1\dlms\Bonzen DLMS\obj\Debug\Bonzen DLMS.pdb
 D:\dlms\Bonzen DLMS\bin\Bonzen DLMS.dll
 D:\dlms\Bonzen DLMS\bin\Bonzen DLMS.pdb
 D:\dlms\Bonzen DLMS\bin\Bonzen DLMS.xml
@@ -121,5 +111,14 @@ D:\dlms\Bonzen DLMS\obj\Debug\Bonzen DLMS.dll
 D:\dlms\Bonzen DLMS\obj\Debug\Bonzen DLMS.xml
 D:\dlms\Bonzen DLMS\obj\Debug\Bonzen DLMS.pdb
 D:\dlms\Bonzen DLMS\obj\Debug\Bonzen DLMS.vbprojResolveAssemblyReference.cache
-D:\DLMS.v1.1\dlms\Bonzen DLMS\obj\Debug\Bonzen DLMS.vbprojResolveAssemblyReference.cache
+D:\DLMS.v1.1\dlms\Bonzen DLMS\bin\Bonzen DLMS.dll
+D:\DLMS.v1.1\dlms\Bonzen DLMS\bin\Bonzen DLMS.pdb
+D:\DLMS.v1.1\dlms\Bonzen DLMS\bin\Bonzen DLMS.xml
+D:\DLMS.v1.1\dlms\Bonzen DLMS\obj\Debug\Bonzen_DLMS.Resources.resources
+D:\DLMS.v1.1\dlms\Bonzen DLMS\obj\Debug\Bonzen DLMS.vbproj.GenerateResource.Cache
 D:\DLMS.v1.1\dlms\Bonzen DLMS\obj\Debug\Bonzen DLMS.dll.licenses
+D:\DLMS.v1.1\dlms\Bonzen DLMS\obj\Debug\RdlCompile.cache
+D:\DLMS.v1.1\dlms\Bonzen DLMS\obj\Debug\RdlCompile.compiled
+D:\DLMS.v1.1\dlms\Bonzen DLMS\obj\Debug\Bonzen DLMS.dll
+D:\DLMS.v1.1\dlms\Bonzen DLMS\obj\Debug\Bonzen DLMS.xml
+D:\DLMS.v1.1\dlms\Bonzen DLMS\obj\Debug\Bonzen DLMS.pdb

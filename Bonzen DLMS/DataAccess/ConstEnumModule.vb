@@ -1,21 +1,24 @@
 ﻿Public Module ConstEnumModule
 
     ' สิทธิต่างๆ ที่ user สามารถทำได้
-    Public Const PrivViewQuotation As String = "ViewQuotation"
-    Public Const PrivCreateQuotation As String = "CreateQuotation"
+    Public Const PrivViewQPQ As String = "ViewQuotation/Proposal/General"
+
+    Public Const PrivAddNewDocument As String = "AddNewDocument"
+
     Public Const PrivEditQuotation As String = "EditQuotation"
-    Public Const PrivDeleteQuotation As String = "DeleteQuotation"
-    Public Const PrivDeleteFileQuotation As String = "DeleteFileQuotation"
     Public Const PrivApproveQuotation As String = "ApproveQuotation"
-    Public Const PrivBookingQuotation As String = "BookingQuotation"
+    Public Const PrivDeleteFileQuotation As String = "DeleteFileQuotation"
 
+    Public Const PrivUploadFileQuotation As String = "UploadFileQuotation"
     Public Const PrivUploadFileProposal As String = "UploadFileProposal"
-
-    Public Const PrivViewGeneral As String = "ViewGeneral"
-    Public Const PrivBookingGeneral As String = "BookingGeneral"
     Public Const PrivUploadFileGeneral As String = "UploadFileGeneral"
+
     Public Const PrivManageUserAndUserGroup As String = "ManageUserAndUserGroup"
 
+    'Public Const PrivBookingGeneral As String = "BookingGeneral"
+    'Public Const PrivBookingQuotation As String = "BookingQuotation"
+    'Public Const PrivDeleteQuotation As String = "DeleteQuotation"
+    'Public Const PrivViewGeneral As String = "ViewGeneral"
     'Public Const PrivReverseQuotation As String = "ReverseQuotation"
     'Public Const PrivAddCompany As String = "AddCompany"
     'Public Const PrivEditCompany As String = "EditCompany"
@@ -70,22 +73,24 @@
     Public Sub CreatePrivilege()
         With UserPrivilege
             .Clear()
-            .Add(New PrivilegeInfo With {.Name = PrivViewQuotation, .Text = "View Quotation/Proposal"})
-            .Add(New PrivilegeInfo With {.Name = PrivCreateQuotation, .Text = "Create Quotation"})
+            .Add(New PrivilegeInfo With {.Name = PrivViewQPQ, .Text = "View Quotation/Proposal/General"})
+
+            .Add(New PrivilegeInfo With {.Name = PrivAddNewDocument, .Text = "Add New Document"})
+
             .Add(New PrivilegeInfo With {.Name = PrivEditQuotation, .Text = "Edit Quotation"})
-            .Add(New PrivilegeInfo With {.Name = PrivDeleteQuotation, .Text = "Delete Quotation"})
-            .Add(New PrivilegeInfo With {.Name = PrivDeleteFileQuotation, .Text = "Delete File Quotation"})
             .Add(New PrivilegeInfo With {.Name = PrivApproveQuotation, .Text = "Approve Quotation"})
-            .Add(New PrivilegeInfo With {.Name = PrivBookingQuotation, .Text = "Booking Quotation"})
+            .Add(New PrivilegeInfo With {.Name = PrivDeleteFileQuotation, .Text = "Delete File Quotation"})
 
-
+            .Add(New PrivilegeInfo With {.Name = PrivUploadFileQuotation, .Text = "Upload File Quotation"})
             .Add(New PrivilegeInfo With {.Name = PrivUploadFileProposal, .Text = "Upload File Proposal"})
-
-            .Add(New PrivilegeInfo With {.Name = PrivViewGeneral, .Text = "View General"})
-            .Add(New PrivilegeInfo With {.Name = PrivBookingGeneral, .Text = "Booking General"})
             .Add(New PrivilegeInfo With {.Name = PrivUploadFileGeneral, .Text = "Upload File General"})
+
             .Add(New PrivilegeInfo With {.Name = PrivManageUserAndUserGroup, .Text = "ManageUser And UserGroup"})
 
+            '.Add(New PrivilegeInfo With {.Name = PrivViewGeneral, .Text = "View General"})
+            '.Add(New PrivilegeInfo With {.Name = PrivBookingGeneral, .Text = "Booking General"})
+            '.Add(New PrivilegeInfo With {.Name = PrivBookingQuotation, .Text = "Booking Quotation"})
+            '.Add(New PrivilegeInfo With {.Name = PrivDeleteQuotation, .Text = "Delete Quotation"})
             '.Add(New PrivilegeInfo With {.Name = PrivAddCompany, .Text = "Add Company"})
             '.Add(New PrivilegeInfo With {.Name = PrivEditCompany, .Text = "Edit Company"})
             '.Add(New PrivilegeInfo With {.Name = PrivDeleteCompany, .Text = "Delete Company"})

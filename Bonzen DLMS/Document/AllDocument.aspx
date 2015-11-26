@@ -18,6 +18,7 @@
 <%@ Register Assembly="DevExpress.Web.v13.1, Version=13.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"
     Namespace="DevExpress.Web.ASPxCallback" TagPrefix="dx" %>
 <%@ Register Src="../Preview/PreviewControl.ascx" TagName="PreviewControl" TagPrefix="uc1" %>
+<%@ Import Namespace="Bonzen_DLMS" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
     <style type="text/css">
         .style2

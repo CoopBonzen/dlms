@@ -100,7 +100,7 @@ Public Class CreateQuotation
 
         'เช็คสิทธ
         btn_ApproveQuotation.Enabled = IsUserRole(Session("Username"), PrivApproveQuotation)
-        btn_AddQuotation.Enabled = IsUserRole(Session("Username"), PrivCreateQuotation)
+        btn_AddQuotation.Enabled = IsUserRole(Session("Username"), PrivEditQuotation)
         btn_SaveQuotation.Enabled = IsUserRole(Session("Username"), PrivEditQuotation)
         btnDeleteSelectedRows.Enabled = IsUserRole(Session("Username"), PrivDeleteFileQuotation)
 
