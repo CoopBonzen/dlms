@@ -329,6 +329,33 @@ Partial Public Class CreateQuotation
     Protected WithEvents btnDeleteSelectedRows As Global.DevExpress.Web.ASPxEditors.ASPxButton
 
     '''<summary>
+    '''ASPxLabel11 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents ASPxLabel11 As Global.DevExpress.Web.ASPxEditors.ASPxLabel
+
+    '''<summary>
+    '''txt_totalamount control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txt_totalamount As Global.DevExpress.Web.ASPxEditors.ASPxTextBox
+
+    '''<summary>
+    '''btn_edit control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents btn_edit As Global.DevExpress.Web.ASPxEditors.ASPxButton
+
+    '''<summary>
     '''ASPxLabel15 control.
     '''</summary>
     '''<remarks>
@@ -338,13 +365,22 @@ Partial Public Class CreateQuotation
     Protected WithEvents ASPxLabel15 As Global.DevExpress.Web.ASPxEditors.ASPxLabel
 
     '''<summary>
-    '''txt_remark control.
+    '''memo_remark control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents txt_remark As Global.DevExpress.Web.ASPxEditors.ASPxTextBox
+    Protected WithEvents memo_remark As Global.DevExpress.Web.ASPxEditors.ASPxMemo
+
+    '''<summary>
+    '''btn_editRemark control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents btn_editRemark As Global.DevExpress.Web.ASPxEditors.ASPxButton
 
     '''<summary>
     '''btn_AddQuotation control.

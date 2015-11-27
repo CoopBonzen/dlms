@@ -350,6 +350,9 @@ Public Class CreateQuotation
                 txt_tel.Text = .tel
                 txt_fax.Text = .fax
                 txt_email.Text = .email
+                txt_totalamount.Text = .total_amount
+                memo_remark.Text = .remark
+
                 'code เก่า
                 'memo_remark.Text = .remark
                 'memo_condition.Text = .condition
@@ -377,6 +380,8 @@ Public Class CreateQuotation
             btn_SaveQuotation.Visible = False
             btn_ApproveQuotation.Visible = False
             btn_AddQuotation.Visible = True
+            btn_edit.Enabled = True
+            btn_editRemark.Enabled = True
         End If
     End Sub
 
@@ -613,7 +618,9 @@ Public Class CreateQuotation
                     .quotation_from = txt_from.Text.Trim
                     .bonzen_tel = txt_bonzentel.Text.Trim
                     .bonzen_email = txt_bonzenemail.Text.Trim
-                    .remark = txt_remark.Text.Trim
+                    .remark = memo_remark.Text.Trim
+                    .total_amount = txt_totalamount.Text
+
                     'status
                     .quota_status = QuotationStatusEnum.New
                     'ยังไม่ได้ update Total
@@ -742,7 +749,9 @@ Public Class CreateQuotation
                 .quotation_from = txt_from.Text.Trim
                 .bonzen_tel = txt_bonzentel.Text.Trim
                 .bonzen_email = txt_bonzenemail.Text.Trim
-                .remark = txt_remark.Text.Trim
+                .remark = memo_remark.Text.Trim
+                .total_amount = txt_totalamount.Text
+
                 'ยังไม่ได้ update Total
                 '.total_amount = 
                 '.remark = memo_remark.Text

@@ -368,7 +368,6 @@
                     <dx:ASPxTextBox ID="txt_qFile" runat="server" ClientInstanceName="CIN_txt_qFile"
                         ClientVisible="false">
                     </dx:ASPxTextBox>
-                    
                 </td>
             </tr>
             <tr>
@@ -394,14 +393,14 @@
                                 <DataItemTemplate>
                                     <asp:HyperLink ID="Link" runat="server" NavigateUrl='<%#Eval("link") %>' ForeColor="#6798de"
                                         ToolTip='<%#Eval("filename")%>'><%#Eval("filename")%>
-                                </asp:HyperLink>
+                                    </asp:HyperLink>
                                 </DataItemTemplate>
                             </dx:GridViewDataColumn>
                             <dx:GridViewDataDateColumn FieldName="Q_FileDate" Visible="false" SortOrder="Descending">
                             </dx:GridViewDataDateColumn>
                         </Columns>
                     </dx:ASPxGridView>
-                    <br/>
+                    <br />
                     <dx:ASPxButton ID="btnDeleteSelectedRows" runat="server" OnClick="btnDeleteSelectedRows_Click"
                         Text="Delete selected rows" Width="137px">
                     </dx:ASPxButton>
@@ -412,12 +411,30 @@
     <table>
         <tr>
             <td class="style1">
+                <dx:ASPxLabel ID="ASPxLabel11" runat="server" Text="ราคารวม">
+                </dx:ASPxLabel>
+            </td>
+            <td class="style2">
+                <dx:ASPxTextBox ID="txt_totalamount" runat="server" Width="360px" Height="20px">
+                </dx:ASPxTextBox>
+            </td>
+            <td>
+                <dx:ASPxButton ID="btn_edit" runat="server" Text="Edit">
+                </dx:ASPxButton>
+            </td>
+        </tr>
+        <tr>
+            <td class="style1">
                 <dx:ASPxLabel ID="ASPxLabel15" runat="server" Text="Remark">
                 </dx:ASPxLabel>
             </td>
             <td class="style2">
-                <dx:ASPxTextBox ID="txt_remark" runat="server" Width="360px" Height="20px">
-                </dx:ASPxTextBox>
+                <dx:ASPxMemo ID="memo_remark" runat="server" Height="102px" Width="359px">
+                </dx:ASPxMemo>
+            </td>
+            <td>
+                <dx:ASPxButton ID="btn_editRemark" runat="server" Text="Edit">
+                </dx:ASPxButton>
             </td>
         </tr>
     </table>
