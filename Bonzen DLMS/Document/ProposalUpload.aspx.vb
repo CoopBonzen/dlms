@@ -28,17 +28,18 @@ Public Class ProposalUpload
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         If String.IsNullOrEmpty(Session("Username")) Then Response.Redirect("~/Login.aspx")
 
+        'Dim RequestId = Request.QueryString("pId")
         ProposalCode = Request.QueryString("pId")
 
         lbl_PNo.Text = ProposalCode
         lbl_PCompanyName.Text = GetCompanyBypId(ProposalCode)
-        'gv_PFile.DataBind()
-        'If Not IsPostBack Then
-        '    GetFiles()
-        'End If
-        'Upload
         gv_PFile.DataBind()
-        GetFiles()
+        If Not IsPostBack Then
+            GetFiles()
+        End If
+
+        ulc_ProposalFile.Enabled = IsUserRole(Session("Username"), PrivUploadFileProposal)
+
     End Sub
 
     Public Function GetNextPFileId() As Integer
@@ -85,7 +86,7 @@ Public Class ProposalUpload
                         ctx.ProposalFiles.InsertOnSubmit(propFile)
                         ctx.SubmitChanges()
                     End Using
-                    'Response.Redirect("../Document/ProposalUpload.aspx?pId=" & ProposalCode)
+                    Response.Redirect("../Document/ProposalUpload.aspx?pId=" & ProposalCode)
                 End If
             Next i
         End If

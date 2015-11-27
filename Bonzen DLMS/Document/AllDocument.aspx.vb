@@ -66,6 +66,8 @@ Public Class AllDocument
         If Not IsPostBack Then
             GetFiles(qID:=QuotationCode)
         End If
+
+        'gv_generalAll.Enabled = IsUserRole(Session("Username"), PrivViewQPQ)
     End Sub
 
     Private Sub gv_general_HtmlRowPrepared(ByVal sender As Object, ByVal e As DevExpress.Web.ASPxGridView.ASPxGridViewTableRowEventArgs) Handles gv_generalAll.HtmlRowPrepared

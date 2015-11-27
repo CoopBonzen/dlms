@@ -62,6 +62,10 @@ Public Class SearchDocument
         If Not IsPostBack Then
             GetFiles(qID:=QuotationCode)
         End If
+
+        'เช็คสิทธ
+        gv_general.Enabled = IsUserRole(Session("Username"), PrivViewQPQ)
+        AddNewDocument.Visible = IsUserRole(Session("Username"), PrivAddNewDocument)
     End Sub
 
     Private Sub gv_general_CustomCallback(ByVal sender As Object, ByVal e As DevExpress.Web.ASPxGridView.ASPxGridViewCustomCallbackEventArgs) Handles gv_general.CustomCallback

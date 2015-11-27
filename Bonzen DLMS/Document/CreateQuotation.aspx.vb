@@ -103,6 +103,7 @@ Public Class CreateQuotation
         btn_AddQuotation.Enabled = IsUserRole(Session("Username"), PrivEditQuotation)
         btn_SaveQuotation.Enabled = IsUserRole(Session("Username"), PrivEditQuotation)
         btnDeleteSelectedRows.Enabled = IsUserRole(Session("Username"), PrivDeleteFileQuotation)
+        ulc_QuotationFile.Enabled = IsUserRole(Session("Username"), PrivUploadFileQuotation)
 
         Dim User = Session("Username")
         'ของเก่า
@@ -125,7 +126,8 @@ Public Class CreateQuotation
         lbl_QCompanyName.Text = GetCompanyBygId(QuotationCode)
         gv_QFile.DataBind()
         GetFiles()
-        
+
+
 
     End Sub
 

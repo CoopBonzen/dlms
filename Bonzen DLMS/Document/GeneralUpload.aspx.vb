@@ -38,6 +38,8 @@ Public Class GeneralUpload
         'Upload
         gv_GFile.DataBind()
         GetFiles()
+
+        'ulc_GeneralFile.Enabled = IsUserRole(Session("Username"), PrivUploadFileGeneral)
     End Sub
 
     Public Function GetNextGFileId() As Integer
