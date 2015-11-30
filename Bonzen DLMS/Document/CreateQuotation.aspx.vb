@@ -7,6 +7,7 @@ Imports DevExpress.Web.ASPxGridView
 Imports DevExpress.Web.ASPxUploadControl
 Imports System.IO
 Imports System.Web.Configuration
+Imports DevExpress.Web.ASPxPopupControl
 
 Public Class CreateQuotation
     Inherits System.Web.UI.Page
@@ -126,7 +127,6 @@ Public Class CreateQuotation
         lbl_QCompanyName.Text = GetCompanyBygId(QuotationCode)
         gv_QFile.DataBind()
         GetFiles()
-
 
 
     End Sub
@@ -343,6 +343,12 @@ Public Class CreateQuotation
             btn_AddQuotation.Visible = False
             btn_SaveQuotation.Visible = True
             btn_ApproveQuotation.Visible = True
+            btn_edit.Enabled = True
+            btn_editRemark.Enabled = True
+            btnDeleteSelectedRows.Enabled = True
+            txt_totalamount.ClientEnabled = False
+            memo_remark.ClientEnabled = False
+            'memo_remark.BackColor = Drawing.Color.LightGray
             With quota
                 QuotationID = .Quota_ID
                 cmb_company.Text = .company_name
@@ -357,31 +363,36 @@ Public Class CreateQuotation
                 'memo_remark.Text = .remark
                 'memo_condition.Text = .condition
 
-                Using ctx = New DlmsDataContext
-                    Dim quota_item As New List(Of QuotationItem)
-                    Dim subDataList As New List(Of String)
-                    quota_item = (From qi In ctx.QuotationItems Where qi.Quota_ID = .Quota_ID).ToList
-                    For Each i In quota_item
-                        Dim q_DescriptionSub As New QuotationDescriptionSub
-                        With q_DescriptionSub
-                            .ID_Q_Detail_Main = i.QuotationDescriptionSub.ID_Q_Detail_Main
-                            .ID_Q_Detail_Sub = i.ID_Q_Detail_Sub
-                            .Q_Detail_Sub = i.QuotationDescriptionSub.Q_Detail_Sub
-                            .Price = i.price
-                        End With
-                        subDataList.Add(StrDetailData(q_DescriptionSub, i.unit))
-                    Next
-                    'code เก่า
-                    'txt_subData.Text = String.Join(";", subDataList)
-                    'gv_addmodule_DataBind()
-                End Using
+                'Using ctx = New DlmsDataContext
+                '    Dim quota_item As New List(Of QuotationItem)
+                '    Dim subDataList As New List(Of String)
+                '    quota_item = (From qi In ctx.QuotationItems Where qi.Quota_ID = .Quota_ID).ToList
+                '    For Each i In quota_item
+                '        Dim q_DescriptionSub As New QuotationDescriptionSub
+                '        With q_DescriptionSub
+                '            .ID_Q_Detail_Main = i.QuotationDescriptionSub.ID_Q_Detail_Main
+                '            .ID_Q_Detail_Sub = i.ID_Q_Detail_Sub
+                '            .Q_Detail_Sub = i.QuotationDescriptionSub.Q_Detail_Sub
+                '            .Price = i.price
+                '        End With
+                '        subDataList.Add(StrDetailData(q_DescriptionSub, i.unit))
+                '    Next
+                '    'code เก่า
+                '    'txt_subData.Text = String.Join(";", subDataList)
+                '    'gv_addmodule_DataBind()
+                'End Using
             End With
         Else
             btn_SaveQuotation.Visible = False
             btn_ApproveQuotation.Visible = False
             btn_AddQuotation.Visible = True
-            btn_edit.Enabled = True
-            btn_editRemark.Enabled = True
+            btn_edit.Enabled = False
+            btn_editRemark.Enabled = False
+            btnDeleteSelectedRows.Enabled = False
+            txt_totalamount.ClientEnabled = True
+            txt_totalamount.BackColor = Drawing.Color.White
+            memo_remark.ClientEnabled = True
+            memo_remark.BackColor = Drawing.Color.White
         End If
     End Sub
 
@@ -441,13 +452,13 @@ Public Class CreateQuotation
     '    End If
     'End Sub
 
-    Private Function StrDetailData(ByVal quosub As QuotationDescriptionSub, Optional ByVal unit As Decimal = 1) As String
-        If quosub IsNot Nothing Then
-            Return quosub.ID_Q_Detail_Sub & "|" & GetMainDetailById(quosub.ID_Q_Detail_Main) & "|" & quosub.Q_Detail_Sub & "|" & quosub.Price & "|" & unit
-        Else
-            Return String.Empty
-        End If
-    End Function
+    'Private Function StrDetailData(ByVal quosub As QuotationDescriptionSub, Optional ByVal unit As Decimal = 1) As String
+    '    If quosub IsNot Nothing Then
+    '        Return quosub.ID_Q_Detail_Sub & "|" & GetMainDetailById(quosub.ID_Q_Detail_Main) & "|" & quosub.Q_Detail_Sub & "|" & quosub.Price & "|" & unit
+    '    Else
+    '        Return String.Empty
+    '    End If
+    'End Function
 
     Private Function GetQuotationDate(ByVal qId As String) As String
         Using ctx As New DlmsDataContext
@@ -469,32 +480,31 @@ Public Class CreateQuotation
     '    Return String.Empty
     'End Function
 
-    Public Function GetQuotationSubList() As List(Of QuotationDescriptionSub)
-        Using ctx As New DlmsDataContext
-            Dim subList As List(Of QuotationDescriptionSub) = (From s In ctx.QuotationDescriptionSubs).ToList
-            Return subList
-        End Using
-    End Function
+    'Public Function GetQuotationSubList() As List(Of QuotationDescriptionSub)
+    '    Using ctx As New DlmsDataContext
+    '        Dim subList As List(Of QuotationDescriptionSub) = (From s In ctx.QuotationDescriptionSubs).ToList
+    '        Return subList
+    '    End Using
+    'End Function
 
-    Public Function GetQuotationSubListById(ByVal subId As Integer) As QuotationDescriptionSub
-        Using ctx As New DlmsDataContext
-            Dim quotSub As QuotationDescriptionSub = (From s In ctx.QuotationDescriptionSubs _
-                                                      Where s.ID_Q_Detail_Sub = subId).SingleOrDefault
-            Return quotSub
-        End Using
-    End Function
+    'Public Function GetQuotationSubListById(ByVal subId As Integer) As QuotationDescriptionSub
+    '    Using ctx As New DlmsDataContext
+    '        Dim quotSub As QuotationDescriptionSub = (From s In ctx.QuotationDescriptionSubs _
+    '                                                  Where s.ID_Q_Detail_Sub = subId).SingleOrDefault
+    '        Return quotSub
+    '    End Using
+    'End Function
 
-    Public Function GetMainDetailById(ByVal MainId As Integer) As String
-        Using ctx As New DlmsDataContext
-            Dim MainDetail As String = (From s In ctx.QuotationDescriptions _
-                                        Where s.ID_Q_Detail_Main = MainId _
-                                        Select s.Q_Detail_Main _
-                                        ).SingleOrDefault
-            Return MainDetail
-        End Using
-    End Function
+    'Public Function GetMainDetailById(ByVal MainId As Integer) As String
+    '    Using ctx As New DlmsDataContext
+    '        Dim MainDetail As String = (From s In ctx.QuotationDescriptions _
+    '                                    Where s.ID_Q_Detail_Main = MainId _
+    '                                    Select s.Q_Detail_Main _
+    '                                    ).SingleOrDefault
+    '        Return MainDetail
+    '    End Using
+    'End Function
 
-    'code เก่า
     'Public Function GetDetailSubList() As DataTable
     '    Dim strDetailDataList As List(Of String) = strAddedDetailSubList
     '    Dim dt As New DataTable
@@ -619,7 +629,11 @@ Public Class CreateQuotation
                     .bonzen_tel = txt_bonzentel.Text.Trim
                     .bonzen_email = txt_bonzenemail.Text.Trim
                     .remark = memo_remark.Text.Trim
-                    .total_amount = txt_totalamount.Text
+                    If txt_totalamount.Text.Trim = String.Empty Then
+                        .total_amount = 0.0
+                    Else
+                        .total_amount = txt_totalamount.Text
+                    End If
 
                     'status
                     .quota_status = QuotationStatusEnum.New
@@ -637,6 +651,8 @@ Public Class CreateQuotation
                 btn_AddQuotation.Visible = False
                 btn_SaveQuotation.Visible = True
                 btn_ApproveQuotation.Visible = True
+                btn_edit.Enabled = False
+                btn_editRemark.Enabled = False
 
                 QuotationID = nextId
             Catch ex As Exception
@@ -750,7 +766,11 @@ Public Class CreateQuotation
                 .bonzen_tel = txt_bonzentel.Text.Trim
                 .bonzen_email = txt_bonzenemail.Text.Trim
                 .remark = memo_remark.Text.Trim
-                .total_amount = txt_totalamount.Text
+                If txt_totalamount.Text.Trim = String.Empty Then
+                    .total_amount = 0.0
+                Else
+                    .total_amount = txt_totalamount.Text
+                End If
 
                 'ยังไม่ได้ update Total
                 '.total_amount = 
@@ -760,6 +780,7 @@ Public Class CreateQuotation
             ctx.SubmitChanges()
             'UpdateQuotationItem()
             UpdateCompanyAndAttnInQuotationProposal(quotationNo, companyName, attnName)
+            pop_Update.ShowOnPageLoad = True
         End Using
         GetFiles()
     End Sub
@@ -831,41 +852,34 @@ Public Class CreateQuotation
     End Sub
 
     Private Sub SetApprove(ByVal RequestQId As String)
+        Dim quota As New Quotation
         Dim ctx As New DlmsDataContext
-        Dim Approve = (From g In ctx.Quotations Where g.quotation_no = RequestQId).SingleOrDefault
-        If Approve.quota_status = 1 Then
-            btnDeleteSelectedRows.Enabled = True
-            btn_ApproveQuotation.Enabled = True
-            btn_SaveQuotation.Enabled = True
-            cmb_company.Enabled = True
-            txt_quotation.Enabled = True
-            cmb_attn.Enabled = True
-            dte_quotationDate.Enabled = True
-            txt_tel.Enabled = True
-            txt_from.Enabled = True
-            txt_fax.Enabled = True
-            txt_bonzentel.Enabled = True
-            txt_email.Enabled = True
-            txt_bonzenemail.Enabled = True
-            ulc_QuotationFile.Enabled = True
-
-        Else
-            btnDeleteSelectedRows.Enabled = False
-            btn_ApproveQuotation.Enabled = False
-            btn_SaveQuotation.Enabled = False
-            cmb_company.Enabled = False
-            txt_quotation.Enabled = False
-            cmb_attn.Enabled = False
-            dte_quotationDate.Enabled = False
-            txt_tel.Enabled = False
-            txt_from.Enabled = False
-            txt_fax.Enabled = False
-            txt_bonzentel.Enabled = False
-            txt_email.Enabled = False
-            txt_bonzenemail.Enabled = False
-            ulc_QuotationFile.Enabled = False
+        quota = chkQuotationByNO(RequestQId)
+        If quota IsNot Nothing Then
+            Dim Approve = (From g In ctx.Quotations Where g.quotation_no = RequestQId).SingleOrDefault
+            If Approve.quota_status = 2 Then
+                btnDeleteSelectedRows.Enabled = False
+                btn_ApproveQuotation.Enabled = False
+                btn_SaveQuotation.Enabled = False
+                cmb_company.Enabled = False
+                txt_quotation.Enabled = False
+                cmb_attn.Enabled = False
+                dte_quotationDate.Enabled = False
+                txt_tel.Enabled = False
+                txt_from.Enabled = False
+                txt_fax.Enabled = False
+                txt_bonzentel.Enabled = False
+                txt_email.Enabled = False
+                txt_bonzenemail.Enabled = False
+                ulc_QuotationFile.Enabled = False
+                btn_edit.Enabled = False
+                btn_editRemark.Enabled = False
+                txt_totalamount.ClientEnabled = False
+                memo_remark.ClientEnabled = False
+                btn_edit.Enabled = False
+                btn_editRemark.Enabled = False
+            End If
         End If
     End Sub
-
 
 End Class

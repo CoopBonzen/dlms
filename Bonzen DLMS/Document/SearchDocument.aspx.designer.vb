@@ -86,6 +86,42 @@ Partial Public Class SearchDocument
     Protected WithEvents gv_QFile As Global.DevExpress.Web.ASPxGridView.ASPxGridView
 
     '''<summary>
+    '''lbl_Total control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lbl_Total As Global.DevExpress.Web.ASPxEditors.ASPxLabel
+
+    '''<summary>
+    '''lbl_QTotal control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lbl_QTotal As Global.DevExpress.Web.ASPxEditors.ASPxLabel
+
+    '''<summary>
+    '''lbl_Remark control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lbl_Remark As Global.DevExpress.Web.ASPxEditors.ASPxLabel
+
+    '''<summary>
+    '''lbl_QRemarke control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lbl_QRemarke As Global.DevExpress.Web.ASPxEditors.ASPxLabel
+
+    '''<summary>
     '''gv_quotationProposal control.
     '''</summary>
     '''<remarks>

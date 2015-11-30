@@ -292,6 +292,38 @@ gv_QFile control.
 Auto-generated field.
 To modify move field declaration from designer file to code-behind file.
 </remarks>
+</member><member name="F:Bonzen_DLMS.SearchDocument.lbl_Total">
+	<summary>
+lbl_Total control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Bonzen_DLMS.SearchDocument.lbl_QTotal">
+	<summary>
+lbl_QTotal control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Bonzen_DLMS.SearchDocument.lbl_Remark">
+	<summary>
+lbl_Remark control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Bonzen_DLMS.SearchDocument.lbl_QRemarke">
+	<summary>
+lbl_QRemarke control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
 </member><member name="F:Bonzen_DLMS.SearchDocument.gv_quotationProposal">
 	<summary>
 gv_quotationProposal control.
@@ -503,6 +535,38 @@ To modify move field declaration from designer file to code-behind file.
 </member><member name="F:Bonzen_DLMS.AllDocument.gv_QFile">
 	<summary>
 gv_QFile control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Bonzen_DLMS.AllDocument.lbl_Total">
+	<summary>
+lbl_Total control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Bonzen_DLMS.AllDocument.lbl_QTotal">
+	<summary>
+lbl_QTotal control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Bonzen_DLMS.AllDocument.lbl_Remark">
+	<summary>
+lbl_Remark control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Bonzen_DLMS.AllDocument.lbl_QRemarke">
+	<summary>
+lbl_QRemarke control.
 </summary>
 	<remarks>
 Auto-generated field.
@@ -1067,6 +1131,22 @@ To modify move field declaration from designer file to code-behind file.
  คลาสสำหรับช่วยจัดการเกี่ยวกับการเรียงลำดับข้อมูล (การ set ค่าในคอลัมน์ display order)
  </summary>
 	<remarks></remarks>
+</member><member name="F:Bonzen_DLMS.CreateQuotation.pop_Update">
+	<summary>
+pop_Update control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Bonzen_DLMS.CreateQuotation.ASPxLabelPopUp">
+	<summary>
+ASPxLabelPopUp control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
 </member><member name="F:Bonzen_DLMS.CreateQuotation.cbp_company">
 	<summary>
 cbp_company control.
@@ -1843,9 +1923,9 @@ cbb_QId control.
 Auto-generated field.
 To modify move field declaration from designer file to code-behind file.
 </remarks>
-</member><member name="F:Bonzen_DLMS.AddNewDocument.sds_Quotation">
+</member><member name="F:Bonzen_DLMS.AddNewDocument.lds_Quotation">
 	<summary>
-sds_Quotation control.
+lds_Quotation control.
 </summary>
 	<remarks>
 Auto-generated field.

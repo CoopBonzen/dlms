@@ -176,10 +176,16 @@ Public Class AllDocument
 
     Private Sub cbp_PreviewQuotation_Callback(ByVal sender As Object, ByVal e As DevExpress.Web.ASPxClasses.CallbackEventArgsBase) Handles cbp_PreviewQuotation.Callback
         If Not e.Parameter Is Nothing Then
+            Dim quota As New Quotation
             Dim qID = e.Parameter
+            quota = chkQuotationByNO(qID)
+            With quota
+                lbl_QNo.Text = .quotation_no
+                lbl_QCompanyName.Text = GetCompanyBygId(qID)
+                lbl_QTotal.Text = .total_amount
+                lbl_QRemarke.Text = .remark
+            End With
             QuotationCode = qID
-            lbl_QNo.Text = qID
-            lbl_QCompanyName.Text = GetCompanyBygId(qID)
             GetFiles(qID)
             gv_QFile.DataBind()
 
@@ -188,11 +194,19 @@ Public Class AllDocument
         End If
     End Sub
 
-    Public Function GetNextQFileId() As Integer
-        Dim ctx As New DlmsDataContext
-        Dim nextId As Integer = (From qf In ctx.QuotationFiles Select CType(qf.Q_FileID, Integer?)).Max.GetValueOrDefault + 1
-        Return nextId
+    Public Function chkQuotationByNO(ByVal qno As String) As Quotation
+        Dim quotation As New Quotation
+        Using ctx = New DlmsDataContext
+            quotation = (From q In ctx.Quotations Where q.quotation_no = qno).SingleOrDefault
+        End Using
+        Return quotation
     End Function
+
+    'Public Function GetNextQFileId() As Integer
+    '    Dim ctx As New DlmsDataContext
+    '    Dim nextId As Integer = (From qf In ctx.QuotationFiles Select CType(qf.Q_FileID, Integer?)).Max.GetValueOrDefault + 1
+    '    Return nextId
+    'End Function
 
     Public Function GetCompanyBygId(ByVal qID As String)
         Using ctx As New DlmsDataContext

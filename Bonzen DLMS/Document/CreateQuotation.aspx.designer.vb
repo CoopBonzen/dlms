@@ -14,6 +14,24 @@ Option Explicit On
 Partial Public Class CreateQuotation
 
     '''<summary>
+    '''pop_Update control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents pop_Update As Global.DevExpress.Web.ASPxPopupControl.ASPxPopupControl
+
+    '''<summary>
+    '''ASPxLabelPopUp control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents ASPxLabelPopUp As Global.DevExpress.Web.ASPxEditors.ASPxLabel
+
+    '''<summary>
     '''cbp_company control.
     '''</summary>
     '''<remarks>

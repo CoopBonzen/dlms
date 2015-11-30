@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <publishData>
-  <publishProfile publishUrl="D:\Publish_DLMS\DLMS_2015-11-27" deleteExistingFiles="False" ftpAnonymousLogin="False" ftpPassiveMode="True" msdeploySite="" msdeploySiteID="" msdeployRemoteSitePhysicalPath="" msdeployAllowUntrustedCertificate="False" msdeploySkipExtraFilesOnServer="True" msdeployMarkAsApp="False" profileName="DLMS" publishMethod="FileSystem" replaceMatchingFiles="True" userName="" savePWD="False" userPWD="" SelectedForPublish="True">
+  <publishProfile publishUrl="D:\Publish_DLMS\DLMS_2015-11-30v2" deleteExistingFiles="False" ftpAnonymousLogin="False" ftpPassiveMode="True" msdeploySite="" msdeploySiteID="" msdeployRemoteSitePhysicalPath="" msdeployAllowUntrustedCertificate="False" msdeploySkipExtraFilesOnServer="True" msdeployMarkAsApp="False" profileName="DLMS" publishMethod="FileSystem" replaceMatchingFiles="True" userName="" savePWD="False" userPWD="" SelectedForPublish="True">
     <file relUrl="Default.aspx" publishTime="10/26/2015 20:44:30" />
     <file relUrl="ManageCompany/ManageCompany.aspx" publishTime="10/26/2015 20:44:30" />
     <file relUrl="Content/bootstrap.min.css" publishTime="10/26/2015 20:44:30" />
@@ -9,22 +9,22 @@
     <file relUrl="Document/Upload.aspx" publishTime="10/26/2015 20:44:30" />
     <file relUrl="Images/td_out.png" publishTime="10/26/2015 20:44:30" />
     <file relUrl="Images/logout.png" publishTime="10/26/2015 20:44:30" />
-    <file relUrl="Document/CreateQuotation.aspx" publishTime="11/26/2015 16:08:15" />
-    <file relUrl="Document/SearchDocument.aspx" publishTime="11/26/2015 16:08:15" />
+    <file relUrl="Document/CreateQuotation.aspx" publishTime="11/30/2015 16:15:04" />
+    <file relUrl="Document/SearchDocument.aspx" publishTime="11/30/2015 16:29:09" />
     <file relUrl="Document/GeneralUpload.aspx" publishTime="11/25/2015 16:51:28" />
     <file relUrl="Scripts/WebForms/MSAjax/MicrosoftAjaxGlobalization.js" publishTime="10/26/2015 20:44:30" />
-    <file relUrl="UserControl/AddNewDocument.ascx" publishTime="11/19/2015 17:00:32" />
+    <file relUrl="UserControl/AddNewDocument.ascx" publishTime="11/30/2015 16:33:54" />
     <file relUrl="Global.asax" publishTime="10/26/2015 20:44:30" />
     <file relUrl="Manage/ManageUser.aspx" publishTime="10/26/2015 20:44:30" />
     <file relUrl="Scripts/WebForms/MSAjax/MicrosoftAjax.js" publishTime="10/26/2015 20:44:30" />
-    <file relUrl="bin/Bonzen DLMS.dll" publishTime="11/27/2015 10:04:09" />
+    <file relUrl="bin/Bonzen DLMS.dll" publishTime="11/30/2015 16:42:00" />
     <file relUrl="Login.aspx" publishTime="10/26/2015 20:44:30" />
     <file relUrl="Scripts/WebForms/MSAjax/MicrosoftAjaxComponentModel.js" publishTime="10/26/2015 20:44:30" />
     <file relUrl="Images/disk.png" publishTime="10/26/2015 20:44:30" />
     <file relUrl="Images/edit.png" publishTime="10/26/2015 20:44:30" />
     <file relUrl="Scripts/respond.js" publishTime="10/26/2015 20:44:30" />
     <file relUrl="Scripts/WebForms/MSAjax/MicrosoftAjaxNetwork.js" publishTime="10/26/2015 20:44:30" />
-    <file relUrl="bin/Bonzen DLMS.pdb" publishTime="11/27/2015 10:04:09" />
+    <file relUrl="bin/Bonzen DLMS.pdb" publishTime="11/30/2015 16:42:00" />
     <file relUrl="Scripts/WebForms/MenuStandards.js" publishTime="10/26/2015 20:44:30" />
     <file relUrl="Scripts/jquery-1.4.1.min.js" publishTime="10/26/2015 20:44:30" />
     <file relUrl="Content/bootstrap.css" publishTime="10/26/2015 20:44:30" />
@@ -50,7 +50,7 @@
     <file relUrl="Scripts/WebForms/TreeView.js" publishTime="10/26/2015 20:44:30" />
     <file relUrl="Site.Master" publishTime="10/26/2015 20:44:30" />
     <file relUrl="Scripts/bootstrap.js" publishTime="10/26/2015 20:44:30" />
-    <file relUrl="Web.config" publishTime="11/27/2015 10:04:20" />
+    <file relUrl="Web.config" publishTime="11/30/2015 16:36:59" />
     <file relUrl="Scripts/WebForms/MSAjax/MicrosoftAjaxTimer.js" publishTime="10/26/2015 20:44:30" />
     <file relUrl="Scripts/WebForms/WebParts.js" publishTime="10/26/2015 20:44:30" />
     <file relUrl="Scripts/WebForms/MSAjax/MicrosoftAjaxWebForms.js" publishTime="10/26/2015 20:44:30" />
@@ -67,8 +67,8 @@
     <file relUrl="Scripts/WebForms/SmartNav.js" publishTime="10/26/2015 20:44:30" />
     <file relUrl="Preview/PreviewControl.ascx" publishTime="11/25/2015 17:38:29" />
     <file relUrl="Scripts/_references.js" publishTime="10/26/2015 20:44:30" />
-    <file relUrl="Document/AllDocument.aspx" publishTime="11/26/2015 16:08:14" />
-    <file relUrl="bin/Bonzen DLMS.xml" publishTime="11/27/2015 10:04:09" />
+    <file relUrl="Document/AllDocument.aspx" publishTime="11/30/2015 16:23:12" />
+    <file relUrl="bin/Bonzen DLMS.xml" publishTime="11/30/2015 16:42:00" />
     <file relUrl="Scripts/respond.min.js" publishTime="10/26/2015 20:44:30" />
     <file relUrl="Images/QShot_0001.jpg" publishTime="10/26/2015 20:44:30" />
     <file relUrl="Scripts/WebForms/MSAjax/MicrosoftAjaxApplicationServices.js" publishTime="10/26/2015 20:44:30" />
