@@ -1,6 +1,7 @@
 ﻿Imports DevExpress.Web.ASPxGridView
 Imports DevExpress.Web.ASPxEditors
 Imports System.Web.Configuration
+Imports DevExpress.Web.ASPxClasses.Internal
 
 Public Class AllDocument
     Inherits System.Web.UI.Page
@@ -54,37 +55,69 @@ Public Class AllDocument
 
         user = DataAccess.GetUserByUsername(username)
 
+        'เช็ดสิทธิ์
+        'gv_generalAll.Enabled = IsUserRole(Session("Username"), PrivViewQPQ)
+        'gv_quotationProposalAll.Enabled = IsUserRole(Session("Username"), PrivViewQPQ)
+
+
         'user.user_group_id
         Dim aa = QuotationStatusEnum.New
-
-        'pop-up
-        'QuotationCode = Request.QueryString("qId")
-
         'lbl_QNo.Text = QuotationCode
         'lbl_QCompanyName.Text = GetCompanyBygId(QuotationCode)
         'gv_QFile.DataBind()
         If Not IsPostBack Then
+
             GetFiles(qID:=QuotationCode)
         End If
 
-        'gv_generalAll.Enabled = IsUserRole(Session("Username"), PrivViewQPQ)
+
     End Sub
 
     Private Sub gv_general_HtmlRowPrepared(ByVal sender As Object, ByVal e As DevExpress.Web.ASPxGridView.ASPxGridViewTableRowEventArgs) Handles gv_generalAll.HtmlRowPrepared
         If e.RowType = GridViewRowType.Data Then
             With CType(sender, ASPxGridView)
-                Dim hpl_G_ID As DevExpress.Web.ASPxEditors.ASPxHyperLink = CType(.FindRowCellTemplateControl(e.VisibleIndex, .Columns("G_ID"), "hpl_G_ID"), DevExpress.Web.ASPxEditors.ASPxHyperLink)
-                If hpl_G_ID IsNot Nothing Then hpl_G_ID.ClientSideEvents.Click = "function(s, e) {window.location = 'GeneralUpload.aspx?G_Id=" & e.GetValue("G_ID") & "';}"
+                'Dim hpl_G_ID As DevExpress.Web.ASPxEditors.ASPxHyperLink = CType(.FindRowCellTemplateControl(e.VisibleIndex, .Columns("G_ID"), "hpl_G_ID"), DevExpress.Web.ASPxEditors.ASPxHyperLink)
+                Dim lnk_GId As LinkButton = CType(.FindRowCellTemplateControl(e.VisibleIndex, .Columns("G_ID"), "lnk_GId"), LinkButton)
+                Dim username = Session("Username")
+                If lnk_GId IsNot Nothing Then
+                    If Not IsUserRole(username, PrivViewQPQ) Then
+                        lnk_GId.Enabled = False
+                    End If
+                End If
             End With
+        End If
+    End Sub
+
+    Private Sub gv_quotationProposalAll_CommandButtonInitialize(ByVal sender As Object, ByVal e As DevExpress.Web.ASPxGridView.ASPxGridViewCommandButtonEventArgs) Handles gv_quotationProposalAll.CommandButtonInitialize
+        If e.ButtonType = ColumnCommandButtonType.Edit Then
+            Dim username = Session("Username")
+            If IsUserRole(username, PrivViewQPQ) Then
+                e.Enabled = True
+            Else
+                e.Enabled = False
+            End If
+        End If
+    End Sub
+
+    Private Sub gv_generalAll_CommandButtonInitialize(ByVal sender As Object, ByVal e As DevExpress.Web.ASPxGridView.ASPxGridViewCommandButtonEventArgs) Handles gv_generalAll.CommandButtonInitialize
+        If e.ButtonType = ColumnCommandButtonType.Edit Then
+            Dim username = Session("Username")
+            If IsUserRole(username, PrivViewQPQ) Then
+                e.Enabled = True
+            Else
+                e.Enabled = False
+            End If
         End If
     End Sub
 
     Private Sub gv_quotationProposal_CustomCallback(ByVal sender As Object, ByVal e As DevExpress.Web.ASPxGridView.ASPxGridViewCustomCallbackEventArgs) Handles gv_quotationProposalAll.CustomCallback
         gv_quotationProposalAll.DataBind()
+
     End Sub
 
     Private Sub gv_generalAll_CustomCallback(ByVal sender As Object, ByVal e As DevExpress.Web.ASPxGridView.ASPxGridViewCustomCallbackEventArgs) Handles gv_generalAll.CustomCallback
         gv_generalAll.DataBind()
+        'gv_generalAll.Enabled = IsUserRole(Session("Username"), PrivViewQPQ)
     End Sub
 
     Protected Sub ListItem_Command(ByVal sender As Object, ByVal e As CommandEventArgs)
@@ -118,10 +151,26 @@ Public Class AllDocument
     'pop-up
     Private Sub gv_quotationProposalAll_HtmlRowPrepared(ByVal sender As Object, ByVal e As DevExpress.Web.ASPxGridView.ASPxGridViewTableRowEventArgs) Handles gv_quotationProposalAll.HtmlRowPrepared
         Dim btn_PreviewQuotation As ASPxButton = CType(gv_quotationProposalAll.FindRowCellTemplateControl(e.VisibleIndex, gv_quotationProposalAll.Columns("Preview"), "btn_PreviewQuotation"), ASPxButton)
+
         If btn_PreviewQuotation IsNot Nothing Then
             'Dim aa = e.GetValue("Q_ID")
             btn_PreviewQuotation.ClientSideEvents.Click = "function(s, e) { CIN_pop_PreviewQuotation.Show();" & _
                                                                            " CIN_cbp_PreviewQuotation.PerformCallback('" & e.GetValue("Q_ID") & "');}"
+        End If
+
+        If e.RowType = GridViewRowType.Data Then
+            With CType(sender, ASPxGridView)
+                Dim lnk_QId As LinkButton = CType(.FindRowCellTemplateControl(e.VisibleIndex, .Columns("Q_ID"), "lnk_QId"), LinkButton)
+                Dim lnk_PId As LinkButton = CType(.FindRowCellTemplateControl(e.VisibleIndex, .Columns("P_ID"), "lnk_PId"), LinkButton)
+                Dim username = Session("Username")
+                If lnk_QId IsNot Nothing Then
+                    If Not IsUserRole(username, PrivViewQPQ) Then
+                        lnk_QId.Enabled = False
+                        lnk_PId.Enabled = False
+                        btn_PreviewQuotation.Enabled = False
+                    End If
+                End If
+            End With
         End If
     End Sub
 
@@ -155,7 +204,7 @@ Public Class AllDocument
     End Function
 
 
-    Public Sub GetFiles(qID)
+    Public Sub GetFiles(ByVal qID)
         Dim dt As New DataTable
         dt.Columns.Add("Q_FileID", GetType(String))
         dt.Columns.Add("filename", GetType(String))

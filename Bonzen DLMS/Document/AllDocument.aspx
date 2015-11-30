@@ -133,7 +133,7 @@
                     </table>
                     <dx:ASPxGridView ID="gv_quotationProposalAll" runat="server" AutoGenerateColumns="False"
                         ClientInstanceName="CIN_gv_quotationProposalAll" DataSourceID="Quo_Prop" KeyFieldName="Q_ID"
-                        Width="888px" Style="text-align: center">
+                        Width="888px" Style="text-align: center" Enabled="True">
                         <Columns>
                     <dx:GridViewDataTextColumn Caption="หมายเลข Quotation" FieldName="Q_ID" ReadOnly="True"
                         VisibleIndex="0" CellStyle-HorizontalAlign="Center" Width="8%" SortOrder="Descending">
@@ -141,7 +141,7 @@
                         </EditCellStyle>
                         <DataItemTemplate>
                             <asp:linkbutton id="lnk_QId" runat="server" text='<%# Eval("Q_ID") %>' commandname="OpenCreateQuotation"
-                                commandargument='<%# Eval("Q_ID") %>' oncommand="ListItem_Command">
+                                commandargument='<%# Eval("Q_ID") %>' oncommand="ListItem_Command" Enabled="True">
                             </asp:linkbutton>
                         </DataItemTemplate>
                         <EditItemTemplate>

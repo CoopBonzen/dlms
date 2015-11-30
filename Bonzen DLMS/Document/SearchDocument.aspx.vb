@@ -2,6 +2,7 @@
 Imports Bonzen_DLMS.DataAccessModule
 Imports System.Web.Configuration
 Imports DevExpress.Web.ASPxEditors
+Imports DevExpress.Web.ASPxClasses.Internal
 
 Public Class SearchDocument
     Inherits System.Web.UI.Page
@@ -64,7 +65,8 @@ Public Class SearchDocument
         End If
 
         'เช็คสิทธ
-        gv_general.Enabled = IsUserRole(Session("Username"), PrivViewQPQ)
+        'gv_quotationProposal.Enabled = IsUserRole(Session("Username"), PrivViewQPQ)
+        'gv_general.Enabled = IsUserRole(Session("Username"), PrivViewQPQ)
         AddNewDocument.Visible = IsUserRole(Session("Username"), PrivAddNewDocument)
     End Sub
 
@@ -82,8 +84,16 @@ Public Class SearchDocument
     Private Sub gv_general_HtmlRowPrepared(ByVal sender As Object, ByVal e As DevExpress.Web.ASPxGridView.ASPxGridViewTableRowEventArgs) Handles gv_general.HtmlRowPrepared
         If e.RowType = GridViewRowType.Data Then
             With CType(sender, ASPxGridView)
-                Dim hpl_G_ID As DevExpress.Web.ASPxEditors.ASPxHyperLink = CType(.FindRowCellTemplateControl(e.VisibleIndex, .Columns("G_ID"), "hpl_G_ID"), DevExpress.Web.ASPxEditors.ASPxHyperLink)
-                If hpl_G_ID IsNot Nothing Then hpl_G_ID.ClientSideEvents.Click = "function(s, e) {window.location = 'GeneralUpload.aspx?G_Id=" & e.GetValue("G_ID") & "';}"
+                'Dim hpl_G_ID As DevExpress.Web.ASPxEditors.ASPxHyperLink = CType(.FindRowCellTemplateControl(e.VisibleIndex, .Columns("G_ID"), "hpl_G_ID"), DevExpress.Web.ASPxEditors.ASPxHyperLink)
+                'If hpl_G_ID IsNot Nothing Then hpl_G_ID.ClientSideEvents.Click = "function(s, e) {window.location = 'GeneralUpload.aspx?G_Id=" & e.GetValue("G_ID") & "';}"
+
+                Dim lnk_GId As LinkButton = CType(.FindRowCellTemplateControl(e.VisibleIndex, .Columns("G_ID"), "lnk_GId"), LinkButton)
+                Dim username = Session("Username")
+                If lnk_GId IsNot Nothing Then
+                    If Not IsUserRole(username, PrivViewQPQ) Then
+                        lnk_GId.Enabled = False
+                    End If
+                End If
             End With
         End If
     End Sub
@@ -111,6 +121,44 @@ Public Class SearchDocument
         If btn_PreviewQuotation IsNot Nothing Then
             btn_PreviewQuotation.ClientSideEvents.Click = "function(s, e) { CIN_pop_PreviewQuotation.Show();" & _
                                                                            " CIN_cbp_PreviewQuotation.PerformCallback('" & e.GetValue("Q_ID") & "');}"
+        End If
+
+        If e.RowType = GridViewRowType.Data Then
+            With CType(sender, ASPxGridView)
+                Dim lnk_QId As LinkButton = CType(.FindRowCellTemplateControl(e.VisibleIndex, .Columns("Q_ID"), "lnk_QId"), LinkButton)
+                Dim lnk_PId As LinkButton = CType(.FindRowCellTemplateControl(e.VisibleIndex, .Columns("P_ID"), "lnk_PId"), LinkButton)
+
+                Dim username = Session("Username")
+                If lnk_QId IsNot Nothing Then
+                    If Not IsUserRole(username, PrivViewQPQ) Then
+                        lnk_QId.Enabled = False
+                        lnk_PId.Enabled = False
+                        btn_PreviewQuotation.Enabled = False
+                    End If
+                End If
+            End With
+        End If
+    End Sub
+
+    Private Sub gv_quotationProposal_CommandButtonInitialize(ByVal sender As Object, ByVal e As DevExpress.Web.ASPxGridView.ASPxGridViewCommandButtonEventArgs) Handles gv_quotationProposal.CommandButtonInitialize
+        If e.ButtonType = ColumnCommandButtonType.Edit Then
+            Dim username = Session("Username")
+            If IsUserRole(username, PrivViewQPQ) Then
+                e.Enabled = True
+            Else
+                e.Enabled = False
+            End If
+        End If
+    End Sub
+
+    Private Sub gv_general_CommandButtonInitialize(ByVal sender As Object, ByVal e As DevExpress.Web.ASPxGridView.ASPxGridViewCommandButtonEventArgs) Handles gv_general.CommandButtonInitialize
+        If e.ButtonType = ColumnCommandButtonType.Edit Then
+            Dim username = Session("Username")
+            If IsUserRole(username, PrivViewQPQ) Then
+                e.Enabled = True
+            Else
+                e.Enabled = False
+            End If
         End If
     End Sub
 

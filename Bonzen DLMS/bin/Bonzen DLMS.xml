@@ -1347,6 +1347,30 @@ btnDeleteSelectedRows control.
 Auto-generated field.
 To modify move field declaration from designer file to code-behind file.
 </remarks>
+</member><member name="F:Bonzen_DLMS.CreateQuotation.ASPxLabel11">
+	<summary>
+ASPxLabel11 control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Bonzen_DLMS.CreateQuotation.txt_totalamount">
+	<summary>
+txt_totalamount control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Bonzen_DLMS.CreateQuotation.btn_edit">
+	<summary>
+btn_edit control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
 </member><member name="F:Bonzen_DLMS.CreateQuotation.ASPxLabel15">
 	<summary>
 ASPxLabel15 control.
@@ -1355,9 +1379,17 @@ ASPxLabel15 control.
 Auto-generated field.
 To modify move field declaration from designer file to code-behind file.
 </remarks>
-</member><member name="F:Bonzen_DLMS.CreateQuotation.txt_remark">
+</member><member name="F:Bonzen_DLMS.CreateQuotation.memo_remark">
 	<summary>
-txt_remark control.
+memo_remark control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Bonzen_DLMS.CreateQuotation.btn_editRemark">
+	<summary>
+btn_editRemark control.
 </summary>
 	<remarks>
 Auto-generated field.

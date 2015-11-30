@@ -116,7 +116,6 @@ D:\dlms\Bonzen DLMS\bin\Bonzen DLMS.pdb
 D:\dlms\Bonzen DLMS\bin\Bonzen DLMS.xml
 D:\dlms\Bonzen DLMS\obj\Debug\Bonzen_DLMS.Resources.resources
 D:\dlms\Bonzen DLMS\obj\Debug\Bonzen DLMS.vbproj.GenerateResource.Cache
-D:\dlms\Bonzen DLMS\obj\Debug\Bonzen DLMS.dll.licenses
 D:\dlms\Bonzen DLMS\obj\Debug\RdlCompile.cache
 D:\dlms\Bonzen DLMS\obj\Debug\RdlCompile.compiled
 D:\dlms\Bonzen DLMS\obj\Debug\Bonzen DLMS.dll

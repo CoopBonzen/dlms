@@ -11,6 +11,8 @@
             lbl_loginname.Text = ""
             imb_logout.Visible = False
         End If
+        'เช็คสิทธิ์
+        ASPxMenu1.Items(3).Visible = IsUserRole(Session("Username"), PrivManageUserAndUserGroup)
     End Sub
     'comment
     Private Sub imb_logout_Click(ByVal sender As Object, ByVal e As System.Web.UI.ImageClickEventArgs) Handles imb_logout.Click
