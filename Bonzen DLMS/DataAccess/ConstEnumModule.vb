@@ -77,7 +77,7 @@
 
             .Add(New PrivilegeInfo With {.Name = PrivAddNewDocument, .Text = "Add New Document"})
 
-            .Add(New PrivilegeInfo With {.Name = PrivEditQuotation, .Text = "Edit Quotation"})
+            .Add(New PrivilegeInfo With {.Name = PrivEditQuotation, .Text = "Add/Update Quotation"})
             .Add(New PrivilegeInfo With {.Name = PrivApproveQuotation, .Text = "Approve Quotation"})
             .Add(New PrivilegeInfo With {.Name = PrivDeleteFileQuotation, .Text = "Delete File Quotation"})
 

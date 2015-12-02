@@ -97,6 +97,13 @@
         End Using
     End Function
 
+
+    Public Function getQuotation(ByVal QID As String) As Quotation
+        Using ctx As New DlmsDataContext
+            Return (From r In ctx.Quotations Where r.quotation_no = QID).SingleOrDefault
+        End Using
+    End Function
+
     'Public Sub UpdateGeneral(ByVal UpdateG As General)
     '    Using ctx As New DlmsDataContext
     '        If ctx.Connection.State = ConnectionState.Closed Then ctx.Connection.Open()

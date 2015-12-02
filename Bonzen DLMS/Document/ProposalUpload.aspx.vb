@@ -86,7 +86,7 @@ Public Class ProposalUpload
                         ctx.ProposalFiles.InsertOnSubmit(propFile)
                         ctx.SubmitChanges()
                     End Using
-                    Response.Redirect("../Document/ProposalUpload.aspx?pId=" & ProposalCode)
+                    'Response.Redirect("../Document/ProposalUpload.aspx?pId=" & ProposalCode)
                 End If
             Next i
         End If

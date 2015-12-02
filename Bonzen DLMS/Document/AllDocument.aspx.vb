@@ -92,7 +92,13 @@ Public Class AllDocument
         If e.ButtonType = ColumnCommandButtonType.Edit Then
             Dim username = Session("Username")
             If IsUserRole(username, PrivViewQPQ) Then
-                e.Enabled = True
+                Dim QID = gv_quotationProposalAll.GetRowValues(e.VisibleIndex, "Q_ID")
+                Dim qta As QuotationStatusEnum = CType(DataAccess.getQuotation(QID).quota_status, QuotationStatusEnum)
+                If qta = QuotationStatusEnum.Approve Then
+                    e.Enabled = False
+                Else
+                    e.Enabled = True
+                End If
             Else
                 e.Enabled = False
             End If

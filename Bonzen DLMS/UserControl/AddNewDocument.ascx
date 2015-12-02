@@ -45,15 +45,15 @@
         height: 18px;
     }
 </style>
-<dx:ASPxButton ID="btn_AddDocument" runat="server" Text="Add New Document" AutoPostBack="false"
-    ClientInstanceName="CIN_btn_AddDocument">
+<dx:aspxbutton id="btn_AddDocument" runat="server" text="Add New Document" autopostback="false"
+    clientinstancename="CIN_btn_AddDocument">
     <%--<ClientSideEvents Click ="function (s,e){CIN_pop_AddDocument.Show();}" />‏--%>
     <ClientSideEvents Click="function (s,e){ CIN_pop_AddDocument.Show();}" />
-</dx:ASPxButton>
-<dx:ASPxPopupControl ID="pop_AddDocument" runat="server" ClientInstanceName="CIN_pop_AddDocument"
-    HeaderText="Add New Document" PopupVerticalAlign="WindowCenter" AllowResize="True"
-    CloseAction="CloseButton" Modal="True" AllowDragging="True" PopupHorizontalAlign="WindowCenter"
-    ShowFooter="false" Width="500px">
+</dx:aspxbutton>
+<dx:aspxpopupcontrol id="pop_AddDocument" runat="server" clientinstancename="CIN_pop_AddDocument"
+    headertext="Add New Document" popupverticalalign="WindowCenter" allowresize="True"
+    closeaction="CloseButton" modal="True" allowdragging="True" popuphorizontalalign="WindowCenter"
+    showfooter="false" width="500px">
     <HeaderStyle HorizontalAlign="Center" BackColor="#5066AC" ForeColor="White" Font-Bold="True" />
     <ContentCollection>
         <dx:PopupControlContentControl>
@@ -95,6 +95,7 @@
                                                                           var SelectedIndex = CIN_cmb_DocumentType.GetSelectedIndex();
                                                                           CIN_pop_AddDocument.Hide();
                                                                           cb_PopupInit.PerformCallback(SelectedIndex);
+                                                                          
                                                                       }" />
                         </dx:ASPxComboBox>
                         <br />
@@ -103,13 +104,15 @@
             </table>
         </dx:PopupControlContentControl>
     </ContentCollection>
-</dx:ASPxPopupControl>
-<dx:ASPxCallback ID="cb_PopupInit" ClientInstanceName="cb_PopupInit" runat="server">
+</dx:aspxpopupcontrol>
+<dx:aspxcallback id="cb_PopupInit" clientinstancename="cb_PopupInit" runat="server">
     <ClientSideEvents EndCallback="function(s, e) {
                                        if (s.cpRunNo.indexOf('Q') == 0) {
                                            CIN_pop_quotation.Show();
                                            lbl_QNo.SetText(s.cpRunNo);
                                            lbl_QName.SetText(s.cpQName);
+                                           txtb_QTitle.SetText();
+                                           Q_Date.SetText();
                                        }
                                        else if (s.cpRunNo.indexOf('BZ-P') == 0) {
                                            CIN_pop_proposal.Show();
@@ -120,6 +123,9 @@
                                            CIN_pop_general.Show();
                                            lbl_GNo.SetText(s.cpRunNo);
                                            lbl_GName.SetText(s.cpGName);
+                                           txtb_GTitle.SetText();
+                                           G_Date.SetText();
+                                           
                                        }
                                        if (s.cpRefreshData) {
                                            CIN_pop_general.Hide();
@@ -129,11 +135,11 @@
                                            gv_general.PerformCallback('Bind data');
                                        }
                                    }" />
-</dx:ASPxCallback>
-<dx:ASPxPopupControl ID="pop_quotation" runat="server" ClientInstanceName="CIN_pop_quotation"
-    HeaderText="Quotation" PopupVerticalAlign="WindowCenter" AllowResize="True" CloseAction="CloseButton"
-    Modal="True" AllowDragging="True" PopupHorizontalAlign="WindowCenter" ShowFooter="false"
-    Width="500px">
+</dx:aspxcallback>
+<dx:aspxpopupcontrol id="pop_quotation" runat="server" clientinstancename="CIN_pop_quotation"
+    headertext="Quotation" popupverticalalign="WindowCenter" allowresize="True" closeaction="CloseButton"
+    modal="True" allowdragging="True" popuphorizontalalign="WindowCenter" showfooter="false"
+    width="500px">
     <HeaderStyle HorizontalAlign="Center" BackColor="#5066AC" ForeColor="White" Font-Bold="True" />
     <ContentCollection>
         <dx:PopupControlContentControl>
@@ -233,11 +239,11 @@
             </table>
         </dx:PopupControlContentControl>
     </ContentCollection>
-</dx:ASPxPopupControl>
-<dx:ASPxPopupControl ID="pop_proposal" runat="server" ClientInstanceName="CIN_pop_proposal"
-    HeaderText="Proposal" PopupVerticalAlign="WindowCenter" AllowResize="True" CloseAction="CloseButton"
-    Modal="True" AllowDragging="True" PopupHorizontalAlign="WindowCenter" ShowFooter="false"
-    Width="500px">
+</dx:aspxpopupcontrol>
+<dx:aspxpopupcontrol id="pop_proposal" runat="server" clientinstancename="CIN_pop_proposal"
+    headertext="Proposal" popupverticalalign="WindowCenter" allowresize="True" closeaction="CloseButton"
+    modal="True" allowdragging="True" popuphorizontalalign="WindowCenter" showfooter="false"
+    width="500px">
     <HeaderStyle HorizontalAlign="Center" BackColor="#5066AC" ForeColor="White" Font-Bold="True" />
     <ContentCollection>
         <dx:PopupControlContentControl>
@@ -321,11 +327,11 @@
             </table>
         </dx:PopupControlContentControl>
     </ContentCollection>
-</dx:ASPxPopupControl>
-<dx:ASPxPopupControl ID="pop_general" runat="server" ClientInstanceName="CIN_pop_general"
-    HeaderText="General" PopupVerticalAlign="WindowCenter" AllowResize="True" CloseAction="CloseButton"
-    Modal="True" AllowDragging="True" PopupHorizontalAlign="WindowCenter" ShowFooter="false"
-    Width="500px">
+</dx:aspxpopupcontrol>
+<dx:aspxpopupcontrol id="pop_general" runat="server" clientinstancename="CIN_pop_general"
+    headertext="General" popupverticalalign="WindowCenter" allowresize="True" closeaction="CloseButton"
+    modal="True" allowdragging="True" popuphorizontalalign="WindowCenter" showfooter="false"
+    width="500px">
     <HeaderStyle HorizontalAlign="Center" BackColor="#5066AC" ForeColor="White" Font-Bold="True" />
     <ContentCollection>
         <dx:PopupControlContentControl>
@@ -477,7 +483,7 @@
             </table>
         </dx:PopupControlContentControl>
     </ContentCollection>
-</dx:ASPxPopupControl>
+</dx:aspxpopupcontrol>
 <%--<dxe:ASPxPopupControl runat="server" ID="pop_ManualPost" ClientInstanceName="CIN_pop_ManualPost"
             HeaderText="Manual Post" PopupVerticalAlign="WindowCenter" AllowResize="True"
             CloseAction="CloseButton" Modal="True" AllowDragging="True" PopupHorizontalAlign="WindowCenter"

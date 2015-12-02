@@ -87,6 +87,8 @@
                                                 <dx:MenuItem NavigateUrl="~/Manage/ModuleQuotation.aspx" 
                                                     Text="Module Quotation">
                                                 </dx:MenuItem>
+                                                <dx:MenuItem Text="Ver. 2.0">
+                                                </dx:MenuItem>
                                             </Items>
                                         </dx:MenuItem>
                                         
