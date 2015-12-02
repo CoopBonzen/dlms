@@ -95,7 +95,7 @@
                                                                           var SelectedIndex = CIN_cmb_DocumentType.GetSelectedIndex();
                                                                           CIN_pop_AddDocument.Hide();
                                                                           cb_PopupInit.PerformCallback(SelectedIndex);
-                                                                          CIN_cmb_DocumentType.PerformCallback();
+                                                                          
                                                                       }" />
                         </dx:ASPxComboBox>
                         <br />
@@ -125,8 +125,7 @@
                                            lbl_GName.SetText(s.cpGName);
                                            txtb_GTitle.SetText();
                                            G_Date.SetText();
-                                           CIN_cmb_company.PerformCallback();
-                                           CIN_cmb_attn.PerformCallback();
+                                           
                                        }
                                        if (s.cpRefreshData) {
                                            CIN_pop_general.Hide();
