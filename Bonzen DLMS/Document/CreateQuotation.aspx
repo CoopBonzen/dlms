@@ -447,7 +447,9 @@
                 </dx:ASPxLabel>
             </td>
             <td class="style2">
-                <dx:ASPxTextBox ID="txt_totalamount" ClientInstanceName="txt_totalamount" BackColor="LightGray" runat="server" Width="360px" Height="20px">
+                <dx:ASPxTextBox ID="txt_totalamount" ClientInstanceName="txt_totalamount" BackColor="LightGray"
+                    runat="server" Width="360px" Height="20px">
+                    <MaskSettings Mask="$&lt;0..99999999999999999g&gt;" />
                 </dx:ASPxTextBox>
             </td>
             <td>
@@ -464,11 +466,12 @@
                 </dx:ASPxLabel>
             </td>
             <td class="style2">
-                <dx:ASPxMemo ID="memo_remark" ClientInstanceName="memo_remark" BackColor="LightGray"  runat="server" Height="102px" Width="359px">
+                <dx:ASPxMemo ID="memo_remark" ClientInstanceName="memo_remark" BackColor="LightGray"
+                    runat="server" Height="102px" Width="359px">
                 </dx:ASPxMemo>
             </td>
             <td>
-                <dx:ASPxButton ID="btn_editRemark" runat="server" Text="Edit"  AutoPostBack="false">
+                <dx:ASPxButton ID="btn_editRemark" runat="server" Text="Edit" AutoPostBack="false">
                     <ClientSideEvents Click="function(s, e) { memo_remark.SetEnabled(true); 
                                     memo_remark.GetMainElement().style.backgroundColor='white';
                                     memo_remark.GetInputElement().style.backgroundColor='white';}" />
@@ -481,7 +484,8 @@
         </dx:ASPxButton>
     </div>
     <div style="float: right; margin-left: 5px;">
-        <dx:ASPxButton ID="btn_SaveQuotation" runat="server" Text="Update" AutoPostBack="false" ClientInstanceName="CIN_btn_SaveQuotation">
+        <dx:ASPxButton ID="btn_SaveQuotation" runat="server" Text="Update" AutoPostBack="false"
+            ClientInstanceName="CIN_btn_SaveQuotation">
             <%--<ClientSideEvents Click="function(s, e) { CIN_pop_Update.Show(); }" />--%>
         </dx:ASPxButton>
     </div>

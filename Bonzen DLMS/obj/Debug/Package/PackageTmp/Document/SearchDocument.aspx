@@ -83,13 +83,7 @@
                                             <dx:ASPxGridView ID="gv_QFile" runat="server" Width="100%" KeyFieldName="Q_FileID">
                                                 <Settings ShowColumnHeaders="false" />
                                                 <Columns>
-                                                    <dx:GridViewDataColumn Caption="  #" FieldName="Q_FileID" Width="40px">
-                                                        <CellStyle HorizontalAlign="Center" />
-                                                        <DataItemTemplate>
-                                                            <dx:ASPxCheckBox ID="chk_selected" runat="server" ClientInstanceName="CIN_chk_selected"
-                                                                CheckState="Unchecked" />
-                                                        </DataItemTemplate>
-                                                    </dx:GridViewDataColumn>
+                                                    
                                                     <dx:GridViewDataColumn Caption="File Name">
                                                         <DataItemTemplate>
                                                             <asp:HyperLink ID="Link" runat="server" NavigateUrl='<%#Eval("link") %>' ForeColor="#6798de"

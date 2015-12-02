@@ -115,8 +115,8 @@ Public Class CreateQuotation
         If Not IsPostBack Then
             AddDataInForm(RequestQId)
             'Upload
-            gv_QFile.DataBind()
-            GetFiles()
+            'gv_QFile.DataBind()
+            'GetFiles()
             SetApprove(RequestQId)
 
         End If
@@ -390,9 +390,10 @@ Public Class CreateQuotation
             btn_editRemark.Enabled = False
             btnDeleteSelectedRows.Enabled = False
             txt_totalamount.ClientEnabled = True
-            txt_totalamount.BackColor = Drawing.Color.White
             memo_remark.ClientEnabled = True
+            ulc_QuotationFile.Enabled = False
             memo_remark.BackColor = Drawing.Color.White
+            txt_totalamount.BackColor = Drawing.Color.White
         End If
     End Sub
 
@@ -735,13 +736,36 @@ Public Class CreateQuotation
         'Response.Redirect("../Report/Report.aspx?quotaId=" & QuotationID)
         'status
         Using ctx As New DlmsDataContext
+            Dim quotationNo As String = txt_quotation.Text.Trim
+            Dim companyName As String = cmb_company.Text.Trim
+            Dim attnName As String = cmb_attn.Text.Trim
             Dim TbQuotation = (From q In ctx.Quotations Where q.Quota_ID = QuotationID).SingleOrDefault
             With TbQuotation
+                '.Quota_ID = nextId
+                .company_name = companyName
+                .attn = attnName
+                .tel = txt_tel.Text.Trim
+                .fax = txt_fax.Text.Trim
+                .email = txt_email.Text.Trim
+                .quotation_no = quotationNo
+                .quotation_date = dte_quotationDate.Text.Trim
+                .quotation_from = txt_from.Text.Trim
+                .bonzen_tel = txt_bonzentel.Text.Trim
+                .bonzen_email = txt_bonzenemail.Text.Trim
+                .remark = memo_remark.Text.Trim
+                If txt_totalamount.Text.Trim = String.Empty Then
+                    .total_amount = 0.0
+                Else
+                    .total_amount = txt_totalamount.Text
+                End If
                 .quota_status = QuotationStatusEnum.Approve
 
             End With
             ctx.SubmitChanges()
+            UpdateCompanyAndAttnInQuotationProposal(quotationNo, companyName, attnName)
+            SetApprove(quotationNo)
         End Using
+
     End Sub
 
     Private Sub btn_SaveQuotation_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles btn_SaveQuotation.Click
@@ -876,8 +900,21 @@ Public Class CreateQuotation
                 btn_editRemark.Enabled = False
                 txt_totalamount.ClientEnabled = False
                 memo_remark.ClientEnabled = False
-                btn_edit.Enabled = False
-                btn_editRemark.Enabled = False
+
+                cmb_company.BackColor = Drawing.Color.LightGray
+                txt_quotation.BackColor = Drawing.Color.LightGray
+                cmb_attn.BackColor = Drawing.Color.LightGray
+                dte_quotationDate.BackColor = Drawing.Color.LightGray
+                txt_tel.BackColor = Drawing.Color.LightGray
+                txt_from.BackColor = Drawing.Color.LightGray
+                txt_fax.BackColor = Drawing.Color.LightGray
+                txt_bonzentel.BackColor = Drawing.Color.LightGray
+                txt_email.BackColor = Drawing.Color.LightGray
+                txt_bonzenemail.BackColor = Drawing.Color.LightGray
+                btn_edit.BackColor = Drawing.Color.LightGray
+                btn_editRemark.BackColor = Drawing.Color.LightGray
+                txt_totalamount.BackColor = Drawing.Color.LightGray
+                memo_remark.BackColor = Drawing.Color.LightGray
             End If
         End If
     End Sub
