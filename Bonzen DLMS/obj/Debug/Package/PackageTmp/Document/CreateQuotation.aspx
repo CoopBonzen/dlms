@@ -27,6 +27,10 @@
         {
             width: 361px;
         }
+        .style3
+        {
+            width: 351px;
+        }
     </style>
 </asp:Content>
 <asp:content id="Content2" contentplaceholderid="MainContent" runat="server">
@@ -446,7 +450,7 @@
                 <dx:ASPxLabel ID="ASPxLabel11" runat="server" Text="ราคารวม">
                 </dx:ASPxLabel>
             </td>
-            <td class="style2">
+            <td class="style3">
                 <dx:ASPxTextBox ID="txt_totalamount" ClientInstanceName="txt_totalamount" BackColor="LightGray"
                     runat="server" Width="360px" Height="20px">
                     <MaskSettings Mask="$&lt;0..99999999999999999g&gt;" />
@@ -465,7 +469,7 @@
                 <dx:ASPxLabel ID="ASPxLabel15" runat="server" Text="Remark">
                 </dx:ASPxLabel>
             </td>
-            <td class="style2">
+            <td class="style3">
                 <dx:ASPxMemo ID="memo_remark" ClientInstanceName="memo_remark" BackColor="LightGray"
                     runat="server" Height="102px" Width="359px">
                 </dx:ASPxMemo>

@@ -652,8 +652,12 @@ Public Class CreateQuotation
                 btn_AddQuotation.Visible = False
                 btn_SaveQuotation.Visible = True
                 btn_ApproveQuotation.Visible = True
-                btn_edit.Enabled = False
-                btn_editRemark.Enabled = False
+                btn_edit.Enabled = True
+                btn_editRemark.Enabled = True
+                txt_totalamount.ClientEnabled = False
+                memo_remark.ClientEnabled = False
+                memo_remark.BackColor = Drawing.Color.LightGray
+                txt_totalamount.BackColor = Drawing.Color.LightGray
 
                 QuotationID = nextId
             Catch ex As Exception
