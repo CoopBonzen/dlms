@@ -140,6 +140,7 @@
     headertext="Quotation" popupverticalalign="WindowCenter" allowresize="True" closeaction="CloseButton"
     modal="True" allowdragging="True" popuphorizontalalign="WindowCenter" showfooter="false"
     width="500px">
+    <ClientSideEvents CloseUp="function(s, e) { CIN_cmb_DocumentType.SetValue(null); }" />
     <HeaderStyle HorizontalAlign="Center" BackColor="#5066AC" ForeColor="White" Font-Bold="True" />
     <ContentCollection>
         <dx:PopupControlContentControl>
@@ -209,6 +210,7 @@
                                 <dx:ASPxButton ID="btnQ_Cencel" runat="server" Text="Cancel" AutoPostBack="false">
                                     <ClientSideEvents Click="function(s, e) { CIN_pop_quotation.Hide(); }" />
                                 </dx:ASPxButton>
+                                <%--CIN_cmb_DocumentType.SetValue(null);--%>
                             </div>
                             <script type="text/javascript">
                                 function Validation(e) {
@@ -244,6 +246,7 @@
     headertext="Proposal" popupverticalalign="WindowCenter" allowresize="True" closeaction="CloseButton"
     modal="True" allowdragging="True" popuphorizontalalign="WindowCenter" showfooter="false"
     width="500px">
+    <ClientSideEvents CloseUp="function(s, e) { CIN_cmb_DocumentType.SetValue(null); }" />
     <HeaderStyle HorizontalAlign="Center" BackColor="#5066AC" ForeColor="White" Font-Bold="True" />
     <ContentCollection>
         <dx:PopupControlContentControl>
@@ -332,6 +335,7 @@
     headertext="General" popupverticalalign="WindowCenter" allowresize="True" closeaction="CloseButton"
     modal="True" allowdragging="True" popuphorizontalalign="WindowCenter" showfooter="false"
     width="500px">
+    <ClientSideEvents CloseUp="function(s, e) { CIN_cmb_DocumentType.SetValue(null); }" />
     <HeaderStyle HorizontalAlign="Center" BackColor="#5066AC" ForeColor="White" Font-Bold="True" />
     <ContentCollection>
         <dx:PopupControlContentControl>
